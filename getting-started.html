@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>SmartPrints getting-started-with-our-system</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="description" content="SmartPrints Functionnal Documentation For Cloud POS Solution">
+    <meta name="author" content="SmartPrints Team">   
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome JS-->
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+
+
+
+   <style>
+      .zoom-effect {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .zoom-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+   </style>
+
+   <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+
+</head> 
+
+<body>    
+    <header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid py-2">
+      <div class="row align-items-center">
+        <!-- Logo Left -->
+        <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+          <a class="navbar-brand" href="index.html">
+	          <div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height: 60px;"></a></div>  
+          </a> </div>
+
+        <!-- Search Center -->
+         
+<div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+  <form class="search-form position-relative d-flex justify-content-center">
+    <div class="position-relative w-75 autocomplete-container">
+      <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input pe-5">
+      <div class="autocomplete-suggestions"></div>
+      <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+        <i class="fa-light fa-magnifying-glass text-muted"></i>
+      </button>
+    </div>
+  </form>
+</div>
+
+
+        <!-- Button Right -->
+        <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center">
+          
+          <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderdocs-free-bootstrap-5-documentation-template-for-software-projects/" class="btn btn-primary d-none d-lg-flex">Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header> 
+    
+    <div class="docs-wrapper">
+        <!-- Social Media Sidebar -->
+        <div class="social-sidebar d-none d-lg-flex">
+          <ul class="social-sidebar">
+         <li onclick="activateIcon(this)"><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="#" id="lang-toggle" onclick="window.location.href='arabic.html';"><i class="fa-solid fa-globe fa-fw"></i></a></li>
+        </ul>
+        </div>
+
+  <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+  <div class="top-search-box">
+    <form class="search-form">
+      <div class="position-relative w-100 autocomplete-container">
+       <input type="text" class="form-control search-input rounded-top" placeholder="Search the docs...">
+       
+       <div class="autocomplete-suggestions"></div>
+     </div>
+    </form>
+  </div>
+</div>
+
+	    <div id="docs-sidebar" class="docs-sidebar">
+  <nav id="docs-nav" class="docs-nav navbar">
+    <ul class="section-items list-unstyled nav flex-column pb-3">
+      
+      <li class="nav-item section-title">
+        <a class="nav-link scrollto active" href="#section-1">
+          <span class="theme-icon-holder me-2"><i class="fas fa-play-circle"></i></span>Getting Started
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">All-In-One Restaurant Solutions</a></li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-2">
+          <span class="theme-icon-holder me-2"><i class="fas fa-user-plus"></i></span>System Access
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">Register your Company</a></li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-3">
+          <span class="theme-icon-holder me-2"><i class="fas fa-users"></i></span>Employee Management
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Add your Employees</a></li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-4">
+          <span class="theme-icon-holder me-2"><i class="fas fa-credit-card"></i></span>Payments
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Add your Payment Methods</a></li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-5">
+          <span class="theme-icon-holder me-2"><i class="fas fa-utensils"></i></span>Create Menu
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">Products & Categories</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2">Family Options & Options</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-5-3">Groups & Offers</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-5-4">Sort Menu</a></li>
+
+      <li class="nav-item section-title">
+        <a class="nav-link scrollto active" href="#section-6">
+          <span class="theme-icon-holder me-2"><i class="fas fa-download"></i></span>Installation
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-6-1">Step-by-Step POS Installation </a></li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-7">
+          <span class="theme-icon-holder me-2"><i class="fas fa-chart-line"></i></span>Getting Advanced
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-7-1">Reporting Features</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-7-2">Create Store / Device</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-7-3">Technical Support</a></li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-8">
+          <span class="theme-icon-holder me-2"><i class="fas fa-question-circle"></i></span>FAQs
+        </a>
+      </li>
+    </ul>
+  </nav><!--//docs-nav-->
+</div><!--//docs-sidebar-->
+
+      
+	    <div class="docs-content">
+  <div class="container">
+
+    <!-- Section 1: Getting Started -->
+    <article class="docs-article" id="section-1">
+      <header class="docs-header">
+        <h1 class="docs-heading">Getting Started <span class="docs-time">Last updated: 3 days ago</span></h1>
+        <section class="docs-intro">
+          <p>This documentation is your centralized knowledge base for understanding and operating every part of the Smart Prints restaurant system.</p>
+          <p>Whether you're a cashier, manager, waiter, kitchen staff, or system admin, you’ll find step-by-step guidance to help you master our tools and streamline your restaurant's operations. The guide includes detailed walkthroughs, role-based tips, and common-use cases for each service.</p>
+        </section>
+      </header>
+
+      <section class="docs-section" id="item-1-1">
+        <h2 class="section-heading">All-In-One Restaurant Solutions</h2>
+        <p>Our system is built around a powerful, modular architecture where every application is synchronized in real time. Here’s a quick overview of what our ecosystem enables:</p>
+        <ul>
+          <li><strong>Cloud POS:</strong> The core terminal for processing orders and payments at the counter or table.</li>
+          <li><strong>Cloud Administration:</strong> Manage items, prices, users, branches, permissions, and settings.</li>
+          <li><strong>Smart Kiosk:</strong> Self-service terminal with menu sync and Arabic/English support.</li>
+          <li><strong>Smart Kitchen App:</strong> Digital kitchen screens to coordinate orders faster.</li>
+          <li><strong>Smart Menu:</strong> QR-based dynamic digital menus always linked to your backend.</li>
+          <li><strong>Smart Waiter:</strong> Tablet/mobile order-taking for floor service staff.</li>
+          <li><strong>Smart WhatsApp:</strong> Automated order placement via WhatsApp, integrated into your system.</li>
+        </ul>
+      </section>
+    </article>
+
+    <!-- Section 2: System Access -->
+<article class="docs-article" id="section-2">
+  <header class="docs-header">
+    <h1 class="docs-heading">System Access</h1>
+  </header>
+  <section class="docs-section" id="item-2-1">
+    <h2 class="section-heading">Register your Company</h2>
+
+    <p>Our Smart POS is a comprehensive point-of-sale solution designed to streamline your business operations. It integrates seamlessly with your existing systems to manage sales, inventory, and customer data efficiently. To get started with Smart POS, simply register your company by filling out this following easy-to-use registration form. This will give you access to a powerful platform that helps you enhance customer experiences, track performance, and optimize your business processes. For a successful registration, follow the instructions mentioned below:</p>
+  <div class="text-center my-4">
+  <img src="assets/images/sign-up.png"
+       alt="Step 1"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+  <div class="small text-muted mt-2">Click to enlarge</div>
+  </div>
+ 
+    <p>Open the provided link of the POS login form 
+      Enter your company's Name in both English and Arabic
+      Add your phone number then your address
+      Chose a theme (dark or light mode)
+      Include you VAT number
+      Insert your exact location by clicking on “the location icon”</p>
+    <div class="text-center mb-4">
+      <img src="assets/images/location.png"
+       alt="Step 2"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+    </div>
+    <p>Add an image of your company’s logo in the “image” section. Once you filled in all the information correctly, check in “Fill in Branch”, to verify if you branch’s detailed loaded correctly, like shown below, feel free to modify if necessary.</p>
+
+    <p>Walk through the confirmation or email verification process.</p>
+    <div class="text-center mb-4">
+      <img src="assets/images/captcha.png"
+       alt="Step 3"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+    </div>
+
+    <p>Make sure to check the Captcha box “I’m not a robot” other wise you won’t be able to access the dashboard. Once in, the following Smart Kiosk Administration dashboard screen appears:</p>
+    <div class="text-center">
+<img src="assets/images/client-manager.png"
+       alt="Step 4"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">    </div>
+    <br>
+    <p>On the extreme left, you will notice all the available features of our backend system. Note that while using the free smart POS version, you will only have access to the free features. Features highlighted in green as “Pro” are only available in our POS pro version (click here to check our Pro version subscription). As for the ones highlighted in red as in “Adv”, refers to the Advanced features, which are only accessible to our advanced users (click here to check our Advanced version plan).</p>
+<br>
+  </section>
+</article>
+
+
+   <!-- Employee Management -->
+<article class="docs-article" id="section-3">
+  <header class="docs-header">
+    <h1 class="docs-heading">Employee Management</h1>
+  </header>
+  <section class="docs-section" id="item-3-1">
+    <h2 class="section-heading">Add your Employees</h2>
+
+    <p>Within the POS system, there are two key subsections (Employee and Shift) that play pivotal roles in managing operations. These subsections enhance the functionality of the POS system, providing detailed insights into employee management and transactional shifts.</p>
+    <div class="text-center my-4">
+      <img src="assets/images/add-employee.png" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modal-emp-1" alt="Employee Image 1">
+      
+    </div>
+
+    <p>The Employee Management section lets you easily track employee information, including roles, schedules, and performance metrics, ensuring efficient workforce management.</p>
+<ul class="ms-3">
+<li>First Name: The employee's first name.</li>
+<li>Last Name: The employee's family or last name.</li>
+<li> Gender: wither the employee is a male or a female.</li>
+<li>Birth date: Insert the employee’s birth date.</li> 
+<li>Phone: The contact number of the employee.</li>
+<li>Email: Employee’s professional email/ the employee’s company email</li>
+<li>Employee since: When did the employee start working</li>
+<li>Pin code: A 4 digit pin code</li>
+<li>Status: Indicates the current status of the employee, whether active (enabled) or inactive (disabled).</li>
+<li>Address: The employee’s address, generally related to work</li>
+<li>Type: either a store manager or a cashier</li>
+<li>Remark: If you have any specific remarks or notes about your employee</li>
+<li>Avatar: Visual representation, typically an image or icon associated with the employee.</li>
+<li>Branches: Specifies the branch or branches to which the employee is assigned.</li>
+<li>Refer to the image above.</li>
+<li>After you employee was added successfully, it will appear as follows:</li>
+</ul>
+    <div class="text-center my-4">
+      <img src="assets/images/added-employee.png" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modal-emp-2" alt="Employee Image 2">
+ 
+    </div>
+
+    <h2>Shift Management</h2>
+    <p>The Shift Management section streamlines the process of scheduling and monitoring employee shifts, helping to optimize labor costs and improve operational efficiency. Together, these sections enhance overall staff coordination, allowing businesses to focus on providing exceptional service while maximizing productivity. You can only open a new shift or close an existing one from our PoS App and not the backend administration.</p>
+       <ul class="ms-3">
+<li>The Shift subsection is represented by the following parameters:</li>
+<li>ID: A unique identifier for each shift, allowing accurate tracking.</li>
+<li>Branch Employee: Specifies the employee associated with the shift.</li>
+<li>Business Date: The date on which the shift operates.</li> 
+<li>Opened At: The time at which the shift begins.</li>
+<li>Opening Amount: The initial amount or balance at the start of the shift.</li>
+<li>Closing Amount: The amount or the balance at the end of the shift.</li>
+<li>Expected Amount: The anticipated amount or balance for the shift.</li>
+<li>Closed At: The time at which the shift ends.</li>
+  </ul>
+  </section>
+</article>
+
+<!-- Payments -->
+<article class="docs-article" id="section-4">
+  <header class="docs-header">
+    <h1 class="docs-heading">Payments</h1>
+  </header>
+  <section class="docs-section" id="item-4-1">
+    <h2 class="section-heading">Add your Payment Methods</h2>
+
+    <p>To streamline your payment processes, you can create and customize payment methods, such as cash, credit cards, or digital wallets. Add all payment types your business accepts under the ‘Payment Methods’ tab, ensuring smooth transactions for customers.</p>
+    <p>To add a payment method, click on the blue section above ‘add payment method’, then fill in the name of the payment method, and select its type, either a debit card or cash, as follow:</p>
+    <div class="text-center my-4">
+      <img src="assets/images/payment.png" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modal-pay-1" alt="Payment Image 1">
+      
+    </div>
+
+    <p>The added payment method will appear as follows:</p>
+    <div class="text-center my-4">
+      <img src="assets/images/add-payment.png" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modal-pay-2" alt="Payment Image 2">
+  
+    </div>
+
+    
+  </section>
+</article>
+
+    <!-- Section 5: Create Menu -->
+<article class="docs-article" id="section-5">
+  <header class="docs-header">
+    <h1 class="docs-heading">Create Menu</h1>
+  </header>
+
+  <section class="docs-section" id="item-5-1">
+    <h2 class="section-heading">Products & Categories</h2>
+    
+    <p>
+      This section is essential since it is responsible for monitoring and keeping track of all products and items sold through the kiosk. It is divided into four sections: Products, Categories, Options, and Family Option. To organize your offerings by creating a structured menu. Here’s how to get started:</p>
+<ul class="ms-3">
+  <li>Creating Product Categories: Organize your products into categories like 'Drinks', 'Main Course', 'Desserts'. This will make it easier for both employees and customers to navigate your menu.</li>
+  <li>Creating Family Options and Options: Add family options like drink sizes or spice levels. Then, create customizable options for each product, such as toppings or extra ingredients.</li>
+  <li>Creating Products and Configuring Options: After setting up categories and options, enter individual products into the system, such as 'Cappuccino', 'Cheeseburger', or 'Fries', and link relevant options like sizes or add-ons.</li>
+  <li>Create Groups and Offers: Create groups of products, such as combo meals or bundles, and set up special offers and discounts to enhance customer value.</li>
+  <li>Sort Your Menu: (this feature is not available for free plans) it enables your once all items are added, you can rearrange and prioritize products or categories based on your business’s needs, making it intuitive for quick selection during busy hours.</p></li>
+</ul>
+
+      <div class="text-center my-4">
+      <img src="assets/images/create-menu.png" alt="create-menu" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+     
+    </div>
+
+    <h3>Categories</h3>
+    <p>To add a category, first click on 'menu' and then 'categories'. After click on 'Add category,' and this window will pop up, empty. Make sure to fill up the parameters explained below:</p>
+    <div class="text-center my-4">
+      <img src="assets/images/add-category.png" alt="category" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+      
+    </div>
+    
+    <ul class="ms-3">
+  <li>Name: Enter the category name you want for your product (soup, sandwich, drink...).</li>
+  <li>Description: You can add a description here, but it's optional.</li>
+  <li>Tags: This is how the software will identify your category when your client types it on the kiosk screen. Keep it simple and general (it can be the same as the name). Once chosen, click 'enter' to save it.</li>
+  <li>Once everything is set, add an image to your product, then click 'SUBMIT.'</li>
+  <li>The created category should look like this:</li>
+</ul>
+    <div class="text-center my-4">
+      <img src="assets/images/added-category.png" alt="added-category" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+   
+    </div>
+   
+    <h3>Products</h3>
+    <p>After finalizing the creation of a category (for example: Hot Drinks), we can now add the products that belong to this respective category.</p>
+    <p>Products are the various items and goods available for selection or purchase. Each product has distinct characteristics that you can customize using the option feature, For instance, if you're ordering a burger, the burger is the "Product,” and within this product, you can then select various options like the type of bread, the size, or any additional toppings.</p>
+    <p>To add a new product, click on “Add product,” and this window will pop up. Follow the fill-in process illustrated in the image below:</p>
+    <div class="text-center my-4">
+      <img src="assets/images/add-product.png" alt="product" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+     
+    </div>
+    
+<ul>
+  <li><strong>Name:</strong> Enter your desired product’s name.</li>
+  <li><strong>Name (Arabic):</strong> Write the product's name in Arabic, if applicable.</li>
+  <li><strong>Category:</strong> Select the appropriate category under which the product falls.</li>
+  <li><strong>Price:</strong> Specify the price you want for your product.</li>
+  <li><strong>Max Quantity:</strong> Define the maximum quantity of the product allowed per order, if applicable.</li>
+  <li><strong>Status:</strong> Indicate the current status of the product, whether enabled (available) or disabled (not available).</li>
+  <li><strong>Barcode:</strong> Assign a unique barcode to the product.</li>
+  <li><strong>Ref:</strong> Include a reference number for internal tracking.</li>
+  <li><strong>Action:</strong> Choose the action associated with the product (for example, search POS+ and enter SKU).</li>
+  <li><strong>Tags:</strong> Add relevant tags for easy categorization and search. Make sure to press “Enter” on your keyboard for the tag to be correctly added.</li>
+  <li><strong>Upselling:</strong> Specify if the product is part of an upselling strategy.</li>
+  <li><strong>Display:</strong> Set the preferred display options for the product (enabled or disabled).</li>
+  <li><strong>Available for a Limited Time:</strong> If applicable, indicate whether the product is available for a limited time.</li>
+  <li><strong>Description:</strong> Provide a comprehensive description of the product if needed.</li>
+  <li><strong>Image:</strong> Upload an image of the product for a clear visual representation.</li>
+  <li><strong>Description (Arabic):</strong> Include the product description in Arabic, if applicable.</li>
+  <li>The final added product will look as follows:</li>
+</ul>
+
+    <div class="text-center my-4">
+      <img src="assets/images/added-product.png" alt="added-product" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+      
+    </div>
+  </section>
+
+      <section class="docs-section" id="item-5-2">
+        <h2 class="section-heading">Family Options & Options</h2>
+        <p>Similarly to the logic used in  “Categories” and “Products”, this section refers to the overall set to which a specific option belongs. For example, "size" is the family option that includes different sizes like small, medium, large, and extra-large; it represents the broader set of choices within a particular product option.</p>
+        <p>We can break it down as follows:
+      
+          <ul class="ms-3">
+           <li><strong>Family Option:</strong> size (encompassing small S, medium M, large L, and extra large XL)</li>
+           <li><strong>Option:</strong> (e.g., XL)</li></p>
+          </ul>
+          <p>To view the family option's section, click on ‘Family Option’, then click on ‘Add family option', the following window appears:</p>
+      
+         <div class="text-center my-4">
+      <img src="assets/images/add-family.png" alt="familly-option" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+     
+    </div>
+    
+<ul>
+  <li><strong>Name:</strong>Inter your desired family option’s name.</li>
+  <li><strong>Name (Arabic):</strong> Write the family option's name in Arabic, if applicable.</li>
+  <li><strong>Type:</strong> Either it is a one selection or a multi-selection family option.</li>
+  <li><strong>Status:</strong>Indicate the current status of the family option, whether enabled (available) or disabled (not available).</li>
+  <li><strong>Description:</strong> Provide a comprehensive description of the family option if needed.</li>
+  <li><strong>Image:</strong> Upload an image of the family option for a clear visual representation.</li>
+  <li><strong>Description (Arabic):</strong>  Include the family option’s description in Arabic, if applicable.</li>
+  <li>The final added family option will look as follows:</li>
+</ul>
+
+    <div class="text-center my-4">
+      <img src="assets/images/added-family.png" alt="added-familly-option" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+      
+    </div>
+
+     <p>Represents the different set of choices a product could have, for example, the product coffee can come in different sizes as , small “S“, medium “M“, large “L“, and even extra-large “XL“. All these are considered as the coffee’s options.</p>
+     <p>Click on “Add Option“, and fill in the window as follows:</p>      
+         <div class="text-center my-4">
+      <img src="assets/images/add-option.png" alt="familly-option" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+     
+    </div>
+    
+<ul>
+  <li><strong>Name:</strong>Inter your desired option’s name.</li>
+  <li><strong>Name (Arabic):</strong> Write the option's name in Arabic, if applicable.</li>
+  <li><strong>Family:</strong> Choose the family option under which your option falls.</li>
+  <li><strong>Price:</strong>Specify the price you want for your option.</li>
+  <li><strong>Description:</strong> Provide a comprehensive description of the option if needed.</li>
+  <li><strong>Status:</strong>Indicate the current status of the option, whether enabled (available) or disabled (not available).</li>
+  <li><strong>Image:</strong> Upload an image of the option for a clear visual representation.</li>
+  <li><strong>Description (Arabic):</strong>  Include the option’s description in Arabic, if applicable.</li>
+  <li>The final added option will look as follows:</li>
+</ul>
+
+    <div class="text-center my-4">
+      <img src="assets/images/added-option.png" alt="added-familly-option" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+      
+    </div>
+    </section>
+
+      <section class="docs-section" id="item-5-3">
+        <h2 class="section-heading">Groups & Offers</h2>
+        <p>To add a group, navigate to "Marketing" in the menu on the left, then scroll to "Groups", after that click on "Add group" and follow the instructions below:</p>
+         <div class="text-center my-4">
+          <img src="assets/images/add-group.png" alt="Install 1" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+         </div>
+         <p>To add an offer, and on the same "Marketing" section in the menu on the left, scroll to "Offers", after that click on "Add offer" and follow the instructions below:</p>
+         <div class="text-center my-4">
+          <img src="assets/images/offer.png" alt="Install 1" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+         </div>
+         <p>You can add to an offer: products and groups or boths at the same time, a shown below:</p>
+         <div class="text-center my-4">
+          <img src="assets/images/add-offer-product.png" alt="Install 1" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+         </div>
+         <div class="text-center my-4">
+          <img src="assets/images/add-offer.png" alt="Install 1" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+         </div>
+      </section>
+      <section class="docs-section" id="item-5-4">
+        <h2 class="section-heading">Sort Menu</h2>
+        <p>Scroll down to "Customization" in the menu bar on the left, then head to "Sort Menu", click on it and you willhave the folllowing screen desplayed, you can now customize your menu and organize how it is sorted based o your needs and preferences.</p>
+          <div class="text-center my-4">
+          <img src="assets/images/sort-menu.png" alt="Install 1" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+         </div>
+      </section>
+    </article>
+
+    <!-- Section 6: Installation -->
+<article class="docs-article" id="section-6">
+  <header class="docs-header">
+    <h1 class="docs-heading">Installation</h1>
+  </header>
+  <section class="docs-section" id="item-6-1">
+    <h2 class="section-heading">Install the PoS App</h2>
+    <p>Install the POS app on the device(s) you’ll be using in your store. Whether it's a tablet, PC, or POS terminal, download the app, log in with your credentials, and your POS system is ready to go. First of all, loging into the app using your creadentials as follows:</p>
+    <div class="text-center my-4">
+      <img src="assets/images/pos-installation-login.png" alt="Install 1" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+      
+    </div>
+    <p>Wait few minutes for all the data to be properly installed:</p>
+    <div class="text-center my-4">
+        <img src="assets/images/pos-installation.PNG" alt="Install 1" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+    </div>
+    <p>After that, choose which employee is trying to login and enter the appropriate passcode to start the POS App:</p>
+    <div class="text-center my-4">
+        <img src="assets/images/login-pos.png" alt="Install 1" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+    </div>
+    
+  </div>
+  </section>
+</article>
+
+    <!-- Section 7: Getting Advanced -->
+    <article class="docs-article" id="section-7">
+      <header class="docs-header">
+        <h1 class="docs-heading">Getting Advanced</h1>
+      </header>
+      <section class="docs-section" id="item-7-1">
+        <h2 class="section-heading">Reporting Features</h2>
+        <p>Once your system is operational, you can access advanced reporting tools to monitor sales, track inventory, and evaluate employee performance. The system provides real-time data that helps you make informed decisions to grow your business.</p>
+       <div class="text-center my-4">
+      <img src="assets/images/reporting-features.png" alt="reporting-features" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+    </div>
+      </section>
+
+      <section class="docs-section" id="item-7-2">
+        <h2 class="section-heading">Create Store / Device</h2>
+        <p>If you’re expanding or need additional devices, the POS system allows you to add new stores or devices to your existing account. Simply go to the ‘Stores & Devices’ section and follow the steps to register a new location or device.</p>
+      </section>
+
+      <section class="docs-section" id="item-7-3">
+        <h2 class="section-heading">Technical Support</h2>
+        <p>If you encounter any issues or have questions, our technical support is available. Reach out via email or chat, and our team will assist you in resolving any technical problems.</p>
+      </section>
+    </article>
+
+    <!-- Section 8: FAQs -->
+    <article class="docs-article" id="section-8">
+      <header class="docs-header">
+        <h1 class="docs-heading">FAQs</h1>
+      </header>
+      <section class="docs-section">
+        <ul>
+          <li>Can I use the restaurant solutions offline?<br>No. All modules are cloud-connected to ensure real-time sync, updates, and backups.</li>
+          <li>Are all services included by default?<br>Your account may include specific modules depending on your subscription package. Contact your provider to activate additional services.</li>
+          <li>Can I manage multiple branches?<br>Yes, our platform supports multi-branch management for items, inventory, orders, and staff.</li>
+          <li>How do I switch the language?<br>Click the language icon at the top. All apps and this documentation support Arabic and English.</li>
+          <li>Where can I get help?<br>For assistance, reach out to your onboarding representative or the البصمات الذكية (Smart Prints) support team through your assigned communication channel.</li>
+        </ul>
+      </section>
+    </article>
+
+  </div><!--//container-->
+</div><!--//docs-content-->
+
+
+   <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Select all images with zoom-effect class
+    const zoomImages = document.querySelectorAll('.zoom-effect');
+
+    zoomImages.forEach(function (img) {
+      img.addEventListener('click', function () {
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = this.src;
+
+        // Show the modal using Bootstrap's method
+        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        imageModal.show();
+      });
+    });
+  });
+</script>
+
+   
+    <!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center">
+        <img id="modalImage" src="#" alt="Zoomed" class="img-fluid rounded">
+      </div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+// === Smart Search Autocomplete ===
+document.addEventListener('DOMContentLoaded', function () {
+  const input = document.querySelector('.search-input');
+  const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link'));
+
+  if (!input) return;
+
+  // Find the container (autocomplete-container) and append inside it
+  const container = input.closest('.autocomplete-container');
+  const suggestionsBox = document.createElement('div');
+  suggestionsBox.className = 'autocomplete-suggestions';
+  container.appendChild(suggestionsBox);
+
+  input.addEventListener('input', function () {
+    const val = this.value.trim().toLowerCase();
+    suggestionsBox.innerHTML = '';
+
+    if (!val) {
+      suggestionsBox.style.display = 'none';
+      return;
+    }
+
+    navLinks.forEach(link => {
+      const text = link.textContent.trim();
+      const lowerText = text.toLowerCase();
+
+      if (lowerText.includes(val)) {
+        const option = document.createElement('div');
+        option.className = 'autocomplete-suggestion';
+
+        const index = lowerText.indexOf(val);
+          const highlighted = 
+           index !== -1
+           ? text.substring(0, index) + 
+           `<mark class="bg-transparent text-primary fw-bold">` +
+            text.substring(index, index + val.length) +
+            '</mark>' +
+            text.substring(index + val.length)
+            : text;
+
+        option.innerHTML = highlighted;
+        option.addEventListener('click', () => {
+          window.location.href = link.href;
+        });
+
+        suggestionsBox.appendChild(option);
+      }
+    });
+
+    suggestionsBox.style.display = suggestionsBox.children.length ? 'block' : 'none';
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!suggestionsBox.contains(e.target) && e.target !== input) {
+      suggestionsBox.innerHTML = '';
+      suggestionsBox.style.display = 'none';
+    }
+  });
+});
+
+
+</script>
+
+<style>
+
+/* Container must stay relative */
+.autocomplete-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Suggestions dropdown */
+.autocomplete-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 2px;
+  right: 2px;
+  background: #fff;
+  z-index: 1050;
+  max-height: 240px;
+  overflow-y: auto;
+  border: 1px solid #dee2e6;
+  border-top: none;
+  border-radius: 0 0 6px 6px; /* Only bottom corners rounded */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  display: none;
+  padding: 0;
+}
+
+/* Suggestion item */
+.autocomplete-suggestion {
+  padding: 10px 14px;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s ease;
+  font-size: 0.95rem;
+}
+
+/* Hover effect */
+.autocomplete-suggestion:hover {
+  background-color: #f0f4ff;
+}
+
+/* Highlighted match */
+.autocomplete-suggestion mark {
+  background: none;
+  color: #5368fd;
+  font-weight: bold;
+}
+
+
+</style>
+
+
+
+ <footer class="footer">
+
+	    <div class="footer-bottom text-center py-5">
+		    
+		    <ul class="social-list list-unstyled pb-4 mb-0">
+			    <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li> 
+	            <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+	            <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+	            <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+	        </ul><!--//social-list-->
+	        
+	        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+            <small class="copyright">© Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> All Rights Reserved. Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">XR</a>.</small>
+            
+	        
+	    </div>
+	    
+    </footer>
+
+
+     <!-- Javascript -->          
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    
+    
+    <!-- Page Specific JS -->
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script> 
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+    <script src="assets/js/docs.js"></script> 
+
+
+</body>
+</html> 
+

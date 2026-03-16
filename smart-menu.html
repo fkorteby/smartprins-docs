@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>SmartPrints -smart-menu-solution</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="description" content="SmartPrints Functionnal Documentation For Cloud POS Solution">
+    <meta name="author" content="SmartPrints Team">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome JS-->
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+
+
+
+   <style>
+      .zoom-effect {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .zoom-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+   </style>
+
+   <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+
+</head> 
+
+<body>    
+    <header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid py-2">
+      <div class="row align-items-center">
+        <!-- Logo Left -->
+        <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+          <a class="navbar-brand" href="index.html">
+	          <div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height: 60px;"></a></div>  
+          </a>
+        </div>
+
+        <!-- Search Center -->
+         
+<div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+  <form class="search-form position-relative d-flex justify-content-center">
+    <div class="position-relative w-75 autocomplete-container">
+      <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input pe-5">
+      <div class="autocomplete-suggestions"></div>
+      <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+        <i class="fa-light fa-magnifying-glass text-muted"></i>
+      </button>
+    </div>
+  </form>
+</div>
+
+
+        <!-- Button Right -->
+        <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center">
+          
+          <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderdocs-free-bootstrap-5-documentation-template-for-software-projects/" class="btn btn-primary d-none d-lg-flex">Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header> 
+    
+    <div class="docs-wrapper">
+        <!-- Social Media Sidebar -->
+        <div class="social-sidebar d-none d-lg-flex">
+          <ul class="social-sidebar">
+         <li onclick="activateIcon(this)"><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="#" id="lang-toggle" onclick="window.location.href='arabic.html';"><i class="fa-solid fa-globe fa-fw"></i></a></li>
+        </ul>
+        </div>
+
+  <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+  <div class="top-search-box">
+    <form class="search-form">
+      <div class="position-relative w-100 autocomplete-container">
+       <input type="text" class="form-control search-input rounded-top" placeholder="Search the docs...">
+       <div class="autocomplete-suggestions"></div>
+     </div>
+    </form>
+  </div>
+</div>
+
+      <div id="docs-sidebar" class="docs-sidebar">
+  <nav id="docs-nav" class="docs-nav navbar">
+    <ul class="section-items list-unstyled nav flex-column pb-3">
+
+      <li class="nav-item section-title">
+        <a class="nav-link scrollto active" href="#section-1">
+          <span class="theme-icon-holder me-2"><i class="fas fa-mobile-alt"></i></span>Smart Menu
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Overview</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">Order Process Overview</a></li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-2">
+          <span class="theme-icon-holder me-2"><i class="fas fa-cogs"></i></span>Mobile Web App
+        </a>
+      </li>
+
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">Home Screen</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">Categories Screen</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-2-3">Navigating Smart Menu</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-2-4">Product Screen</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-2-5">Cart Screen</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-2-6">Checkout Screen</a></li>
+
+    
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-3">
+          <span class="theme-icon-holder me-2"><i class="fas fa-cogs"></i></span>More to Smart Menu
+        </a>
+
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Kitchen Application</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Smart Automation</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-3">Cloud Administration</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-4">Data & Language Support</a></li>
+      
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-4">
+          <span class="theme-icon-holder me-2"><i class="fas fa-list-ul"></i></span>Conclusion
+        </a>
+    </ul>
+  </nav>
+</div>
+</nav><!--//docs-nav-->
+	  </div><!--//docs-sidebar-->
+
+	 <div class="docs-content">
+  <div class="container">
+
+     <!-- Section 1 : Smart Menus -->
+
+    <article class="docs-article" id="section-1">
+      <header class="docs-header">
+        <h1 class="docs-heading">Smart Menu</h1>
+      </header>
+
+  <section class="docs-section" id="item-1-1">
+    <h2 class="section-heading">Overview</h2>
+    <div class="container my-4">
+      <p>
+The Smart Menu is a responsive web based ordering application designed primarily for placing orders directly from a customer’s device. Its main function is to serve as a fully interactive digital menu and ordering platform accessible through any browser, without requiring the user to download an app.
+</p>
+<p>While customers can open the Smart Menu by typing the provided web link, the most common and convenient access method is by scanning a QR code displayed at the restaurant, on tables, or in marketing materials. This instantly loads the menu in a mobile-optimized interface where customers can browse categories, view detailed product descriptions, customize items, and complete their orders securely.
+</p>
+<p>Once an order is placed through the Smart Menu, it is tracked in real time customers can see the live status of their orders from confirmation to preparation and completion. This tracking is synchronized with the restaurant’s back-office dashboard, POS, and kitchen display systems, ensuring accurate routing and a faster, automated service flow.</p>
+
+</section>
+
+ <!-- ordering process -->
+
+  <section class="docs-section" id="item-1-2">
+  <h2 class="section-heading">Order Process Overview</h2>
+  <div class="container my-4">
+    <div class="row align-items-center">
+      <!-- Text Left -->
+      <div class="col-lg-7 col-md-12">
+      <p>
+        Customers begin by opening the Smart Menu web application in their browser. From this point, they can navigate through a structured digital menu organized into categories and subcategories. Each product entry provides detailed information, including images, descriptions, ingredient lists, and allergen warnings where applicable.
+      </p>
+      <p>
+        Many items can be customized with selectable modifiers, such as size, flavor variations, additional toppings, or preparation instructions. Selected items are added to the cart, where users can review their choices before proceeding. At checkout, the customer chooses from the available payment options configured by the restaurant. Once the order is submitted, it is instantly synchronized with the connected point-of-sale system and dispatched to the kitchen display for preparation, ensuring minimal processing delays.
+      </p>
+    </div>
+
+     <div class="col-lg-5 col-md-12 text-center">
+        <img src="assets/images/smart-menu-workflow.png" 
+             alt="How it works" 
+             class="img-thumbnail shadow-sm zoom-effect" 
+             style="max-width: 400px; width: 100%;">
+      </div>
+    </div>
+</div>
+  </div>
+</section>
+
+
+</article>
+
+   
+ <!-- Section 2: Mobile Web App -->
+<article class="docs-article" id="section-2">
+  <header class="docs-header">
+    <h1 class="docs-heading">Mobile Web App</h1>
+  </header>
+
+    <!-- menu home screen -->
+    <section class="docs-section" id="item-2-1">
+    <h2 class="section-heading">Home Screen</h2>
+    <div class="container my-4">
+
+     <div class="row align-items-center my-4">
+    <div class="col-lg-4 col-md-12 text-center">
+    <img src="assets/images/menu-start-home-screen.png"
+         alt="menu start screen"
+         class="shadow-sm zoom-effect"
+         style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+    <div class="mt-2 text-muted">Home Screen</div>
+  </div>
+
+  <!-- Sign Up -->
+  <div class="col-lg-4 col-md-12">
+    <p>
+      This screen acts as the main entry point for customers, offering a clear and intuitive choice of service type. The layout is designed to minimize decision time, with each option visually highlighted for quick recognition.</p>
+      <p>By combining distinct colors, large icons, and minimal on screen text, it ensures that customers can immediately proceed to their preferred ordering method without confusion.
+    </p>
+  </div>
+
+  <div class="col-lg-4 col-md-12 text-center">
+    <img src="assets/images/menu-home-screen-feature.png" 
+         alt="Navigate the Smart Menu App"
+         class="shadow-sm zoom-effect"
+         style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+    <div class="mt-2 text-muted">Home Screen Feature</div>
+  </div>
+
+</div>
+</section>
+
+  <!-- Smart Menu Categories -->
+  <section class="docs-section" id="item-2-2">
+    <h2 class="section-heading">Categories Screen</h2>
+    <div class="container my-4">
+      <div class="row align-items-center">
+        <div class="col-lg-7 col-md-12">
+          <p>
+  The web app serves as the primary interface for customers to explore and interact with the Smart Menu system. It operates entirely within the browser, eliminating the need for downloads or installations. Upon scanning the restaurant’s unique QR code, customers are seamlessly directed to the restaurant’s fully customized digital menu. Designed with responsive web technologies, the interface adapts perfectly to any screen size, whether on a smartphone or tablet, ensuring a smooth and consistent experience.</p>
+<p>After the user clicks the Start button, the Categories Screen appears as the first interactive stage. This screen organizes the restaurant’s offerings into clearly defined menu categories such as Appetizers, Main Courses, Desserts, Beverages, and any custom sections defined by the restaurant. Categories are displayed in an intuitive grid or list format, often accompanied by icons or representative images for quick visual identification.</p>
+</div>
+<div class="col-lg-5 col-md-12 text-center">
+  <img src="assets/images/smart-menu-home.png" 
+       alt="Smart Menu Home"
+       class="shadow-sm zoom-effect"
+       style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+  <div class="mt-2 text-muted">Categories Screen</div>
+        </div>
+        </div>
+
+         <div class="container my-4">
+      <div class="row align-items-center flex-row-reverse">
+        <div class="col-lg-7 col-md-12">
+          <p>The Smart Menu home screen doesn’t only display the available categories, but also includes additional customer-focused content. When scrolling down, users can access their previous orders and view available promotional offers, providing a personalized and dynamic experience.</p>
+          <p> The design emphasizes clarity and accessibility, making it easy for users to locate their desired section with minimal scrolling or searching.</p>
+        </div>
+        <div class="col-lg-5 col-md-12 text-center">
+          <img src="assets/images/smart-menu-home_screen.png" alt="Smart Menu Products"
+               class="shadow-sm zoom-effect"
+               style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+          <div class="mt-2 text-muted">Category Screen Exended</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+   <!-- Smart Menu Navigation -->
+  <section class="docs-section" id="item-2-3">
+    <h2 class="section-heading">Navigating Smart Menu</h2>
+    <div class="container my-4">
+      <p>
+       Navigation within the Smart Menu application is designed to be both intuitive and efficient. The top right corner of the interface contains three quick access buttons: Home, Orders, and Search. Each serves a distinct purpose, enabling users to return to the home screen, review past orders, or locate a specific item without manually browsing categories.</p>
+       <p>The top left corner contains a menu icon represented by three horizontal lines. Clicking this icon opens the navigation drawer, which provides additional options such as accessing the shopping cart, viewing order history, performing detailed product searches, or switching the display language. This dual navigation approach ensures users can quickly move between different parts of the application, whether they are browsing for new items or managing active and past orders.
+      </p>
+
+      <br>
+      <br>
+
+      <div class="row align-items-center my-4">
+        <div class="col-lg-6 col-md-12 text-center">
+          <img src="assets/images/my-orders-smart-menu.png" alt="Quick Access Buttons"
+               class="shadow-sm zoom-effect"
+         style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+          <div class="mt-2 text-muted">Quick Access Buttons</div>
+        </div>
+        <div class="col-lg-6 col-md-12 text-center">
+          <img src="assets/images/menu-smart-menu.png" alt="Navigate the Smart Menu App"
+               class="shadow-sm zoom-effect"
+         style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+          <div class="mt-2 text-muted">Navigate the Smart Menu App</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Listing -->
+
+    <section class="docs-section" id="item-2-4">
+    <h2 class="section-heading">Product Screen </h2>
+    <div class="container my-4">
+      <div class="row align-items-center">
+        <div class="col-lg-7 col-md-12">
+          <p>When a category is selected, the Product Screen presents a complete overview of all items available within that section, offering customers a clear and organized browsing experience. Each product entry prominently displays its name, price, and a high quality preview image to help customers visually recognize the item.</p>
+          <p>In addition to these details, the interface includes real-time availability indicators so users know immediately if an item can be ordered. For products that allow customization, interactive modifier options are provided, enabling customers to adjust aspects such as portion size, toppings, flavor preferences, or preparation style before adding the item to their cart. These modifiers are designed to be intuitive, ensuring the customization process feels seamless even for first time users.</p>
+          <br>
+          <br>
+          <p>The availability information is continuously synchronized with the backend system, reflecting live updates from the inventory and kitchen operations. This ensures that items which are out of stock, temporarily disabled, or unavailable due to operational constraints are automatically hidden or marked as unavailable, preventing any potential confusion.</p>
+          <p>This approach maintains accuracy, reduces the chance of customer disappointment, and ensures the displayed menu always matches the restaurant’s current stock and service capabilities.</p>
+        </div>
+        <div class="col-lg-5 col-md-12 text-center">
+  <img src="assets/images/smart-menu-products.png" 
+       alt="Smart Menu Ordering"
+       class="shadow-sm zoom-effect"
+         style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+  <div class="mt-2 text-muted">Smart Menu Ordering</div>
+
+    </div>
+    </div>
+    </section>
+
+  <!-- Cart Screen -->
+  <section class="docs-section" id="item-2-5">
+    <h2 class="section-heading">Cart Screen</h2>
+    <div class="container my-4">
+      <div class="row align-items-center">
+        <div class="col-lg-7 col-md-12">
+          <p>After customers have selected and customized their desired items, they are directed to the cart review interface, which acts as a central hub for order verification before checkout.</p> 
+          <p>On this screen, all chosen products are listed with clear item names, quantities, individual prices, and a running subtotal. This allows customers to quickly confirm they have selected the correct items and specifications. Adjustments can be made directly from this interface, including increasing or decreasing quantities, removing items entirely, or applying promotional codes or discounts when available.</p>
+          <p>The cart dynamically recalculates totals in real time, ensuring that any changes are instantly reflected in the final amount.</p> 
+          <p>The system also automatically applies relevant taxes, service charges, or delivery fees based on the backend configuration, ensuring compliance with local regulations and transparent pricing for the customer.</p>
+          <p>Beyond just listing items, the cart screen serves as an important decision making checkpoint where customers can ensure accuracy and completeness. Once satisfied, they can proceed to the checkout process, confident that all details match their expectations and that the order is fully ready for submission.</p>
+          </div>
+
+        <div class="col-lg-5 col-md-12 text-center">
+  <img src="assets/images/cart-screen-smart-menu.png" 
+       alt="Smart Menu Cart"
+       class="shadow-sm zoom-effect"
+       style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+  <div class="mt-2 text-muted">Cart Screen</div>
+
+        </div>
+
+        </div>
+    </div>
+  </section>
+
+  <!-- Checkout Screen -->
+
+  <section class="docs-section" id="item-2-6">
+    <h2 class="section-heading">Checkout Screen</h2>
+    <div class="container my-4">
+      <div class="row align-items-center">
+        <div class="col-lg-7 col-md-12">
+          <p> The checkout stage marks the final step of the ordering process, where customers confirm payment and complete their transaction.</p>
+         <p>Here, users are presented with the payment options offered by the restaurant, which may include traditional methods like cash and card, as well as modern solutions such as contactless payments, mobile wallets, or integrated online payment gateways. This flexibility allows the system to adapt to different customer preferences and operational setups.</p>
+         <p>Once the customer selects a payment method, the system securely processes the transaction, ensuring both speed and data security. Immediately after payment, the application displays an order confirmation screen, showing a unique order number and an estimated preparation time based on real-time kitchen workloads.</p>
+    </div>   
+  <div class="col-lg-5 col-md-12 text-center">
+  <img src="assets/images/checkout-screen-smart-menu.png" 
+       alt="Smart Menu Checkout"
+       class="shadow-sm zoom-effect"
+       style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+  <div class="mt-2 text-muted">Checkout Screen</div>
+        </div>
+        </div>
+         
+        <div class="container my-4">
+      <div class="row align-items-center flex-row-reverse">
+        <div class="col-lg-7 col-md-12">
+        <p>In addition to its flexibility, the payment screen provides a clear and organized presentation of all available payment methods. Customers can choose from widely used card networks such as Visa, MasterCard, or Mada for faster checkout.</p>
+        <p>For those who prefer not to pay by card, the system also offers a “Pay at Counter” option, allowing customers to finalize their transaction physically at the cashier. Each payment option is displayed with recognizable icons and simple instructions, ensuring accessibility even for first time users.</p>
+       </div>
+        <div class="col-lg-5 col-md-12 text-center">
+          <img src="assets/images/payment-screen-smart-menu.png" alt="Smart Menu Products"
+               class="shadow-sm zoom-effect"
+               style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+          <div class="mt-2 text-muted">Paying Order</div>
+        </div>
+      </div>
+    </div>
+        </section>
+
+        
+  <!-- Success Screen -->
+  <section class="docs-section" id="item-2-7">
+    <h2 class="section-heading">Success Screen</h2>
+  <div class="container my-4">
+      <div class="row align-items-center">
+        <div class="col-lg-7 col-md-12">
+       <p>Once the checkout process is complete, the customer is directed to the success screen, which marks the official confirmation of the order. This screen is carefully designed to deliver both reassurance and clarity. At the top, a <strong>Thank You</strong> message acknowledges the customer’s purchase, followed by the prominently displayed order ticket number, which serves as a unique identifier for both the customer and the restaurant staff.</p>
+        <p>The success screen also provides contextual details that improve transparency, such as the delivery status in real time using data from the connected kitchen management system, the screen also displays a summary of the ordered items, allowing customers to quickly double check that all selections have been correctly registered before leaving the app.</p>
+      </div>
+        <div class="col-lg-5 col-md-12 text-center">
+  <img src="assets/images/smart-menu-done.png" 
+       alt="Smart Menu Cart"
+       class="shadow-sm zoom-effect"
+       style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+  <div class="mt-2 text-muted">Successfull Order</div>
+
+        </div>
+
+        </div>
+    </div>
+
+         <div class="container my-4">
+      <div class="row align-items-center flex-row-reverse">
+        <div class="col-lg-7 col-md-12">
+        <p>After the success screen, the customer experience continues with the option of live order tracking, if the restaurant has enabled this feature. Tracking provides customers with real-time updates on the progress of their order, which may include statuses such as “Order Placed,” “Accepted,” “Ready for Pickup,” or “Canceled.” This functionality is not only valuable for delivery but can also be used for dine-in or takeaway workflows, giving customers clear visibility into every step of their order.</p>
+        </div>
+        <div class="col-lg-5 col-md-12 text-center">
+          <img src="assets/images/smart-menu-tracking.png" alt="Smart Menu Products"
+               class="shadow-sm zoom-effect"
+               style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+          <div class="mt-2 text-muted">Tracking Order</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</article>
+
+<!-- Section 3: More to Smart Menu -->
+<article class="docs-article" id="section-3">
+  <header class="docs-header">
+    <h1 class="docs-heading">More to Smart Menu</h1>
+  </header>
+
+  <!--  Kitchen Application -->
+  <section class="docs-section" id="item-3-1">
+    <h2 class="section-heading">Kitchen Application</h2>
+    <div class="container my-4">
+      <p>
+        The kitchen module is a browser-accessible interface that displays real-time order details for preparation staff. Orders are segmented by product and grouped based on destination (dine-in, takeaway, delivery). The interface supports station-specific routing, enabling each kitchen section to receive only the items assigned to it. Each product entry includes quantity, modifiers, and timestamps. Staff can mark items as "in progress" or "completed" and update statuses accordingly. The module also logs preparation histories for operational tracking and auditing purposes.
+      </p>
+      <div class="text-center my-4">
+        <img src="assets/images/kitchen-app-active-order.png" alt="Kitchen Module"
+             class="img-thumbnail shadow-sm zoom-effect"
+             style="max-width: 700px; width: 100%; cursor: pointer;"
+             data-bs-toggle="modal" data-bs-target="#imageModal-kitchen">
+        <div class="mt-2 text-muted">Kitchen Application</div>
+      </div>
+    </div>
+  </section>
+
+  <!--  Smart Automation -->
+  <section class="docs-section" id="item-3-2">
+    <h2 class="section-heading">Smart Automation</h2>
+    <div class="container my-4">
+      <p>
+        Using Smart Automation Services, orders placed via the Smart Menu are automatically pushed to the connected POS system, eliminating manual entry and reducing the potential for human error. This integration ensures that all transactions are logged, inventory is updated in real time, and reports reflect accurate data across platforms. The same mechanism handles customer screen updates, kitchen screen routing, and tax or discount application logic. The automation also simplifies refund processing and order tracking by synchronizing across modules.
+      </p>
+    </div>
+  </section>
+
+  <!--  Cloud Administration -->
+  <section class="docs-section" id="item-3-3">
+    <h2 class="section-heading">Cloud Administration</h2>
+    <div class="container my-4">
+      <p>
+        The backend administration panel allows authorized users to manage and configure all aspects of the Smart Menu system. Through a web browser, users can modify product prices, descriptions, availability status, menu structures, and display orders. Each location or branch can be configured individually, while administrators can still enforce global policies. In addition to menu control, the panel supports banner and promotion setup, user account roles, and sales tracking. Permissions are role-based, with access limited based on user level (admin, branch manager, etc.).
+      </p>
+      <div class="text-center my-4">
+        <img src="assets/images/cloud-admin.png" alt="Cloud Admin Panel"
+             class="img-thumbnail shadow-sm zoom-effect"
+             style="max-width: 700px; width: 100%; cursor: pointer;"
+             data-bs-toggle="modal" data-bs-target="#imageModal-admin">
+        <div class="mt-2 text-muted">Cloud Admin Panel</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data & Language Support -->
+
+  <section class="docs-section" id="item-3-4">
+    <h2 class="section-heading">Data & Language Support</h2>
+    <div class="container my-4">
+      <div class="row align-items-center">
+        <div class="col-lg-7 col-md-12">
+          <p>
+         The Smart Menu Solution is designed to accommodate diverse customer bases through its full multilingual interface, currently supporting both Arabic and English. All visual elements, including labels, buttons, descriptions, and product names, can be fully managed and updated in both languages, ensuring clarity and accessibility for all users regardless of their language preference. This adaptability makes the system suitable for restaurants serving multicultural communities or operating in regions where bilingual service is essential.</p>
+        <p>Beyond its customer facing features, the system also provides robust data management capabilities. It helps generate detailed reports and analytics covering a wide range of operational metrics such as order history, daily sales, customer purchase patterns, and product performance. These reports can be exported in CSV format for easy integration with other business tools and can be filtered by variables like date range, location, or order type. Such data empowers restaurant managers to evaluate performance trends, identify high demand products, and optimize menu offerings accordingly.</p>
+        <p>Additionally, the reporting functionality serves as a valuable tool for forecasting, allowing businesses to plan for peak periods, manage inventory effectively, and continuously improve their operational efficiency.</p>
+        </div>
+        <div class="col-lg-5 col-md-12 text-center">
+  <img src="assets/images/language-support.png" 
+       alt="Smart Menu Arabic"
+       class="shadow-sm zoom-effect"
+       style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+  <div class="mt-2 text-muted">Language Support</div>
+        </div>
+   
+  </section>
+</article>
+
+
+<!-- Conclusion Section -->
+  <article class="docs-article" id="section-4">
+  <header class="docs-header">
+    <h1 class="docs-heading">Conclusion</h1>
+  </header>
+
+  <div class="container my-4">
+    <p>
+      The Smart Menu solution delivers a seamless, modern, and contactless ordering experience for both dine-in and takeaway customers. Whether accessed via scanning a QR code placed on the table or wall, or by directly visiting the restaurant's web app link, users can browse, customize, and submit their orders effortlessly without the need to download or install any app.
+    </p>
+    <p>
+      From its responsive mobile interface to deep integration with the POS, kitchen, and cloud administration systems, Smart Menu ensures that each transaction is synchronized in real-time. The system supports multilingual interaction, dynamic menu filtering, smart automation, and reporting features, making it a powerful tool for streamlining restaurant operations and enhancing customer satisfaction.
+    </p>
+    <p>
+      Whether deployed in a single location or across multiple branches, the Smart Menu offers full scalability and customization. It empowers businesses to manage product visibility, order flow, and pricing logic from a centralized interface while customers enjoy a fast, intuitive, and personalized ordering journey.
+    </p>
+    <p>
+      In short, Smart Menu transforms traditional menus into dynamic digital interfaces that bridge operational efficiency with customer convenience all accessible from the comfort of a mobile browser.
+    </p>
+  </div>
+</section>
+
+
+</article>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Select all images with zoom-effect class
+    const zoomImages = document.querySelectorAll('.zoom-effect');
+
+    zoomImages.forEach(function (img) {
+      img.addEventListener('click', function () {
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = this.src;
+
+        let naturalWidth = this.naturalWidth;
+        let displayedWidth = this.clientWidth;
+        let targetWidth = Math.min(displayedWidth * 1.5, naturalWidth);
+
+        modalImage.style.width = targetWidth + "px";
+        modalImage.style.height = "auto";
+        modalImage.style.maxWidth = "90vw";
+        modalImage.style.maxHeight = "90vh";
+        modalImage.style.transform = "none"; // reset transform
+
+        // Show the modal using Bootstrap's method
+        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        imageModal.show();
+
+        // 🔹 Extra controls ONLY for workflow image
+        if (this.id === "workflowImage") {
+          let scale = 1;
+          let posX = 0, posY = 0, isDragging = false, startX, startY;
+
+          modalImage.style.cursor = "grab";
+
+          // Zoom with scroll
+          modalImage.onwheel = function (e) {
+            e.preventDefault();
+            scale += e.deltaY * -0.001;
+            scale = Math.min(Math.max(1, scale), 5); // limit zoom between 1x and 5x
+            modalImage.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
+          };
+
+          // Drag when zoomed
+          modalImage.onmousedown = function (e) {
+            if (scale <= 1) return; // no drag if not zoomed
+            isDragging = true;
+            startX = e.clientX - posX;
+            startY = e.clientY - posY;
+            modalImage.style.cursor = "grabbing";
+          };
+
+          document.onmouseup = function () {
+            isDragging = false;
+            modalImage.style.cursor = "grab";
+          };
+
+          document.onmousemove = function (e) {
+            if (isDragging) {
+              posX = e.clientX - startX;
+              posY = e.clientY - startY;
+              modalImage.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
+            }
+          };
+
+          // Optional: double click to reset zoom/pan
+          modalImage.ondblclick = function () {
+            scale = 1;
+            posX = 0;
+            posY = 0;
+            modalImage.style.transform = "none";
+          };
+        } else {
+          // Reset handlers for normal images
+          modalImage.onwheel = null;
+          modalImage.onmousedown = null;
+          document.onmouseup = null;
+          document.onmousemove = null;
+          modalImage.ondblclick = null;
+        }
+      });
+    });
+  });
+</script>
+
+   
+    <!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center">
+        <img id="modalImage" src="#" alt="Zoomed" class="img-fluid rounded">
+      </div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+  
+// === Image Modal img zoom in / out ===
+
+
+<!-- Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Generic zoom handler for all .zoom-effect images
+    const zoomImages = document.querySelectorAll('.zoom-effect');
+
+    zoomImages.forEach(function (img) {
+      img.addEventListener('click', function () {
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = this.src;
+
+        let naturalWidth = this.naturalWidth;
+        let displayedWidth = this.clientWidth;
+        let targetWidth = Math.min(displayedWidth * 1.5, naturalWidth);
+
+        modalImage.style.width = targetWidth + "px";
+        modalImage.style.height = "auto";
+        modalImage.style.maxWidth = "90vw";
+        modalImage.style.maxHeight = "90vh";
+
+        // Show the modal
+        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        imageModal.show();
+      });
+    });
+
+    // Special case: workflowImage → always enlarge x2
+    const workflow = document.getElementById('workflowImage');
+    if (workflow) {
+      workflow.addEventListener('click', function (e) {
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = this.src;
+
+        const displayedWidth = this.clientWidth || this.width || 350;
+        const targetWidth = Math.min(this.naturalWidth || displayedWidth * 2, displayedWidth * 2);
+
+        modalImage.style.width = targetWidth + 'px';
+        modalImage.style.height = 'auto';
+        modalImage.style.maxWidth = '90vw';
+        modalImage.style.maxHeight = '90vh';
+
+        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        imageModal.show();
+      });
+    }
+  });
+
+
+// ===                   ===
+
+
+// === Smart Search Autocomplete ===
+document.addEventListener('DOMContentLoaded', function () {
+  const input = document.querySelector('.search-input');
+  const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link'));
+
+  if (!input) return;
+
+  // Find the container (autocomplete-container) and append inside it
+  const container = input.closest('.autocomplete-container');
+  const suggestionsBox = document.createElement('div');
+  suggestionsBox.className = 'autocomplete-suggestions';
+  container.appendChild(suggestionsBox);
+
+  input.addEventListener('input', function () {
+    const val = this.value.trim().toLowerCase();
+    suggestionsBox.innerHTML = '';
+
+    if (!val) {
+      suggestionsBox.style.display = 'none';
+      return;
+    }
+
+    navLinks.forEach(link => {
+      const text = link.textContent.trim();
+      const lowerText = text.toLowerCase();
+
+      if (lowerText.includes(val)) {
+        const option = document.createElement('div');
+        option.className = 'autocomplete-suggestion';
+
+        const index = lowerText.indexOf(val);
+          const highlighted = 
+           index !== -1
+           ? text.substring(0, index) + 
+           `<mark class="bg-transparent text-primary fw-bold">` +
+            text.substring(index, index + val.length) +
+            '</mark>' +
+            text.substring(index + val.length)
+            : text;
+
+        option.innerHTML = highlighted;
+        option.addEventListener('click', () => {
+          window.location.href = link.href;
+        });
+
+        suggestionsBox.appendChild(option);
+      }
+    });
+
+    suggestionsBox.style.display = suggestionsBox.children.length ? 'block' : 'none';
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!suggestionsBox.contains(e.target) && e.target !== input) {
+      suggestionsBox.innerHTML = '';
+      suggestionsBox.style.display = 'none';
+    }
+  });
+});
+
+
+</script>
+
+<style>
+
+/* Container must stay relative */
+.autocomplete-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Suggestions dropdown */
+.autocomplete-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 2px;
+  right: 2px;
+  background: #fff;
+  z-index: 1050;
+  max-height: 240px;
+  overflow-y: auto;
+  border: 1px solid #dee2e6;
+  border-top: none;
+  border-radius: 0 0 6px 6px; /* Only bottom corners rounded */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  display: none;
+  padding: 0;
+}
+
+/* Suggestion item */
+.autocomplete-suggestion {
+  padding: 10px 14px;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s ease;
+  font-size: 0.95rem;
+}
+
+/* Hover effect */
+.autocomplete-suggestion:hover {
+  background-color: #f0f4ff;
+}
+
+/* Highlighted match */
+.autocomplete-suggestion mark {
+  background: none;
+  color: #5368fd;
+  font-weight: bold;
+}
+
+</style>
+
+
+
+    <footer class="footer">
+
+	    <div class="footer-bottom text-center py-5">
+		    
+		    <ul class="social-list list-unstyled pb-4 mb-0">
+			    <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li> 
+	            <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+	            <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+	            <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+	        </ul><!--//social-list-->
+	        
+	        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+            <small class="copyright">© Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> All Rights Reserved. Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">XR</a>.</small>
+            
+	        
+	    </div>
+	    
+    </footer>
+
+       
+    <!-- Javascript -->          
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    
+    
+    <!-- Page Specific JS -->
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script> 
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+    <script src="assets/js/docs.js"></script> 
+
+</body>
+</html> 
+

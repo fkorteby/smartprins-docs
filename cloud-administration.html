@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>SmartPrints -cloud-administration-solution</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="description" content="SmartPrints Functionnal Documentation For Cloud POS Solution">
+    <meta name="author" content="SmartPrints Team">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome JS-->
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+
+
+
+   <style>
+      .zoom-effect {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .zoom-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+   </style>
+
+   <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+
+</head> 
+
+<body>    
+    <header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid py-2">
+      <div class="row align-items-center">
+        <!-- Logo Left -->
+        <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+          <a class="navbar-brand" href="index.html">
+	          <div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height: 60px;"></a></div>  
+          </a>
+        </div>
+
+        <!-- Search Center -->
+         
+<div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+  <form class="search-form position-relative d-flex justify-content-center">
+    <div class="position-relative w-75 autocomplete-container">
+      <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input pe-5">
+      <div class="autocomplete-suggestions"></div>
+      <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+        <i class="fa-light fa-magnifying-glass text-muted"></i>
+      </button>
+    </div>
+  </form>
+</div>
+
+
+        <!-- Button Right -->
+        <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center">
+          
+          <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderdocs-free-bootstrap-5-documentation-template-for-software-projects/" class="btn btn-primary d-none d-lg-flex">Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header> 
+    
+    <div class="docs-wrapper">
+        <!-- Social Media Sidebar -->
+        <div class="social-sidebar d-none d-lg-flex">
+          <ul class="social-sidebar">
+         <li onclick="activateIcon(this)"><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="#" id="lang-toggle" onclick="window.location.href='arabic.html';"><i class="fa-solid fa-globe fa-fw"></i></a></li>
+        </ul>
+        </div>
+
+  <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+  <div class="top-search-box">
+    <form class="search-form">
+      <div class="position-relative w-100 autocomplete-container">
+       <input type="text" class="form-control search-input rounded-top" placeholder="Search the docs...">
+       <div class="autocomplete-suggestions"></div>
+     </div>
+    </form>
+  </div>
+</div>
+
+	    <div id="docs-sidebar" class="docs-sidebar">
+  <nav id="docs-nav" class="docs-nav navbar">
+    <ul class="section-items list-unstyled nav flex-column pb-3">
+
+      <li class="nav-item section-title">
+        <a class="nav-link scrollto active" href="#section-1">
+          <span class="theme-icon-holder me-2"><i class="fas fa-cloud"></i></span>Cloud Administration
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Overview</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">Login In</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3">Login Out</a></li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-2">
+          <span class="theme-icon-holder me-2"><i class="fas fa-chart-pie"></i></span>Dashboard
+        </a>
+      </li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-3">
+          <span class="theme-icon-holder me-2"><i class="fas fa-utensils"></i></span>Kitchen
+        </a>
+      </li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-4">
+          <span class="theme-icon-holder me-2"><i class="fas fa-store-alt"></i></span>Client
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Branches</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-4-2">Branche Details</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-4-3">Devices</a></li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-5">
+          <span class="theme-icon-holder me-2"><i class="fas fa-globe"></i></span>Online
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">Drivers</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2">Online Orders</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-5-3">B2B Orders</a></li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-6">
+          <span class="theme-icon-holder me-2"><i class="fas fa-sliders-h"></i></span>Customization
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-6-1">Products</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-6-2">Product Option</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-6-3">Sort Menu</a></li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-7">
+          <span class="theme-icon-holder me-2"><i class="fas fa-cash-register"></i></span>POS
+        </a>
+      </li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-8">
+          <span class="theme-icon-holder me-2"><i class="fas fa-bars"></i></span>Menu
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-8-1">Categories</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-8-2">Products</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-8-3">Family Option</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-8-4">options</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-8-5">Menu Group</a></li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-9">
+          <span class="theme-icon-holder me-2"><i class="fas fa-boxes"></i></span>Inventory
+        </a>
+      </li>
+
+       <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-10">
+          <span class="theme-icon-holder me-2"><i class="fas fa-bullhorn"></i></span>Marketing
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-10-1">Advertisements</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-10-2">Customers</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-10-3">Coupons</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-10-4">Groups</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-10-5">Offers</a></li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-11">
+          <span class="theme-icon-holder me-2"><i class="fas fa-chart-bar"></i></span>Reporting
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-11-1">Orders</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-11-2">Inventory Sales</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-11-3">Charts</a></li>
+
+    </ul>
+  </nav>
+</div>
+</nav><!--//docs-nav-->
+	  </div><!--//docs-sidebar-->
+
+	    <div class="docs-content">
+  <div class="container">
+
+    <article class="docs-article" id="section-1">
+      <header class="docs-header">
+        <h1 class="docs-heading">Cloud Administration</h1>
+      </header>
+      <section class="docs-section" id="item-1-1">
+        <h2 class="section-heading">Overview</h2>
+        <p>Used to manage cloud infrastructure services and multiple server instances, and also, to establish and execute the operations as per the specifications and parameters.</p>
+        <p>The cloud administration is composed of 11 sections: <strong>dashboard</strong>, <strong>kitchen</strong>, <strong>admin chat</strong>, <strong>admin chat</strong>, <strong>client</strong>, <strong>online</strong>, <strong>marketing</strong>, <strong>POS</strong>, <strong>menu</strong>, <strong>inventory</strong>, <strong>customization</strong>, and <strong>reporting</strong>, each section is reserved for a specific operation, although some of them are directly related.</p>
+        <div class="text-center my-4">
+     <img src="assets/images/cloud-admin.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+     </div>
+      </section>
+      <section class="docs-section" id="item-1-2">
+        <h2 class="section-heading">Login In</h2>
+        <p>To access the Smart Kiosk administration, you should follow this straightforward login process:</p>
+        <ul>
+          <li><strong>Username or Email and Password:</strong> You will be handed a Client Manager account with which you will log in using your designated username or email and a secure password.</li>
+      <div class="text-center my-4">
+       <img src="assets/images/login-cloud-admin.png"
+         alt="employee login to an existing shift"
+         class="img-thumbnail shadow-sm zoom-effect"
+         style="max-width: 500px; width: 100%; cursor: pointer ;"
+         data-bs-toggle="modal"
+         data-bs-target="#imageModal1">
+     </div>
+     <li><strong>Captcha Test: </strong>After completing the previous step, and as an additional security measure, it is necessary to complete a simple CAPTCHA test by clicking "I'm not a robot" for successful login.</li>
+       <div class="text-center my-4">
+       <img src="assets/images/Captche-admin.png"
+         alt="employee login to an existing shift"
+         class="img-thumbnail shadow-sm zoom-effect"
+         style="max-width: 500px; width: 100%; cursor: pointer ;"
+         data-bs-toggle="modal"
+         data-bs-target="#imageModal1">
+     </div>
+     <li><strong>Profile (Dashboard Access): </strong>Upon successful login, you will be directed to the dashboard of the system seen below.</li>
+        <div class="text-center my-4">
+     <img src="assets/images/cloud-admin.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+       </div>
+       <p>On the left side of the page, you can see :</p>
+       <li>Your username and your role, which is «CLIENT MANAGER»</li>
+       <li>And many different sections to manage your cloud. The part illustrated above is called the «Dashboard», which we’ll talk about in the upcoming sections.</li>
+      </ul>
+      </section>
+      <section class="docs-section" id="item-1-3">
+        <h2 class="section-heading">Login Out</h2>
+        <p>Simply follow these quick steps to log out:</p>
+        <ul>
+          <li><strong>First, navigate to Profile: </strong>Your profile is located in the upper-left corner of the page, as indicated by the red underlining in the illustration image below.</li>
+          <li><strong>Dropdown List: </strong>Next, click the small arrow next to your profile name (framed in red), and a dropdown list appears.</li>
+          <li><strong>Click "Logout": </strong>From the dropdown options (Edit Account, Support, Logout), you can select "Logout."</li>
+        <div class="text-center my-4">
+     <img src="assets/images/logout-cloud-admin.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+       </div>
+       </ul>
+      </section>
+    </article>
+
+    <article class="docs-article" id="section-2"><header><h1 class="docs-heading">Dashboard</h1></header>
+    <P>On this page, you can: </P>
+    <ul>
+      <li>Visualize all the data that allow you to understand the analytics that matter to your business.</li>
+      <li>Scroll down to see the whole pages, where you can track the exact revenues in every branch you have.</li>
+      <li>Select the specific branch you want to see on the blue upper button ‘select branch’.</li>
+      <br> 
+      <div class="text-center my-4">
+     <img src="assets/images/revenu-by-branch.png"
+       alt="revenu-by-branch"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+       </div>
+          <br>      
+      <div class="d-flex justify-content-center gap-4 mb-4">
+             
+              <div>
+               <img src="assets/images/dashboard-client.png"
+                alt="my orders"
+                class="img-thumbnail shadow-sm zoom-effect"
+                style="max-width: 380px; width: 100%; cursor: pointer;"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal1">
+             </div>
+   
+             <div>
+              <img src="assets/images/dashboard-manager.png"
+                 alt="my order"
+                class="img-thumbnail shadow-sm zoom-effect"
+                style="max-width: 380px; width: 100%; cursor: pointer;"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal2">
+            </div>
+          </div>   
+          <br>          
+    </ul>
+    </article>
+
+    <article class="docs-article" id="section-3">
+  <header class="docs-header">
+    <h1 class="docs-heading">Kitchen</h1>
+    <section class="docs-intro">
+      <a href="https://smart-kitchen-app.html" target="_blank">Go to Kitchen App Site</a>
+
+      <p><strong>Please follow this link to get a dedicated user manual for the kitchen application section.</strong></p>
+      <div class="text-center my-4">
+      <img src="assets/images/kitchen-app-start.png" alt="kitchen" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+    </div>
+
+
+    <article class="docs-article" id="section-4">
+      <header class="docs-header"><h1 class="docs-heading">Client</h1></header>
+      <section class="docs-section" id="item-4-1"><h2 class="section-heading">Branches</h2>
+      <p>In this section, we can observe all the branches and offices located elsewhere, apart from the main office where business is conducted. We can also find key parameters defining each branch's details:</p>
+      <ul>
+        <li><strong>#ID (Branch ID):</strong> A distinct identifier is assigned to each branch, facilitating identification.</li>
+        <li><strong>Name:</strong> The official name of the branch.</li>
+        <li><strong>Name (Arabic):</strong> The branch's name is presented in the Arabic language.</li>
+        <li><strong>Client:</strong> The client who's associated with the branch.</li>
+        <li><strong>City:</strong> The location of the branch, specifying the city where it is situated.</li>
+        <li><strong>Ref:</strong> A reference, can be a code or unique identifier associated with the branch.</li>
+        <li><strong>Automation:</strong> Indicates whether the branch is automated (automation enabled written in green) or operates manually (automation disabled, in red).</li>
+        <li><strong>Tables:</strong> Details regarding the number or arrangement of tables within the branch. This feature can be either enabled (in green) or disabled (in red).</li>
+        <li><strong>Status:</strong> Reflects whether the branch is currently enabled or disabled.</li>
+        <li><strong>Actions:</strong> On the extreme right, a singular blue icon allows us to view all of the details of a specific branch.</li>
+        
+        <div class="text-center my-4">
+     <img src="assets/images/branches.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+     </div>
+      </ul>
+      </section>
+      <section class="docs-section" id="item-4-2">
+        <h2 class="section-heading">Branch Details</h2>
+     <p>In this section, we can view all the branch details mentioned before. In addition to those, we have the number of tables and the canceled orders from the kitchen status (either enabled or disabled), this feature allows us to know what are the orders that were canceled from the kitchen application.</p>
+      <div class="text-center my-4">
+     <img src="assets/images/branch-details.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+     </div>
+    
+    </section>
+      <section class="docs-section" id="item-4-3"><h2 class="section-heading">Devices</h2>
+      <P>The devices page is a dedicated section designed to manage and monitor the devices wither it’s a self-service kiosk unit, a tablet, or simply an online type of unit within the business. Within this page, the following parameters are essential for configuring and overseeing these units:</P>
+      <ul>
+        <li><strong>ID</strong> A unique identifier assigned to each kiosk for precise tracking and identification.</li>
+        <li><strong>Name:</strong> The given name or label for the kiosk, for easy identification.</li>
+        <li><strong>Ref:</strong> A specific reference or code associated with the kiosk, providing additional organizational context.</li>
+        <li><strong>Model:</strong> The model (design) of the kiosk, indicating its specifications or version.</li>
+        <li><strong>Branch:</strong> Specifies the branch or branches to which the kiosk is assigned, facilitating monitoring and control.</li>
+        <li><strong>Type:</strong> Indicates the type of the unit, which could be categorized as KIOSK, Tablet, or ONLINE, providing insights into its form and functionality.</li>
+        <li><strong>Status:</strong>  Reflects the current operational status of the unit, whether it is active (enabled) or inactive (disabled).</li>
+        <li><strong>Sleep Mode:</strong> Indicates if the kiosk is in sleep mode, when not actively in use.</li>
+          <div class="text-center my-4">
+     <img src="assets/images/devices.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+     </div>
+      </ul>
+      </section>
+    </article>
+
+    <article class="docs-article" id="section-5">
+      <header class="docs-header"><h1 class="docs-heading">Online</h1></header>
+      <section class="docs-section" id="item-5-1"><h2 class="section-heading">Drivers</h2>
+        <p>Navigate the driver subsection to assess the performance of your delivery drivers. Track delivery times, efficiency, and customer satisfaction. This data is useful to enhance your delivery operations.</p>
+       <div class="text-center my-4">
+     <img src="assets/images/add-driver.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+     </div>
+      </section>
+      <section class="docs-section" id="item-5-2"><h2 class="section-heading">Online Orders</h2>
+      <p>This functionality enables users to browse and place orders using an easy-to-use online platform. From selecting products to selecting safe payment methods, the process is simplified. Real-time updates and order tracking also ensure a seamless and enjoyable experience by improving transparency.</p>
+      <div class="text-center my-4">
+     <img src="assets/images/online.png"
+       alt="online-orders"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+     </div>
+    </section>
+      <section class="docs-section" id="item-5-3"><h2 class="section-heading">B2B Orders</h2>
+      <p>This subsection is mainly to help you understand the dynamics of your business-to-business transactions.</p>
+      <div class="text-center my-4">
+     <img src="assets/images/B2B-orders.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+     </div>
+      </section>
+    </article>
+
+     <article class="docs-article" id="section-6">
+      <header class="docs-header"><h1 class="docs-heading">Customization</h1></header>
+      <section class="docs-section" id="item-6-1"><h2 class="section-heading">Products</h2>
+        <p>These are the main items available for customization, such as sandwiches, coffee, and donuts. Each product is a distinct item that you can choose to customize according to your preferences and business needs.</p>
+      <div class="text-center my-4">
+     <img src="assets/images/product-customization.png"
+       alt="menu-group"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+      <p>To add customization to a product first, click on “Add customization,"  and then fill in the information as illustrated in the image below:</p>
+      <div class="text-center my-4">
+     <img src="assets/images/add-product-customization.png"
+       alt="add-menu-group"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+      </section>
+
+      <section class="docs-section" id="item-6-2"><h2 class="section-heading">Product Option</h2>
+      <p>Product options are specific configurations resulting from the combination of a product and its customizable options. This is where you may tailor a product to your liking by selecting from available options. For instance: you might choose a "Medium Roast Coffee" with the option of "Almond Milk" and "Single Shot."</p>
+      <p>Another client manager could customize an "Iced Latte" with the options of "Low Fat Milk," "No Added Sugar," and "Extra Ice."</p>
+      <div class="text-center my-4">
+     <img src="assets/images/product-option-customization.png"
+       alt="add-option-customization"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+    </section>
+      <section class="docs-section" id="item-6-3"><h2 class="section-heading">Sort Menu</h2>
+      <p>The sort menu provides a structured way to navigate and find products. It could involve sorting products based on categories, options, or other criteria to enhance the customer's browsing experience. For example:</p>
+      <p>Products might be sorted by categories like "Hot Drinks," "Cold Drinks," and "Sandwiches." Within the "Sandwiches" category, customers could further sort by: products like "Bagel Cream Cheese Oats".</p>
+      <div class="text-center my-4">
+     <img src="assets/images/sort-menu.png"
+       alt="sort-menu"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+    </section>
+    </article>
+
+    <article class="docs-article" id="section-7"><header class="docs-header"><h1 class="docs-heading">POS</h1> <p>Get full details on Cloud POS in its corresponding docs Page:</p><p><a href="cloud-pos.html">Cloud POS</a></p></header></article>
+    <article class="docs-article" id="section-8">
+      <header class="docs-header"><h1 class="docs-heading">Menu</h1></header>
+      <p>This section is very important as it is responsible for monitoring and keeping an eye on all every product and item sold through the device. It consists of four subsections: Products, Categories, Options, and Family Option.</p>
+      <p>To add products to your menu, you need to first create a category following the steps in explained in the next section.</p>
+      <section class="docs-section" id="item-8-1"><h2 class="section-heading">Categories</h2>
+      <p>To add a category, first, click on ‘menu’ and then on ‘categories’, and the following window will appear empty.</p>
+      <div class="text-center my-4">
+     <img src="assets/images/menu-categories.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+
+      <p>Click on 'Add category,' and this window will pop up:</p>
+      <div class="text-center my-4">
+     <img src="assets/images/add-category.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+      <p>Follow these simple fill-in steps to add a category:</p>
+      <ul>
+        <li><strong>Name:</strong> Enter the category name you want for your product (soup, sandwich, drink...).</li>
+        <li><strong>Description:</strong> You can add a description here, but it's optional.</li>
+        <li><strong>Tags:</strong> This is how the software will identify your category when your client types it on the kiosk screen. Keep it simple and general (it can be the same as the name). Once chosen, click 'enter' to save it.</li>
+      <p>Once everything is set, add an image to your product, then click 'SUBMIT.'</p>
+      </ul>
+    
+    </section>
+      <section class="docs-section" id="item-8-2"><h2 class="section-heading">Products</h2>
+      <p>After finalizing the creation of a category (for example: Hot Drinks), we can now add the products that belong to this respective category.</p>
+      <p>Products are the various items and goods available for selection or purchase. Each product has distinct characteristics that you can customize using the option feature, For instance, if you're ordering a burger, the burger is the "Product,” and within this product, you can then select various options like the type of bread, the size, or any additional toppings.</p>
+       <div class="text-center my-4">
+     <img src="assets/images/menu-products.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+
+      <p>To add a new product, click on “Add product,” and this window will pop up. Follow the fill-in process illustrated in the image below:</p>
+       <div class="text-center my-4">
+     <img src="assets/images/add-product.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+      <ul>
+        <li><strong>Name:</strong> Enter your desired product’s name.</li>
+        <li><strong>Name (Arabic):</strong> Write the product's name in Arabic, if applicable.</li>
+        <li><strong>Category:</strong> Select the appropriate category under which the product falls.</li>
+        <li><strong>Price:</strong> Specify the price you want for your product.</li>
+        <li><strong>Max Quantity:</strong> Define the maximum quantity of the product allowed per order, if applicable.</li>
+        <li><strong>Status:</strong> Indicate the current status of the product, whether enabled (available) or disabled (not available).</li>
+        <li><strong>Barcode:</strong> Assign a unique barcode to the product.</li>
+        <li><strong>Ref:</strong> Include a reference number for internal tracking.</li>
+        <li><strong>Action:</strong> Choose the action associated with the product (for example, search POS+ and enter SKU).</li>
+        <li><strong>Tags:</strong> Add relevant tags for easy categorization and search. Make sure to press “Enter” on your keyboard for the tag to be correctly added.</li>
+        <li><strong>Upselling:</strong> Specify if the product is part of an upselling strategy.</li>
+        <li><strong>Display:</strong> Set the preferred display options for the product (enabled or disabled). </li>
+        <li><strong>Available for a Limited Time:</strong> If applicable, indicate whether the product is available for a limited time.</li>
+        <li><strong>Description:</strong> Provide a comprehensive description of the product if needed.</li>
+        <li><strong>Image:</strong> Upload an image of the product for a clear visual representation.</li>
+        <li><strong>Description (Arabic):</strong> Include the product description in Arabic, if applicable.</li>
+        <p>Once done, click n “SUBMIT” to save your new product!</p>
+      </ul>
+    </section>
+
+      <section class="docs-section" id="item-8-3"><h2 class="section-heading">Family Option</h2>
+        <p>Similarly to the logic used in  “Categories” and “Products”, this section refers to the overall set to which a specific option belongs. For example, "size" is the family option that includes different sizes like small, medium, large, and extra-large; it represents the broader set of choices within a particular product option.</p>
+       <p>We can break it down as follows:</p>
+       <ul>
+        <li>Family Option: Cup size</li>   
+        <li>Option: (e.g.,small S, medium M, large L, and extra large XL)</li>    
+      </ul>
+       
+        <div class="text-center my-4">
+     <img src="assets/images/add-family-option.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+
+      <p>Click on ‘Add family option', and the following window appears:</p>
+       <div class="text-center my-4">
+     <img src="assets/images/adding-family-option.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+      <ul>
+        <li>Insert a desired name.</li>
+        <li>As for the type: you will have two options: one-select or Multi-select.</li>
+        <li>Choose according to the number of selections you want your client to have in this specific option.</li>
+        <div class="text-center my-4">
+     <img src="assets/images/typ-family.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+      </ul>
+      <ul>
+        <li>Add a description optionally.</li>
+        <li>Add an image to illustrate your family option (optional)</li>
+        <li>Then click on submit.</li>
+      </ul>
+      </section>
+
+      <section class="docs-section" id="item-8-4"><h2 class="section-heading">Options</h2>
+       <p>Options are the specific choices or variations you can select within a product; think of them as the detailed features or characteristics you pick when customizing an item or a product.</p>
+       <p>After adding a “family option,” you can now add your options, You need to first click on the third section in the menu, which is:  «Options. </p>
+       <p>The following window will appear:</p>
+       <div class="text-center my-4">
+     <img src="assets/images/menu-options.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+      <p>Follow these steps to add your desired options :</p>
+        <li>Click on ‘Add option’, and the following window appears:</li>
+         <div class="text-center my-4">
+     <img src="assets/images/add-option.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+      <p>The filling process is similar to that for categories, except you will need to :</p>
+      <ul>
+        <li>Add the price you want on the right.</li>
+        <li>And a Family Option if found.</li>
+        <li>Then click on Submit.</li>
+
+        <p>As explained earlier, the goal of this feature is to customize products using desired options. To add a product option:</p>
+        <li>First, scroll back to the “Products” section then, click on “Add product” as we previously mentioned. Once your new product has been added, you may add options to it by clicking on “Options” next to "Information.”</li>
+        <div class="text-center my-4">
+     <img src="assets/images/add-option-to-product.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+
+      <div class="text-center my-4">
+     <img src="assets/images/update-product.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+      </ul>
+      </section>
+
+      <section class="docs-section" id="item-8-5"><h2 class="section-heading">Menu Group</h2>
+      <p>Diving into the Menu Group, the last subsection within the extensive Menu section. This feature allows you to categorize your offerings based on specific criteria, enhancing the browsing experience for your customers. </p>
+      <p>As shown in the illustration below, you can arrange your products under their respective categories, such as hot drinks, cold drinks, sandwiches, donuts, and more. Within categories, you can categorize items based on different section types shown as “Name” in the image, like kiosk, tablet, B2B, dine-in, or take-away. Based on their intended use or distribution channel, your products can be presented in a dynamic form with this multi-layered categorization system.</p>
+      <div class="text-center my-4">
+     <img src="assets/images/menu-group.png"
+       alt="menu-group"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+      <p>Click on “Add Menu Group”, then add a name for your menu group, select the client, and make sure to enable the status as seen below:</p>
+      <div class="text-center my-4">
+     <img src="assets/images/add-menu-group.png"
+       alt="add-menu-group"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+      </section>
+    </article>
+
+    <article class="docs-article" id="section-9"><header class="docs-header"><h1 class="docs-heading">Inventory</h1><p><a href="inventory.html">Go to Inventory Page</a></p></header></article>
+
+
+    <article class="docs-article" id="section-10">
+      <header class="docs-header"><h1 class="docs-heading">Marketing</h1></header>
+      <p>The marketing section of our system is mainly for your promotional activities to engage with your customers effectively. Within this section, you'll find several subsections to manage different aspects of your marketing strategy.</p>
+      <section class="docs-section" id="item-10-1"><h2 class="section-heading">Advertisements</h2>
+      <p>You can create a variety of ad formats in the advertisement section. To ensure maximum engagement, the advertisements can be customized to highlight a unique offer or promote a particular product. These ads can be tailored for either:</p>
+      <li>Full-screen ads are an ideal choice to promote special offers or present featured products because they capture viewers with eye-catching imagery. </li>
+      <li>Header or Footer Ad: Place ads at the top or bottom of the screen in a way that maximizes visibility while minimizing user experience disruption. Ideal for showcasing highlighted goods or advertising temporary promotions.</li>
+      <li>QR Menu: Provide a contactless browsing experience; this is particularly helpful when exhibiting a range of goods or services. Suitable for restaurants, cafés, or businesses that offer diverse products.</li>
+      <div class="text-center my-4">
+     <img src="assets/images/ads.png"
+       alt="ads"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+     </div>
+     <p>Follow these steps to add an Ad:</p>
+     <div class="text-center my-4">
+     <img src="assets/images/add-an-ad.png"
+       alt="add-an-ad"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+     </div>
+    </section>
+
+      <section class="docs-section" id="item-10-2"><h2 class="section-heading">Customers</h2>
+      <p>Within the Customers page, we have a set of parameters that provide comprehensive information about each customer:</p>
+      <ul>
+        <li><strong>#ID (Customer ID):</strong> A unique identifier assigned to each customer for easy reference and tracking purposes.</li>
+        <li><strong>Name:</strong> The customer's full name.</li>
+        <li><strong>Type:</strong> Specifies the type or category to which the customer belongs, either a company or an individual.</li>
+        <li><strong>Phone: </strong>The contact number associated with the customer, facilitating communication.</li>
+        <li><strong>Status:</strong> Indicates the current status of the customer, either enabled or disabled.</li>
+        <li><strong>Action: </strong> This section includes three icons, each serving a distinct purpose. The first blue icon allows for viewing the customer's details. The second blue icon, represented by a pen, enables the editing of customer details at any given time.</li>
+        <li>The last icon, in red, serves to permanently delete a customer from the list.</li>
+        <div class="text-center my-4">
+     <img src="assets/images/customers.png"
+       alt="customers"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+     </div>
+      </ul>
+      </section>
+      <section class="docs-section" id="item-10-3"><h2 class="section-heading">Coupons</h2>
+      <p>They are the promotional codes that provide discounts or special offers for your products. You can create, manage, and apply them to specific products or orders. To do so, navigate to the Add Coupon button in blue and click on it:</p>
+      <div class="text-center my-4">
+     <img src="assets/images/coupons.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+      <p>Adding a coupon can be done by following the filling process in the following illustrated image:</p>
+       <div class="text-center my-4">
+     <img src="assets/images/add-coupon.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+    <p>After adding a new coupon, you can always view its details, update it, and/or delete it. Utilize the actions represented by the small icons (blue and red) on the extreme right:</p>
+    <ul>
+      <li><strong>Details: </strong>Get comprehensive information about your coupon.</li>
+      <li><strong>Update: </strong>Modify existing coupon details.</li>
+      <li><strong>Delete: </strong>Remove a coupon from the system.</li>
+    </ul>
+    </section>
+
+      <section class="docs-section" id="item-10-4"><h2 class="section-heading">Groups</h2>
+      <p>The <strong>Groups</strong> subsection is aimed at organizing and promoting specific product sets and creating and managing product groups based on various criteria. To maximize group management efficiency, we can take multiple actions, such as view details, update, and delete any group at any given moment.</p>
+      <div class="text-center my-4">
+     <img src="assets/images/groups.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+      <p>To “Add Group,” follow the illustrated filling process:</p>
+      <div class="text-center my-4">
+     <img src="assets/images/add-group.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+    </section>
+      <section class="docs-section" id="item-10-5"><h2 class="section-heading">Offers</h2>
+      <p>The offers section is where you create and manage special discounts for your consumers. When you make an offer, you may tailor it to exactly what you want to accomplish in your marketing. This might include immediate discounts or special treats for your frequent consumers. Offers can be modified and updated at any time.</p>
+      <div class="text-center my-4">
+     <img src="assets/images/offers.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+      <p>“Add Offer” for product. You can add different types of offers:</p>
+      <ul>
+        <li><strong>Amount: </strong>allows you to provide a fixed monetary discount; for instance, you might offer 5SAR off on a purchase.</li>
+        <li><strong>Percentage: </strong>You can offer a percentage discount on the total price; for example, you could offer a 50% discount on selected items.</li>
+        <li><strong>Final Price: </strong>This offer form allows you to set a final price for a product, regardless of its original cost. For example, if an espresso originally costs 10SAR, you can set a final price of 8SAR for a limited-time promotion.</li>
+      </ul>
+      <div class="text-center my-4">
+     <img src="assets/images/add-offer-product.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+    </section>
+    </article>
+
+    <article class="docs-article" id="section-11">
+      <header class="docs-header"><h1 class="docs-heading">Reporting</h1></header>
+      <section class="docs-section" id="item-11-1"><h2 class="section-heading">Orders</h2>
+      <P>Provides a comprehensive overview of every order processed across all locations:</P>
+      <ul>
+        <li><strong>Order Summary: </strong>View total orders by type; dine-in, takeaway, delivery, online.</li>
+        <li><strong>Time Filters: </strong>Analyze daily, weekly, monthly, or custom date ranges.</li>
+        <li><strong>Status Tracking: </strong>Monitor orders by status (completed, pending, canceled, voided).</li>
+        <li><strong>Detailed View: </strong>Click into each order to see items ordered, quantities, modifiers, total amounts, customer info, and timestamps.</li>
+        <div class="text-center my-4">
+     <img src="assets/images/report-orders.png"
+       alt="report-orders"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+      </ul>
+      </section>
+     
+      <section class="docs-section" id="item-11-2"><h2 class="section-heading">Inventory Sales</h2>
+      <p>Allows tracking of stock consumption directly linked to sales:</p>
+      <li>Product Usage Tracking: Shows how much ingredient or item was consumed based on completed orders.</li>
+      <li>Time-Based Analysis: Display consumption data over daily, weekly, or monthly intervals.</li>
+      <li>Low-Stock Alerts: Automatically flag items with consumption nearing reorder threshold.</li>
+      <li>CSV Export: Download data for inventory reconciliation or audit purposes.</li>
+      <div class="text-center my-4">
+     <img src="assets/images/inventory-sales.png"
+       alt="inventory-sales"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+      </div>
+      </section>
+
+      <section class="docs-section" id="item-11-3">
+  <h2 class="section-heading">Charts</h2>
+  <p>The Charts section provides an interactive data visualization suite that helps managers and decision-makers quickly analyze performance metrics through visual graphs. It’s designed to offer an intuitive and insightful view of operations across products, sales trends, and other KPIs.</p>
+
+  <p>This feature supports three major types of charts, each tailored to different analysis needs:</p>
+  <ul>
+    <li><strong>Pie Chart (Circle):</strong> Great for showing proportions and category distribution (e.g., product sales contribution).</li>
+    <li><strong>Line Chart:</strong> Ideal for viewing trends over time, such as sales growth or traffic patterns.</li>
+    <li><strong>Bar Chart:</strong> Perfect for comparing sales volumes, products, or branches over a selected period.</li>
+  </ul>
+
+  <div class="text-center my-4">
+    <img src="assets/images/charts.png"
+      alt="charts overview"
+      class="img-thumbnail shadow-sm zoom-effect"
+      style="max-width: 500px; width: 100%; cursor: pointer;"
+      data-bs-toggle="modal"
+      data-bs-target="#imageModal1">
+  </div>
+
+  <h3 class="section-heading mt-5">How to Generate a Chart</h3>
+  <p>To create a chart, follow these steps. Let's take the example of generating the <strong>Revenue By Products</strong> chart:</p>
+  <ol>
+    <li>First, choose the desired <strong>date range</strong>. For example: <code>2025-01-01 00:00</code> to <code>2025-02-02 23:59</code>.</li>
+    <li>Next, click on the specific chart you want to generate — in this case, <strong>Revenue By Products</strong>.</li>
+    <li>Finally, click on the green <strong>Generate</strong> button to render the chart based on the selected criteria.</li>
+  </ol>
+
+  <div class="text-center my-4">
+    <img src="assets/images/revenue-by-products.png"
+      alt="chart generation example"
+      class="img-thumbnail shadow-sm zoom-effect"
+      style="max-width: 500px; width: 100%; cursor: pointer;"
+      data-bs-toggle="modal"
+      data-bs-target="#imageModal2">
+  </div>
+
+  <p>This tool allows restaurant managers to track performance and make informed decisions based on real-time data. It is especially useful for spotting high-performing items, identifying low-performing categories, and optimizing the menu and pricing strategies accordingly.</p>
+</section>
+</article>
+
+
+  </div>
+</div>
+      </section><!--//section-->
+			  </article><!--//docs-article-->
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Select all images with zoom-effect class
+    const zoomImages = document.querySelectorAll('.zoom-effect');
+
+    zoomImages.forEach(function (img) {
+      img.addEventListener('click', function () {
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = this.src;
+
+        // Show the modal using Bootstrap's method
+        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        imageModal.show();
+      });
+    });
+  });
+</script>
+
+   
+    <!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center">
+        <img id="modalImage" src="#" alt="Zoomed" class="img-fluid rounded">
+      </div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+// === Smart Search Autocomplete ===
+document.addEventListener('DOMContentLoaded', function () {
+  const input = document.querySelector('.search-input');
+  const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link'));
+
+  if (!input) return;
+
+  // Find the container (autocomplete-container) and append inside it
+  const container = input.closest('.autocomplete-container');
+  const suggestionsBox = document.createElement('div');
+  suggestionsBox.className = 'autocomplete-suggestions';
+  container.appendChild(suggestionsBox);
+
+  input.addEventListener('input', function () {
+    const val = this.value.trim().toLowerCase();
+    suggestionsBox.innerHTML = '';
+
+    if (!val) {
+      suggestionsBox.style.display = 'none';
+      return;
+    }
+
+    navLinks.forEach(link => {
+      const text = link.textContent.trim();
+      const lowerText = text.toLowerCase();
+
+      if (lowerText.includes(val)) {
+        const option = document.createElement('div');
+        option.className = 'autocomplete-suggestion';
+
+        const index = lowerText.indexOf(val);
+          const highlighted = 
+           index !== -1
+           ? text.substring(0, index) + 
+           `<mark class="bg-transparent text-primary fw-bold">` +
+            text.substring(index, index + val.length) +
+            '</mark>' +
+            text.substring(index + val.length)
+            : text;
+
+        option.innerHTML = highlighted;
+        option.addEventListener('click', () => {
+          window.location.href = link.href;
+        });
+
+        suggestionsBox.appendChild(option);
+      }
+    });
+
+    suggestionsBox.style.display = suggestionsBox.children.length ? 'block' : 'none';
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!suggestionsBox.contains(e.target) && e.target !== input) {
+      suggestionsBox.innerHTML = '';
+      suggestionsBox.style.display = 'none';
+    }
+  });
+});
+
+
+</script>
+
+<style>
+
+/* Container must stay relative */
+.autocomplete-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Suggestions dropdown */
+.autocomplete-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 2px;
+  right: 2px;
+  background: #fff;
+  z-index: 1050;
+  max-height: 240px;
+  overflow-y: auto;
+  border: 1px solid #dee2e6;
+  border-top: none;
+  border-radius: 0 0 6px 6px; /* Only bottom corners rounded */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  display: none;
+  padding: 0;
+}
+
+/* Suggestion item */
+.autocomplete-suggestion {
+  padding: 10px 14px;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s ease;
+  font-size: 0.95rem;
+}
+
+/* Hover effect */
+.autocomplete-suggestion:hover {
+  background-color: #f0f4ff;
+}
+
+/* Highlighted match */
+.autocomplete-suggestion mark {
+  background: none;
+  color: #5368fd;
+  font-weight: bold;
+}
+
+</style>
+
+
+
+    <footer class="footer">
+
+	    <div class="footer-bottom text-center py-5">
+		    
+		    <ul class="social-list list-unstyled pb-4 mb-0">
+			    <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li> 
+	            <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+	            <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+	            <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+	        </ul><!--//social-list-->
+	        
+	        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+            <small class="copyright">© Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> All Rights Reserved. Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">XR</a>.</small>
+            
+	        
+	    </div>
+	    
+    </footer>
+
+       
+    <!-- Javascript -->          
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    
+    
+    <!-- Page Specific JS -->
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script> 
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+    <script src="assets/js/docs.js"></script> 
+
+</body>
+</html> 
+

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>SmartPrints smart-kitchen-application</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="description" content="SmartPrints Functionnal Documentation For Cloud POS Solution">
+    <meta name="author" content="SmartPrints Team">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome JS-->
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+
+
+
+   <style>
+      .zoom-effect {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .zoom-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+   </style>
+
+   <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+
+</head> 
+
+<body>    
+    <header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid py-2">
+      <div class="row align-items-center">
+        <!-- Logo Left -->
+        <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+          <a class="navbar-brand" href="index.html">
+	          <div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height: 60px;"></a></div>  
+          </a>
+        </div>
+
+        <!-- Search Center -->
+         
+<div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+  <form class="search-form position-relative d-flex justify-content-center">
+    <div class="position-relative w-75 autocomplete-container">
+      <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input pe-5">
+      <div class="autocomplete-suggestions"></div>
+      <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+        <i class="fa-light fa-magnifying-glass text-muted"></i>
+      </button>
+    </div>
+  </form>
+</div>
+
+
+        <!-- Button Right -->
+        <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center">
+          
+          <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderdocs-free-bootstrap-5-documentation-template-for-software-projects/" class="btn btn-primary d-none d-lg-flex">Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header> 
+    
+    <div class="docs-wrapper">
+        <!-- Social Media Sidebar -->
+        <div class="social-sidebar d-none d-lg-flex">
+          <ul class="social-sidebar">
+         <li onclick="activateIcon(this)"><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="#" id="lang-toggle" onclick="window.location.href='arabic.html';"><i class="fa-solid fa-globe fa-fw"></i></a></li>
+        </ul>
+        </div>
+
+  <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+  <div class="top-search-box">
+    <form class="search-form">
+      <div class="position-relative w-100 autocomplete-container">
+       <input type="text" class="form-control search-input rounded-top" placeholder="Search the docs...">
+       <div class="autocomplete-suggestions"></div>
+     </div>
+    </form>
+  </div>
+</div>
+
+      <div id="docs-sidebar" class="docs-sidebar">
+  <nav id="docs-nav" class="docs-nav navbar">
+    <ul class="section-items list-unstyled nav flex-column pb-3">
+
+      <li class="nav-item section-title">
+        <a class="nav-link scrollto active" href="#section-1">
+          <span class="theme-icon-holder me-2"><i class="fas fa-utensils"></i></span>Smart Kitchen Application
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Introducing the App</a></li>
+      
+      <li class="nav-item section-title">
+        <a class="nav-link scrollto active" href="#section-2">
+          <span class="theme-icon-holder me-2"><i class="fas fa-utensils"></i></span>Smart Ordering
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">How Orders Work</a></li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-3">
+          <span class="theme-icon-holder me-2"><i class="fas fa-tools"></i></span>Features
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Multi-Station Displays</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Real-Time Order Updates</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-3">Cloud Management</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-4">POS Integration</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-5">Customizable Views</a></li>
+      
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-4">
+          <span class="theme-icon-holder me-2"><i class="fas fa-chart-line"></i></span>Smart Customer Display
+        </a>
+      </li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-5">
+          <span class="theme-icon-holder me-2"><i class="fas fa-chart-line"></i></span>Benefits
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">Order Accuracy</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2">Workflow Optimization</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-5-3">Staff Efficiency</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-5-4">Insightful Reporting</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-5-5">Scalable Packages</a></li>
+
+    </ul>
+  </nav>
+</div>
+</nav><!--//docs-nav-->
+	  </div><!--//docs-sidebar-->
+
+	    <div class="docs-content">
+  <div class="container">
+
+    <article class="docs-article" id="section-1">
+  <header class="docs-header">
+    <h1 class="docs-heading">Smart Kitchen Application</h1>
+  </header>
+
+  <section class="docs-section" id="item-1-1">
+        <h2 class="section-heading">Introducing the Application</h2>
+       <p>The Smart Kitchen application is a real-time kitchen management system designed to optimize back-of-house operations. It provides direct, organized visibility over customer orders, ensuring seamless communication between POS systems and kitchen staff.</p>  
+         <div class="text-center my-4">
+     <img src="assets/images/kitchen-app.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+     </div>
+
+     <p>Once you click ‘lunch’, the following window opens:</p>
+    <div class="text-center my-4">
+     <img src="assets/images/kitchen-app-start.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+     </div>
+     </section><!--//section-->
+	</article><!--//docs-article-->
+
+
+    <article class="docs-article" id="section-2">
+      <header class="docs-header">
+        <h1 class="docs-heading">Smart Ordering</h1>
+      </header>
+
+      <section class="docs-section" id="item-2-1">
+        <h2 class="section-heading">How Orders Work</h2>
+        <p>Orders go through multiple statuses during the preparation phase. Each is color-coded for quick kitchen staff recognition.</p>
+
+         <div class="container">
+    <div class="table-responsive d-flex justify-content-center">
+      <table class="table table-bordered custom-table w-75">
+        <tbody>
+          <!-- Row 1 -->
+          <tr>
+            <td>
+              <p class="table-paragraph"><strong>Placed Order:</strong> New order placed from kiosk or smart menu.</p>
+                 <div class="text-center my-4">
+                  <img src="assets/images/order-green.png"
+                    alt="order placed"
+                    class="img-thumbnail shadow-sm zoom-effect"
+                    style="max-width: 500px; width: 100%; cursor: pointer ;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#imageModal1">
+                </div><br>
+                <p class="table-paragraph"><strong>Active Order:</strong> after clicking on the green "Active button" the order becomes Active, meaning currently being prepared.</p>
+            <div class="d-flex justify-content-center gap-4 mb-4">
+             
+              <div>
+               <img src="assets/images/order-green-accept.png"
+                alt="order accepted"
+                class="img-thumbnail shadow-sm zoom-effect"
+                style="max-width: 380px; width: 100%; cursor: pointer;"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal1">
+             </div>
+             <div>
+              <img src="assets/images/order-green-active.png"
+                 alt="order active"
+                class="img-thumbnail shadow-sm zoom-effect"
+                style="max-width: 380px; width: 100%; cursor: pointer;"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal2">
+            </div>
+          </div><br>
+          <p class="table-paragraph"><strong>On Hold (Blue):</strong> Order is temporarily paused.</p>     
+              <div class="text-center my-4">
+                  <img src="assets/images/order-on-hold.png"
+                    alt="Order Done"
+                    class="img-thumbnail shadow-sm zoom-effect"
+                    style="max-width: 500px; width: 100%; cursor: pointer ;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#imageModal1">
+                </div> <br>
+          <p class="table-paragraph"><strong>Order Done:</strong> after clicking on the green "Done" the order passes to the history and becomes Done.</p>     
+              <div class="text-center my-4">
+                  <img src="assets/images/order-done.png"
+                    alt="Order Done"
+                    class="img-thumbnail shadow-sm zoom-effect"
+                    style="max-width: 500px; width: 100%; cursor: pointer ;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#imageModal1">
+                </div> 
+                <p class="table-paragraph"></p><li><strong>History (Yellow):</strong> Orders completed or aborted. Subtypes include:
+            <ul>
+              <li><strong>Done Orders</strong></li>
+              <li><strong>Canceled Orders (Red: admin-canceled)</strong></li>
+            </ul>
+          </li></p>
+          <div class="text-center my-4">
+                  <img src="assets/images/canceled-order.png"
+                    alt="Order Done"
+                    class="img-thumbnail shadow-sm zoom-effect"
+                    style="max-width: 500px; width: 100%; cursor: pointer ;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#imageModal1">
+                </div> 
+                 <p class="table-paragraph"><li><strong>Delayed Order (Orange/Red):</strong> Orders delayed to serve or complete turn into yellow, then red if the delay time is very important.</p>
+                 <div class="text-center my-4">
+                  <img src="assets/images/delayed-order.png"
+                    alt="Order Done"
+                    class="img-thumbnail shadow-sm zoom-effect"
+                    style="max-width: 500px; width: 100%; cursor: pointer ;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#imageModal1">
+                </div> <br>
+                <div class="text-center my-4">
+                  <img src="assets/images/delayed-canceled.png"
+                    alt="Order Done"
+                    class="img-thumbnail shadow-sm zoom-effect"
+                    style="max-width: 500px; width: 100%; cursor: pointer ;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#imageModal1">
+                </div> 
+                </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Table Styling */
+.custom-table {
+  border-collapse: collapse;
+  background-color: #fdfdfe;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.custom-table td {
+  border: 1px solid #ddd;
+  padding: 1.25rem;
+  vertical-align: top;
+  background-color: #ffffff;
+}
+
+.custom-table td p {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.custom-table img {
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+
+/* Optional: Hover effect */
+.custom-table tr:hover td {
+  background-color: #f4f8ff;
+}
+</style>
+
+  </section>
+
+    <article class="docs-article" id="section-3">
+      <header class="docs-header"><h1 class="docs-heading">Features</h1></header>
+
+      <section class="docs-section" id="item-3-1">
+        <h2 class="section-heading">Multi-Station Displays</h2>
+        <p>Items from each order are routed to relevant restaurat stations/tables (e.g., T1: grill, salad, desserts, T2: capputccino, water...) to minimize clutter and preparation overlap.</p>
+        
+      </section>
+
+      <section class="docs-section" id="item-3-2">
+        <h2 class="section-heading">Real-Time Order Updates</h2>
+        <p>Orders appear instantly upon confirmation from POS, allowing chefs to start preparation without delay.</p>
+      
+      </section>
+
+      <section class="docs-section" id="item-3-3">
+        <h2 class="section-heading">Cloud Management</h2>
+        <p>Administrators can access all kitchen order data from any browser-enabled device to make changes or review operations remotely.</p>
+      </section>
+
+      <section class="docs-section" id="item-3-4">
+        <h2 class="section-heading">POS Integration</h2>
+        <p>The Smart Kitchen Application integrates seamlessly with Smart POS and Kiosk systems to receive orders instantly with full details.</p>
+      </section>
+
+      <section class="docs-section" id="item-3-5">
+        <h2 class="section-heading">Customizable Views</h2>
+        <p>Kitchen staff can filter and view orders by preparation time, priority, or categories for faster processing.</p>
+      </section>
+    </article>
+
+    <article class="docs-article" id="section-4">
+      <header class="docs-header"><h1 class="docs-heading">Smart Customer Display</h1></header>
+        <p>The “Smart Customer Display” shows kiosk order statuses in real time — whether they are in preparation or ready for pickup — as illustrated below:</p>
+        <div class="text-center my-4">
+          <img src="assets/images/kitchen-display.jpg" alt="kitchen-display" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#imageModal1">
+        </div>
+      </section>
+    </article>
+
+    <article class="docs-article" id="section-5">
+      <header class="docs-header"><h1 class="docs-heading">Benefits</h1></header>
+
+      <section class="docs-section" id="item-5-1"><h2 class="section-heading">Order Accuracy</h2>
+        <p>Automated order reception eliminates the risk of human errors, ensuring that each order is executed precisely as requested.</p>
+      </section>
+
+      <section class="docs-section" id="item-5-2"><h2 class="section-heading">Workflow Optimization</h2>
+        <p>With structured order queues and station segmentation, kitchens can handle more orders in less time with fewer bottlenecks.</p>
+      </section>
+
+      <section class="docs-section" id="item-5-3"><h2 class="section-heading">Staff Efficiency</h2>
+        <p>Task assignments by station allow kitchen personnel to focus only on their relevant items, improving output and reducing miscommunication.</p>
+      </section>
+
+      <section class="docs-section" id="item-5-4"><h2 class="section-heading">Insightful Reporting</h2>
+        <p>Historical order and performance data offer insights into trends, bottlenecks, and optimization opportunities.</p>
+      </section>
+
+      <section class="docs-section" id="item-5-5"><h2 class="section-heading">Scalable Packages</h2>
+        <p>Whether you're a single-store kitchen or a large restaurant chain, Smart Kitchen offers scalable plans to match your size and operational goals.</p>
+      
+</section><!--//section-->
+</article><!--//docs-article-->
+
+  </div><!--//container-->
+</div><!--//docs-content-->
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Select all images with zoom-effect class
+    const zoomImages = document.querySelectorAll('.zoom-effect');
+
+    zoomImages.forEach(function (img) {
+      img.addEventListener('click', function () {
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = this.src;
+
+        // Show the modal using Bootstrap's method
+        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        imageModal.show();
+      });
+    });
+  });
+</script>
+
+   
+    <!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center">
+        <img id="modalImage" src="#" alt="Zoomed" class="img-fluid rounded">
+      </div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+// === Smart Search Autocomplete ===
+document.addEventListener('DOMContentLoaded', function () {
+  const input = document.querySelector('.search-input');
+  const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link'));
+
+  if (!input) return;
+
+  // Find the container (autocomplete-container) and append inside it
+  const container = input.closest('.autocomplete-container');
+  const suggestionsBox = document.createElement('div');
+  suggestionsBox.className = 'autocomplete-suggestions';
+  container.appendChild(suggestionsBox);
+
+  input.addEventListener('input', function () {
+    const val = this.value.trim().toLowerCase();
+    suggestionsBox.innerHTML = '';
+
+    if (!val) {
+      suggestionsBox.style.display = 'none';
+      return;
+    }
+
+    navLinks.forEach(link => {
+      const text = link.textContent.trim();
+      const lowerText = text.toLowerCase();
+
+      if (lowerText.includes(val)) {
+        const option = document.createElement('div');
+        option.className = 'autocomplete-suggestion';
+
+        const index = lowerText.indexOf(val);
+          const highlighted = 
+           index !== -1
+           ? text.substring(0, index) + 
+           `<mark class="bg-transparent text-primary fw-bold">` +
+            text.substring(index, index + val.length) +
+            '</mark>' +
+            text.substring(index + val.length)
+            : text;
+
+        option.innerHTML = highlighted;
+        option.addEventListener('click', () => {
+          window.location.href = link.href;
+        });
+
+        suggestionsBox.appendChild(option);
+      }
+    });
+
+    suggestionsBox.style.display = suggestionsBox.children.length ? 'block' : 'none';
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!suggestionsBox.contains(e.target) && e.target !== input) {
+      suggestionsBox.innerHTML = '';
+      suggestionsBox.style.display = 'none';
+    }
+  });
+});
+
+
+</script>
+
+<style>
+
+/* Container must stay relative */
+.autocomplete-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Suggestions dropdown */
+.autocomplete-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 2px;
+  right: 2px;
+  background: #fff;
+  z-index: 1050;
+  max-height: 240px;
+  overflow-y: auto;
+  border: 1px solid #dee2e6;
+  border-top: none;
+  border-radius: 0 0 6px 6px; /* Only bottom corners rounded */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  display: none;
+  padding: 0;
+}
+
+/* Suggestion item */
+.autocomplete-suggestion {
+  padding: 10px 14px;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s ease;
+  font-size: 0.95rem;
+}
+
+/* Hover effect */
+.autocomplete-suggestion:hover {
+  background-color: #f0f4ff;
+}
+
+/* Highlighted match */
+.autocomplete-suggestion mark {
+  background: none;
+  color: #5368fd;
+  font-weight: bold;
+}
+
+</style>
+
+
+
+    <footer class="footer">
+
+	    <div class="footer-bottom text-center py-5">
+		    
+		    <ul class="social-list list-unstyled pb-4 mb-0">
+			    <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li> 
+	            <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+	            <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+	            <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+	        </ul><!--//social-list-->
+	        
+	        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+            <small class="copyright">© Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> All Rights Reserved. Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">XR</a>.</small>
+            
+	        
+	    </div>
+	    
+    </footer>
+
+       
+    <!-- Javascript -->          
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    
+    
+    <!-- Page Specific JS -->
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script> 
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+    <script src="assets/js/docs.js"></script> 
+
+</body>
+</html> 
+

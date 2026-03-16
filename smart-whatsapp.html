@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>SmartPrints -smart-kiosk-solution</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="description" content="SmartPrints Functionnal Documentation For Cloud POS Solution">
+    <meta name="author" content="SmartPrints Team">   
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome JS-->
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+
+     <!-- GOJS Library -->  
+    <script src="https://cdn.jsdelivr.net/npm/gojs/release/go.js"></script>
+
+
+
+
+   <style>
+      .zoom-effect {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .zoom-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+   </style>
+
+   <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+
+</head> 
+
+<body>    
+    <header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid py-2">
+      <div class="row align-items-center">
+        <!-- Logo Left -->
+        <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+          <a class="navbar-brand" href="index.html">
+	          <div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height: 60px;"></a></div>  
+          </a>
+        </div>
+
+        <!-- Search Center -->
+         
+<div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+  <form class="search-form position-relative d-flex justify-content-center">
+    <div class="position-relative w-75 autocomplete-container">
+      <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input pe-5">
+      <div class="autocomplete-suggestions"></div>
+      <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+        <i class="fa-light fa-magnifying-glass text-muted"></i>
+      </button>
+    </div>
+  </form>
+</div>
+
+
+        <!-- Button Right -->
+        <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center">
+          
+          <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderdocs-free-bootstrap-5-documentation-template-for-software-projects/" class="btn btn-primary d-none d-lg-flex">Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header> 
+    
+    <div class="docs-wrapper">
+        <!-- Social Media Sidebar -->
+        <div class="social-sidebar d-none d-lg-flex">
+          <ul class="social-sidebar">
+         <li onclick="activateIcon(this)"><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="#" id="lang-toggle" onclick="window.location.href='arabic.html';"><i class="fa-solid fa-globe fa-fw"></i></a></li>
+        </ul>
+        </div>
+
+  <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+  <div class="top-search-box">
+    <form class="search-form">
+      <div class="position-relative w-100 autocomplete-container">
+       <input type="text" class="form-control search-input rounded-top" placeholder="Search the docs...">
+       <div class="autocomplete-suggestions"></div>
+     </div>
+    </form>
+  </div>
+</div>
+
+    <div id="docs-sidebar" class="docs-sidebar">
+  <nav id="docs-nav" class="docs-nav navbar">
+    <ul class="section-items list-unstyled nav flex-column pb-3">
+      <li class="nav-item section-title">
+        <a class="nav-link scrollto active" href="#section-1">
+          <span class="theme-icon-holder me-2"><i class="fab fa-whatsapp"></i></span>Smart WhatsApp
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Overview</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">Conversation Flow</a></li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-2">
+          <span class="theme-icon-holder me-2"><i class="fas fa-cogs"></i></span>Ordering Through Chat
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">Initial Smart WhatsApp Converstation</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">Selecting Menu Items</a></li>
+      
+       <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-3">
+          <span class="theme-icon-holder me-2"><i class="fas fa-cogs"></i></span>Integrations & Features
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Bilingual Interaction</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Point of Sale (POS)</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-3">Payment Integration</a></li>
+     
+       <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-4">
+          <span class="theme-icon-holder me-2"><i class="fas fa-cogs"></i></span>Conclusion
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+
+	    <div class="docs-content">
+  <div class="container">
+
+    <!-- Section 1 : Smart WhatsApp -->
+
+<article class="docs-article" id="section-1">
+  <header class="docs-header">
+    <h1 class="docs-heading">Smart WhatsApp</h1>
+  </header>
+
+  <!-- Overview -->
+  <section class="docs-section" id="item-1-1">
+    <h2 class="section-heading">Overview</h2>
+    <div class="container my-4">
+      <p>
+        Smart WhatsApp is a conversational ordering solution that integrates directly into WhatsApp, allowing customers to interact with a restaurant or retail brand through a simple chat interface. Instead of browsing a web menu or downloading an app, customers can place their orders, receive support, and track updates through the same platform they already use daily.
+      </p>
+      <p>
+        The solution automates menu browsing, order placement, delivery or pickup selection, payment processing, and real-time status updates. By connecting seamlessly with the Point of Sale (POS) and back-office systems, Smart WhatsApp ensures accuracy, speed, and convenience while keeping the experience entirely chat-based and natural for customers.
+      </p>
+      <p>
+        Beyond ordering, Smart WhatsApp also enables personalized upselling, customer support automation, and secure handling of payments and customer data. This makes it an all-in-one conversational commerce tool that fits into the daily habits of customers.
+      </p>
+    </div>
+  </section>
+
+  <!-- Conversation Flow -->
+<section class="docs-section" id="item-1-2">
+  <h2 class="section-heading">Conversation Flow</h2>
+  <div class="container my-4">
+    <div class="row align-items-center">
+      <!-- Text Left -->
+      <div class="col-lg-7 col-md-12">
+        <p>
+          The Smart WhatsApp chatbot guides customers through a structured conversation flow designed to replicate the ordering process in a natural chat format. The steps are:
+        </p>
+        <ul>
+          <li><strong>Greeting:</strong> The chatbot welcomes the customer and shows available menu categories.</li>
+          <li><strong>Product Selection:</strong> Customers browse menu items, choose customizations, and confirm quantity.</li>
+          <li><strong>Upselling:</strong> The chatbot suggests complementary products or promotions.</li>
+          <li><strong>Delivery or Pickup:</strong> The chatbot asks for the customer’s location (for delivery) or provides branch options (for pickup).</li>
+          <li><strong>Payment:</strong> The chatbot generates a secure payment link or confirms cash-on-delivery options.</li>
+          <li><strong>Order Tracking:</strong> Customers receive notifications such as “Order confirmed,” “In preparation,” and “Out for delivery.”</li>
+        </ul>
+        <p>
+          This conversational structure minimizes effort from the customer and makes the ordering experience faster and more intuitive than traditional methods.
+        </p>
+      </div>
+
+      <!-- Image conversation workflow -->
+      <div class="col-lg-5 col-md-12 text-center">
+        <img src="assets/images/Smart-WhatsApp.png" 
+             alt="How it works" 
+             class="img-thumbnail shadow-sm zoom-effect" 
+             style="max-width: 500px; width: 100%;">
+      </div>
+    </div>
+  </div>
+</section>
+</article>
+
+
+<!-- Section 2: Ordering Through Chat -->
+<article class="docs-article" id="section-2">
+  <header class="docs-header"><h1 class="docs-heading">Ordering Through Chat</h1></header>
+
+  <!-- Initial Conversation -->
+  <section class="docs-section" id="item-2-1">
+    <h2 class="section-heading">Initial Smart WhatsApp Conversation</h2>
+    <div class="container my-4">
+      <div class="row align-items-center">
+        <!-- Text Left -->
+        <div class="col-lg-7 col-md-12">
+         <p>
+The ordering process begins when the customer initiates a conversation with the restaurant’s official WhatsApp number. 
+Upon receiving the first message, the Smart WhatsApp chatbot automatically recognizes the intent and triggers the onboarding flow. 
+It greets the user with a personalized welcome message, which can include the restaurant name, current offers, and a short introduction to the available services (e.g., “Order Delivery,” “Self Pickup,” or “Track Order”).
+</p>
+<p>
+The chatbot leverages WhatsApp’s interactive messaging framework to  ensures an intuitive, guided experience for all customer segments, including those less familiar with online ordering.
+</p>
+
+<p>
+Behind the scenes, the chatbot communicates with the restaurant’s <strong>POS system</strong> or <strong>menu API</strong> to fetch the latest menu categories, featured products, and promotions dynamically. 
+This ensures that every user always receives accurate data synchronized with current inventory, pricing, and seasonal offerings.
+</p>
+
+<p>
+Each incoming message from the user is processed through the chat intent parser, which validates context and maintains the state of the conversation. 
+This enables the chatbot to resume incomplete orders, recognize returning users, and continue seamlessly from where the last interaction stopped. 
+For example, if a customer previously added items but didn’t finalize payment, the chatbot can automatically ask, “Would you like delivery or pickup ?” to proceed with the checkout.
+</p>
+
+<p>
+The initial stage concludes once the customer selects a preferred menu category or begins browsing items. 
+This structured initiation flow reduces friction, increases engagement, and ensures consistent data exchange between the chatbot interface, WhatsApp API, and the back-end ordering engine.
+</p>
+        </div>
+        <!-- Image ask whatsapp-->
+        <div class="col-lg-5 col-md-12 text-center">
+          <img src="assets/images/smart-whatsapp-ask.png"
+               alt="smart whatsapp ask"
+               class="img-thumbnail shadow-sm zoom-effect"
+               style="max-width: 250px; width: 100%; cursor: pointer;"
+               data-bs-toggle="modal"
+               data-bs-target="#imageModal1">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Selecting Menu Items -->
+  <section class="docs-section" id="item-2-2">
+    <h2 class="section-heading">Selecting Menu Items</h2>
+    <div class="container my-4">
+      <div class="row align-items-center">
+        <!-- Text Left -->
+        <div class="col-lg-7 col-md-12">
+          <p>
+Once the digital menu is displayed within the WhatsApp chat, customers can select items using predefined inputs such as numeric replies or button interactions. 
+Each menu item dynamically loads its details, including product name, description, base price, available sizes, add-ons, and modifier options. 
+These details are fetched directly from the integrated POS or menu management system via secured API calls, guaranteeing synchronization between in-store and digital menus.
+</p>
+
+<p>
+After a selection is made, the chatbot responds in real time with contextual prompts to refine the order. 
+For instance, it may ask: “Would you like to add a drink?”, “Add extra cheese for 7 ?”, or “Select drink size: Small, Medium, or Large.” 
+This step leverages the upselling logic, an internal recommendation model configured by the restaurant administrator which intelligently promotes complementary or high-margin items based on category rules and customer preferences.
+</p>
+
+<p>
+After an order is completed, the chatbot then displays the <strong>order summary</strong> showing all chosen items, quantities, and subtotal. 
+
+</p>
+
+        </div>
+        <!-- Image cal -->
+        <div class="col-lg-5 col-md-12 text-center">
+          <img src="assets/images/smart-whatsapp-menu.png"
+               alt="smart whatsapp menu"
+               class="img-thumbnail shadow-sm zoom-effect"
+               style="max-width: 250px; width: 100%; cursor: pointer;"
+               data-bs-toggle="modal"
+               data-bs-target="#imageModal2">
+        </div>
+      </div>
+
+      <div class="row align-items-center mt-4">
+        <!-- Text Left -->
+        <div class="col-lg-7 col-md-12">
+          <p>
+At this stage, the chatbot also allows users to view <strong>nutritional facts</strong> such as calorie count, allergens, or ingredient lists (when configured in the menu data). 
+This feature improves transparency and compliance with food labeling standards, while enhancing the user experience.
+</p>
+
+<p>
+Once satisfied with their order, the customer is prompted to either continue shopping or proceed to checkout. 
+Selecting checkout transitions the flow toward the next stage choosing between <strong>Delivery</strong> and <strong>Pickup</strong> where address validation, branch availability, and payment options are processed in real time.
+</p>
+         
+        </div>
+      </div>
+      <br>
+      <br>
+
+ <!-- Pickup -->
+  <div class="container my-4">
+         <p>When the customer selects the Pickup option, the Smart WhatsApp chatbot prompts them to enter their preferred pickup location or branch. Once the location is provided, the system verifies branch availability in real time and confirms the order details. The chatbot then generates a clear invoice summary, listing all ordered items along with individual prices, followed by the calculated subtotal and VAT, leading to a final total payable amount. The user receives a confirmation message with pickup instructions and an order number for quick in-store collection.</p>
+      <br>
+
+      <div class="row align-items-center my-4">
+        <div class="col-lg-6 col-md-12 text-center">
+          <img src="assets/images/chatbot-pickup.png" alt="Pickup Order"
+               class="shadow-sm zoom-effect"
+         style="max-height: 350px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+          <div class="mt-2 text-muted">Pickup Order</div>
+        </div>
+        <div class="col-lg-6 col-md-12 text-center">
+          <img src="assets/images/chatbot-pickup-invoice.png" alt="Pickup Order Invoice"
+               class="shadow-sm zoom-effect"
+         style="max-height: 350px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+          <div class="mt-2 text-muted">Pickup Order Invoice</div>
+        </div>
+      </div>
+    </div>
+<br>
+<br>
+  <!-- Delivery -->
+  <div class="container my-4">
+         <p> If the customer chooses the Delivery option, the chatbot requests their delivery location and uses GPS access (if enabled) to ensure address accuracy. After the delivery address is confirmed, the chatbot compiles and sends the final order invoice, showing each item’s price, subtotal, applicable VAT, and an added delivery fee. The total amount due is then displayed clearly before payment. The customer receives a confirmation message summarizing the delivery address, payment details, and estimated delivery time.</p>
+      <br>
+      
+      <div class="row align-items-center my-4">
+        <div class="col-lg-6 col-md-12 text-center">
+          <img src="assets/images/chatbot-delivery.png" alt="Delivery Order"
+               class="shadow-sm zoom-effect"
+         style="max-height: 350px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+          <div class="mt-2 text-muted">Delivery Order</div>
+        </div>
+        <div class="col-lg-6 col-md-12 text-center">
+          <img src="assets/images/chatbot-delivery-invoice.png" alt="Delivery Order Invoice"
+               class="shadow-sm zoom-effect"
+         style="max-height: 350px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+          <div class="mt-2 text-muted">Delivery Order Invoice</div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </section>
+  
+
+  <!-- Section 3: Integrations & Features -->
+<article class="docs-article" id="section-3">
+  <header class="docs-header"><h1 class="docs-heading">Integrations & Features</h1></header>
+
+  <section class="docs-section" id="item-3-1">
+    <h2 class="section-heading">Bilingual Interaction</h2>
+    <div class="container my-4">
+      <div class="row align-items-center">
+        <div class="col-lg-7 col-md-12">
+          <ul>
+            <li>Supports full Arabic and English workflows.</li>
+            <li>Language detection occurs at the first customer input.</li>
+            <li>All templates, product names, and instructions are localized automatically.</li>
+            <li>Customers can switch language mid-conversation using a keyword trigger.</li>
+          </ul>
+     <div class="col-12 text-center mt-4">
+  <img id="workflowImage"
+       src="assets/images/arabic-chat-chatbot.png" 
+       alt="bilangual chat"
+       class="shadow-sm zoom-effect"
+       style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+  <div class="mt-2 text-muted">Bilingual Chat</div>
+</div>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POS -->
+  <section class="docs-section" id="item-3-2">
+    <h2 class="section-heading">Point of Sale (POS)</h2>
+    <div class="container my-4">
+     <div class="row justify-content-center">
+       <div class="row align-items-center">
+        <div class="col-lg-7 col-md-12">
+          <ul>
+          <li><strong>Direct POS synchronization eliminates manual data entry.</strong></li>
+          <p>All order details, including items, modifiers, and totals, are automatically transferred to the POS system in real time, reducing human error and improving operational speed.</p>
+          <br>
+          <li><strong>Menu, prices, and promotions are always up to date</strong></li>
+          <p>since they are pulled dynamically from the POS database. Any change made in the POS, such as updating product prices or activating limited-time offers, is instantly reflected in the chatbot interface.</p>
+          <br>
+          <li><strong>Automatic order registration and ticket generation.</strong></li>
+          <p>Once a customer confirms an order through Smart WhatsApp, it is automatically logged in the POS system and a digital order ticket is generated for kitchen or barista preparation without manual intervention.</p>
+          <br>
+          <li><strong>Integrated inventory and stock tracking.</strong></li>
+          <p>The POS system communicates back to Smart WhatsApp, updating item availability and preventing customers from ordering out-of-stock products.</p>
+          <br>
+        </ul>
+      </div>
+      <br>
+       <div class="col-12 text-center mt-4">
+  <img id="workflowImage"
+       src="assets/images/online-orders-chatbot.png" 
+       alt="Online Ordering POS"
+       class="shadow-sm zoom-effect"
+       style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+  <div class="mt-2 text-muted">Online Ordering POS</div>
+</div>
+    </div>
+  </section>
+
+
+  <!--  POS & Payment Integration -->
+  <section class="docs-section" id="item-3-3">
+    <h2 class="section-heading">Payment Integration</h2>
+    <div class="container my-4">
+      <div class="row align-items-center">
+        <div class="col-lg-7 col-md-12">
+          <ul>
+            <li>Multiple payment gateways can be enabled (credit card, wallet, cash-on-delivery).</li>
+            <li>Payment reconciliation is automatically logged in the POS, ensuring accurate financial records.</li>
+          </ul>
+        </div>
+      
+      </div>
+    </div>
+  </section>
+
+  </section>
+
+<!-- Section 4: Conclusion -->
+<article class="docs-article" id="section-4">
+  <header class="docs-header"><h1 class="docs-heading">Conclusion</h1></header>
+<div class="container my-4">
+
+        <p>
+          The <strong>Smart WhatsApp Ordering Chatbot</strong> redefines the way customers interact with restaurants and retail brands by merging the simplicity of WhatsApp messaging with the power of integrated digital automation. Through conversational ordering, real-time synchronization with the <strong>POS system</strong>, and secure payment integration, it delivers a seamless, familiar, and efficient experience for both customers and staff.
+        </p>
+        <p>
+          Designed to minimize manual workload while enhancing customer engagement, Smart WhatsApp automates every stage of the ordering journey, from greeting and menu browsing to checkout and fulfillment. It ensures data consistency across platforms, reduces operational errors, and allows businesses to manage high-order volumes with greater accuracy and speed.
+        </p>
+        <p>
+          As part of the Smart Retail ecosystem, this solution not only improves the customer experience but also provides valuable insights through integrated analytics and performance tracking. With multilingual support, flexible configuration, and a user-friendly interface, Smart WhatsApp is a scalable, future-ready tool that bridges the gap between communication and commerce.
+        </p>
+        <p>
+          In essence, Smart WhatsApp transforms a simple chat into a complete digital storefront,  enabling faster service, smarter operations, and stronger connections with customers anytime, anywhere.
+        </p>
+  </div>
+</section>
+
+</article>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Select all images with zoom-effect class
+    const zoomImages = document.querySelectorAll('.zoom-effect');
+
+    zoomImages.forEach(function (img) {
+      img.addEventListener('click', function () {
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = this.src;
+
+        // Show the modal using Bootstrap's method
+        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        imageModal.show();
+      });
+    });
+  });
+</script>
+
+   
+    <!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center">
+        <img id="modalImage" src="#" alt="Zoomed" class="img-fluid rounded">
+      </div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+// === Smart Search Autocomplete ===
+document.addEventListener('DOMContentLoaded', function () {
+  const input = document.querySelector('.search-input');
+  const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link'));
+
+  if (!input) return;
+
+  // Find the container (autocomplete-container) and append inside it
+  const container = input.closest('.autocomplete-container');
+  const suggestionsBox = document.createElement('div');
+  suggestionsBox.className = 'autocomplete-suggestions';
+  container.appendChild(suggestionsBox);
+
+  input.addEventListener('input', function () {
+    const val = this.value.trim().toLowerCase();
+    suggestionsBox.innerHTML = '';
+
+    if (!val) {
+      suggestionsBox.style.display = 'none';
+      return;
+    }
+
+    navLinks.forEach(link => {
+      const text = link.textContent.trim();
+      const lowerText = text.toLowerCase();
+
+      if (lowerText.includes(val)) {
+        const option = document.createElement('div');
+        option.className = 'autocomplete-suggestion';
+
+        const index = lowerText.indexOf(val);
+          const highlighted = 
+           index !== -1
+           ? text.substring(0, index) + 
+           `<mark class="bg-transparent text-primary fw-bold">` +
+            text.substring(index, index + val.length) +
+            '</mark>' +
+            text.substring(index + val.length)
+            : text;
+
+        option.innerHTML = highlighted;
+        option.addEventListener('click', () => {
+          window.location.href = link.href;
+        });
+
+        suggestionsBox.appendChild(option);
+      }
+    });
+
+    suggestionsBox.style.display = suggestionsBox.children.length ? 'block' : 'none';
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!suggestionsBox.contains(e.target) && e.target !== input) {
+      suggestionsBox.innerHTML = '';
+      suggestionsBox.style.display = 'none';
+    }
+  });
+});
+
+
+</script>
+
+<style>
+
+/* Container must stay relative */
+.autocomplete-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Suggestions dropdown */
+.autocomplete-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 2px;
+  right: 2px;
+  background: #fff;
+  z-index: 1050;
+  max-height: 240px;
+  overflow-y: auto;
+  border: 1px solid #dee2e6;
+  border-top: none;
+  border-radius: 0 0 6px 6px; /* Only bottom corners rounded */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  display: none;
+  padding: 0;
+}
+
+/* Suggestion item */
+.autocomplete-suggestion {
+  padding: 10px 14px;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s ease;
+  font-size: 0.95rem;
+}
+
+/* Hover effect */
+.autocomplete-suggestion:hover {
+  background-color: #f0f4ff;
+}
+
+/* Highlighted match */
+.autocomplete-suggestion mark {
+  background: none;
+  color: #5368fd;
+  font-weight: bold;
+}
+
+</style>
+
+    <footer class="footer">
+
+	    <div class="footer-bottom text-center py-5">
+		    
+		    <ul class="social-list list-unstyled pb-4 mb-0">
+			    <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li> 
+	            <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+	            <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+	            <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+	        </ul><!--//social-list-->
+	        
+	        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+            <small class="copyright">© Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> All Rights Reserved. Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">XR</a>.</small>
+            
+	        
+	    </div>
+	    
+    </footer>
+
+       
+    <!-- Javascript -->          
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    
+    
+    <!-- Page Specific JS -->
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script> 
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+    <script src="assets/js/docs.js"></script> 
+
+</body>
+</html> 
+

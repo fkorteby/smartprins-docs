@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>SmartPrints -cloud-pos-solution</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="description" content="SmartPrints Functionnal Documentation For Cloud POS Solution">
+    <meta name="author" content="SmartPrints Team">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome JS-->
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+
+
+
+   <style>
+      .zoom-effect {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .zoom-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+   </style>
+
+   <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+
+</head> 
+
+<body>    
+    <header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid py-2">
+      <div class="row align-items-center">
+        <!-- Logo Left -->
+        <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+          <a class="navbar-brand" href="index.html">
+	          <div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height: 60px;"></a></div>  
+          </a>
+        </div>
+
+        <!-- Search Center -->
+         
+<div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+  <form class="search-form position-relative d-flex justify-content-center">
+    <div class="position-relative w-75 autocomplete-container">
+      <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input pe-5">
+      <div class="autocomplete-suggestions"></div>
+      <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+        <i class="fa-light fa-magnifying-glass text-muted"></i>
+      </button>
+    </div>
+  </form>
+</div>
+
+
+        <!-- Button Right -->
+        <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center">
+          
+          <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderdocs-free-bootstrap-5-documentation-template-for-software-projects/" class="btn btn-primary d-none d-lg-flex">Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header> 
+    
+    <div class="docs-wrapper">
+        <!-- Social Media Sidebar -->
+        <div class="social-sidebar d-none d-lg-flex">
+          <ul class="social-sidebar">
+         <li onclick="activateIcon(this)"><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="#" id="lang-toggle" onclick="window.location.href='arabic.html';"><i class="fa-solid fa-globe fa-fw"></i></a></li>
+        </ul>
+        </div>
+
+  <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+  <div class="top-search-box">
+    <form class="search-form">
+      <div class="position-relative w-100 autocomplete-container">
+       <input type="text" class="form-control search-input rounded-top" placeholder="Search the docs...">
+       <div class="autocomplete-suggestions"></div>
+     </div>
+    </form>
+  </div>
+</div>
+
+	    <div id="docs-sidebar" class="docs-sidebar">
+		    <nav id="docs-nav" class="docs-nav navbar">
+			    <ul class="section-items list-unstyled nav flex-column pb-3">
+            <li class="nav-item section-title">
+        <a class="nav-link scrollto active" href="#section-1">
+            <span class="theme-icon-holder me-2"><i class="fas fa-cash-register"></i></span>Introducing the PoS
+        </a>
+    </li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Overview</a></li>
+
+    <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-2">
+            <span class="theme-icon-holder me-2"><i class="fas fa-play-circle"></i></span>Getting Started
+        </a>
+    </li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">Accessing the PoS App</a></li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">Login into the PoS App</a></li>
+
+    <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-3">
+            <span class="theme-icon-holder me-2"><i class="fas fa-tablet-alt"></i></span>The PoS App Interface
+        </a>
+    </li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">UI Overview</a></li>
+
+    <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-4">
+            <span class="theme-icon-holder me-2"><i class="fas fa-user"></i></span>Cashier
+        </a>
+    </li>
+
+    <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-5">
+            <span class="theme-icon-holder me-2"><i class="fas fa-th-list"></i></span>Products and Categories
+        </a>
+    </li>
+
+    <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-6">
+            <span class="theme-icon-holder me-2"><i class="fas fa-sliders-h"></i></span>Options and Modifiers
+        </a>
+    </li>
+
+    <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-7">
+            <span class="theme-icon-holder me-2"><i class="fas fa-credit-card"></i></span>Payments
+        </a>
+    </li>
+
+    <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-8">
+            <span class="theme-icon-holder me-2"><i class="fas fa-star"></i></span>Favorite Products
+        </a>
+    </li>
+
+    <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-9">
+            <span class="theme-icon-holder me-2"><i class="fas fa-clipboard-list"></i></span>My Orders
+        </a>
+    </li>
+
+    <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-10">
+            <span class="theme-icon-holder me-2"><i class="fas fa-user-tag"></i></span>Customer Details
+        </a>
+    </li>
+
+    <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-11">
+            <span class="theme-icon-holder me-2"><i class="fas fa-clock"></i></span>Shifts
+        </a>
+    </li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-11-1">Opening a Shift</a></li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-11-2">Closing a Shift</a></li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-11-3">Shift Report</a></li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-11-4">1. Shift & Staff Information</a></li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-11-5">2. Sales Summary</a></li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-11-6">3. Net Sales & Tax </a></li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-11-7">4. Payment Methods</a></li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-11-8">5. Cash Drawer Summary</a></li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-11-9">6. Refunds & Corrections</a></li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-11-10">7. Cash Movement</a></li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-11-11">8. Performance Summary</a></li>
+
+    <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-12">
+            <span class="theme-icon-holder me-2"><i class="fas fa-users-cog"></i></span>Employee Management
+        </a>
+    </li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-12-1">Roles Management</a></li>
+
+    <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-13">
+            <span class="theme-icon-holder me-2"><i class="fas fa-boxes"></i></span>Inventory
+        </a>
+    </li>
+
+    <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-14">
+            <span class="theme-icon-holder me-2"><i class="fas fa-money-bill-wave"></i></span>Cash Management
+        </a>
+    </li>
+
+    <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-15">
+            <span class="theme-icon-holder me-2"><i class="fas fa-chart-line"></i></span>Report
+        </a>
+    </li>
+    </li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-15-1">1. Product Sales Report</a></li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-15-2">2. Consumption Report</a></li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-15-3">3. All Orders Report</a></li>
+
+    <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-16">
+            <span class="theme-icon-holder me-2"><i class="fas fa-cogs"></i></span>Settings
+        </a>
+    </li>
+     </li>
+    </li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-16-1">1. Settings</a></li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-16-2">2. Printer</a></li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-16-3">3. External Terminal</a></li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-16-4">4. Cash Drawer</a></li>
+    <li class="nav-item"><a class="nav-link scrollto" href="#item-16-5">5. Printing Preparation</a></li>
+
+    <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-17">
+            <span class="theme-icon-holder me-2"><i class="fas fa-language"></i></span>Multilingual UI
+        </a>
+    </li>
+
+    <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-17">
+            <span class="theme-icon-holder me-2"><i class="fas fa-check-circle"></i></span>Conclusion
+        </a>
+    </li>
+</ul>
+
+</nav><!--//docs-nav-->
+	    </div><!--//docs-sidebar-->
+	    
+      <div class="docs-content">
+		    <div class="container">
+    <article class="docs-article" id="section-1">
+  <header class="docs-header">
+    <h1 class="docs-heading">Introducing the PoS</h1>
+  
+  </header>
+
+  <section class="docs-section" id="item-1-1">
+    <h2 class="section-heading">Overview</h2>
+      <p>The Cloud POS Application is the core tool used by employees, cashiers, and managers to handle transactions, manage orders, and process payments in real time. It’s designed to be touch-friendly, fast, and user-friendly, with full support for multiple languages (Arabic and English), dynamic product loading, and multi-branch operations. This document explains how to use the Cloud POS app efficientl,  where employees interact with products, orders, and payments. and guides you through every available function in the system.</p>
+  </section>
+</article>
+
+<article class="docs-article" id="section-2">
+  <header class="docs-header">
+    <h1 class="docs-heading">Getting Started</h1>
+    <section class="docs-intro">
+      <p>This section introduces how to access and log in to the Cloud POS app from supported devices like desktop stations or Android terminals.</p>
+    </section>
+  </header>
+
+  <section class="docs-section" id="item-2-1">
+    <h2 class="section-heading">Accessing the PoS App</h2>
+    <p>To get started, launch the Cloud POS desktop application or the Android terminal app provided by your restaurant’s system administrator.</p>
+  
+  <div class="text-center my-4">
+  <img src="assets/images/lunch-pos.PNG"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+  </div>
+  </section>
+
+  <section class="docs-section" id="item-2-2">
+    <h2 class="section-heading">Login into the PoS App</h2>
+    <p>After launching the app:</p>
+    <ul>
+      <li>Enter your assigned passcode.</li>
+      <li>Select your employee name from the list.</li>
+      <li>Once authenticated, a prompt will appear to start a new shift.</li>
+      <li>After confirming, you will be taken directly to the categories grid screen, which serves as the main order interface.</li>
+    </ul>
+    <div class="text-center my-4">
+  <img src="assets/images/login-pos.png"
+       alt="employee login to an existing shift"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+  </div>
+    <p>Opening a new shift will be explained in detail in the “Shifts” section.</p>
+  </section>
+</article>
+
+<article class="docs-article" id="section-3">
+  <header class="docs-header">
+    <h1 class="docs-heading">The PoS App Interface</h1>
+    <section class="docs-intro">
+      <p>This section describes the user interface and functionality of the POS terminal, including how to navigate and use key features.</p>
+    </section>
+  </header>
+
+  <section class="docs-section" id="section-4">
+    <h2 class="section-heading">Cashier</h2>
+    <p>This section will cover cashier-specific functions like adding orders, editing items, and using shortcuts for efficient order handling.</p>
+  
+    <div class="text-center my-4">
+  <img src="assets/images/cashier-pos.png"
+       alt="POS app interface overview"
+       class="img-thumbnail shadow-sm zoom-effect"
+       style="max-width: 500px; width: 100%; cursor: pointer ;"
+       data-bs-toggle="modal"
+       data-bs-target="#imageModal1">
+  </div>
+    
+  <p><strong>Upon logging in, employees will see the main pos interface.This includes:</strong></p>
+  
+  <div class="container">
+    <div class="table-responsive d-flex justify-content-center">
+      <table class="table table-bordered custom-table w-75">
+        <tbody>
+          <!-- Row 1 -->
+          <tr>
+            <td>
+              <p class="table-paragraph"><strong>Top Bar (Center, highlighted in red):</strong> to filter products by category (e.g., Drinks, Meals).</p>
+                 <div class="text-center my-4">
+                  <img src="assets/images/top-bar.png"
+                    alt="top bar"
+                    class="img-thumbnail shadow-sm zoom-effect"
+                    style="max-width: 500px; width: 100%; cursor: pointer ;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#imageModal1">
+                </div>
+            </td>
+          </tr>
+          <!-- Row 2 -->
+          <tr>
+            <td>
+              <p class="table-paragraph"><strong>Cart (Right, highlighted in red):</strong> Shows items added to the cart with quantity, modifiers, notes, and price.</p>
+              <div class="text-center my-4">
+                  <img src="assets/images/cart.png"
+                    alt="cart"
+                    class="img-thumbnail shadow-sm zoom-effect"
+                    style="max-width: 500px; width: 100%; cursor: pointer ;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#imageModal1">
+                </div>
+            </td>
+          </tr>
+
+          <!-- Row 3 -->
+          <tr>
+            <td>
+              <p class="table-paragraph"><strong>Category Grid (Center, highlighted in red):</strong> Dynamically displays categories including specific products each, to be displayed on Click.</p>
+              <div class="text-center my-4">
+                  <img src="assets/images/category-grid.png"
+                    alt="Category Grid"
+                    class="img-thumbnail shadow-sm zoom-effect"
+                    style="max-width: 500px; width: 100%; cursor: pointer ;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#imageModal1">
+                </div>
+            </td>
+          </tr>
+
+          <!-- Row 4 -->
+          <tr>
+            <td>
+              <p class="table-paragraph"><strong>Menu (Right, highlighted in red):</strong> Three horizontal lines displaying current user, branch, session status, and language toggle.</p>
+              <div class="text-center my-4">
+                  <img src="assets/images/menu-pos.png"
+                    alt="menu"
+                    class="img-thumbnail shadow-sm zoom-effect"
+                    style="max-width: 500px; width: 70%; cursor: pointer ;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#imageModal1">
+                </div><br>
+                <div class="text-center my-4">
+                  <img src="assets/images/menu-display.png"
+                    alt="The menu displays as follows"
+                    class="img-thumbnail shadow-sm zoom-effect"
+                    style="max-width: 500px; width: 100%; cursor: pointer ;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#imageModal1">
+                </div>
+            </td>
+          </tr>
+
+          <!-- Row 5 -->
+          <tr>
+            <td>
+               <p class="table-paragraph"><strong>Action Buttons (Right, highlighted in red):</strong> Options include Charge, Add Customer, etc.</p>
+              <div class="text-center my-4">
+                  <img src="assets/images/action-buttons.png"
+                    alt="action buttons (delete and add note)"
+                    class="img-thumbnail shadow-sm zoom-effect"
+                    style="max-width: 500px; width: 100%; cursor: pointer ;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#imageModal1">
+                </div><br>
+            <div class="d-flex justify-content-center gap-4 mb-4">
+             
+              <div>
+               <img src="assets/images/delete-cart-products.png"
+                alt="delete cart products"
+                class="img-thumbnail shadow-sm zoom-effect"
+                style="max-width: 380px; width: 100%; cursor: pointer;"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal1">
+             </div>
+             <div>
+              <img src="assets/images/order-note.png"
+                 alt="order note"
+                class="img-thumbnail shadow-sm zoom-effect"
+                style="max-width: 380px; width: 100%; cursor: pointer;"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal2">
+            </div>
+          </div>       
+              <div class="text-center my-4">
+                  <img src="assets/images/add-customer.png"
+                    alt="Add Customer and Charge"
+                    class="img-thumbnail shadow-sm zoom-effect"
+                    style="max-width: 500px; width: 100%; cursor: pointer ;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#imageModal1">
+                </div> 
+          </td>
+          </tr>
+
+          <!-- Row 6 -->
+          <tr>
+            <td>
+              <p class="table-paragraph">Running a filtered search: navigating the drop-down list (scroll) and the search bar: </p>
+              <div class="text-center my-4">
+                  <img src="assets/images/filltered-search.png"
+                    alt="Look for a product from the search bar"
+                    class="img-thumbnail shadow-sm zoom-effect"
+                    style="max-width: 500px; width: 100%; cursor: pointer ;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#imageModal1">
+                </div>
+            </td>
+          </tr>
+
+          <!-- Row 7 -->
+          <tr>
+            <td>
+              <div class="text-center my-4">
+                  <img src="assets/images/scroll-categories.png"
+                    alt="Scroll through categories via drop-down"
+                    class="img-thumbnail shadow-sm zoom-effect"
+                    style="max-width: 500px; width: 100%; cursor: pointer ;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#imageModal1">
+                </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Table Styling */
+.custom-table {
+  border-collapse: collapse;
+  background-color: #fdfdfe;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.custom-table td {
+  border: 1px solid #ddd;
+  padding: 1.25rem;
+  vertical-align: top;
+  background-color: #ffffff;
+}
+
+.custom-table td p {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.custom-table img {
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+
+/* Optional: Hover effect */
+.custom-table tr:hover td {
+  background-color: #f4f8ff;
+}
+</style>
+
+  </section>
+
+
+<article class="docs-article" id="section-5">
+  <header class="docs-header">
+    <h1 class="docs-heading">Products and Categories</h1>
+    <section class="docs-intro">
+      <p>Products are organized into categories to make order-taking fast and intuitive.</p>
+      <p><strong>Example Categories:</strong></p>    
+  
+<ul>
+  <li>Meals</li>
+  <li>Sandwiches</li>
+  <li>Kid's Meal</li>
+  <li>Salades</li>
+  <li>Drinks</li>
+</ul>
+
+<p><strong>How to navigate them?</strong></p>    
+<ul>
+  <li>Make sure you’re on the Categories screen page.</li>
+  <li>Tap a category at the bottom or side.</li>
+  <li>The product grid refreshes instantly with relevant products.</li>
+</ul>
+
+    <div class="text-center my-4">
+      <img src="assets/images/nav-categories.png" alt="navigate-categories" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+      
+    </div>
+
+    <div class="text-center my-4">
+      <img src="assets/images/choose-category.png" alt="choose-category" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+      
+    </div>
+
+  <p><strong>To pass an order, you will need to tap a product to add it to the order. </strong>*This part will be explained in details in the upcoming sections</p>
+    
+    </section>
+  </header>
+</article>
+
+
+<article class="docs-article" id="section-6">
+  <header class="docs-header">
+    <h1 class="docs-heading">Options and Modifiers</h1>
+    <section class="docs-intro">
+      <p>If an item has modifiers or notes, it will be shown within it automatically (e.g., "Vegetables", "Dressing").</p>
+    <div class="text-center my-4">
+      <img src="assets/images/modifiers-pos.png" alt="familly-option" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+     
+    </div>
+	</section><!--//section-->
+	</article><!--//docs-article-->
+
+
+<article class="docs-article" id="section-7">
+  <header class="docs-header">
+    <h1 class="docs-heading">Payments</h1>
+    <section class="docs-intro">
+      <p>To lunch an order, you will need to choose a specific product, customize the modifiers and quality to order, then simply add it to cart and pass to the payment options:</p>
+    <div class="text-center my-4">
+      <img src="assets/images/pay.png" alt="familly-option" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+     
+    </div>
+    <p>Choose wither it’s a Dine In order or a Take away, the choose a payment method and click “Tender” to pay.</p>
+            <div class="d-flex justify-content-center gap-4 mb-4">
+             
+              <div>
+               <img src="assets/images/cash-pay.png"
+                alt="e.g choose cash payment and Dine In order"
+                class="img-thumbnail shadow-sm zoom-effect"
+                style="max-width: 400px; width: 100%; cursor: pointer;"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal1">
+             </div>
+             <div>
+              <img src="assets/images/credit-pay.png"
+                 alt="or credit payment and a Take Away order"
+                class="img-thumbnail shadow-sm zoom-effect"
+                style="max-width: 380px; width: 100%; cursor: pointer;"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal2">
+            </div>
+          </div>   
+    <p>The POS app also supports Split Payments, allowing you to divide a single bill into multiple payment methods, such as cash, credit card, or other options. This is especially useful when one payment method doesn’t cover the full amount for example. Simply click the green “Split” button, choose how you would like to divide the payment, and then click <strong>“Tender”</strong> to complete the transaction.</p>
+
+            <div class="text-center my-4">
+      <img src="assets/images/split-payment.png" alt="menu-favorites" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+      
+    </div>
+
+	</section><!--//section-->
+	</article><!--//docs-article-->
+
+<article class="docs-article" id="section-8">
+  <header class="docs-header">
+    <h1 class="docs-heading">Favorite Products</h1>
+    <section class="docs-intro">
+      <p>Many businesses have products that consistently make up 80% of their daily sales. To speed up service and improve upselling, Cloud POS includes a “Favorites” category, specially curated per client.</p>
+      <p><strong>What Are Favorites?</strong></p>    
+  
+<ul>
+  <li>These are best-sellers or popular items.</li>
+  <li>Grouped in a separate “Favorites” or “Top Items” category.</li>
+  <li>Always visible on the main grid for fast, one-tap selection.</li>
+</ul>
+
+<p><strong>Why Use Them?</strong></p>    
+<ul>
+  <li><strong>Faster Order-Taking: </strong>Staff can find high-demand items instantly.</li>
+  <li><strong>Sales Focus: </strong>Encourages pushing top-margin or promo items.</li>
+  <li><strong>Smart UI: </strong> Keeps the grid clean by avoiding re-searching each time.</li>
+</ul>
+
+<p><strong>How to set Favorites?</strong></p>    
+<p><strong>Example use case flow:</strong></p> 
+<p>A cashier logs in, sees the “Favorites” category with:</p>   
+
+<ul>
+  <li>Chicken Tikka.</li>
+  <li>Meal Pesto Mix.</li>
+  <li>Oreo Muffin.</li>
+</ul>
+<p>The customer asks for a combo, one tap adds it to the order. The cashier proceeds to checkout without navigating multiple tabs.  </p>
+
+    <div class="text-center my-4">
+      <img src="assets/images/favorite-product.png" alt="favorite-product" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+      
+    </div>
+
+    <p>To access the “Menu Favorites” just click on the middle drop-down list in the top bar, and look for “Menu Favorites” then click on it, as shown below:</p>
+    
+    <div class="text-center my-4">
+      <img src="assets/images/menu-favorites.png" alt="menu-favorites" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+      
+    </div>
+    </section><!--//section-->
+	 </article><!--//docs-article-->
+
+   <article class="docs-article" id="section-9">
+  <header class="docs-header">
+    <h1 class="docs-heading">My Orders</h1>
+    <section class="docs-intro">
+      <p>To view all of your orders, tap on <strong>“My Orders”</strong>, and select your preferred view: </p>
+      
+      <div class="d-flex justify-content-center gap-4 mb-4">
+             
+              <div>
+               <img src="assets/images/my-orders.png"
+                alt="my orders"
+                class="img-thumbnail shadow-sm zoom-effect"
+                style="max-width: 380px; width: 100%; cursor: pointer;"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal1">
+             </div>
+   
+             <div>
+              <img src="assets/images/table-view.png"
+                 alt="my order"
+                class="img-thumbnail shadow-sm zoom-effect"
+                style="max-width: 380px; width: 100%; cursor: pointer;"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal2">
+            </div>
+          </div>   
+          <br>    
+
+      <div class="text-center my-4">
+      <img src="assets/images/grid-view.png" alt="my-orders" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+      <div class="mt-2 text-muted">My Orders in a grid view</div>
+    </div>
+
+  </section><!--//section-->
+	</article><!--//docs-article-->
+
+  <article class="docs-article" id="section-10">
+  <header class="docs-header">
+    <h1 class="docs-heading">Customer Details</h1>
+    <section class="docs-intro">
+      <p>The <strong>Customer Details</strong> section in the POS app allows you to add or select a customer during a sale, enabling personalized service and better tracking. You can enter key information like name, phone number, and notes, which helps with customer history, receipt customization...etc. This feature is key in customer management and ensures a smoother experience.</p>
+      <div class="text-center my-4">
+      <img src="assets/images/customer-details.jpg" alt="customer-details" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+      
+    </div>
+
+     <p>To add a customer (individual or company) from the PoS App, click the <strong>+</strong> button previously highlighted in red, and the following window open, make sure to fill it with the proper contact information:</p>
+      <div class="text-center my-4">
+      <img src="assets/images/add-new-customer.png" alt="online-orders" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+      
+      </div>
+    </section><!--//section-->
+	</article><!--//docs-article-->
+
+  <article class="docs-article" id="section-11">
+  <header class="docs-header">
+    <h1 class="docs-heading">Shifts</h1>
+    <section class="docs-intro">
+      <p>Shifts help organize and track employee activities and payments across defined working hours, for accountability and shift-based reporting.</p>
+      
+      <p>Use cases:</p>
+      <ul>
+        <li><strong>Open/Close Shifts </strong>with summaries.</li>
+        <li><strong>Record Cash</strong> drawer totals.</li>
+        <li>Prevent discrepancies in daily balances.</li>
+        <li>Assign<strong> sessions to specific employees </strong>or roles.</li>
+      </ul>
+      <br>
+
+       <section id="item-11-1" class="mb-5">
+      <h3>Opening a Shift</h3>
+      <p>Provide the steps and interface for opening a new shift:</p>
+        <ul>
+          <li>Staff logs in</li>
+          <li>Shift timer begins</li>
+          <li>Cash drawer (optional) is opened and initial balance entered.</li>
+        </ul>
+        <div class="text-center my-4">
+          <img src="assets/images/open-shift.png" alt="open-shift" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+            <div class="mt-2 text-muted">After choosing the login employee, enter the start “Cash Amount ” to lunch a new shift session</div>
+         </div>
+         </section>
+         <br>
+  <section id="item-11-2" class="mb-5">
+      <h3>Closing a Shift</h3>
+      <p>Provide the process for shift closing, including confirmations:</p>
+    
+        <ul>
+          <li>All orders reviewed and closed.</li>
+          <li>Cash balance compared to sales.</li>
+          <li>System auto-generates shift report.</li>
+          <li>Manager approves and archives session.</li>
+        </ul>
+        <div class="text-center my-4">
+          <img src="assets/images/close-shift.png" alt="close-shift" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+            <div class="mt-2 text-muted">Click on “Close Shift” and the following window appears</div>
+         </div>
+         <br>
+         <section id="item-11-2-1" class="mb-5">
+         <h5>Benefits</h5>
+         <ul>
+          <li>Prevents double logins.</li>
+          <li>Ties all orders and payments to a user.</li>
+          <li>Detects discrepancies or refunds.</li>
+        </ul>
+        </section>
+        </section>
+        <br>
+
+      <section id="item-11-3" class="mb-5">
+         <h3>Shift Report</h3>
+         <br>
+        <p>A <strong>Shift Report </strong>is a detailed summary of all transactional, financial, and operational activities that occurred during a cashier’s shift. It is generated at the end of each session to help store managers and business owners track sales, cash flow, and employee performance. The report ensures full transparency and supports reconciliation of sales and payments with actual cash  in the drawer.</p>
+        <div class="container my-5">
+  <div class="row align-items-start">
+    
+    <!-- Text Column -->
+     <div class="col-lg-7 col-md-12 mb-4">
+
+        <section id="item-11-4">
+          <h5>1. Shift & Staff Information</h5>
+          <p>This section includes general shift identifiers:</p>
+          <ul>
+            <li>Store Name</li>
+            <li>Date & Time of the Shift</li>
+            <li>Employee Name (who initiated the report)</li>
+            <li>POS Terminal used</li>
+          </ul>
+          <p>This part helps in identifying when and where the shift took place and who was responsible.</p>
+        </section>
+
+        <section id="item-11-5" class="mt-4">
+          <h5>2. Sales Summary</h5>
+          <p>A breakdown of the sales activity:</p>
+          <ul>
+            <li>Total Sales: Full value of all completed orders</li>
+            <li>Discounts: Any applied promotional or manual discounts</li>
+          </ul>
+        </section>
+
+        <section id="item-11-6" class="mt-4">
+          <h5>3. Net Sales & Tax Breakdown</h5>
+          <ul>
+            <li>Net Sales (Including VAT)</li>
+            <li>Total VAT</li>
+            <li>Net Sales (Excluding VAT)</li>
+          </ul>
+        </section>
+
+        <section id="item-11-7" class="mt-4">
+          <h5>4. Payment Methods</h5>
+          <ul>
+            <li>Cash</li>
+            <li>Credit/Debit Cards</li>
+            <li>Digital Wallets (e.g., Keeta)</li>
+            <li>Other Methods</li>
+          </ul>
+        </section>
+
+        <section id="item-11-8" class="mt-4">
+          <h5>5. Cash Drawer Summary</h5>
+          <ul>
+            <li>Opening Amount: The initial cash in drawer at the start of the shift</li>
+            <li>Closing Amount: Cash counted at the end of the shift</li>
+            <li>Required Cash: System-expected cash based on sales and transactions</li>
+            <li>Variance: Difference between actual and expected cash (should be zero)</li>
+          </ul>
+        </section>
+
+        <section id="item-11-9" class="mt-4">
+          <h5>6. Refunds & Corrections</h5>
+          <ul>
+            <li>Refund Value: Total value of returned orders</li>
+            <li>Order Refunds: Number of refunded orders</li>
+            <li>Item Corrections: Adjustments made to specific items</li>
+            <li>Order Voids: Cancelled orders that were not finalized</li>
+          </ul>
+        </section>
+
+        <section id="item-11-10" class="mt-4">
+          <h5>7. Cash Movement</h5>
+          <ul>
+            <li>Cash In (Paid Ins): Manual additions to the drawer</li>
+            <li>Cash Out (Paid Outs): Manual withdrawals from the drawer</li>
+          </ul>
+        </section>
+
+        <section id="item-11-11" class="mt-4">
+          <h5>8. Performance Summary</h5>
+          <ul>
+            <li>Total Transactions: Number of completed orders</li>
+            <li>Total Sales (Final)</li>
+            <li>Average Ticket: Average amount spent per transaction</li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- Image Column -->
+      <div class="col-lg-5 col-md-12 text-center">
+        <img src="assets/images/shift-report.png" alt="shift-report"
+             class="img-thumbnail shadow-sm zoom-effect"
+             style="max-height: 1000px; width: 100%; object-fit: contain;">
+      </div>
+    </div>
+
+  </div>
+ 
+    </section><!--//section-->
+  </article><!--//docs-article-->
+
+  <article class="docs-article" id="section-12">
+  <header class="docs-header">
+    <h1 class="docs-heading">Employee Management</h1>
+    <section class="docs-intro">
+      <p>Manage your team with flexible user roles and permissions via the cloud dashboard.</p>
+      <div class="text-center my-4">
+      <img src="assets/images/employee-management.jpg" alt="employee-management" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+      <div class="mt-2 text-muted">-Admin Role- POS section of the Cloud </div>
+    </div>
+    
+     <section class="docs-section" id="item-12-1">
+    <h2 class="section-heading">Roles Management</h2>
+    <ul>
+      <li><strong>Admin:</strong> Full system access, including settings configuration, user management, report generation, product and category updates, and integration setup. Admins can oversee all operations across locations and have the highest level of control.</li>
+      <li><strong>Store Manager:</strong> Oversee operations, view reports, manage shifts, and handle daily activities within assigned locations. Limited access to critical system settings.</li>
+      <li><strong>Staff:</strong> Restricted access to POS and basic functions such as placing orders, processing payments, and viewing assigned tasks. Ideal for cashiers and service staff.</li>
+    </ul>  
+    <h5>Actions:</h5>
+    <ul>
+      <li>Add/Edit/Remove Employees.</li>
+      <li>Assign roles and permissions.</li>
+      <li>Track employee login times and activity.</li>
+      <li>Monitor performance through analytics.</li>
+    </ul> 
+  </section>
+
+   </section><!--//section-->
+	</article><!--//docs-article-->
+
+  <article class="docs-article" id="section-13">
+  <header class="docs-header">
+    <h1 class="docs-heading">Inventory</h1>
+    <section class="docs-intro">
+      <a href="https://inventory.com" target="_blank">Go to Inventory Site</a>
+
+      <p><strong>Please follow this link to get a dedicated user manual for the inventory section.</strong></p>
+      <div class="text-center my-4">
+      <img src="assets/images/inventory.png" alt="inventory" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+    </div>
+
+</section><!--//section-->
+	</article><!--//docs-article-->
+
+   <article class="docs-article" id="section-14">
+  <header class="docs-header">
+    <h1 class="docs-heading">Cash Management</h1>
+    <section class="docs-intro">
+      <p><strong>Cash Management</strong> helps monitor daily cash flow. It allows users to record <strong>cash-in</strong> (e.g. starting cash or added funds) and <strong>cash-out</strong> (e.g. expenses or cash removal) transactions. This ensures transparency, accountability, and accurate reconciliation during shift changes or at closing.</p>
+      <p>Add cash-in amount following the steps showed in the illustrations below:</p>
+       
+      <div class="d-flex justify-content-center gap-4 mb-4">
+             
+              <div>
+               <img src="assets/images/cash-in.png"
+                alt="cash-in"
+                class="img-thumbnail shadow-sm zoom-effect"
+                style="max-width: 380px; width: 100%; cursor: pointer;"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal1">
+             </div>
+   
+             <div>
+              <img src="assets/images/cash-in-note.png"
+                 alt="cash-in-note"
+                class="img-thumbnail shadow-sm zoom-effect"
+                style="max-width: 380px; width: 100%; cursor: pointer;"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal2">
+            </div>
+          </div>   
+          <br>  
+          
+          <p>Follow the same previous steps, just disable the Cash In to enable Cash Out status.</p>
+          <div class="d-flex justify-content-center gap-4 mb-4">
+             
+              <div>
+               <img src="assets/images/cash-out.png"
+                alt="cash-out"
+                class="img-thumbnail shadow-sm zoom-effect"
+                style="max-width: 380px; width: 100%; cursor: pointer;"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal1">
+             </div>
+   
+             <div>
+              <img src="assets/images/cash-out-note.png"
+                 alt="cash-out-note"
+                class="img-thumbnail shadow-sm zoom-effect"
+                style="max-width: 380px; width: 100%; cursor: pointer;"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal2">
+            </div>
+          </div>   
+          <br>  
+      
+      <div class="text-center my-4">
+      <img src="assets/images/cash-management.png" alt="cash-management" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+         <div class="mt-2 text-muted">Successfully added Cash-in and Cash-out Amounts</div>
+    </div>
+     <ul>
+            <li>You can delete the cash ins and cash outs at any moment by clicking on the “orange bin icon” on the right.</li>
+      </ul>  
+
+</section><!--//section-->
+	</article><!--//docs-article-->
+
+  <article class="docs-article" id="section-15">
+  <header class="docs-header">
+    <h1 class="docs-heading">Reports</h1>
+    <section class="docs-intro">
+      <p>The <strong>Reports</strong> section in the POS app offers comprehensive, easy-to-understand analytics that help you track and manage your business performance. You can view real-time and historical data on sales, product performance, inventory usage (if enabled), and order history. These reports assist in making data-driven decisions, identifying trends, and improving overall operational efficiency.</p>
+      
+      <section id="item-15-1">
+          <h5>1. Product Sales Report</h5>
+          <p>Provides detailed data on products sold within a selected timeframe, including quantities sold, total revenue, and average price per item, helping you track your best-selling items and manage stock accordingly.</p>
+           <div class="text-center my-4">
+             <img src="assets/images/product-sales.png" alt="product-sales" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+            </div>
+        </section>
+
+        <section id="item-15-2" class="mt-4">
+          <h5>2. Consumption Report</h5>
+          <p>This report is only available when the <strong>inventory module </strong>is enabled. It tracks how much raw material or ingredients are used based on orders placed. For more details on using this feature.</p>
+          <p><strong>please refer to the Inventory User Manual.</strong></p>
+          <a href="https://inventory.com" target="_blank">Go to Inventory Site</a>
+        </section>
+
+        <section id="item-15-3" class="mt-4">
+          <h5>3. All Orders Report</h5>
+          <p>Displays a complete list of all orders processed through the POS, including date, time, payment method, order type (dine-in, delivery, etc.), and order status. Useful for full operational reviews and reconciliation.</p>
+       <div class="text-center my-4">
+        <img src="assets/images/all-orders.png" alt="all-orders" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+      </div>
+        </section>
+
+</section><!--//section-->
+	</article><!--//docs-article-->
+
+  <article class="docs-article" id="section-16">
+  <header class="docs-header">
+    <h1 class="docs-heading">Settings</h1>
+    <section class="docs-intro">
+      <p>The <strong>Settings </strong>page in the POS app provides key tools for managing system behavior and customization. It includes options to reset or update data, disable the kitchen display, change the app language, sync offline orders with the server, and configure the cashier interface. Additional tabs allow you to <strong>add and manage printers </strong>for receipts and reports, connect an <strong>external terminal </strong>, link a <strong>cash drawer </strong>, and adjust <strong>printing preparation settings</strong> for efficient operation.</p>
+      <p>To access the Settings page, click on the menu on the left, then scroll down to settings as follow:</p>
+      <div class="text-center my-4">
+          <img src="assets/images/settings-access.png" alt="settings-access" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+      </div>
+      <section id="item-16-1">
+          <h5>1. Settings</h5>
+          <p>The Settings screen is presented as follow</p>
+           <div class="text-center my-4">
+             <img src="assets/images/settings.png" alt="settings" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+            </div>
+            <p><strong>Where the orange buttons serves to:</strong></p>
+            <ul>
+              <li><strong>Reset Data:</strong> Clears locally stored temporary data without affecting your main system or sales history, helpful for refreshing the app state.</li>
+              <li><strong>Update Data: </strong>Syncs and pulls the latest data and updates (products, categories, prices) from the cloud server to ensure your POS is up to date.</li>
+              <li><strong>Disable Kitchen App:</strong> Temporarily disconnects the kitchen display system, useful during maintenance or if it's not needed.</li>
+              <li><strong>Sync Orders to the Server: </strong>The user doesn’t use the kitchen here, and he manually pushes un-synced offline orders to the cloud, ensuring that all transactions are securely backed up.</li>
+              <li><strong>Cashier page configuration</strong></li>
+              <br>
+              <li><strong>Number of categories in row:</strong> with this feature we can customize the number of categories showing in a row, for example 3 categories showing in a row.</li>
+              <li><strong>Number of products iwith this feature we can customize the number of products showing in a row, for example 4 products showing in a row.n row: </strong></li>
+
+            </ul>
+        </section>
+
+        <section id="item-16-2" class="mt-4">
+          <h5>2. Printer</h5>
+          <p>Configure and manage receipt or report printers. Add compatible printers, test connections, and assign them to specific order types or stations.</p>
+           <div class="text-center my-4">
+        <img src="assets/images/windows-printer.PNG" alt="printer" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+      </div>
+        </section>
+
+        <section id="item-16-3" class="mt-4">
+          <h5>3. External Terminal</h5>
+          <p>Link an external payment terminal for card transactions. This ensures seamless integration between the POS and payment processing device.</p>
+       <div class="text-center my-4">
+        <img src="assets/images/external-terminal.png" alt="external-terminal" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+      </div>
+       <ul>
+              <li><strong>IP Address: </strong>The network address of the external payment terminal that allows the POS to connect to it.</li>
+              <li><strong>Request Code: </strong>A code used by the POS to initiate secure communication with the terminal.</li>
+              <li><strong>Access Code: </strong>A security key that verifies and authorizes the POS to interact with the terminal.</li>
+            </ul>
+        </section>
+
+        <section id="item-16-4" class="mt-4">
+          <h5>4. Cash Drawer</h5>
+          <p>Connect a supported cash drawer to manage physical cash securely. Automatically triggers opening upon transactions or manual commands.</p>
+           <div class="text-center my-4">
+        <img src="assets/images/cash-drawer.png" alt="cash-drawer" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+      </div>
+        </section>
+
+        <section id="item-16-5" class="mt-4">
+          <h5>5. Printing Preparation</h5>
+          <p>Set printer and print layout preferences for receipts, based on a specific category, ensuring professional, clear printouts.</p>
+           <div class="text-center my-4">
+        <img src="assets/images/printing-preparation.png" alt="printing-preparation" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+      </div>
+        </section>
+
+</section><!--//section-->
+	</article><!--//docs-article-->
+
+  <article class="docs-article" id="section-17">
+  <header class="docs-header">
+    <h1 class="docs-heading">Multilingual UI</h1>
+    <section class="docs-intro">
+      <p>Employees can instantly switch between Arabic ↔ English from the interface.</p>
+      <div class="d-flex justify-content-center gap-4 mb-4">
+             
+              <div>
+               <img src="assets/images/change-language.png"
+                alt="change-language"
+                class="img-thumbnail shadow-sm zoom-effect"
+                style="max-width: 380px; width: 100%; cursor: pointer;"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal1">
+             </div>
+   
+             <div>
+              <img src="assets/images/arabic-version.png"
+                 alt="arabic-version"
+                class="img-thumbnail shadow-sm zoom-effect"
+                style="max-width: 380px; width: 100%; cursor: pointer;"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal2">
+            </div>
+          </div>   
+          <br>  
+      <p>You can now navigate to the “Cashier” screen, and make your orders as explained in the previous sections, but this time in Arabic, as well as navigating all the other parts of the apps and using all of its features.</p>
+      <div class="text-center my-4">
+      <img src="assets/images/multilingual-UI.png" alt="multilingual-UI" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
+    </div>
+
+</section><!--//section-->
+	</article><!--//docs-article-->
+
+  <article class="docs-article" id="section-18">
+  <header class="docs-header">
+    <h1 class="docs-heading">Conclusion</h1>
+    <section class="docs-intro">
+      <p>In conclusion, this POS user manual provides a clear and practical guide to using the system efficiently, from managing sales and customers to configuring settings, handling cash operations, and integrating external devices. With its user-friendly interface and comprehensive features, the POS app is designed to streamline your business operations, improve accuracy, and enhance the overall customer experience. Whether you're a new user or an experienced operator, this manual equips you with the essential knowledge to make the most of your POS system.</p>
+      
+</section><!--//section-->
+</article><!--//docs-article-->
+
+  </div><!--//container-->
+</div><!--//docs-content-->
+
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Select all images with zoom-effect class
+    const zoomImages = document.querySelectorAll('.zoom-effect');
+
+    zoomImages.forEach(function (img) {
+      img.addEventListener('click', function () {
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = this.src;
+
+        // Show the modal using Bootstrap's method
+        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        imageModal.show();
+      });
+    });
+  });
+</script>
+
+   
+    <!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center">
+        <img id="modalImage" src="#" alt="Zoomed" class="img-fluid rounded">
+      </div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+// === Smart Search Autocomplete ===
+document.addEventListener('DOMContentLoaded', function () {
+  const input = document.querySelector('.search-input');
+  const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link'));
+
+  if (!input) return;
+
+  // Find the container (autocomplete-container) and append inside it
+  const container = input.closest('.autocomplete-container');
+  const suggestionsBox = document.createElement('div');
+  suggestionsBox.className = 'autocomplete-suggestions';
+  container.appendChild(suggestionsBox);
+
+  input.addEventListener('input', function () {
+    const val = this.value.trim().toLowerCase();
+    suggestionsBox.innerHTML = '';
+
+    if (!val) {
+      suggestionsBox.style.display = 'none';
+      return;
+    }
+
+    navLinks.forEach(link => {
+      const text = link.textContent.trim();
+      const lowerText = text.toLowerCase();
+
+      if (lowerText.includes(val)) {
+        const option = document.createElement('div');
+        option.className = 'autocomplete-suggestion';
+
+        const index = lowerText.indexOf(val);
+          const highlighted = 
+           index !== -1
+           ? text.substring(0, index) + 
+           `<mark class="bg-transparent text-primary fw-bold">` +
+            text.substring(index, index + val.length) +
+            '</mark>' +
+            text.substring(index + val.length)
+            : text;
+
+        option.innerHTML = highlighted;
+        option.addEventListener('click', () => {
+          window.location.href = link.href;
+        });
+
+        suggestionsBox.appendChild(option);
+      }
+    });
+
+    suggestionsBox.style.display = suggestionsBox.children.length ? 'block' : 'none';
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!suggestionsBox.contains(e.target) && e.target !== input) {
+      suggestionsBox.innerHTML = '';
+      suggestionsBox.style.display = 'none';
+    }
+  });
+});
+
+
+</script>
+
+<style>
+
+/* Container must stay relative */
+.autocomplete-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Suggestions dropdown */
+.autocomplete-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 2px;
+  right: 2px;
+  background: #fff;
+  z-index: 1050;
+  max-height: 240px;
+  overflow-y: auto;
+  border: 1px solid #dee2e6;
+  border-top: none;
+  border-radius: 0 0 6px 6px; /* Only bottom corners rounded */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  display: none;
+  padding: 0;
+}
+
+/* Suggestion item */
+.autocomplete-suggestion {
+  padding: 10px 14px;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s ease;
+  font-size: 0.95rem;
+}
+
+/* Hover effect */
+.autocomplete-suggestion:hover {
+  background-color: #f0f4ff;
+}
+
+/* Highlighted match */
+.autocomplete-suggestion mark {
+  background: none;
+  color: #5368fd;
+  font-weight: bold;
+}
+
+</style>
+
+
+
+    <footer class="footer">
+
+	    <div class="footer-bottom text-center py-5">
+		    
+		    <ul class="social-list list-unstyled pb-4 mb-0">
+			    <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li> 
+	            <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+	            <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+	            <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+	        </ul><!--//social-list-->
+	        
+	        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+            <small class="copyright">© Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> All Rights Reserved. Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">XR</a>.</small>
+            
+	        
+	    </div>
+	    
+    </footer>
+
+       
+    <!-- Javascript -->          
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    
+    
+    <!-- Page Specific JS -->
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script> 
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+    <script src="assets/js/docs.js"></script> 
+
+</body>
+</html> 
+

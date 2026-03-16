@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>SmartPrints -smart-kiosk-solution</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="description" content="SmartPrints Functionnal Documentation For Cloud POS Solution">
+    <meta name="author" content="SmartPrints Team">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome JS-->
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+
+
+
+   <style>
+      .zoom-effect {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .zoom-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+   </style>
+
+   <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+
+</head> 
+
+<body>    
+    <header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid py-2">
+      <div class="row align-items-center">
+        <!-- Logo Left -->
+        <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+          <a class="navbar-brand" href="index.html">
+	          <div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height: 60px;"></a></div>  
+          </a>
+        </div>
+
+        <!-- Search Center -->
+         
+<div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+  <form class="search-form position-relative d-flex justify-content-center">
+    <div class="position-relative w-75 autocomplete-container">
+      <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input pe-5">
+      <div class="autocomplete-suggestions"></div>
+      <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+        <i class="fa-light fa-magnifying-glass text-muted"></i>
+      </button>
+    </div>
+  </form>
+</div>
+
+
+        <!-- Button Right -->
+        <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center">
+          
+          <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderdocs-free-bootstrap-5-documentation-template-for-software-projects/" class="btn btn-primary d-none d-lg-flex">Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header> 
+    
+    <div class="docs-wrapper">
+        <!-- Social Media Sidebar -->
+        <div class="social-sidebar d-none d-lg-flex">
+          <ul class="social-sidebar">
+         <li onclick="activateIcon(this)"><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="#" id="lang-toggle" onclick="window.location.href='arabic.html';"><i class="fa-solid fa-globe fa-fw"></i></a></li>
+        </ul>
+        </div>
+
+  <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+  <div class="top-search-box">
+    <form class="search-form">
+      <div class="position-relative w-100 autocomplete-container">
+       <input type="text" class="form-control search-input rounded-top" placeholder="Search the docs...">
+       <div class="autocomplete-suggestions"></div>
+     </div>
+    </form>
+  </div>
+</div>
+
+      <div id="docs-sidebar" class="docs-sidebar">
+  <nav id="docs-nav" class="docs-nav navbar">
+    <ul class="section-items list-unstyled nav flex-column pb-3">
+
+      <li class="nav-item section-title">
+        <a class="nav-link scrollto active" href="#section-1">
+          <span class="theme-icon-holder me-2"><i class="fas fa-cloud"></i></span>Smart Kiosk
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Introduction</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">Service Overview</a></li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-2">
+          <span class="theme-icon-holder me-2"><i class="fas fa-microchip"></i></span>Kiosk Hardware
+        </a>
+      </li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-3">
+          <span class="theme-icon-holder me-2"><i class="fas fa-code"></i></span>Software Specifications
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Core Functionalities</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Innovative Technology</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-3">Multi-User Support</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-4">Special Features</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-6">Navigate the Application</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-7">Kiosk–Cloud Integration</a></li>
+
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-4">
+          <span class="theme-icon-holder me-2"><i class="fas fa-code"></i></span>Conclusion
+        </a>
+      </li>
+    </nav>
+</div>
+</nav><!--//docs-nav-->
+	  </div><!--//docs-sidebar-->
+
+	    <div class="docs-content">
+  <div class="container">
+
+    <article class="docs-article" id="section-1">
+  <header class="docs-header">
+    <h1 class="docs-heading">Smart Kiosk</h1>
+  </header>
+
+  <section class="docs-section" id="item-1-1">
+    <h2 class="section-heading">Introduction</h2>
+    <p style="text-align: justify;">
+    Smart Kiosk is a self-ordering service designed for fast food outlets, restaurants, coffee shops, and retail environments. It streamlines the ordering process, enabling customers to place and pay for their orders without staff assistance. This not only enhances customer satisfaction by reducing wait times but also improves order accuracy and service efficiency.</p>
+   <!-- introduction image -->
+    <!-- 
+    <div class="text-center my-4">
+      <img src="assets/images/kiosk-intro.png" alt="Smart Kiosk Introduction" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#imageModal1">
+    </div>
+    -->
+    <p style="text-align: justify;">
+    Smart Kiosk transforms customer service by reducing labor costs, improving service accuracy, and enhancing user experience. It drives efficiency and profitability while adapting to the needs of modern dining and retail businesses.</p>
+  </section>
+
+  <section class="docs-section" id="item-1-2">
+    <h2 class="section-heading">Service Overview</h2>
+    <p style="text-align: justify;">
+    Smart Kiosk reduces operational costs by allowing customers to control their own orders, minimizing staff mistakes. It guides customer behavior through suggestive selling and targeted promotions, maximizing upselling opportunities. By digitizing payment processes, it reduces cash handling discrepancies. Customers enjoy fast, intuitive ordering, leading to better satisfaction and repeat visits. With flexible packages, it’s suitable for businesses of all sizes.</p>
+    
+    <div class="text-center my-4">
+      <img src="assets/images/smart-kiosk-overview.png" alt="Service Overview" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 700px; width: 100%; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#imageModal1">
+    </div>
+  
+  </section>
+</article>
+
+<article class="docs-article" id="section-2">
+  <header class="docs-header">
+    <h1 class="docs-heading">Kiosk Hardware</h1>
+  </header>
+
+  <section class="docs-section" id="item-2-1">
+    <h2 class="section-heading">Hardware Specifications</h2>
+
+    <p><strong>Motherboard Specifications:</strong></p>
+    <ul>
+      <li>Rockchip RK3588 / RK3568 / RK3399 – Android 10/11/12</li>
+      <li>Intel Celeron J6412 / Intel Core i3-10110U – Windows 11 IoT</li>
+      <li>RAM: 4GB (optional 8GB), ROM: 16GB (optional 32/64GB)</li>
+      <li>4 serial ports, USB 2.0, USB-C OTG, HDMI, Ethernet, Wi-Fi</li>
+      <li>Optional Bluetooth 4.0, 3G/4G support</li>
+    </ul>
+
+    <p><strong>Screen Panel:</strong></p>
+    <ul>
+      <li>Size: 21” / 24” / 27” / 32”</li>
+      <li>Resolution: 1920x1080, Brightness: 400 cd/m²</li>
+      <li>Touch: 10-point capacitive, Transparency: 87±2%</li>
+    </ul>
+
+    <p><strong>Thermal Printer:</strong></p>
+    <ul>
+      <li>Speed: 90 mm/s, Resolution: 203 dpi</li>
+      <li>Width: 80 mm, Interface: RS232/USB, ESC/POS</li>
+      <li>Compatible with Windows & Linux</li>
+    </ul>
+
+    <p><strong>2D Scanner:</strong></p>
+    <ul>
+      <li>Interfaces: USB, RS232</li>
+      <li>Decodes 1D/2D: QR, Code128, PDF417, etc.</li>
+      <li>Resolution ≥5 mil, Light: White LED</li>
+    </ul>
+
+    <p><strong>Card Reader:</strong></p>
+    <ul>
+      <li>NFC Reader (Model M13), Optional RFID/MSR</li>
+    </ul>
+
+    <p><strong>Other Specifications:</strong></p>
+    <ul>
+      <li>Speakers: 10W x 2</li>
+      <li>Operating Temp: 0~40℃</li>
+      <li>Power Input: AC 100–240V</li>
+      <li>Stand: Table/Floor Stand Optional</li>
+    </ul>
+
+    <div class="d-flex justify-content-center gap-4 mb-4">
+             
+              <div>
+               <img src="assets/images/15-inches-kiosk-hardware.jpg"
+                alt="delete cart products"
+                class="img-thumbnail shadow-sm zoom-effect"
+                style="max-width: 430px; width: 100%; cursor: pointer;"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal1">
+             </div>
+             <div>
+              <img src="assets/images/27-inches-kiosk-hardware.jpg"
+                 alt="order note"
+                class="img-thumbnail shadow-sm zoom-effect"
+                style="max-width: 380px; width: 100%; cursor: pointer;"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal2">
+            </div>
+  </section>
+</article>
+
+<article class="docs-article" id="section-3">
+  <header class="docs-header">
+    <h1 class="docs-heading">Software Specifications</h1>
+  </header>
+   <section class="docs-section" id="item-3-1">
+    <h2 class="section-heading">Core Functionalities</h2>
+    <p style="text-align: justify;">
+    Interactive self-vending app developed in Java and optimized for Android. It supports multi-touch and voice input, allowing users to browse menus, modify orders, and complete payments independently and quickly.</p>
+  </section>
+
+  <section class="docs-section" id="item-3-2">
+    <h2 class="section-heading">Innovative Technology</h2>
+    <ul>
+      <li>Multi-touch screen interaction</li>
+      <li>Real-time POS synchronization</li>
+      <li>Secure NFC card and QR scanning</li>
+      <li>Smart upselling and suggestion modules</li>
+    </ul>
+  </section>
+
+  <section class="docs-section" id="item-3-3">
+    <h2 class="section-heading">Multi-User Support</h2>
+    <p style="text-align: justify;">
+    Smart Kiosk supports multiple user roles such as Administrator, Branch Manager, and Operator, providing tailored access control and functionality for each role. Additionally, the system supports both Arabic and English languages to enhance accessibility across diverse user groups.</p>
+    </p>
+  </section>
+
+  <section class="docs-section" id="item-3-4">
+    <h2 class="section-heading">Special Features</h2>
+    <ul>
+      <li>Advertisement banners management</li>
+      <li>Coupon redemption management</li>
+      <li>Customer tracking and loyalty program</li>
+      <li>User interface customization (brand colors & logo)</li>
+      <li>Exportable data reports</li>
+      <li>24/7 advanced technical support</li>
+    </ul>
+  </section>
+
+ <section class="docs-section" id="item-3-6">
+  <h2 class="section-heading">Navigate the Application</h2>
+
+  <!-- Smart Kiosk Start -->
+  <div class="container my-3">
+    <div class="row align-items-center">
+      <div class="col-lg-7 col-md-12">
+        <h4>Smart Kiosk Start</h4>
+        <p style="text-align: justify;">
+        The Smart Kiosk application starts with a launch screen that initializes system configurations and verifies internet/POS connectivity. This entry point ensures readiness before presenting the user interface to the customer. It is typically displayed during system boot or after a restart, especially when automatic login is enabled on the device.
+        After initialization, the customer is presented with the Category Screen where they must first choose their preferred language (Arabic or English) and order type ("Dine In" or "Take Away").
+        </p>
+      </div>
+      <div class="col-lg-5 col-md-12 text-center">
+        <img src="assets/images/smart-kiosk-start-screen.png" alt="smart-kiosk-start-screen"
+             class="shadow-sm zoom-effect"
+             style="max-height: 380px; width: 100%; object-fit: contain;">
+        <div class="mt-2 text-muted">Smart Kiosk Start Screen</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Home Screen -->
+  <div class="container my-3">
+    <div class="row align-items-center flex-row-reverse">
+      <div class="col-lg-7 col-md-12">
+        <h4>Category Screen</h4>
+        <p style="text-align: justify;">
+        Based on the previous input, the kiosk routes the order accordingly. The Category Screen is the first full menu interaction stage, displaying all product categories configured via the back-office cloud admin interface. Each category reflects real-time availability, pricing, and visibility rules set by the admin for that specific device or branch. 
+        This screen serves as the gateway for product exploration and customer engagement, ensuring that only valid and up to date data is presented to the user. Any changes performed from the admin dashboard are reflected after running the last update, without needing to restart or refresh the kiosk.</p>
+      </div>
+      <div class="col-lg-5 col-md-12 text-center">
+        <img src="assets/images/smart-kiosk-category-screen.png" alt="smart-kiosk-category-screen"
+             class="shadow-sm zoom-effect"
+             style="max-height: 380px; width: 100%; object-fit: contain;">
+        <div class="mt-2 text-muted">Smart Kiosk Category Screen</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Screen -->
+  <div class="container my-3">
+    <div class="row align-items-center">
+      <div class="col-lg-7 col-md-12">
+        <h4>Product Screen</h4>
+        <p style="text-align: justify;">
+        Once a customer taps a menu category, the corresponding product list is displayed. Each item includes a thumbnail image, title, price, and optionally, a short description. The kiosk interface supports real-time updates, so any product activations, deactivations, or price adjustments in the cloud admin panel are instantly reflected. This interface enables users to browse efficiently while applying branch-specific visibility settings.</p>
+      </div>
+      <div class="col-lg-5 col-md-12 text-center">
+        <img src="assets/images/smart-kiosk-product-screen.png" alt="smart-kiosk-product-screen"
+             class="shadow-sm zoom-effect"
+             style="max-height: 380px; width: 100%; object-fit: contain;">
+        <div class="mt-2 text-muted">Smart Kiosk Product Screen</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ordering in Smart Kiosk -->
+  <div class="container my-3">
+    <div class="row align-items-center flex-row-reverse">
+      <div class="col-lg-7 col-md-12">
+        <h4>Add to Cart</h4>
+        <p style="text-align: justify;">
+        When a customer selects a product, the kiosk opens a product details view where options and modifiers can be selected. These include attributes such as cup size, extra toppings, cooking preferences, or combo additions. The app validates that all mandatory selections are made before enabling the “Add to Cart” button. This structured logic ensures that kitchen prep instructions are clear and standardized across all orders.</p>
+      </div>
+      <div class="col-lg-5 col-md-12 text-center">
+        <img src="assets/images/smart-kiosk-order.png" alt="smart-kiosk-order"
+             class="shadow-sm zoom-effect"
+             style="max-height: 380px; width: 100%; object-fit: contain;">
+        <div class="mt-2 text-muted">Smart Kiosk Add-to-Cart Screen</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add to Cart -->
+  <div class="container my-3">
+    <div class="row align-items-center">
+      <div class="col-lg-7 col-md-12">
+        <h4>Cart Overview</h4>
+        <p style="text-align: justify;">
+        After adding an item, the customer is redirected to the cart overview screen. The cart shows all selected items, modifiers, and subtotal prices. From here, customers can update quantities, remove items, or go back to browse. This screen is dynamically updated to prevent duplicate entries and to handle session expiration for inactive users.</p>
+      </div>
+      <div class="col-lg-5 col-md-12 text-center">
+        <img src="assets/images/smart-kiosk-add-to-cart.png" alt="smart-kiosk-add-to-cart"
+             class="shadow-sm zoom-effect"
+             style="max-height: 380px; width: 100%; object-fit: contain;">
+        <div class="mt-2 text-muted">Smart Kiosk Add-to-Cart Screen</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkout -->
+  <div class="container my-3">
+    <div class="row align-items-center flex-row-reverse">
+      <div class="col-lg-7 col-md-12">
+        <h4>Checkout</h4>
+        <p style="text-align: justify;">
+        When ready, the customer taps “Pay Order,” initiating the checkout process. The kiosk then prompts the user to choose a payment method: either cash or credit card. Depending on system setup, this screen may also integrate loyalty or promo code modules. Once the payment is processed, the system registers the order in POS and the kitchen station in real-time.</p>
+      </div>
+      <div class="col-lg-5 col-md-12 text-center">
+        <img src="assets/images/smart-kiosk-checkout.png" alt="smart-kiosk-checkout"
+             class="shadow-sm zoom-effect"
+             style="max-height: 380px; width: 100%; object-fit: contain;">
+        <div class="mt-2 text-muted">Smart Kiosk Checkout Screen</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Screen -->
+  <div class="container my-3">
+    <div class="row align-items-center">
+      <div class="col-lg-7 col-md-12">
+        <h4>Order Success</h4>
+        <p style="text-align: justify;">
+        Once the order is confirmed and sent, the kiosk displays a “Thank You” confirmation screen. Customers can optionally print their receipt by clicking the “Complete” button, after which the app resets for the next user. This final step concludes the session and ensures data is securely stored in the cloud and kitchen queue.</p>
+      </div>
+      <div class="col-lg-5 col-md-12 text-center">
+        <img src="assets/images/smart-kiosk-success-screen.png" alt="smart-kiosk-success-screen"
+             class="shadow-sm zoom-effect"
+             style="max-height: 380px; width: 100%; object-fit: contain;">
+        <div class="mt-2 text-muted">Smart Kiosk Success Screen</div>
+      </div>
+</section>
+
+      <section class="docs-section" id="item-3-7">
+  <h2 class="section-heading">Kiosk–Cloud Integration</h2>
+  <p style="text-align: justify;">
+    The Smart Kiosk application is directly powered by the Cloud Admin backend. All content displayed on the kiosk—such as categories, products, modifiers, pricing, and offers is fully controlled through the web-based administration interface. Any changes made via Cloud Admin (e.g., activating/deactivating products, changing prices, creating combo offers, or updating translations) are reflected in real time on the kiosk screens.</p>
+  <p style="text-align: justify;">
+    In addition to menu control, the backend system also allows administrators to manage multiple branches, configure branding elements like logos and banner ads, and enable or disable entire menus per device or branch. This ensures a centralized and consistent experience across all devices, regardless of location.</p>
+  <p style="text-align: justify;"></p>
+  Cloud Admin also supports operational features like session tracking, device status monitoring, and audit logging essential for businesses operating multiple kiosks or locations. Menu updates can be performed remotely without physical access to the device, and any POS changes are synced seamlessly for real-time order processing.</p>
+
+  <div class="text-center my-4">
+    <img src="assets/images/cloud-admin.png"
+         alt="Smart Kiosk - Cloud Admin Integration"
+         class="img-thumbnail shadow-sm zoom-effect"
+         style="max-width: 500px; width: 100%; cursor: pointer;"
+         data-bs-toggle="modal"
+         data-bs-target="#imageModal1">
+  </div>
+</section>
+
+<!-- Conclusion Section -->
+<article class="docs-article" id="section-4">
+  <header class="docs-header">
+    <h1 class="docs-heading">Conclusion</h1>
+  </header>
+  <p style="text-align: justify;">
+    The Smart Kiosk solution delivers a complete self-service ecosystem tailored for modern food and beverage operations. 
+    By combining robust hardware components with dynamic cloud-powered software, it streamlines the ordering process, reduces queue times, and minimizes human error. The system is fully modular, adaptable for dine-in, takeaway, or hybrid service models, and ensures optimal performance whether used in standalone locations or across multiple branches. On the hardware side, kiosks are optimized for 24/7 service with durable touchscreens, integrated payment modules, receipt printers, and wall or stand mountable designs. From the software perspective, everything—from product displays to POS sync and customer journey's is handled in real time through tight integration with the Cloud Admin system. Together, these layers enable businesses to deliver a consistent, high speed, and scalable customer experience while maintaining centralized control over every kiosk in operation.</p>
+  </p>
+  </section>
+
+</article>
+ 
+</div>
+</div>
+      </section><!--//section-->
+			  </article><!--//docs-article-->
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Select all images with zoom-effect class
+    const zoomImages = document.querySelectorAll('.zoom-effect');
+
+    zoomImages.forEach(function (img) {
+      img.addEventListener('click', function () {
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = this.src;
+
+        // Show the modal using Bootstrap's method
+        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        imageModal.show();
+      });
+    });
+  });
+</script>
+
+   
+    <!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center">
+        <img id="modalImage" src="#" alt="Zoomed" class="img-fluid rounded">
+      </div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+// === Smart Search Autocomplete ===
+document.addEventListener('DOMContentLoaded', function () {
+  const input = document.querySelector('.search-input');
+  const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link'));
+
+  if (!input) return;
+
+  // Find the container (autocomplete-container) and append inside it
+  const container = input.closest('.autocomplete-container');
+  const suggestionsBox = document.createElement('div');
+  suggestionsBox.className = 'autocomplete-suggestions';
+  container.appendChild(suggestionsBox);
+
+  input.addEventListener('input', function () {
+    const val = this.value.trim().toLowerCase();
+    suggestionsBox.innerHTML = '';
+
+    if (!val) {
+      suggestionsBox.style.display = 'none';
+      return;
+    }
+
+    navLinks.forEach(link => {
+      const text = link.textContent.trim();
+      const lowerText = text.toLowerCase();
+
+      if (lowerText.includes(val)) {
+        const option = document.createElement('div');
+        option.className = 'autocomplete-suggestion';
+
+        const index = lowerText.indexOf(val);
+          const highlighted = 
+           index !== -1
+           ? text.substring(0, index) + 
+           `<mark class="bg-transparent text-primary fw-bold">` +
+            text.substring(index, index + val.length) +
+            '</mark>' +
+            text.substring(index + val.length)
+            : text;
+
+        option.innerHTML = highlighted;
+        option.addEventListener('click', () => {
+          window.location.href = link.href;
+        });
+
+        suggestionsBox.appendChild(option);
+      }
+    });
+
+    suggestionsBox.style.display = suggestionsBox.children.length ? 'block' : 'none';
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!suggestionsBox.contains(e.target) && e.target !== input) {
+      suggestionsBox.innerHTML = '';
+      suggestionsBox.style.display = 'none';
+    }
+  });
+});
+
+
+</script>
+
+<style>
+
+/* Container must stay relative */
+.autocomplete-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Suggestions dropdown */
+.autocomplete-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 2px;
+  right: 2px;
+  background: #fff;
+  z-index: 1050;
+  max-height: 240px;
+  overflow-y: auto;
+  border: 1px solid #dee2e6;
+  border-top: none;
+  border-radius: 0 0 6px 6px; /* Only bottom corners rounded */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  display: none;
+  padding: 0;
+}
+
+/* Suggestion item */
+.autocomplete-suggestion {
+  padding: 10px 14px;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s ease;
+  font-size: 0.95rem;
+}
+
+/* Hover effect */
+.autocomplete-suggestion:hover {
+  background-color: #f0f4ff;
+}
+
+/* Highlighted match */
+.autocomplete-suggestion mark {
+  background: none;
+  color: #5368fd;
+  font-weight: bold;
+}
+
+</style>
+
+
+
+    <footer class="footer">
+
+	    <div class="footer-bottom text-center py-5">
+		    
+		    <ul class="social-list list-unstyled pb-4 mb-0">
+			    <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li> 
+	            <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+	            <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+	            <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+	        </ul><!--//social-list-->
+	        
+	        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+            <small class="copyright">© Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> All Rights Reserved. Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">XR</a>.</small>
+            
+	        
+	    </div>
+	    
+    </footer>
+
+       
+    <!-- Javascript -->          
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    
+    
+    <!-- Page Specific JS -->
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script> 
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+    <script src="assets/js/docs.js"></script> 
+
+</body>
+</html> 
+

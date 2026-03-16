@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>SmartPrints -smart-waiter-solution</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="description" content="SmartPrints Functionnal Documentation For Cloud POS Solution">
+    <meta name="author" content="SmartPrints Team">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome JS-->
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+
+
+
+   <style>
+      .zoom-effect {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .zoom-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+   </style>
+
+   <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+
+</head> 
+
+<body>    
+    <header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid py-2">
+      <div class="row align-items-center">
+        <!-- Logo Left -->
+        <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+          <a class="navbar-brand" href="index.html">
+	          <div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height: 60px;"></a></div>  
+          </a>
+        </div>
+
+        <!-- Search Center -->
+         
+<div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+  <form class="search-form position-relative d-flex justify-content-center">
+    <div class="position-relative w-75 autocomplete-container">
+      <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input pe-5">
+      <div class="autocomplete-suggestions"></div>
+      <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+        <i class="fa-light fa-magnifying-glass text-muted"></i>
+      </button>
+    </div>
+  </form>
+</div>
+
+
+        <!-- Button Right -->
+        <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center">
+          
+          <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderdocs-free-bootstrap-5-documentation-template-for-software-projects/" class="btn btn-primary d-none d-lg-flex">Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header> 
+    
+    <div class="docs-wrapper">
+        <!-- Social Media Sidebar -->
+        <div class="social-sidebar d-none d-lg-flex">
+          <ul class="social-sidebar">
+         <li onclick="activateIcon(this)"><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+         <li onclick="activateIcon(this)"><a href="#" id="lang-toggle" onclick="window.location.href='arabic.html';"><i class="fa-solid fa-globe fa-fw"></i></a></li>
+        </ul>
+        </div>
+
+  <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+  <div class="top-search-box">
+    <form class="search-form">
+      <div class="position-relative w-100 autocomplete-container">
+       <input type="text" class="form-control search-input rounded-top" placeholder="Search the docs...">
+       <div class="autocomplete-suggestions"></div>
+     </div>
+    </form>
+  </div>
+</div>
+<div id="docs-sidebar" class="docs-sidebar">
+  <nav id="docs-nav" class="docs-nav navbar">
+    <ul class="section-items list-unstyled nav flex-column pb-3">
+
+      <!-- SECTION 1 -->
+      <li class="nav-item section-title">
+        <a class="nav-link scrollto active" href="#section-1">
+          <span class="theme-icon-holder me-2">
+            <i class="fas fa-utensils"></i>
+          </span>
+          Smart Waiter Overview
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link scrollto" href="#item-1-1">
+          Integrated POS Table Management
+        </a>
+      </li>
+
+      <!-- SECTION 2 -->
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-2">
+          <span class="theme-icon-holder me-2">
+            <i class="fas fa-question-circle"></i>
+          </span>
+          Why Smart Waiter
+        </a>
+      </li>
+
+      <!-- SECTION 3 -->
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-3">
+          <span class="theme-icon-holder me-2">
+            <i class="fas fa-route"></i>
+          </span>
+          Navigating Smart Waiter
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link scrollto" href="#item-3-1">
+          Accessing Table Management
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link scrollto" href="#item-3-2">
+          Selecting a Table
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link scrollto" href="#item-3-3">
+          Table Status & Timing Indicators
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link scrollto" href="#item-3-4">
+          Creating an Order
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link scrollto" href="#item-3-5">
+          Sending Orders to the Kitchen
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link scrollto" href="#item-3-6">
+          Table Commands
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+</div>
+
+     <div class="docs-content">
+  <div class="container">
+
+<!-- SECTION 1: OVERVIEW -->
+<article class="docs-article" id="section-1">
+      <header class="docs-header">
+        <h1 class="docs-heading">Smart Waiter Overview</h1>
+      </header>
+
+      <section class="docs-section" id="item-1-1">
+        <h2 class="section-heading">Integrated POS Table Management</h2>
+    <div class="row align-items-center g-3">
+
+      <!-- TEXT -->
+      <div class="col-md-8">
+        <p class="mb-2">
+          Smart Waiter is a dine-in table management and ordering feature natively integrated
+          into the Smart POS application. It extends the POS with real-time table tracking,
+          waiter-driven order creation, and direct kitchen dispatch within the same
+          operational environment.
+        </p>
+        <p class="mb-0">
+          Unlike standalone waiter applications, Smart Waiter does not require a separate
+          installation or authentication. All table actions, orders, and payments are processed
+          through the core POS engine, ensuring consistency across billing, kitchen workflows,
+          and reporting.
+        </p>
+      </div>
+
+      <!-- IMAGE -->
+      <div class="col-md-4 text-center">
+        <img src="assets/images/smart-waiter-overview.png"
+             alt="Smart Waiter Integrated in POS"
+             class="img-thumbnail shadow-sm zoom-effect"
+             style="max-width: 260px; width: 100%;">
+      </div>
+
+    </div>
+  </section>
+</article>
+
+
+    <!-- SECTION 2: WHY SMART WAITER -->
+    <article class="docs-article" id="section-2">
+      <header class="docs-header">
+        <h1 class="docs-heading">Why Smart Waiter</h1>
+      </header>
+
+      <section class="docs-section">
+        <p>
+          Smart Waiter enhances dine-in operations by introducing table awareness and service timing intelligence
+          directly into the POS workflow. It enables waiters, cashiers, and kitchen staff to operate on the same
+          real-time dataset without manual coordination.
+        </p>
+
+        <ul>
+          <li>Native integration inside the Smart POS application</li>
+          <li>Real-time table occupancy and timing tracking</li>
+          <li>Direct order dispatch to kitchen stations</li>
+          <li>Reduced service delays during peak hours</li>
+          <li>Accurate table-level reporting and accountability</li>
+        </ul>
+      </section>
+    </article>
+
+    <!-- SECTION 3: NAVIGATING SMART WAITER -->
+    <article class="docs-article" id="section-3">
+      <header class="docs-header">
+        <h1 class="docs-heading">Navigating Smart Waiter in the POS</h1>
+      </header>
+
+      <!-- STEP 1 -->
+      <section class="docs-section" id="item-3-1">
+        <h2 class="section-heading">Accessing Table Management</h2>
+        <p>
+          Smart Waiter is accessed directly from the Smart POS main menu through the Table Management option. This view serves as the central control point for all dine-in operations within the POS environment. Upon opening the Table Management screen, the system loads and displays all tables configured for the active branch, including their current status, occupancy state, and associated timing indicators.
+        </p>
+        <br>
+        <p>Smart Waiter is accessed directly from the Smart POS main menu through the Table Management option. This view serves as the central control point for all dine-in operations within the POS environment. Upon opening the Table Management screen, the system loads and displays all tables configured for the active branch, including their current status, occupancy state, and associated timing indicators.</p>
+
+        <div class="text-center my-4">
+          <img src="assets/images/pos-table management.jpg"
+               alt="POS Table Management"
+               class="img-thumbnail shadow-sm zoom-effect"
+               style="max-width: 500px; width: 100%;">
+          <div class="mt-2 text-muted">POS Menu → Table Management</div>
+        </div>
+      </section>
+
+      <!-- STEP 2 -->
+      <section class="docs-section" id="item-3-2">
+        <h2 class="section-heading">Selecting a Table</h2>
+        <p>
+          Selecting a table marks the beginning of a dine-in session. Once selected,
+          the table becomes active and all subsequent orders and actions are linked to it.
+        </p>
+
+        <div class="text-center my-4">
+          <img src="assets/images/select-table.jpg"
+               alt="Select Table"
+               class="img-thumbnail shadow-sm zoom-effect"
+               style="max-width: 500px; width: 100%;">
+          <div class="mt-2 text-muted">Selecting an Available Table</div>
+        </div>
+      </section>
+
+      <!-- TABLE STATUS COLORS -->
+      <section class="docs-section" id="item-3-3">
+        <h2 class="section-heading">Table Status & Timing Indicators</h2>
+        <p>
+          Smart Waiter visually tracks service timing using color-coded table states.
+          These indicators help staff prioritize attention and avoid service delays.
+        </p>
+
+        <ul>
+          <li><strong>Green:</strong> Table just selected, customers are seated</li>
+          <li><strong>Orange:</strong> Waiting threshold reached (e.g. 1 minute)</li>
+          <li><strong>Red:</strong> Extended waiting time detected (2 minutes or more)</li>
+        </ul>
+
+        <div class="row text-center my-4">
+          <div class="col-md-4">
+            <img src="assets/images/table-green.jpg"
+                 class="img-thumbnail shadow-sm zoom-effect">
+            <div class="mt-2 text-muted">Green – Newly Occupied</div>
+          </div>
+          <div class="col-md-4">
+            <img src="assets/images/table-orange.jpg"
+                 class="img-thumbnail shadow-sm zoom-effect">
+            <div class="mt-2 text-muted">Orange – Attention Needed</div>
+          </div>
+          <div class="col-md-4">
+            <img src="assets/images/table-red.jpg"
+                 class="img-thumbnail shadow-sm zoom-effect">
+            <div class="mt-2 text-muted">Red – Service Delay</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 -->
+      <section class="docs-section" id="item-3-4">
+        <h2 class="section-heading">Creating an Order</h2>
+        <p>
+          After selecting a table, the waiter proceeds to the POS ordering interface.
+          Products are added using the same category structure, modifiers, and notes
+          available in standard POS operations.
+        </p>
+
+        <div class="text-center my-4">
+          <img src="assets/images/pos-order-table-management.jpg"
+               alt="POS Order Creation"
+               class="img-thumbnail shadow-sm zoom-effect"
+               style="max-width: 500px; width: 100%;">
+          <div class="mt-2 text-muted">Order Creation Linked to Table</div>
+        </div>
+      </section>
+
+      <!-- STEP 4 -->
+      <section class="docs-section" id="item-3-5">
+        <h2 class="section-heading">Sending Orders to the Kitchen</h2>
+        <p>
+          Once confirmed, the order is instantly dispatched to the kitchen display system.
+          Items are routed to the appropriate preparation stations and tracked in real time.
+        </p>
+
+        <div class="text-center my-4">
+          <img src="assets/images/send-to-kitchen.jpg"
+               alt="Send to Kitchen"
+               class="img-thumbnail shadow-sm zoom-effect"
+               style="max-width: 500px; width: 100%;">
+          <div class="mt-2 text-muted">Order Sent to Kitchen</div>
+        </div>
+      </section>
+
+      <!-- TABLE COMMANDS -->
+      <section class="docs-section" id="item-3-6">
+        <h2 class="section-heading">Table Commands</h2>
+        <p>
+          Once a table has an active order, Smart Waiter exposes a set of table-level commands
+          directly within the POS interface.
+        </p>
+        <div class="text-center my-4">
+          <img src="assets/images/table-commands.jpg"
+               alt="Table Commads"
+               class="img-thumbnail shadow-sm zoom-effect"
+               style="max-width: 500px; width: 100%;">
+          <div class="mt-2 text-muted">Table Management Commands</div>
+        </div>
+
+        <ul>
+          <li>View Order Details</li>
+          <li>Edit Order (POS Edit)</li>
+          <li>Change Table</li>
+          <li>Pay Table</li>
+          <li>Clear Table</li>
+        </ul>
+
+        <div class="row my-4 text-center">
+          <div class="col-md-4">
+            <img src="assets/images/view-order-details-tm.jpg" class="img-thumbnail shadow-sm zoom-effect">
+            <div class="mt-2 text-muted">View Order Details</div>
+          </div>
+          <div class="col-md-4">
+            <img src="assets/images/change-table.jpg" class="img-thumbnail shadow-sm zoom-effect">
+            <div class="mt-2 text-muted">Change Table</div>
+          </div>
+           <div class="col-md-4">
+            <img src="assets/images/pay-table.jpg" class="img-thumbnail shadow-sm zoom-effect">
+            <div class="mt-2 text-muted">Pay Table</div>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <!-- SECTION: CONCLUSION -->
+<article class="docs-article" id="section-conclusion">
+  <header class="docs-header">
+    <h1 class="docs-heading">Conclusion</h1>
+  </header>
+
+  <section class="docs-section">
+    <p>
+      The Smart Waiter module, fully integrated into the Smart POS application, provides a structured and efficient
+      approach to managing dine-in operations without relying on external or standalone waiter applications.
+      By centralizing table management, order creation, kitchen dispatch, and payment workflows within a single
+      POS environment, the system ensures operational consistency and data integrity across all service stages.
+    </p>
+
+    <p>
+      Through real-time table status tracking, configurable timing thresholds, and clear visual indicators,
+      staff are able to monitor customer flow, prioritize service, and reduce table idle time.
+      The ability to execute table-level actions such as editing orders, changing tables, clearing sessions,
+      and finalizing payments directly from the POS significantly reduces service delays and operational errors.
+    </p>
+
+    <p>
+      From a technical standpoint, Smart Waiter leverages the core POS infrastructure for authentication,
+      synchronization, and reporting. All dine-in interactions are recorded at the POS level, ensuring that
+      sales data, kitchen activity, and staff performance metrics remain aligned and accessible for analysis.
+    </p>
+
+    <p>
+      Overall, Smart Waiter transforms the Smart POS into a complete dine-in management solution, enabling
+      restaurants to streamline front-of-house operations, maintain accurate kitchen coordination,
+      and deliver a more controlled and responsive dining experience.
+    </p>
+  </section>
+</article>
+
+  </div>
+</div>
+
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Select all images with zoom-effect class
+    const zoomImages = document.querySelectorAll('.zoom-effect');
+
+    zoomImages.forEach(function (img) {
+      img.addEventListener('click', function () {
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = this.src;
+
+        // Show the modal using Bootstrap's method
+        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        imageModal.show();
+      });
+    });
+  });
+</script>
+
+   
+    <!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center">
+        <img id="modalImage" src="#" alt="Zoomed" class="img-fluid rounded">
+      </div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+// === Smart Search Autocomplete ===
+document.addEventListener('DOMContentLoaded', function () {
+  const input = document.querySelector('.search-input');
+  const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link'));
+
+  if (!input) return;
+
+  // Find the container (autocomplete-container) and append inside it
+  const container = input.closest('.autocomplete-container');
+  const suggestionsBox = document.createElement('div');
+  suggestionsBox.className = 'autocomplete-suggestions';
+  container.appendChild(suggestionsBox);
+
+  input.addEventListener('input', function () {
+    const val = this.value.trim().toLowerCase();
+    suggestionsBox.innerHTML = '';
+
+    if (!val) {
+      suggestionsBox.style.display = 'none';
+      return;
+    }
+
+    navLinks.forEach(link => {
+      const text = link.textContent.trim();
+      const lowerText = text.toLowerCase();
+
+      if (lowerText.includes(val)) {
+        const option = document.createElement('div');
+        option.className = 'autocomplete-suggestion';
+
+        const index = lowerText.indexOf(val);
+          const highlighted = 
+           index !== -1
+           ? text.substring(0, index) + 
+           `<mark class="bg-transparent text-primary fw-bold">` +
+            text.substring(index, index + val.length) +
+            '</mark>' +
+            text.substring(index + val.length)
+            : text;
+
+        option.innerHTML = highlighted;
+        option.addEventListener('click', () => {
+          window.location.href = link.href;
+        });
+
+        suggestionsBox.appendChild(option);
+      }
+    });
+
+    suggestionsBox.style.display = suggestionsBox.children.length ? 'block' : 'none';
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!suggestionsBox.contains(e.target) && e.target !== input) {
+      suggestionsBox.innerHTML = '';
+      suggestionsBox.style.display = 'none';
+    }
+  });
+});
+
+
+</script>
+
+<style>
+
+/* Container must stay relative */
+.autocomplete-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Suggestions dropdown */
+.autocomplete-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 2px;
+  right: 2px;
+  background: #fff;
+  z-index: 1050;
+  max-height: 240px;
+  overflow-y: auto;
+  border: 1px solid #dee2e6;
+  border-top: none;
+  border-radius: 0 0 6px 6px; /* Only bottom corners rounded */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  display: none;
+  padding: 0;
+}
+
+/* Suggestion item */
+.autocomplete-suggestion {
+  padding: 10px 14px;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s ease;
+  font-size: 0.95rem;
+}
+
+/* Hover effect */
+.autocomplete-suggestion:hover {
+  background-color: #f0f4ff;
+}
+
+/* Highlighted match */
+.autocomplete-suggestion mark {
+  background: none;
+  color: #5368fd;
+  font-weight: bold;
+}
+
+</style>
+
+
+
+    <footer class="footer">
+
+	    <div class="footer-bottom text-center py-5">
+		    
+		    <ul class="social-list list-unstyled pb-4 mb-0">
+			    <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li> 
+	            <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+	            <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+	            <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+	        </ul><!--//social-list-->
+	        
+	        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+            <small class="copyright">© Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> All Rights Reserved. Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">XR</a>.</small>
+            
+	        
+	    </div>
+	    
+    </footer>
+
+       
+    <!-- Javascript -->          
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    
+    
+    <!-- Page Specific JS -->
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script> 
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+    <script src="assets/js/docs.js"></script> 
+
+</body>
+</html> 
+
