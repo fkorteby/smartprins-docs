@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SmartPrints - Inventory: Menu & Ingredients Setup</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SmartPrints Inventory Documentation - Inventory: Menu & Ingredients Setup">
+    <meta name="author" content="SmartPrints Team">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+    <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+    <style>
+      .zoom-effect { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+      .zoom-effect:hover { transform: scale(1.05); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+      .autocomplete-container { position: relative; width: 100%; }
+      .autocomplete-suggestions { position: absolute; top: 100%; left: 2px; right: 2px; background: #fff; z-index: 1050; max-height: 240px; overflow-y: auto; border: 1px solid #dee2e6; border-top: none; border-radius: 0 0 6px 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); display: none; padding: 0; }
+      .autocomplete-suggestion { padding: 10px 14px; cursor: pointer; color: #333; transition: background-color 0.2s ease; font-size: 0.95rem; }
+      .autocomplete-suggestion:hover { background-color: #f0f4ff; }
+      .autocomplete-suggestion mark { background: none; color: #5368fd; font-weight: bold; }
+      .callout-tip { background: #f0f9ff; border-left: 4px solid #3b82f6; padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; }
+      .callout-warning { background: #fff7ed; border-left: 4px solid #f97316; padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; }
+      .callout-info { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; }
+      .callout-tip .icon { color: #3b82f6; margin-right: 0.5rem; }
+      .callout-warning .icon { color: #f97316; margin-right: 0.5rem; }
+      .callout-info .icon { color: #22c55e; margin-right: 0.5rem; }
+      .field-table th { background-color: #f8f9fa; font-weight: 600; }
+      .field-table td { vertical-align: top; padding: 0.85rem 1rem; }
+      .img-caption { color: #6c757d; font-size: 0.875rem; text-align: center; margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+<header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid py-2">
+      <div class="row align-items-center">
+        <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+          <a class="navbar-brand" href="index.html">
+            <div class="site-logo"><img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height:60px;"></div>
+          </a>
+        </div>
+        <div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+          <form class="search-form position-relative d-flex justify-content-center">
+            <div class="position-relative w-75 autocomplete-container">
+              <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input pe-5">
+              <div class="autocomplete-suggestions"></div>
+              <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+                <i class="fa-light fa-magnifying-glass text-muted"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center">
+          <a href="#" class="btn btn-primary d-none d-lg-flex">Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="docs-wrapper">
+  <div class="social-sidebar d-none d-lg-flex">
+    <ul class="social-sidebar">
+      <li><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+      <li><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+      <li><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+      <li><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+      <li><a href="#"><i class="fa-solid fa-globe fa-fw"></i></a></li>
+    </ul>
+  </div>
+  <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+    <div class="top-search-box">
+      <form class="search-form">
+        <div class="position-relative w-100 autocomplete-container">
+          <input type="text" class="form-control search-input rounded-top" placeholder="Search the docs...">
+          <div class="autocomplete-suggestions"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="docs-sidebar" class="docs-sidebar">
+    <nav id="docs-nav" class="docs-nav navbar">
+      <ul class="section-items list-unstyled nav flex-column pb-3">
+        <li class="nav-item section-title">
+          <a class="nav-link scrollto active" href="#section-1">
+            <span class="theme-icon-holder me-2"><i class="fas fa-utensils"></i></span>Step 01 — Define the Menu
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Overview</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">How to Access</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3">Adding a New Product</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-4">Tips for Efficient Setup</a></li>
+        <li class="nav-item section-title mt-3">
+          <a class="nav-link scrollto" href="#section-2">
+            <span class="theme-icon-holder me-2"><i class="fas fa-seedling"></i></span>Step 02 — Define Ingredients
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">What Counts as an Ingredient?</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">How to Access</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-3">The Setup Form</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-4">Pro Tips</a></li>
+        <li class="nav-item section-title mt-3">
+          <a class="nav-link" href="inventory-suppliers-recipies.html">
+            <span class="theme-icon-holder me-2"><i class="fas fa-arrow-right"></i></span>Next: Suppliers &amp; Recipes
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="docs-content">
+    <div class="container">
+
+      <article class="docs-article" id="section-1">
+        <header class="docs-header">
+          <h1 class="docs-heading">Step 01 — Define the Menu <span class="docs-time">Building the Foundation: Your Menu Items and Raw Materials</span></h1>
+          <section class="docs-intro">
+            <p>The first step in setting up your inventory system is building your menu. Every item your customers can order through the POS must exist as a product in the system before recipes, ingredients, or stock tracking can be configured.</p>
+            <p>This step has no prerequisites. You start here.</p>
+          </section>
+        </header>
+        <section class="docs-section" id="item-1-1">
+          <h2 class="section-heading">Overview</h2>
+          <p>Products are the final menu items your customers order. Creating them here is what allows the rest of the system to work — recipes get attached to products, and every POS sale references a product to know which ingredients to deduct from stock.</p>
+        </section>
+        <section class="docs-section" id="item-1-2">
+          <h2 class="section-heading">How to Access</h2>
+          <p>Navigate to <strong>Menu &rarr; Products</strong> from the left sidebar.</p>
+          <p>This opens the Products list view, where all existing products are displayed with their name, Arabic name, category, and status. From here you can search, filter by category or status, and manage existing items.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Setup/Products.png" alt="Products list view" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Products list view showing all menu items with their category and status tags. Use the grid or list toggle on the top right to switch views.</p>
+          </div>
+        </section>
+        <section class="docs-section" id="item-1-3">
+          <h2 class="section-heading">Adding a New Product</h2>
+          <p>Click the <strong>+ Add Product</strong> button in the top left of the Products list to open the Add Product form.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Setup/add-products.png" alt="Add Product form" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Add Product form opens as a modal with five tabs: Informations, Options, Suggestions, Recipe, and admin_nutritions. All required setup for inventory purposes happens in the Informations and Recipe tabs.</p>
+          </div>
+          <p>The form is organized into five tabs. For the purposes of menu setup in this first-time configuration, focus on the <strong>Informations</strong> tab first.</p>
+          <p>Once all required fields are filled in, click <strong>Submit</strong> to save the product. It will immediately appear in the Products list and become available for recipe assignment. To discard the entry without saving, click <strong>Close</strong>.</p>
+        </section>
+        <section class="docs-section" id="item-1-4">
+          <h2 class="section-heading">Tips for Efficient Menu Setup</h2>
+          <ul>
+            <li>If you have a large product catalog, you can upload your menu in bulk using an Excel file. Prepare your menu items in the provided Excel template, then upload the file to automatically create all products at once. This significantly speeds up the initial setup and reduces manual entry errors.</li>
+            <li>Make sure every product has its Status set to <strong>Enabled</strong> and a category assigned. Products without a category may not appear correctly on the POS or in reports.</li>
+            <li>You do not need to fill in the Recipe tab at this stage. Recipe assignment is covered in Step 04. Focus here on getting every active product created with the correct name, category, price, and status.</li>
+          </ul>
+        </section>
+      </article>
+
+      <article class="docs-article" id="section-2">
+        <header class="docs-header">
+          <h1 class="docs-heading">Step 02 — Define Your Ingredients</h1>
+          <section class="docs-intro">
+            <p>Adding ingredients is the most important step in setting up your inventory. If the ingredients are set up correctly, your recipes, purchase orders, and cost reports will work perfectly. If not, mistakes here will ripple through your entire system.</p>
+          </section>
+        </header>
+        <section class="docs-section" id="item-2-1">
+          <h2 class="section-heading">What Counts as an Ingredient?</h2>
+          <p><strong>Yes:</strong> Anything you buy from a supplier (flour, sugar, packaging) OR anything you make in-house from raw materials to use later (pizza dough, house sauce).</p>
+          <p><strong>No:</strong> Final items sold directly to customers at the register. Those are "Products" (Step 01).</p>
+        </section>
+        <section class="docs-section" id="item-2-2">
+          <h2 class="section-heading">How to Access</h2>
+          <p>Navigate to <strong>Menu &rarr; Stock &rarr; Ingredients</strong> from the left sidebar, then click the <strong>+ Add Ingredient</strong> button.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Setup/ingredients.png" alt="Ingredients list view" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Ingredients list view. All created ingredients appear here with their key attributes visible at a glance. Use the search bar and filters to locate specific items once your list grows.</p>
+          </div>
+        </section>
+        <section class="docs-section" id="item-2-3">
+          <h2 class="section-heading">The Setup Form — Field by Field</h2>
+          <p>When you add an ingredient, you will fill out a form. Here is what each part means:</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Setup/add-ingredient.png" alt="Ingredients list view" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+           
+          </div>
+          <div class="table-responsive">
+            <table class="table table-bordered field-table">
+              <thead><tr><th>Field</th><th>What you need to do</th><th>Why it matters</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Name</strong></td><td>Give it a clear, consistent name (e.g., <em>Milk - Full Fat</em> instead of just <em>Milk</em>).</td><td>Prevents duplicate entries and keeps your lists organized as you grow.</td></tr>
+                <tr><td><strong>Unit of Measurement</strong></td><td>Choose how you use the item in recipes, not how you buy it (e.g., use grams, not kilogram bags).</td><td><strong>Crucial:</strong> Changing this later will break your existing stock data and recipes.</td></tr>
+                <tr><td><strong>Cost</strong></td><td>Enter the cost for one single base unit (e.g., the cost of 1 gram, not the 1kg bag).</td><td>This calculates your exact food costs and profit margins when a dish is sold.</td></tr>
+                <tr><td><strong>Status</strong></td><td>Set to <strong>Enabled</strong> for items you are currently using.</td><td>Setting it to Disabled hides it from the system without deleting your historical data.</td></tr>
+                <tr><td><strong>Composite</strong></td><td>Turn this ON if the ingredient is made up of other ingredients (like a spice blend).</td><td>Allows the system to calculate the cost based on the raw materials used to make it.</td></tr>
+                <tr><td><strong>Trackable</strong></td><td>Turn this ON so the system counts it.</td><td>If this is off, the system won't deduct stock when you sell food, ruining your inventory numbers.</td></tr>
+                <tr><td><strong>Preparable</strong></td><td>Turn this ON if your kitchen makes this item in large batches to use later (like bread dough). Items marked as preparable should be set as composite to track their stock.</td><td>Deducts the components consumed and adds the prepared item to stock, keeping its levels accurately tracked.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="docs-section" id="item-2-4">
+          <h2 class="section-heading">Pro Tips for a Smooth Setup</h2>
+          <ul>
+            <li><strong>Group your work:</strong> Enter all your dairy, then all your meats, then all your dry goods. It makes spotting mistakes much easier.</li>
+            <li><strong>Never delete, just disable:</strong> If you stop using an ingredient, change its status to Disabled. Deleting an item that has been used in past recipes or orders can cause system errors.</li>
+            <li><strong>Double-check your math:</strong> Entering the cost of a whole bulk box instead of the cost-per-gram is the most common mistake. Always convert the price to your base unit.</li>
+          </ul>
+          <div class="callout-warning">
+            <i class="fas fa-exclamation-triangle icon"></i>
+            <strong>Important:</strong> The Unit of Measurement field cannot be reliably changed after stock activity has been recorded. Set it correctly the first time.
+          </div>
+          
+        </section>
+          <!-- Previous / Next navigation -->
+          <div class="docs-nav-buttons">
+            <a href="inventory-intro.html" class="btn btn-outline-secondary">
+              <i class="fas fa-arrow-left"></i> Core Building Blocks
+            </a>
+            <a href="inventory-suppliers-recipies.html" class="btn btn-primary">
+              Continue to Suppliers & Recipies <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+      </article>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center"><img id="modalImage" src="#" alt="Zoomed" class="img-fluid rounded"></div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="footer-bottom text-center py-5">
+    <ul class="social-list list-unstyled pb-4 mb-0">
+      <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li>
+      <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+      <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+      <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+    </ul>
+    <small class="copyright">&copy; Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> All Rights Reserved. Designed with <i class="fas fa-heart" style="color:#fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">XR</a>.</small>
+  </div>
+</footer>
+<script src="assets/plugins/popper.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/plugins/smoothscroll.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+<script src="assets/js/highlight-custom.js"></script>
+<script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>
+<script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script>
+<script src="assets/js/docs.js"></script>
+</body>
+</html>

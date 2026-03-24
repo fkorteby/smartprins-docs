@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>SmartPrints - Inventory: Introduction</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="SmartPrints Inventory Documentation - Introduction"
+    />
+    <meta name="author" content="SmartPrints Team" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/plugins/simplelightbox/simple-lightbox.min.css"
+    />
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css" />
+    <script
+      src="https://kit.fontawesome.com/7336bd56cb.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .zoom-effect {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .zoom-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      .autocomplete-container {
+        position: relative;
+        width: 100%;
+      }
+      .autocomplete-suggestions {
+        position: absolute;
+        top: 100%;
+        left: 2px;
+        right: 2px;
+        background: #fff;
+        z-index: 1050;
+        max-height: 240px;
+        overflow-y: auto;
+        border: 1px solid #dee2e6;
+        border-top: none;
+        border-radius: 0 0 6px 6px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        display: none;
+        padding: 0;
+      }
+      .autocomplete-suggestion {
+        padding: 10px 14px;
+        cursor: pointer;
+        color: #333;
+        transition: background-color 0.2s ease;
+        font-size: 0.95rem;
+      }
+      .autocomplete-suggestion:hover {
+        background-color: #f0f4ff;
+      }
+      .autocomplete-suggestion mark {
+        background: none;
+        color: #5368fd;
+        font-weight: bold;
+      }
+      .callout-tip {
+        background: #f0f9ff;
+        border-left: 4px solid #3b82f6;
+        padding: 1rem 1.25rem;
+        border-radius: 0 6px 6px 0;
+        margin: 1.5rem 0;
+      }
+      .callout-warning {
+        background: #fff7ed;
+        border-left: 4px solid #f97316;
+        padding: 1rem 1.25rem;
+        border-radius: 0 6px 6px 0;
+        margin: 1.5rem 0;
+      }
+      .callout-info {
+        background: #f0fdf4;
+        border-left: 4px solid #22c55e;
+        padding: 1rem 1.25rem;
+        border-radius: 0 6px 6px 0;
+        margin: 1.5rem 0;
+      }
+      .callout-tip .icon {
+        color: #3b82f6;
+        margin-right: 0.5rem;
+      }
+      .callout-warning .icon {
+        color: #f97316;
+        margin-right: 0.5rem;
+      }
+      .callout-info .icon {
+        color: #22c55e;
+        margin-right: 0.5rem;
+      }
+      .field-table th {
+        background-color: #f8f9fa;
+        font-weight: 600;
+      }
+      .field-table td {
+        vertical-align: top;
+        padding: 0.85rem 1rem;
+      }
+      .img-caption {
+        color: #6c757d;
+        font-size: 0.875rem;
+        text-align: center;
+        margin-top: 0.5rem;
+      }
+      .module-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      .module-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.1rem 1.25rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        text-decoration: none;
+        color: inherit;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease,
+          transform 0.2s ease;
+        background: #fff;
+      }
+      .module-card:hover {
+        border-color: #5368fd;
+        box-shadow: 0 4px 12px rgba(83, 104, 253, 0.1);
+        transform: translateY(-2px);
+        text-decoration: none;
+        color: inherit;
+      }
+      .module-card .module-icon {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background: #f0f4ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #5368fd;
+        font-size: 1.1rem;
+      }
+      .module-card .module-body {
+        flex: 1;
+      }
+      .module-card .module-title {
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: #1e293b;
+        margin-bottom: 0.2rem;
+      }
+      .module-card .module-desc {
+        font-size: 0.82rem;
+        color: #64748b;
+        line-height: 1.4;
+        margin: 0;
+      }
+      .module-card .module-badge {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 600;
+        padding: 0.15rem 0.5rem;
+        border-radius: 20px;
+        margin-bottom: 0.3rem;
+      }
+      .badge-setup {
+        background: #eff6ff;
+        color: #3b82f6;
+      }
+      .badge-daily {
+        background: #f0fdf4;
+        color: #22c55e;
+      }
+      .badge-report {
+        background: #fdf4ff;
+        color: #a855f7;
+      }
+      .module-count-bar {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem 1.25rem;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+      }
+      .module-count-bar .count-num {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #5368fd;
+        line-height: 1;
+      }
+      .module-count-bar .count-label {
+        font-size: 0.9rem;
+        color: #64748b;
+      }
+      .module-count-bar .count-label strong {
+        display: block;
+        color: #1e293b;
+        font-size: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header fixed-top">
+      <div class="branding docs-branding">
+        <div class="container-fluid py-2">
+          <div class="row align-items-center">
+            <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+              <a class="navbar-brand" href="index.html">
+                <div class="site-logo">
+                  <img
+                    class="logo-icon me-2"
+                    src="assets/images/sticky_logo.png"
+                    alt="logo"
+                    style="height: 60px"
+                  />
+                </div>
+              </a>
+            </div>
+            <div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+              <form
+                class="search-form position-relative d-flex justify-content-center"
+              >
+                <div class="position-relative w-75 autocomplete-container">
+                  <input
+                    type="text"
+                    placeholder="Search the docs..."
+                    name="search"
+                    class="form-control search-input pe-5"
+                  />
+                  <div class="autocomplete-suggestions"></div>
+                  <button
+                    type="submit"
+                    class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent"
+                  >
+                    <i class="fa-light fa-magnifying-glass text-muted"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div
+              class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center"
+            >
+              <a href="#" class="btn btn-primary d-none d-lg-flex">Download</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="docs-wrapper">
+      <div class="social-sidebar d-none d-lg-flex">
+        <ul class="social-sidebar">
+          <li>
+            <a href="https://wa.me/966566240665" target="_blank"
+              ><i class="fa-brands fa-whatsapp"></i
+            ></a>
+          </li>
+          <li>
+            <a
+              href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"
+              target="_blank"
+              ><i class="fa-brands fa-youtube"></i
+            ></a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/company/smart-prints/"
+              target="_blank"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/smartprintsksa/" target="_blank"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-solid fa-globe fa-fw"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+        <div class="top-search-box">
+          <form class="search-form">
+            <div class="position-relative w-100 autocomplete-container">
+              <input
+                type="text"
+                class="form-control search-input rounded-top"
+                placeholder="Search the docs..."
+              />
+              <div class="autocomplete-suggestions"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="docs-sidebar" class="docs-sidebar">
+        <nav id="docs-nav" class="docs-nav navbar">
+          <ul class="section-items list-unstyled nav flex-column pb-3">
+            <li class="nav-item section-title">
+              <a class="nav-link scrollto active" href="#section-1">
+                <span class="theme-icon-holder me-2"
+                  ><i class="fas fa-boxes"></i></span
+                >Introduction
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link scrollto" href="#item-1-1">Overview</a>
+            </li>
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-2">
+                <span class="theme-icon-holder me-2"
+                  ><i class="fas fa-map-signs"></i></span
+                >Where to Go Next
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link scrollto" href="#item-2-1">Getting Started</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link scrollto" href="#item-2-2">Daily Operations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link scrollto" href="#item-2-3">Reports</a>
+            </li>
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link" href="inventory-intro.html">
+                <span class="theme-icon-holder me-2"
+                  ><i class="fas fa-layer-group"></i></span
+                >Core Concepts &#8594;
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="inventory-ingredients.html"
+                >Step 01 &amp; 02: Menu &amp; Ingredients &#8594;</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="inventory-suppliers-recipies.html"
+                >Step 03 &amp; 04: Suppliers &amp; Recipes &#8594;</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="inventory-live.html"
+                >Step 05: Going Live &#8594;</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="inventory-purchasing.html"
+                >Purchasing &#8594;</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="inventory-stock-control.html"
+                >Stock Control &#8594;</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="inventory-transfers-preparation.html"
+                >Transfers &amp; Preparations &#8594;</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="inventory-reports.html"
+                >Reports &#8594;</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="docs-content">
+        <div class="container">
+          <article class="docs-article" id="section-1">
+            <header class="docs-header">
+              <h1 class="docs-heading">Inventory</h1>
+              <section class="docs-intro">
+                <p>
+                  Everything you need to manage stock across your operation —
+                  from setup to daily management to reporting.
+                </p>
+              </section>
+            </header>
+            <section class="docs-section" id="item-1-1">
+              <h2 class="section-heading">Overview</h2>
+              <p>
+                Running a food and beverage business without an inventory system
+                is like flying blind. The inventory system acts as the "brain"
+                for your back-of-house operations. By tracking everything from
+                the delivery truck to the customer's plate, it gives you a live,
+                accurate picture of your stock at all times.
+              </p>
+              <p>
+                The system works in a continuous loop: stock comes in through
+                purchases, gets consumed automatically through POS sales, and is
+                corrected through physical counts, waste entries, and transfers.
+                Every movement is timestamped and recorded, creating a full
+                audit trail of everything that has happened to every ingredient.
+              </p>
+            </section>
+          </article>
+
+          <article class="docs-article" id="section-2">
+            <header class="docs-header">
+              <h1 class="docs-heading">Inventory Module</h1>
+              <section class="docs-intro">
+                <p>
+                  The inventory module is organized into three zones. If you are
+                  setting up for the first time, work through each page in
+                  order. If you are already live, jump directly to the right
+                  section.
+                </p>
+              </section>
+            </header>
+
+            <section class="docs-section" id="item-2-1">
+              <div class="module-count-bar">
+                <div class="count-num">8</div>
+                <div class="count-label">
+                  <strong>Modules available</strong>
+                  Setup, daily operations &amp; reporting — all covered.
+                </div>
+              </div>
+
+              <h2 class="section-heading">Getting Started — One-Time Setup</h2>
+              <div class="module-grid mb-4">
+                <a href="inventory-intro.html" class="module-card">
+                  <div class="module-icon">
+                    <i class="fas fa-layer-group"></i>
+                  </div>
+                  <div class="module-body">
+                    <span class="module-badge badge-setup">Setup</span>
+                    <div class="module-title">Core Concepts</div>
+                    <p class="module-desc">
+                      Understand how Ingredients, Preparations, and Products
+                      work before touching any settings.
+                    </p>
+                  </div>
+                </a>
+                <a href="inventory-ingredients.html" class="module-card">
+                  <div class="module-icon"><i class="fas fa-utensils"></i></div>
+                  <div class="module-body">
+                    <span class="module-badge badge-setup"
+                      >Setup · Steps 01 &amp; 02</span
+                    >
+                    <div class="module-title">Menu &amp; Ingredients</div>
+                    <p class="module-desc">
+                      Define your menu items and raw materials.
+                    </p>
+                  </div>
+                </a>
+                <a href="inventory-suppliers-recipies.html" class="module-card">
+                  <div class="module-icon"><i class="fas fa-truck"></i></div>
+                  <div class="module-body">
+                    <span class="module-badge badge-setup"
+                      >Setup · Steps 03 &amp; 04</span
+                    >
+                    <div class="module-title">Suppliers &amp; Recipes</div>
+                    <p class="module-desc">
+                      Register who you buy from and what goes into each dish.
+                    </p>
+                  </div>
+                </a>
+                <a href="inventory-live.html" class="module-card">
+                  <div class="module-icon"><i class="fas fa-rocket"></i></div>
+                  <div class="module-body">
+                    <span class="module-badge badge-setup"
+                      >Setup · Step 05</span
+                    >
+                    <div class="module-title">Going Live</div>
+                    <p class="module-desc">
+                      Run your first inventory count and activate the system.
+                    </p>
+                  </div>
+                </a>
+              </div>
+
+              <h2 class="section-heading" id="item-2-2">
+                Daily Operations — Ongoing Tasks
+              </h2>
+              <div class="module-grid mb-4">
+                <a href="inventory-purchasing.html" class="module-card">
+                  <div class="module-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                  </div>
+                  <div class="module-body">
+                    <span class="module-badge badge-daily">Daily</span>
+                    <div class="module-title">Purchasing</div>
+                    <p class="module-desc">
+                      Manage purchase orders and record incoming deliveries.
+                    </p>
+                  </div>
+                </a>
+                <a href="inventory-stock-control.html" class="module-card">
+                  <div class="module-icon">
+                    <i class="fas fa-clipboard-check"></i>
+                  </div>
+                  <div class="module-body">
+                    <span class="module-badge badge-daily">Daily</span>
+                    <div class="module-title">Stock Control</div>
+                    <p class="module-desc">
+                      Log waste, perform counts, and monitor stock levels.
+                    </p>
+                  </div>
+                </a>
+                <a
+                  href="inventory-transfers-preparation.html"
+                  class="module-card"
+                >
+                  <div class="module-icon">
+                    <i class="fas fa-exchange-alt"></i>
+                  </div>
+                  <div class="module-body">
+                    <span class="module-badge badge-daily">Daily</span>
+                    <div class="module-title">Transfers &amp; Preparations</div>
+                    <p class="module-desc">
+                      Move stock between branches and record kitchen batches.
+                    </p>
+                  </div>
+                </a>
+              </div>
+
+              <h2 class="section-heading" id="item-2-3">
+                Reports — Understanding Your Data
+              </h2>
+              <div class="module-grid mb-4">
+                <a href="inventory-reports.html" class="module-card">
+                  <div class="module-icon">
+                    <i class="fas fa-chart-bar"></i>
+                  </div>
+                  <div class="module-body">
+                    <span class="module-badge badge-report">Reports</span>
+                    <div class="module-title">Reports</div>
+                    <p class="module-desc">
+                      Consumption, waste, inventory, sales, and transfer
+                      reports.
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </section>
+          </article>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-transparent border-0">
+          <div class="modal-body p-0 text-center">
+            <img
+              id="modalImage"
+              src="#"
+              alt="Zoomed"
+              class="img-fluid rounded"
+            />
+          </div>
+          <button
+            type="button"
+            class="btn-close position-absolute top-0 end-0 m-3"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer-bottom text-center py-5">
+        <ul class="social-list list-unstyled pb-4 mb-0">
+          <li class="list-inline-item">
+            <a href="https://wa.me/966566240665"
+              ><i class="fa-brands fa-whatsapp fa-fw"></i
+            ></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"
+              ><i class="fa-brands fa-youtube fa-fw"></i
+            ></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://www.linkedin.com/company/smart-prints/"
+              ><i class="fa-brands fa-linkedin fa-fw"></i
+            ></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://www.instagram.com/smartprintsksa/"
+              ><i class="fa-brands fa-instagram fa-fw"></i
+            ></a>
+          </li>
+        </ul>
+        <small class="copyright"
+          >&copy; Copyright 2025
+          <a
+            class="theme-link"
+            href="https://smartprints-ksa.com/"
+            target="_blank"
+            >Smart Prints</a
+          >
+          All Rights Reserved. Designed with
+          <i class="fas fa-heart" style="color: #fb866a"></i> by
+          <a
+            class="theme-link"
+            href="http://themes.3rdwavemedia.com"
+            target="_blank"
+            >XR</a
+          >.</small
+        >
+      </div>
+    </footer>
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script>
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script>
+    <script src="assets/js/docs.js"></script>
+  </body>
+</html>

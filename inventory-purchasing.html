@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SmartPrints - Inventory: Purchasing</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SmartPrints Inventory Documentation - Inventory: Purchasing">
+    <meta name="author" content="SmartPrints Team">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+    <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+    <style>
+      .zoom-effect { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+      .zoom-effect:hover { transform: scale(1.05); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+      .autocomplete-container { position: relative; width: 100%; }
+      .autocomplete-suggestions { position: absolute; top: 100%; left: 2px; right: 2px; background: #fff; z-index: 1050; max-height: 240px; overflow-y: auto; border: 1px solid #dee2e6; border-top: none; border-radius: 0 0 6px 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); display: none; padding: 0; }
+      .autocomplete-suggestion { padding: 10px 14px; cursor: pointer; color: #333; transition: background-color 0.2s ease; font-size: 0.95rem; }
+      .autocomplete-suggestion:hover { background-color: #f0f4ff; }
+      .autocomplete-suggestion mark { background: none; color: #5368fd; font-weight: bold; }
+      .callout-tip { background: #f0f9ff; border-left: 4px solid #3b82f6; padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; }
+      .callout-warning { background: #fff7ed; border-left: 4px solid #f97316; padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; }
+      .callout-info { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; }
+      .callout-tip .icon { color: #3b82f6; margin-right: 0.5rem; }
+      .callout-warning .icon { color: #f97316; margin-right: 0.5rem; }
+      .callout-info .icon { color: #22c55e; margin-right: 0.5rem; }
+      .field-table th { background-color: #f8f9fa; font-weight: 600; }
+      .field-table td { vertical-align: top; padding: 0.85rem 1rem; }
+      .img-caption { color: #6c757d; font-size: 0.875rem; text-align: center; margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+<header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid py-2">
+      <div class="row align-items-center">
+        <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+          <a class="navbar-brand" href="index.html">
+            <div class="site-logo"><img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height:60px;"></div>
+          </a>
+        </div>
+        <div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+          <form class="search-form position-relative d-flex justify-content-center">
+            <div class="position-relative w-75 autocomplete-container">
+              <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input pe-5">
+              <div class="autocomplete-suggestions"></div>
+              <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+                <i class="fa-light fa-magnifying-glass text-muted"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center">
+          <a href="#" class="btn btn-primary d-none d-lg-flex">Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="docs-wrapper">
+  <div class="social-sidebar d-none d-lg-flex">
+    <ul class="social-sidebar">
+      <li><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+      <li><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+      <li><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+      <li><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+      <li><a href="#"><i class="fa-solid fa-globe fa-fw"></i></a></li>
+    </ul>
+  </div>
+  <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+    <div class="top-search-box">
+      <form class="search-form">
+        <div class="position-relative w-100 autocomplete-container">
+          <input type="text" class="form-control search-input rounded-top" placeholder="Search the docs...">
+          <div class="autocomplete-suggestions"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="docs-sidebar" class="docs-sidebar">
+    <nav id="docs-nav" class="docs-nav navbar">
+      <ul class="section-items list-unstyled nav flex-column pb-3">
+        <li class="nav-item section-title">
+          <a class="nav-link scrollto active" href="#section-1">
+            <span class="theme-icon-holder me-2"><i class="fas fa-file-invoice"></i></span>Purchase Orders
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Overview</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">How to Access</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3">The Form — Field by Field</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-4">Submitting</a></li>
+        <li class="nav-item section-title mt-3">
+          <a class="nav-link scrollto" href="#section-2">
+            <span class="theme-icon-holder me-2"><i class="fas fa-dolly"></i></span>Purchase Receptions
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">Overview</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">How to Access</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-3">The Form — Field by Field</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-4">Partial and Over-Reception</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-5">Generate from a Purchase Order</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-6">Submitting</a></li>
+        <li class="nav-item section-title mt-3">
+          <a class="nav-link" href="inventory-stock-control.html">
+            <span class="theme-icon-holder me-2"><i class="fas fa-arrow-right"></i></span>Next: Stock Control
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="docs-content">
+    <div class="container">
+
+      <article class="docs-article" id="section-1">
+        <header class="docs-header">
+          <h1 class="docs-heading">Purchasing <span class="docs-time">From Order to Shelf: Managing Deliveries and Supplier Orders</span></h1>
+          <section class="docs-intro">
+            <p>Purchasing covers two related steps: creating a purchase order to formally request stock from a supplier, and recording a purchase reception when the delivery actually arrives. Together, they give you a complete procurement trail from intent to stock on shelf.</p>
+          </section>
+        </header>
+        <section class="docs-section" id="item-1-1">
+          <h2 class="section-heading">Purchase Orders — Overview</h2>
+          <p>A purchase order is a formal request sent to a supplier for a specific quantity of ingredients. It records what you intend to buy, from whom, and at what cost — before the delivery arrives. Creating purchase orders in the system gives you a procurement trail, allows you to track outstanding orders, and prepares the system to receive the delivery correctly when it arrives.</p>
+          <div class="callout-info">
+            <i class="fas fa-info-circle icon"></i>
+            <strong>Note:</strong> A purchase order on its own does not affect stock. Stock only increases when the delivery is received and a Purchase Reception is recorded against it.
+          </div>
+        </section>
+        <section class="docs-section" id="item-1-2">
+          <h2 class="section-heading">How to Access</h2>
+          <p>Navigate to <strong>Inventory &rarr; Purchasing &rarr; Purchase Orders</strong>, then click <strong>+ Add</strong> to open the purchase order form.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Daily/purchase-orders.png" alt="Purchase Orders list view" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Purchase Orders list view. Each row represents one order placed with a supplier. The status column shows whether the order is new, partially received, or fully received.</p>
+          </div>
+        </section>
+        <section class="docs-section" id="item-1-3">
+          <h2 class="section-heading">The Purchase Order Form — Field by Field</h2>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Daily/add-po.png" alt="Purchase Order form" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Purchase Order form. Select the supplier first, then add each ingredient and the quantity being ordered as a separate line.</p>
+          </div>
+          <ul>
+            <li><strong>Supplier (Required):</strong> The vendor this order is being placed with. Only suppliers registered in the system will appear in the dropdown. If a supplier is missing, return to Step 03 and create their record before proceeding.</li>
+            <li><strong>Date (Required):</strong> The date the purchase order is being created. Auto-populated with the current date but can be adjusted.</li>
+            <li><strong>Branch (Required):</strong> The branch that will receive this delivery. Stock from the reception will be added to this branch's inventory.</li>
+            <li><strong>Expected Delivery Date (Optional):</strong> The date the delivery is expected to arrive. Useful for planning and for flagging overdue orders.</li>
+            <li><strong>Notes (Optional):</strong> Any instructions or references relevant to this order.</li>
+            <li><strong>List of Items:</strong> Each ingredient being ordered is added as a line with Item, Quantity, Unit, Unit Cost, and Total Cost (calculated automatically as Quantity x Unit Cost). Click <strong>+ Add Item</strong> to add a new line.</li>
+          </ul>
+        </section>
+        <section class="docs-section" id="item-1-4">
+          <h2 class="section-heading">Submitting the Purchase Order</h2>
+          <p>Click <strong>Submit</strong> to save the purchase order. The order status is set to New and it becomes available for selection when recording the incoming delivery as a purchase reception.</p>
+          <div class="callout-tip">
+            <i class="fas fa-lightbulb icon"></i>
+            <strong>Tip:</strong> Purchase orders are most valuable when they are created before the delivery arrives — not after. Creating them in advance lets the receiving team verify the delivery against the order and flag discrepancies immediately.
+          </div>
+        </section>
+      </article>
+
+      <article class="docs-article" id="section-2">
+        <header class="docs-header">
+          <h1 class="docs-heading">Purchase Receptions</h1>
+          <section class="docs-intro">
+            <p>A purchase reception is the record of a delivery actually arriving at your branch. It is the step that physically adds ingredients to your stock.</p>
+          </section>
+        </header>
+        <section class="docs-section" id="item-2-1">
+          <h2 class="section-heading">Overview</h2>
+          <p>Every delivery must be recorded as a purchase reception. A delivery that arrives but is not recorded means the system has no knowledge of that stock — consumption will push those quantities negative faster than expected and your stock levels will diverge from reality.</p>
+        </section>
+        <section class="docs-section" id="item-2-2">
+          <h2 class="section-heading">How to Access</h2>
+          <p>Navigate to <strong>Inventory &rarr; Purchasing &rarr; Purchase Receptions</strong>, then click <strong>+ Add</strong> to open the reception form.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Daily/purchase-reception.png" alt="Purchase Receptions list view" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Purchase Receptions list view. Every recorded delivery appears here. Each reception is linked to the purchase order it fulfills.</p>
+          </div>
+        </section>
+        <section class="docs-section" id="item-2-3">
+          <h2 class="section-heading">The Purchase Reception Form — Field by Field</h2>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Daily/add-pr.png" alt="Purchase Reception form" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Purchase Reception form. Link it to the original purchase order, then verify and confirm the quantities actually received.</p>
+          </div>
+          <ul>
+            <li><strong>Supplier (Required):</strong> Must match the supplier on the original purchase order.</li>
+            <li><strong>Date (Required):</strong> The date and time the delivery was received. Auto-populated but editable. Set this to the actual delivery time for accurate stock history.</li>
+            <li><strong>Branch (Required):</strong> The branch receiving the delivery. Stock will be added to this branch's inventory upon submission.</li>
+            <li><strong>Purchase Order (Required):</strong> The original purchase order this reception is fulfilling. Selecting the purchase order pre-populates the expected items and quantities.</li>
+            <li><strong>List of Items:</strong> Each item received is listed with its expected quantity. Your team updates the quantity to reflect what was actually delivered if it differs from what was ordered. Fields include Item, Expected Quantity, Received Quantity, Unit, and Unit Cost.</li>
+          </ul>
+        </section>
+        <section class="docs-section" id="item-2-4">
+          <h2 class="section-heading">Partial and Over-Reception</h2>
+          <p>Deliveries do not always match purchase orders exactly. The system handles both scenarios:</p>
+          <ul>
+            <li><strong>Partial reception</strong> occurs when a supplier delivers less than what was ordered — for example, 8kg of a 10kg order. Record only the quantity actually received. The purchase order status will update to Partially Received, and the remaining quantity can be received in a subsequent reception.</li>
+            <li><strong>Over-reception</strong> occurs when a supplier delivers more than what was ordered. Record the actual received quantity. The system will add the full received amount to stock regardless of what the order specified.</li>
+          </ul>
+          <div class="callout-warning">
+            <i class="fas fa-exclamation-triangle icon"></i>
+            Always record what physically arrived — not what was ordered. Stock accuracy depends on receptions reflecting reality.
+          </div>
+        </section>
+        <section class="docs-section" id="item-2-5">
+          <h2 class="section-heading">Generating a Reception Directly from a Purchase Order</h2>
+          <p>You can create a reception without going through the Purchase Receptions menu. Open the Purchase Orders list, click the view icon on any order, then click <strong>+ Generate Purchase Reception</strong> at the bottom of the order details. This opens a pre-filled reception form linked to that order, saving you from entering the supplier, branch, and items manually.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Daily/generate-recetion.png" alt="View icon on purchase order" class="img-thumbnail shadow-sm zoom-effect" style="max-width:800px;width:100%;cursor:pointer;">
+            <p class="img-caption">Click the view icon on a purchase order to open its details.</p>
+          </div>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Daily/generate-reception2.png" alt="Generate Purchase Reception button" class="img-thumbnail shadow-sm zoom-effect" style="max-width:800px;width:100%;cursor:pointer;">
+            <p class="img-caption">Click + Generate Purchase Reception to create a pre-filled reception directly from the order.</p>
+          </div>
+        </section>
+        <section class="docs-section" id="item-2-6">
+          <h2 class="section-heading">Submitting the Reception</h2>
+          <p>Click <strong>Submit</strong> to save the reception. Stock levels for all received ingredients increase immediately at the selected branch. The linked purchase order status updates to Received or Partially Received depending on whether the full order quantity was fulfilled.</p>
+          <div class="callout-warning">
+            <i class="fas fa-exclamation-triangle icon"></i>
+            <strong>Important:</strong> Once a reception is submitted, stock levels update immediately. Verify quantities carefully before submitting — corrections after the fact require a manual stock adjustment and leave an audit trail entry explaining the change.
+          </div>
+          <!-- Previous / Next navigation -->
+          <div class="docs-nav-buttons">
+            <a href="inventory-live.html" class="btn btn-outline-secondary">
+              <i class="fas fa-arrow-left"></i> Previous: Going live
+            </a>
+            <a href="inventory-stock-control.html" class="btn btn-primary">
+              Continue to Stock Control <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </section>
+      </article>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center"><img id="modalImage" src="#" alt="Zoomed" class="img-fluid rounded"></div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="footer-bottom text-center py-5">
+    <ul class="social-list list-unstyled pb-4 mb-0">
+      <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li>
+      <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+      <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+      <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+    </ul>
+    <small class="copyright">&copy; Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> All Rights Reserved. Designed with <i class="fas fa-heart" style="color:#fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">XR</a>.</small>
+  </div>
+</footer>
+<script src="assets/plugins/popper.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/plugins/smoothscroll.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+<script src="assets/js/highlight-custom.js"></script>
+<script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>
+<script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script>
+<script src="assets/js/docs.js"></script>
+</body>
+</html>

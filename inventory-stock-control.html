@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SmartPrints - Inventory: Stock Control</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SmartPrints Inventory Documentation - Inventory: Stock Control">
+    <meta name="author" content="SmartPrints Team">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+    <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+    <style>
+      .zoom-effect { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+      .zoom-effect:hover { transform: scale(1.05); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+      .autocomplete-container { position: relative; width: 100%; }
+      .autocomplete-suggestions { position: absolute; top: 100%; left: 2px; right: 2px; background: #fff; z-index: 1050; max-height: 240px; overflow-y: auto; border: 1px solid #dee2e6; border-top: none; border-radius: 0 0 6px 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); display: none; padding: 0; }
+      .autocomplete-suggestion { padding: 10px 14px; cursor: pointer; color: #333; transition: background-color 0.2s ease; font-size: 0.95rem; }
+      .autocomplete-suggestion:hover { background-color: #f0f4ff; }
+      .autocomplete-suggestion mark { background: none; color: #5368fd; font-weight: bold; }
+      .callout-tip { background: #f0f9ff; border-left: 4px solid #3b82f6; padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; }
+      .callout-warning { background: #fff7ed; border-left: 4px solid #f97316; padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; }
+      .callout-info { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; }
+      .callout-tip .icon { color: #3b82f6; margin-right: 0.5rem; }
+      .callout-warning .icon { color: #f97316; margin-right: 0.5rem; }
+      .callout-info .icon { color: #22c55e; margin-right: 0.5rem; }
+      .field-table th { background-color: #f8f9fa; font-weight: 600; }
+      .field-table td { vertical-align: top; padding: 0.85rem 1rem; }
+      .img-caption { color: #6c757d; font-size: 0.875rem; text-align: center; margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+<header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid py-2">
+      <div class="row align-items-center">
+        <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+          <a class="navbar-brand" href="index.html">
+            <div class="site-logo"><img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height:60px;"></div>
+          </a>
+        </div>
+        <div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+          <form class="search-form position-relative d-flex justify-content-center">
+            <div class="position-relative w-75 autocomplete-container">
+              <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input pe-5">
+              <div class="autocomplete-suggestions"></div>
+              <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+                <i class="fa-light fa-magnifying-glass text-muted"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center">
+          <a href="#" class="btn btn-primary d-none d-lg-flex">Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="docs-wrapper">
+  <div class="social-sidebar d-none d-lg-flex">
+    <ul class="social-sidebar">
+      <li><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+      <li><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+      <li><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+      <li><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+      <li><a href="#"><i class="fa-solid fa-globe fa-fw"></i></a></li>
+    </ul>
+  </div>
+  <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+    <div class="top-search-box">
+      <form class="search-form">
+        <div class="position-relative w-100 autocomplete-container">
+          <input type="text" class="form-control search-input rounded-top" placeholder="Search the docs...">
+          <div class="autocomplete-suggestions"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="docs-sidebar" class="docs-sidebar">
+    <nav id="docs-nav" class="docs-nav navbar">
+      <ul class="section-items list-unstyled nav flex-column pb-3">
+        <li class="nav-item section-title">
+          <a class="nav-link scrollto active" href="#section-1">
+            <span class="theme-icon-holder me-2"><i class="fas fa-trash-alt"></i></span>Waste Recording
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Overview</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">How to Access</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3">The Waste Form</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-4">Submitting</a></li>
+        <li class="nav-item section-title mt-3">
+          <a class="nav-link scrollto" href="#section-2">
+            <span class="theme-icon-holder me-2"><i class="fas fa-clipboard-check"></i></span>Inventory Counts
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">Overview</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">How to Access</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-3">The Count Form</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-4">When to Count</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-5">Interpreting Results</a></li>
+        <li class="nav-item section-title mt-3">
+          <a class="nav-link scrollto" href="#section-3">
+            <span class="theme-icon-holder me-2"><i class="fas fa-chart-bar"></i></span>Stock Status
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Overview</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Reading the View</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-3-3">Stock History</a></li>
+        <li class="nav-item section-title mt-3">
+          <a class="nav-link" href="inventory-transfers-preparation.html">
+            <span class="theme-icon-holder me-2"><i class="fas fa-arrow-right"></i></span>Next: Transfers &amp; Preparations
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="docs-content">
+    <div class="container">
+
+      <article class="docs-article" id="section-1">
+        <header class="docs-header">
+          <h1 class="docs-heading">Stock Control <span class="docs-time">Keeping Your Numbers Honest: Waste, Counts, and Stock Levels</span></h1>
+          <section class="docs-intro">
+            <p>Stock control covers the three daily actions that keep your inventory data accurate: recording waste so missing stock is explained, running counts to verify what is physically on hand, and monitoring stock status so you always know where you stand.</p>
+          </section>
+        </header>
+        <section class="docs-section" id="item-1-1">
+          <h2 class="section-heading">Waste Recording — Overview</h2>
+          <p>Waste is any ingredient that is discarded without being sold. Spoiled produce, a preparation batch that went wrong, an ingredient dropped and unusable, food left over at end of day — all of it is waste. Recording waste correctly is critical because without it, the system assumes every gram of missing stock was consumed through a sale. This overstates your sales consumption, understates your actual waste costs, and makes your food cost reports misleading.</p>
+          <p>Waste can and should be recorded any time it occurs throughout the day — not accumulated and entered at the end of the shift. The closer to real time the entry is made, the more accurate your waste data will be.</p>
+        </section>
+        <section class="docs-section" id="item-1-2">
+          <h2 class="section-heading">How to Access</h2>
+          <p>Navigate to <strong>Inventory &rarr; Stock &rarr; Wastes</strong>, then click <strong>+ Add</strong> to open the waste entry form.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Daily/waste.png" alt="Wastes list view" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Wastes list view. Every recorded waste entry appears here with its reason, cost impact, and the employee who logged it.</p>
+          </div>
+        </section>
+        <section class="docs-section" id="item-1-3">
+          <h2 class="section-heading">The Waste Form — Field by Field</h2>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Daily/add-waste.png" alt="Waste form" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Waste form. Select a reason code first, then add each wasted ingredient with its quantity. The system calculates the cost impact automatically.</p>
+          </div>
+          <ul>
+            <li><strong>Date (Required):</strong> The date and time the waste occurred. Auto-populated but editable. Record the actual time of the waste event, not the time of data entry if they differ.</li>
+            <li><strong>Branch (Required):</strong> The branch where the waste occurred. Stock will be deducted from this branch's inventory.</li>
+            <li><strong>Reason (Required):</strong> A predefined reason code explaining why the waste occurred. Common reason codes include Spoilage, Overproduction, Preparation Error, Expiry, and Breakage. A set of predefined reasons is provided but can be updated — contact support to make changes.</li>
+            <li><strong>Employee (Optional):</strong> The staff member reporting the waste. Assigning an employee creates accountability and makes it easier to follow up on recurring waste patterns.</li>
+            <li><strong>List of Items:</strong> Each wasted ingredient is added as a line with Type (Raw Material or Product), Item, Quantity, Unit, Cost (pulled automatically), and Total Cost. The form shows a running Subtotal, VAT, and Total as items are added. Click <strong>+ Add Item</strong> to add multiple entries, or use the Excel import for bulk waste entries.</li>
+          </ul>
+        </section>
+        <section class="docs-section" id="item-1-4">
+          <h2 class="section-heading">Submitting the Waste Entry</h2>
+          <p>Click <strong>Submit</strong> to save the entry. Stock levels for all listed ingredients decrease immediately at the selected branch. The waste is recorded in the Waste Report with its reason code, cost, and timestamp.</p>
+          <div class="callout-tip">
+            <i class="fas fa-lightbulb icon"></i>
+            <strong>Tip:</strong> Train your kitchen team to log waste as it happens rather than trying to remember quantities at end of shift. Small, frequent entries throughout the day are more accurate than one large reconstructed entry at closing time.
+          </div>
+        </section>
+      </article>
+
+      <article class="docs-article" id="section-2">
+        <header class="docs-header">
+          <h1 class="docs-heading">Inventory Counts</h1>
+          <section class="docs-intro">
+            <p>An inventory count physically verifies what's on your shelves versus your system records. The objective is to ensure realistic stock levels that can be compared against theoretical stock based on your recipes.</p>
+          </section>
+        </header>
+        <section class="docs-section" id="item-2-1">
+          <h2 class="section-heading">Overview</h2>
+          <p>Counts are how the system corrects for all the small discrepancies that build up over time — measurement rounding, unrecorded waste, delivery short-shipments, and so on. Regular counts keep your stock data grounded in physical reality.</p>
+        </section>
+        <section class="docs-section" id="item-2-2">
+          <h2 class="section-heading">How to Access</h2>
+          <p>Navigate to <strong>Inventory &rarr; Stock &rarr; Inventory Counts</strong>, then click <strong>+ Add</strong> to open the count form.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Daily/inventory-count.png" alt="Inventory Counts list" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Inventory Counts list. Every count is recorded here, tied to a specific branch and date.</p>
+          </div>
+        </section>
+        <section class="docs-section" id="item-2-3">
+          <h2 class="section-heading">The Inventory Count Form</h2>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Daily/add-inventory-count.png" alt="Inventory Count form" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Inventory Count form. Add each physically counted ingredient as a line with its actual measured quantity.</p>
+          </div>
+          <ul>
+            <li><strong>Date (Required):</strong> The date and time the physical count was conducted.</li>
+            <li><strong>Branch (Required):</strong> The branch being counted. Each count is scoped to one branch.</li>
+            <li><strong>Employee (Optional):</strong> The staff member performing the count.</li>
+            <li><strong>List of Items:</strong> Each counted ingredient is added as a line with Type, Item, Unit of Measure, and Quantity. Use <strong>+ Add Item</strong> for individual entries or use the Excel Template import for full counts across all ingredients.</li>
+          </ul>
+        </section>
+        <section class="docs-section" id="item-2-4">
+          <h2 class="section-heading">When to Count</h2>
+          <ul>
+            <li><strong>Pre-shift counts</strong> are performed before the kitchen opens to verify that starting stock matches expectations before production begins. These are typically partial counts focused on the highest-consumption ingredients.</li>
+            <li><strong>Post-shift counts</strong> are performed after the kitchen closes to capture end-of-day stock levels. Comparing pre-shift and post-shift counts against sales consumption data gives you a precise picture of where discrepancies occurred.</li>
+            <li><strong>Scheduled full counts</strong> cover every trackable ingredient across all storage areas. These are typically weekly or monthly and are used for financial reporting and purchasing planning.</li>
+            <li><strong>Spot counts</strong> are unscheduled partial counts triggered by a specific concern — a stock level that looks unexpectedly low, a report anomaly, or a suspected discrepancy in a specific category.</li>
+          </ul>
+        </section>
+        <section class="docs-section" id="item-2-5">
+          <h2 class="section-heading">Interpreting Count Results</h2>
+          <p>After submitting a count, navigate to Stock Status to review the updated quantities. A gap between expected and counted quantity is called a variance. Small variances are normal and typically reflect minor measurement differences. Large or consistent variances in the same ingredient are signals worth investigating.</p>
+          <p>Common causes include unrecorded waste, recipe portion drift, supplier short-delivery not caught at reception, or theft.</p>
+        </section>
+      </article>
+
+      <article class="docs-article" id="section-3">
+        <header class="docs-header">
+          <h1 class="docs-heading">Stock Status — Monitoring Your Inventory</h1>
+          <section class="docs-intro">
+            <p>The Stock Status page is your real-time dashboard for current inventory levels. It shows the on-hand quantity for every ingredient and product across all branches at any given moment.</p>
+          </section>
+        </header>
+        <section class="docs-section" id="item-3-1">
+          <h2 class="section-heading">Overview</h2>
+          <p>Check Stock Status daily — at the start of the day to verify starting levels, and at the end of the day to identify anything that needs attention before the next shift.</p>
+          <p>Navigate to <strong>Inventory &rarr; Stock &rarr; Stock Status</strong> from the sidebar.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Daily/stock-status.png" alt="Stock Status view" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Stock Status view. Every ingredient at every branch is listed with its current on-hand quantity. Use the filters to narrow by branch or item type.</p>
+          </div>
+        </section>
+        <section class="docs-section" id="item-3-2">
+          <h2 class="section-heading">Reading the Stock Status View</h2>
+          <ul>
+            <li><strong>Branch:</strong> The location where the stock is held.</li>
+            <li><strong>Account Type:</strong> Whether the item is a Raw Material or a Product.</li>
+            <li><strong>Item:</strong> The ingredient or product name.</li>
+            <li><strong>Qty:</strong> The current quantity on hand with its unit. This number reflects all recorded activity up to the present moment.</li>
+          </ul>
+          <div class="callout-warning">
+            <i class="fas fa-exclamation-triangle icon"></i>
+            <strong>Negative quantities</strong> indicate that consumption has exceeded recorded stock. This almost always means either an ingredient was consumed through sales before its stock was entered, or a waste or adjustment was not recorded. Negative quantities need to be investigated and corrected through a manual adjustment or a new inventory count.
+          </div>
+        </section>
+        <section class="docs-section" id="item-3-3">
+          <h2 class="section-heading">Stock Status History</h2>
+          <p>Click the <strong>History</strong> button on any ingredient row to open the full movement log for that item. The history shows every event that has affected this ingredient's stock — purchase receptions, sales consumption, waste entries, transfers, and count adjustments — with the quantity change and running balance after each event.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Daily/stock-history.png" alt="Stock Status History" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Stock Status History for a single ingredient. Every movement is logged with its source, timestamp, quantity change, and running balance. Use this to trace how a stock level reached its current state.</p>
+          </div>
+          <p>Use the history view to investigate unexpected stock levels. If an ingredient is lower than expected, the history will show you exactly which events drove it there — and whether any expected events, like a purchase reception, are missing.</p>
+          <div class="docs-nav-buttons">
+            <a href="inventory-purchasing.html" class="btn btn-outline-secondary">
+              <i class="fas fa-arrow-left"></i> Previous: Purchasing
+            </a>
+            <a href="inventory-transfers-preparation.html" class="btn btn-primary">
+              Continue to Transfes & Preparations <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </section>
+      </article>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center"><img id="modalImage" src="#" alt="Zoomed" class="img-fluid rounded"></div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="footer-bottom text-center py-5">
+    <ul class="social-list list-unstyled pb-4 mb-0">
+      <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li>
+      <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+      <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+      <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+    </ul>
+    <small class="copyright">&copy; Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> All Rights Reserved. Designed with <i class="fas fa-heart" style="color:#fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">XR</a>.</small>
+  </div>
+</footer>
+<script src="assets/plugins/popper.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/plugins/smoothscroll.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+<script src="assets/js/highlight-custom.js"></script>
+<script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>
+<script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script>
+<script src="assets/js/docs.js"></script>
+</body>
+</html>

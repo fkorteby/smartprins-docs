@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SmartPrints - Inventory: Transfers & Preparations</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SmartPrints Inventory Documentation - Inventory: Transfers & Preparations">
+    <meta name="author" content="SmartPrints Team">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+    <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+    <style>
+      .zoom-effect { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+      .zoom-effect:hover { transform: scale(1.05); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+      .autocomplete-container { position: relative; width: 100%; }
+      .autocomplete-suggestions { position: absolute; top: 100%; left: 2px; right: 2px; background: #fff; z-index: 1050; max-height: 240px; overflow-y: auto; border: 1px solid #dee2e6; border-top: none; border-radius: 0 0 6px 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); display: none; padding: 0; }
+      .autocomplete-suggestion { padding: 10px 14px; cursor: pointer; color: #333; transition: background-color 0.2s ease; font-size: 0.95rem; }
+      .autocomplete-suggestion:hover { background-color: #f0f4ff; }
+      .autocomplete-suggestion mark { background: none; color: #5368fd; font-weight: bold; }
+      .callout-tip { background: #f0f9ff; border-left: 4px solid #3b82f6; padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; }
+      .callout-warning { background: #fff7ed; border-left: 4px solid #f97316; padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; }
+      .callout-info { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; }
+      .callout-tip .icon { color: #3b82f6; margin-right: 0.5rem; }
+      .callout-warning .icon { color: #f97316; margin-right: 0.5rem; }
+      .callout-info .icon { color: #22c55e; margin-right: 0.5rem; }
+      .field-table th { background-color: #f8f9fa; font-weight: 600; }
+      .field-table td { vertical-align: top; padding: 0.85rem 1rem; }
+      .img-caption { color: #6c757d; font-size: 0.875rem; text-align: center; margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+<header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid py-2">
+      <div class="row align-items-center">
+        <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+          <a class="navbar-brand" href="index.html">
+            <div class="site-logo"><img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height:60px;"></div>
+          </a>
+        </div>
+        <div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+          <form class="search-form position-relative d-flex justify-content-center">
+            <div class="position-relative w-75 autocomplete-container">
+              <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input pe-5">
+              <div class="autocomplete-suggestions"></div>
+              <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+                <i class="fa-light fa-magnifying-glass text-muted"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center">
+          <a href="#" class="btn btn-primary d-none d-lg-flex">Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="docs-wrapper">
+  <div class="social-sidebar d-none d-lg-flex">
+    <ul class="social-sidebar">
+      <li><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+      <li><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+      <li><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+      <li><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+      <li><a href="#"><i class="fa-solid fa-globe fa-fw"></i></a></li>
+    </ul>
+  </div>
+  <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+    <div class="top-search-box">
+      <form class="search-form">
+        <div class="position-relative w-100 autocomplete-container">
+          <input type="text" class="form-control search-input rounded-top" placeholder="Search the docs...">
+          <div class="autocomplete-suggestions"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="docs-sidebar" class="docs-sidebar">
+    <nav id="docs-nav" class="docs-nav navbar">
+      <ul class="section-items list-unstyled nav flex-column pb-3">
+        <li class="nav-item section-title">
+          <a class="nav-link scrollto active" href="#section-1">
+            <span class="theme-icon-holder me-2"><i class="fas fa-exchange-alt"></i></span>Stock Transfers
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Overview</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">Stock Transfer — Source Branch</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3">Stock Reception — Destination Branch</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-4">Submitting the Transfer Flow</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-5">Transfer Approval</a></li>
+        <li class="nav-item section-title mt-3">
+          <a class="nav-link scrollto" href="#section-2">
+            <span class="theme-icon-holder me-2"><i class="fas fa-blender"></i></span>Preparations
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">Overview</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">How to Access</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-3">The Form</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-4">What Happens on Submit</a></li>
+        <li class="nav-item section-title mt-3">
+          <a class="nav-link" href="inventory-reports.html">
+            <span class="theme-icon-holder me-2"><i class="fas fa-arrow-right"></i></span>Next: Reports
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="docs-content">
+    <div class="container">
+
+      <article class="docs-article" id="section-1">
+        <header class="docs-header">
+          <h1 class="docs-heading">Stock Transfers &amp; Preparations <span class="docs-time">Moving and Making: Stock Between Branches and Kitchen Batches</span></h1>
+          <section class="docs-intro">
+            <p>This page covers two types of stock movement that happen mid-operation: transferring stock between branches, and recording kitchen preparation batches.</p>
+          </section>
+        </header>
+        <section class="docs-section" id="item-1-1">
+          <h2 class="section-heading">Stock Transfers — Overview</h2>
+          <p>When stock needs to move from one branch to another, the system handles it through a two-step process: the source branch creates a Stock Transfer to record what is being sent out, and the destination branch records a Stock Reception to confirm what was received. Both steps are required. A transfer alone does not update the destination branch's stock — the reception record is what completes the movement.</p>
+        </section>
+        <section class="docs-section" id="item-1-2">
+          <h2 class="section-heading">Stock Transfer — Source Branch</h2>
+          <p>Navigate to <strong>Inventory &rarr; Transfer &rarr; Stock Transfer</strong>, then click <strong>+ Add</strong>.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Daily/stock-transfer.png" alt="Stock Transfer form" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Stock Transfer form is completed by the source branch. It records what is being sent, to which branch, and in what quantities.</p>
+          </div>
+          <ul>
+            <li><strong>Date (Required):</strong> The date and time the transfer is being initiated.</li>
+            <li><strong>Source Branch (Required):</strong> The branch sending the stock. Inventory will be deducted from this branch upon completion.</li>
+            <li><strong>Destination Branch (Required):</strong> The branch that will receive the stock.</li>
+            <li><strong>Employee (Optional):</strong> The staff member initiating the transfer.</li>
+            <li><strong>Notes (Optional):</strong> Any instructions or references relevant to this transfer.</li>
+            <li><strong>List of Items:</strong> Each ingredient or product being transferred is added as a line with Type, Item, Quantity, and Unit.</li>
+          </ul>
+        </section>
+        <section class="docs-section" id="item-1-3">
+          <h2 class="section-heading">Stock Reception — Destination Branch</h2>
+          <p>Once the items physically arrive at the destination branch, that branch records a Stock Reception to confirm receipt.</p>
+          <p>Navigate to <strong>Inventory &rarr; Transfer &rarr; Stock Reception</strong>, then click <strong>+ Add</strong>.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Daily/add-stock-transfer.png" alt="Stock Reception form" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Stock Reception form is completed by the destination branch. It links to the original transfer and confirms the quantities received.</p>
+          </div>
+          <ul>
+            <li><strong>Date (Required):</strong> The date and time the items were received.</li>
+            <li><strong>Branch (Required):</strong> The receiving branch. Stock will be added here upon submission.</li>
+            <li><strong>Source Branch (Required):</strong> The branch that sent the stock.</li>
+            <li><strong>Stock Transfer (Required):</strong> The original transfer this reception is linked to. Selecting the transfer pre-populates the expected items and quantities.</li>
+            <li><strong>List of Items:</strong> Verify the quantities received against what was sent. Adjust if the actual received quantity differs — for example if items were damaged in transit or quantities were short.</li>
+          </ul>
+        </section>
+        <section class="docs-section" id="item-1-4">
+          <h2 class="section-heading">Submitting the Transfer Flow</h2>
+          <p>When a Stock Transfer is created, stock is immediately deducted from the source branch. Once the Stock Reception is generated, that stock is added to the destination branch. Both records are stored for audit purposes and appear in the Stock Transfer Report to ensure full visibility.</p>
+        </section>
+        <section class="docs-section" id="item-1-5">
+          <h2 class="section-heading">Transfer Approval</h2>
+          <p>If your operation requires a validation step before stock movements are confirmed, transfer approval can be enabled. When active, a transfer remains in a pending state until a manager or authorized user approves it. Only after approval can the destination branch proceed with the reception. Rejected transfers are flagged and do not affect stock on either branch.</p>
+        </section>
+      </article>
+
+      <article class="docs-article" id="section-2">
+        <header class="docs-header">
+          <h1 class="docs-heading">Preparations</h1>
+          <section class="docs-intro">
+            <p>Preparations are batches your kitchen produces from raw ingredients: bread dough, sauce bases, marinated proteins, pre-portioned fillings. Recording a preparation updates stock in two directions at once: raw ingredients are deducted as consumed, and the produced item is added as available stock.</p>
+            <p>This is a daily kitchen task recorded each time a batch is made, not a one-time setup action.</p>
+          </section>
+        </header>
+        <section class="docs-section" id="item-2-1">
+          <h2 class="section-heading">Overview</h2>
+          <p>Without preparation records, ingredients disappear from stock without explanation and production costs go untracked. Every batch produced in the kitchen should be logged here.</p>
+        </section>
+        <section class="docs-section" id="item-2-2">
+          <h2 class="section-heading">How to Access</h2>
+          <p>Navigate to <strong>Inventory &rarr; Stock &rarr; Preparations</strong>, then click <strong>+ Add Preparation</strong>.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Daily/preparations.png" alt="Preparations list" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+          </div>
+        </section>
+        <section class="docs-section" id="item-2-3">
+          <h2 class="section-heading">The Form — Field by Field</h2>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Daily/add-preparations.png" alt="Add Preparation form" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+          </div>
+          <ul>
+            <li><strong>Date (Required):</strong> When the batch was produced. Auto-populated but editable.</li>
+            <li><strong>Branch (Required):</strong> Where it was produced. Stock changes apply to this branch.</li>
+            <li><strong>Name (Required):</strong> A descriptive name for the batch. Example: <em>Bread Dough – Morning Batch</em>.</li>
+            <li><strong>Employee (Optional):</strong> The staff member who produced it, for accountability tracking.</li>
+            <li><strong>List of Items:</strong> Each prepared item is added as a line with Account Type (Product or Raw Material), Item, Options (size or variant if applicable), Quantity, Unit of Measure, and Shelf Life (days until expiry; enter 0 if not applicable). Use <strong>+ Add Item</strong> for multiple items, or use the Excel template for large batches.</li>
+          </ul>
+        </section>
+        <section class="docs-section" id="item-2-4">
+          <h2 class="section-heading">What Happens on Submit</h2>
+          <p>Two stock movements happen simultaneously: ingredient stock decreases based on the recipe, and prepared item stock increases by the recorded quantity.</p>
+          <div class="callout-tip">
+            <i class="fas fa-lightbulb icon"></i>
+            <strong>Tip:</strong> If a batch is discarded before use, log it as Waste — not a preparation.
+          </div>
+          <div class="docs-nav-buttons">
+            <a href="inventory-stock-control.html" class="btn btn-outline-secondary">
+              <i class="fas fa-arrow-left"></i> Previous: Stock Control
+            </a>
+            <a href="inventory-reports.html" class="btn btn-primary">
+              Continue to Reports <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </section>
+      </article>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center"><img id="modalImage" src="#" alt="Zoomed" class="img-fluid rounded"></div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="footer-bottom text-center py-5">
+    <ul class="social-list list-unstyled pb-4 mb-0">
+      <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li>
+      <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+      <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+      <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+    </ul>
+    <small class="copyright">&copy; Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> All Rights Reserved. Designed with <i class="fas fa-heart" style="color:#fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">XR</a>.</small>
+  </div>
+</footer>
+<script src="assets/plugins/popper.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/plugins/smoothscroll.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+<script src="assets/js/highlight-custom.js"></script>
+<script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>
+<script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script>
+<script src="assets/js/docs.js"></script>
+</body>
+</html>

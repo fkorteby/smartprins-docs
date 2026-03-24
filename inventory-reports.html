@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SmartPrints - Inventory: Reports</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SmartPrints Inventory Documentation - Inventory: Reports">
+    <meta name="author" content="SmartPrints Team">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+    <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+    <style>
+      .zoom-effect { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+      .zoom-effect:hover { transform: scale(1.05); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+      .autocomplete-container { position: relative; width: 100%; }
+      .autocomplete-suggestions { position: absolute; top: 100%; left: 2px; right: 2px; background: #fff; z-index: 1050; max-height: 240px; overflow-y: auto; border: 1px solid #dee2e6; border-top: none; border-radius: 0 0 6px 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); display: none; padding: 0; }
+      .autocomplete-suggestion { padding: 10px 14px; cursor: pointer; color: #333; transition: background-color 0.2s ease; font-size: 0.95rem; }
+      .autocomplete-suggestion:hover { background-color: #f0f4ff; }
+      .autocomplete-suggestion mark { background: none; color: #5368fd; font-weight: bold; }
+      .callout-tip { background: #f0f9ff; border-left: 4px solid #3b82f6; padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; }
+      .callout-warning { background: #fff7ed; border-left: 4px solid #f97316; padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; }
+      .callout-info { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; }
+      .callout-tip .icon { color: #3b82f6; margin-right: 0.5rem; }
+      .callout-warning .icon { color: #f97316; margin-right: 0.5rem; }
+      .callout-info .icon { color: #22c55e; margin-right: 0.5rem; }
+      .field-table th { background-color: #f8f9fa; font-weight: 600; }
+      .field-table td { vertical-align: top; padding: 0.85rem 1rem; }
+      .img-caption { color: #6c757d; font-size: 0.875rem; text-align: center; margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+<header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid py-2">
+      <div class="row align-items-center">
+        <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+          <a class="navbar-brand" href="index.html">
+            <div class="site-logo"><img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height:60px;"></div>
+          </a>
+        </div>
+        <div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+          <form class="search-form position-relative d-flex justify-content-center">
+            <div class="position-relative w-75 autocomplete-container">
+              <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input pe-5">
+              <div class="autocomplete-suggestions"></div>
+              <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+                <i class="fa-light fa-magnifying-glass text-muted"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center">
+          <a href="#" class="btn btn-primary d-none d-lg-flex">Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="docs-wrapper">
+  <div class="social-sidebar d-none d-lg-flex">
+    <ul class="social-sidebar">
+      <li><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+      <li><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+      <li><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+      <li><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+      <li><a href="#"><i class="fa-solid fa-globe fa-fw"></i></a></li>
+    </ul>
+  </div>
+  <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+    <div class="top-search-box">
+      <form class="search-form">
+        <div class="position-relative w-100 autocomplete-container">
+          <input type="text" class="form-control search-input rounded-top" placeholder="Search the docs...">
+          <div class="autocomplete-suggestions"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="docs-sidebar" class="docs-sidebar">
+    <nav id="docs-nav" class="docs-nav navbar">
+      <ul class="section-items list-unstyled nav flex-column pb-3">
+        <li class="nav-item section-title">
+          <a class="nav-link scrollto active" href="#section-1">
+            <span class="theme-icon-holder me-2"><i class="fas fa-chart-line"></i></span>Reports Overview
+          </a>
+        </li>
+        <li class="nav-item section-title mt-3">
+          <a class="nav-link scrollto" href="#section-2">
+            <span class="theme-icon-holder me-2"><i class="fas fa-flask"></i></span>Recipe Simulator
+          </a>
+        </li>
+        <li class="nav-item section-title mt-3">
+          <a class="nav-link scrollto" href="#section-3">
+            <span class="theme-icon-holder me-2"><i class="fas fa-fire"></i></span>Consumption Report
+          </a>
+        </li>
+        <li class="nav-item section-title mt-3">
+          <a class="nav-link scrollto" href="#section-4">
+            <span class="theme-icon-holder me-2"><i class="fas fa-file-alt"></i></span>Inventory Report
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Column Definitions</a></li>
+        <li class="nav-item section-title mt-3">
+          <a class="nav-link scrollto" href="#section-5">
+            <span class="theme-icon-holder me-2"><i class="fas fa-shopping-cart"></i></span>Sales Report
+          </a>
+        </li>
+        <li class="nav-item section-title mt-3">
+          <a class="nav-link scrollto" href="#section-6">
+            <span class="theme-icon-holder me-2"><i class="fas fa-trash"></i></span>Waste Report
+          </a>
+        </li>
+        <li class="nav-item section-title mt-3">
+          <a class="nav-link scrollto" href="#section-7">
+            <span class="theme-icon-holder me-2"><i class="fas fa-random"></i></span>Stock Transfer Report
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  <div class="docs-content">
+    <div class="container">
+
+      <article class="docs-article" id="section-1">
+        <header class="docs-header">
+          <h1 class="docs-heading">Reports <span class="docs-time">Reading the Numbers: Understanding What Your Data Is Telling You</span></h1>
+          <section class="docs-intro">
+            <p>The reports module gives you visibility into everything that has happened in your inventory — what was consumed, what was wasted, what was transferred, and how theoretical usage compares to actual usage. Use these reports together for a complete picture of your operation.</p>
+          </section>
+        </header>
+        <section class="docs-section">
+          <div class="callout-tip">
+            <i class="fas fa-lightbulb icon"></i>
+            <strong>Pro tip — Using the reports together:</strong> Start with the Consumption Report for daily cost monitoring. Use the Waste Report to track logged losses. Run the Stock Transfer Report to verify inter-branch movements. Then reconcile everything with the Inventory Report after each physical stock count to get your true variance and food cost percentage.
+          </div>
+        </section>
+      </article>
+
+      <article class="docs-article" id="section-2">
+        <header class="docs-header">
+          <h1 class="docs-heading">Recipe Simulator</h1>
+          <section class="docs-intro">
+            <p>Before letting recipes run against live sales, use the simulator to validate your setup.</p>
+          </section>
+        </header>
+        <section class="docs-section">
+          <p>Navigate to <strong>Inventory &rarr; Report &rarr; Recipe Simulator</strong>. This is a read-only tool that allows you to preview cost breakdowns, verify margins, and check the impact of ingredient price changes without affecting live data.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Report/recipe-simulator.png" alt="Recipe Simulator" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Recipe Simulator shows the details of the cost of any product's recipe including the total cost. Use this before going live to confirm that recipe costs align with your pricing and margin targets.</p>
+          </div>
+          <p><strong>Key rules and best practices:</strong></p>
+          <ul>
+            <li><strong>Products with Options:</strong> For customizable items (sizes, protein choices), put common ingredients in the base recipe and manage the variations in the Options tab.</li>
+            <li><strong>Approximate Quantities:</strong> Entering "about 20g" instead of the actual measured amount permanently skews inventory.</li>
+            <li><strong>Unit Errors:</strong> Entering a quantity in kilograms when the base unit is grams.</li>
+            <li><strong>Outdated Recipes:</strong> Always update the system recipe immediately if the kitchen changes a portion size or reformulates a dish.</li>
+          </ul>
+        </section>
+      </article>
+
+      <article class="docs-article" id="section-3">
+        <header class="docs-header">
+          <h1 class="docs-heading">Consumption Report</h1>
+          <section class="docs-intro">
+            <p>The Consumption Report gives you a clear picture of how much of each ingredient was theoretically used across your operations during any selected time period — based on your recipes and actual sales.</p>
+          </section>
+        </header>
+        <section class="docs-section">
+          <p>Navigate to <strong>Inventory &rarr; Report &rarr; Export &rarr; Consumption Report</strong>. Select your desired date range using the date picker, then filter by product or ingredient if needed.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Report/consumption-report.png" alt="Consumption Report" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Consumption Report showing ingredient-level consumption data per branch, with theoretical quantities and costs calculated automatically from recipe records.</p>
+          </div>
+          <p><strong>What the columns mean:</strong></p>
+          <ul>
+            <li><strong>admin_theo_qty:</strong> The theoretical quantity consumed based on sales and recipe definitions.</li>
+            <li><strong>Cost:</strong> The unit cost of the ingredient at the time of consumption.</li>
+            <li><strong>admin_theo_total_cost:</strong> The total theoretical cost for that ingredient over the selected period.</li>
+            <li><strong>admin_real_qty / admin_real_total_cost:</strong> The actual quantities and costs recorded (populated when physical stock counts are entered).</li>
+          </ul>
+          <div class="callout-tip">
+            <i class="fas fa-lightbulb icon"></i>
+            Use this report regularly to compare theoretical vs. real consumption and spot waste, over-portioning, or stock discrepancies before they impact your margins.
+          </div>
+        </section>
+      </article>
+
+      <article class="docs-article" id="section-4">
+        <header class="docs-header">
+          <h1 class="docs-heading">Inventory Report</h1>
+          <section class="docs-intro">
+            <p>The Inventory Report is the most comprehensive report in your system. It gives you a full ingredient-level breakdown of everything that happened to your stock during a selected period — from opening balance through every movement all the way to the closing balance.</p>
+          </section>
+        </header>
+        <section class="docs-section">
+          <p>Navigate to <strong>Inventory &rarr; Report &rarr; Export &rarr; Inventory Report</strong>. Select your date range and branch, then export or view on screen.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Report/inventory-report.png" alt="Inventory Report" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Inventory Report showing a full ingredient movement summary per branch, with theoretical vs. actual consumption comparison and cost variance.</p>
+          </div>
+        </section>
+        <section class="docs-section" id="item-4-1">
+          <h2 class="section-heading">Column Definitions</h2>
+          <div class="table-responsive">
+            <table class="table table-bordered field-table">
+              <thead><tr><th>Column</th><th>What it shows</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Branch</strong></td><td>The branch this row of data belongs to.</td></tr>
+                <tr><td><strong>Ingredient</strong></td><td>The raw material being tracked.</td></tr>
+                <tr><td><strong>Price</strong></td><td>The unit cost of the ingredient.</td></tr>
+                <tr><td><strong>Opening Balance</strong></td><td>The quantity on hand at the start of the selected period.</td></tr>
+                <tr><td><strong>Purchased</strong></td><td>Quantity received through purchase orders during the period.</td></tr>
+                <tr><td><strong>Transferred</strong></td><td>Quantity sent out to another branch.</td></tr>
+                <tr><td><strong>Received</strong></td><td>Quantity received from another branch via transfer.</td></tr>
+                <tr><td><strong>Wasted</strong></td><td>Quantity logged as waste during the period.</td></tr>
+                <tr><td><strong>Sales</strong></td><td>Quantity theoretically consumed based on recipes x units sold.</td></tr>
+                <tr><td><strong>Preparation</strong></td><td>Quantity consumed through preparation/production orders.</td></tr>
+                <tr><td><strong>Theo. Consumed</strong></td><td>Total theoretical consumption (Sales + Preparation).</td></tr>
+                <tr><td><strong>Actual Consumed</strong></td><td>Real consumption measured via physical stock count.</td></tr>
+                <tr><td><strong>Var. Consumption</strong></td><td>The gap between theoretical and actual consumption. A negative value signals unexplained loss.</td></tr>
+                <tr><td><strong>Ending Balance</strong></td><td>Quantity remaining at the end of the period.</td></tr>
+                <tr><td><strong>Theo. Consumption Cost</strong></td><td>Total cost of theoretically consumed stock.</td></tr>
+                <tr><td><strong>Real. Consumption Cost</strong></td><td>Total cost of actually consumed stock.</td></tr>
+                <tr><td><strong>Var. Cost %</strong></td><td>The percentage difference between theoretical and real consumption cost.</td></tr>
+                <tr><td><strong>Inventory Cost</strong></td><td>The value of stock remaining at period end.</td></tr>
+                <tr><td><strong>Waste Cost</strong></td><td>The total cost of wasted ingredients.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout-warning">
+            <i class="fas fa-exclamation-triangle icon"></i>
+            <strong>Key insight:</strong> The Var. Consumption and Var. Cost % columns are your most important indicators. Any significant negative variance should trigger an immediate investigation — it typically points to over-portioning, unrecorded waste, theft, or missing recipes.
+          </div>
+        </section>
+      </article>
+
+      <article class="docs-article" id="section-5">
+        <header class="docs-header">
+          <h1 class="docs-heading">Sales Report</h1>
+          <section class="docs-intro">
+            <p>The Sales Report gives you a product-level breakdown of everything sold during a selected period. It is your primary tool for monitoring sales performance, identifying top-selling items, and cross-referencing revenue against food costs.</p>
+          </section>
+        </header>
+        <section class="docs-section">
+          <p>Navigate to <strong>Inventory &rarr; Report &rarr; Export &rarr; Sales Products</strong>. Select your date range and branch to generate the report.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Report/sales-products.png" alt="Sales Report" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Sales Report displaying product-level sales data per branch and device, including quantities sold and total revenue over the selected period.</p>
+          </div>
+          <p><strong>What the columns mean:</strong></p>
+          <ul>
+            <li><strong>Branch:</strong> The branch where the sale occurred.</li>
+            <li><strong>Device Name:</strong> The POS terminal or device used to process the sale.</li>
+            <li><strong>Product ID / Product Ref:</strong> The unique identifier and reference code of the sold product.</li>
+            <li><strong>Product Name:</strong> The name of the product as configured in the menu.</li>
+            <li><strong>Category:</strong> The menu category the product belongs to.</li>
+            <li><strong>Selling Price:</strong> The price at which the product was sold.</li>
+            <li><strong>Sales Qty:</strong> The total number of units sold during the period.</li>
+            <li><strong>Sales Amount:</strong> The total revenue generated by this product (Selling Price x Sales Qty).</li>
+          </ul>
+          <div class="callout-tip">
+            <i class="fas fa-lightbulb icon"></i>
+            Cross-reference this report with the Inventory Report to validate that theoretical consumption aligns with your sales volume. A spike in sales with no matching increase in ingredient consumption is a red flag for recipe misconfiguration.
+          </div>
+        </section>
+      </article>
+
+      <article class="docs-article" id="section-6">
+        <header class="docs-header">
+          <h1 class="docs-heading">Waste Report</h1>
+          <section class="docs-intro">
+            <p>The Waste Report tracks every ingredient or item that was manually logged as wasted during a selected period. This report helps you measure the true direct cost of waste and hold branches and employees accountable.</p>
+          </section>
+        </header>
+        <section class="docs-section">
+          <p>Navigate to <strong>Inventory &rarr; Report &rarr; Export &rarr; Waste Report</strong>. Select your date range and branch to generate the report.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Report/waste-report.png" alt="Waste Report" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Waste Report listing each waste entry by branch, employee, date, item, quantity, and cost.</p>
+          </div>
+          <p><strong>What the columns mean:</strong></p>
+          <ul>
+            <li><strong>Branch Ref / Branch Name:</strong> The branch where waste was recorded.</li>
+            <li><strong>Employee Name:</strong> The staff member who logged the waste entry.</li>
+            <li><strong>Date + Time:</strong> Exact timestamp of when the waste was recorded.</li>
+            <li><strong>Type:</strong> Whether the wasted item is an ingredient or a finished product.</li>
+            <li><strong>Item ID / Item Name / Item Ref:</strong> The specific ingredient or product wasted.</li>
+            <li><strong>Qty:</strong> The quantity wasted.</li>
+            <li><strong>MU:</strong> The unit of measure.</li>
+            <li><strong>Cost by Unit:</strong> The unit cost of the wasted item.</li>
+            <li><strong>Total Cost:</strong> The total value lost due to this waste entry.</li>
+          </ul>
+          <div class="callout-warning">
+            <i class="fas fa-exclamation-triangle icon"></i>
+            <strong>Important:</strong> Waste must be actively logged by staff for this report to be meaningful. Unlogged waste will appear as unexplained variance in the Inventory Report instead — making it harder to trace the root cause.
+          </div>
+        </section>
+      </article>
+
+      <article class="docs-article" id="section-7">
+        <header class="docs-header">
+          <h1 class="docs-heading">Stock Transfer Report</h1>
+          <section class="docs-intro">
+            <p>The Stock Transfer Report tracks every movement of stock between branches — recording both the sending side and the receiving side, along with the quantities transferred vs. actually received.</p>
+          </section>
+        </header>
+        <section class="docs-section">
+          <p>Navigate to <strong>Inventory &rarr; Report &rarr; Stock Transfer Report</strong>. Select your date range to view all inter-branch transfers during that period.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Report/stock-transfer-report.png" alt="Stock Transfer Report" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The Stock Transfer Report showing full transfer records between branches, including transfer and reception quantities and the employees involved on each side.</p>
+          </div>
+          <p><strong>What the columns mean:</strong></p>
+          <ul>
+            <li><strong>Source Ref / Source Name:</strong> The branch that sent the stock.</li>
+            <li><strong>Transfer Employee:</strong> The staff member who initiated and dispatched the transfer.</li>
+            <li><strong>Transfer Date:</strong> The date the stock left the source branch.</li>
+            <li><strong>Destination Ref / Destination Name:</strong> The branch that received the stock.</li>
+            <li><strong>Reception Employee:</strong> The staff member who confirmed receipt at the destination.</li>
+            <li><strong>Reception Date:</strong> The date the stock was received and logged at the destination.</li>
+            <li><strong>Type:</strong> Whether the transferred item is an ingredient or a finished product.</li>
+            <li><strong>Item ID / Item Name / Item Ref:</strong> The specific item transferred.</li>
+            <li><strong>Transfer Qty:</strong> The quantity dispatched from the source branch.</li>
+            <li><strong>Reception Qty:</strong> The quantity confirmed received at the destination.</li>
+            <li><strong>MU:</strong> Unit of measure.</li>
+            <li><strong>Cost by Unit:</strong> Unit cost of the item at time of transfer.</li>
+            <li><strong>Total Cost:</strong> Total value of the transfer.</li>
+          </ul>
+          <div class="callout-tip">
+            <i class="fas fa-lightbulb icon"></i>
+            Always compare Transfer Qty vs. Reception Qty. Any gap means stock was lost, damaged, or unrecorded in transit. Consistent discrepancies on the same route should trigger a process review.
+          </div>
+        </section>
+      </article>
+
+     
+
+    </div>
+  </div>
+
+  </div>
+</div>
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center"><img id="modalImage" src="#" alt="Zoomed" class="img-fluid rounded"></div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="footer-bottom text-center py-5">
+    <ul class="social-list list-unstyled pb-4 mb-0">
+      <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li>
+      <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+      <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+      <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+    </ul>
+    <small class="copyright">&copy; Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> All Rights Reserved. Designed with <i class="fas fa-heart" style="color:#fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">XR</a>.</small>
+  </div>
+</footer>
+<script src="assets/plugins/popper.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/plugins/smoothscroll.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+<script src="assets/js/highlight-custom.js"></script>
+<script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>
+<script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script>
+<script src="assets/js/docs.js"></script>
+</body>
+</html>

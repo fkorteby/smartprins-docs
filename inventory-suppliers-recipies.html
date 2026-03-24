@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SmartPrints - Inventory: Suppliers & Recipes</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SmartPrints Inventory Documentation - Inventory: Suppliers & Recipes">
+    <meta name="author" content="SmartPrints Team">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+    <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+    <style>
+      .zoom-effect { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+      .zoom-effect:hover { transform: scale(1.05); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+      .autocomplete-container { position: relative; width: 100%; }
+      .autocomplete-suggestions { position: absolute; top: 100%; left: 2px; right: 2px; background: #fff; z-index: 1050; max-height: 240px; overflow-y: auto; border: 1px solid #dee2e6; border-top: none; border-radius: 0 0 6px 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); display: none; padding: 0; }
+      .autocomplete-suggestion { padding: 10px 14px; cursor: pointer; color: #333; transition: background-color 0.2s ease; font-size: 0.95rem; }
+      .autocomplete-suggestion:hover { background-color: #f0f4ff; }
+      .autocomplete-suggestion mark { background: none; color: #5368fd; font-weight: bold; }
+      .callout-tip { background: #f0f9ff; border-left: 4px solid #3b82f6; padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; }
+      .callout-warning { background: #fff7ed; border-left: 4px solid #f97316; padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; }
+      .callout-info { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; }
+      .callout-tip .icon { color: #3b82f6; margin-right: 0.5rem; }
+      .callout-warning .icon { color: #f97316; margin-right: 0.5rem; }
+      .callout-info .icon { color: #22c55e; margin-right: 0.5rem; }
+      .field-table th { background-color: #f8f9fa; font-weight: 600; }
+      .field-table td { vertical-align: top; padding: 0.85rem 1rem; }
+      .img-caption { color: #6c757d; font-size: 0.875rem; text-align: center; margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+<header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid py-2">
+      <div class="row align-items-center">
+        <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+          <a class="navbar-brand" href="index.html">
+            <div class="site-logo"><img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height:60px;"></div>
+          </a>
+        </div>
+        <div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+          <form class="search-form position-relative d-flex justify-content-center">
+            <div class="position-relative w-75 autocomplete-container">
+              <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input pe-5">
+              <div class="autocomplete-suggestions"></div>
+              <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+                <i class="fa-light fa-magnifying-glass text-muted"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center">
+          <a href="#" class="btn btn-primary d-none d-lg-flex">Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="docs-wrapper">
+  <div class="social-sidebar d-none d-lg-flex">
+    <ul class="social-sidebar">
+      <li><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+      <li><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+      <li><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+      <li><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+      <li><a href="#"><i class="fa-solid fa-globe fa-fw"></i></a></li>
+    </ul>
+  </div>
+  <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+    <div class="top-search-box">
+      <form class="search-form">
+        <div class="position-relative w-100 autocomplete-container">
+          <input type="text" class="form-control search-input rounded-top" placeholder="Search the docs...">
+          <div class="autocomplete-suggestions"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="docs-sidebar" class="docs-sidebar">
+    <nav id="docs-nav" class="docs-nav navbar">
+      <ul class="section-items list-unstyled nav flex-column pb-3">
+        <li class="nav-item section-title">
+          <a class="nav-link scrollto active" href="#section-1">
+            <span class="theme-icon-holder me-2"><i class="fas fa-truck"></i></span>Step 03 — Create Suppliers
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Overview</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">How to Create a Supplier</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3">Managing Your Suppliers</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-1-4">Best Practices</a></li>
+        <li class="nav-item section-title mt-3">
+          <a class="nav-link scrollto" href="#section-2">
+            <span class="theme-icon-holder me-2"><i class="fas fa-book-open"></i></span>Step 04 — Create Recipes
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">Overview</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">How to Access</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-3">Product-Level Recipe</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-4">Option-Level Recipe</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-5">Building a Recipe — Fields</a></li>
+        <li class="nav-item section-title mt-3">
+          <a class="nav-link" href="inventory-live.html">
+            <span class="theme-icon-holder me-2"><i class="fas fa-arrow-right"></i></span>Next: Going Live
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="docs-content">
+    <div class="container">
+
+      <article class="docs-article" id="section-1">
+        <header class="docs-header">
+          <h1 class="docs-heading">Step 03 — Create Suppliers <span class="docs-time">Connecting the Dots: Who You Buy From and What Goes Into Each Dish</span></h1>
+          <section class="docs-intro">
+            <p>Suppliers must be registered in the system before you can create purchase orders, receive stock, or track procurement costs. Setting up an accurate list upfront ensures your purchasing workflow is completely unblocked.</p>
+          </section>
+        </header>
+        <section class="docs-section" id="item-1-1">
+          <h2 class="section-heading">Overview</h2>
+          <p>A supplier record is the system's reference for every vendor you buy from. Once registered, a supplier can be selected on purchase orders and receptions, giving you a full procurement trail across all your buying activity.</p>
+        </section>
+        <section class="docs-section" id="item-1-2">
+          <h2 class="section-heading">How to Create a Supplier</h2>
+          <p>Navigate to <strong>Menu &rarr; Stock &rarr; Suppliers</strong> and click <strong>+ Add Supplier</strong>.</p>
+          <ul>
+            <li><strong>Name (Required):</strong> Enter the official or recognized company name.</li>
+            <li><strong>Optional Details:</strong> Contact Name, Phone (defaults to +966), Email, Address, and Location (map pin). It is highly recommended to fill these out now to save your purchasing team time when following up on orders later.</li>
+          </ul>
+           <div class="text-center my-4">
+            <img src="assets/images/Inventory/Setup/create-supplier.png" alt="Ingredients list view" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+           </div>
+        </section>
+        <section class="docs-section" id="item-1-3">
+          <h2 class="section-heading">Managing Your Suppliers</h2>
+          <p>Once saved, vendors appear in the Suppliers List, where you can search, view, edit, or delete records.</p>
+          <ul>
+            <li><strong>Editing:</strong> Updates take effect immediately for future purchase orders but will not alter past historical records.</li>
+            <li><strong>Deleting:</strong> Not recommended if the supplier is tied to existing purchase orders, as it will create gaps in your reporting. If you stop working with a vendor, simply stop placing orders with them rather than deleting their record.</li>
+          </ul>
+           <div class="text-center my-4">
+            <img src="assets/images/Inventory/Setup/manage-suppliers.png" alt="Ingredients list view" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+           </div>
+        </section>
+        <section class="docs-section" id="item-1-4">
+          <h2 class="section-heading">Best Practices for Setup</h2>
+          <ul>
+            <li><strong>Register everyone before moving on:</strong> You cannot create a purchase order without an attached supplier.</li>
+            <li><strong>One record per billing entity:</strong> If a single company sends you separate invoices for different divisions (e.g., dairy vs. dry goods), create two supplier records. If they send one combined invoice, one record is enough.</li>
+            <li><strong>Be consistent:</strong> Standardize how you name suppliers across branches (e.g., avoid using "Al Watania" in one place and "Watania Poultry" in another) to keep reporting accurate.</li>
+          </ul>
+        </section>
+      </article>
+
+      <article class="docs-article" id="section-2">
+        <header class="docs-header">
+          <h1 class="docs-heading">Step 04 — Create Recipes</h1>
+          <section class="docs-intro">
+            <p>Recipes are the engine of your inventory system. They define the exact ingredients and quantities consumed when a product is sold. Every sale triggers an automatic, real-time deduction from your stock and calculates food costs. Every active product must have a recipe before you go live.</p>
+          </section>
+        </header>
+        <section class="docs-section" id="item-2-1">
+          <h2 class="section-heading">Overview</h2>
+          <p>A recipe links a product to the ingredients it consumes. When a product is sold at the POS, the system reads its recipe and instantly deducts the exact ingredient quantities from stock at the relevant branch.</p>
+        </section>
+        <section class="docs-section" id="item-2-2">
+          <h2 class="section-heading">How to Access</h2>
+          <p>Navigate to <strong>Menu &rarr; Products</strong>, click the eye icon or product name to open its details, and click the <strong>Recipe</strong> tab. (This tab is also available when adding a new product.)</p>
+        </section>
+        <section class="docs-section" id="item-2-3">
+          <h2 class="section-heading">Product-Level Recipe</h2>
+          <p>This applies when a product is sold as-is, without variants or options. The recipe is attached directly to the product and represents the single, fixed set of ingredients consumed on every sale — regardless of any customer choice.</p>
+          <p><strong>Example:</strong> A Chicken Fajita Sandwich always uses the same bread, toppings, vegetables, and condiments. The recipe is set once on the product itself.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Setup/product-recipe.png" alt="Product-level recipe" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">A product-level recipe listing all ingredients and quantities consumed per serving for this product.</p>
+          </div>
+        </section>
+        <section class="docs-section" id="item-2-4">
+          <h2 class="section-heading">Option-Level Recipe</h2>
+          <p>This applies when a product has options (e.g., size, milk type, preparation style) and each option consumes different ingredients or quantities. In this case, you define a separate recipe for each relevant option.</p>
+          <p>When a customer selects an option at the point of sale, the system deducts the ingredients tied to that specific option, not a generic product recipe.</p>
+          <p><strong>Example:</strong> A Hot Chocolate is sold in sizes S, M, and L. Each size uses a different cup and different quantities of milk and cocoa powder. Each size option therefore has its own recipe.</p>
+          <div class="text-center my-4">
+            <img src="assets/images/Inventory/Setup/option-recipe.png" alt="Option-level recipe" class="img-thumbnail shadow-sm zoom-effect" style="max-width:600px;width:100%;cursor:pointer;">
+            <p class="img-caption">The option-level recipe form, accessible by editing a specific product option. Ingredients defined here are consumed only when this particular option is selected.</p>
+          </div>
+          <div class="callout-tip">
+            <i class="fas fa-lightbulb icon"></i>
+            <strong>When to use each:</strong> Use a product-level recipe when the product has no options, or when all options share the same ingredients and quantities. Use option-level recipes when different options consume different ingredients or amounts — such as different cup sizes, milk types, or preparation methods.
+          </div>
+        </section>
+        <section class="docs-section" id="item-2-5">
+          <h2 class="section-heading">Building a Recipe — Field by Field</h2>
+          <ul>
+            <li><strong>Ingredient (Required):</strong> Select the raw material from the dropdown (must be previously created in Step 02). Add a separate line for each ingredient.</li>
+            <li><strong>Quantity per Serving (Required):</strong> Enter the exact amount used per serving. Do not estimate. Work with your kitchen team to measure actual portions, as inaccurate quantities are the biggest cause of stock discrepancies.</li>
+            <li><strong>Unit of Measure (Required):</strong> This must match the ingredient's base unit OR have a valid conversion defined (e.g., milliliters to liters).</li>
+          </ul>
+          <div class="callout-warning">
+            <i class="fas fa-exclamation-triangle icon"></i>
+            <strong>Common mistakes to avoid:</strong> Entering "about 20g" instead of the actual measured amount permanently skews inventory. Also avoid unit errors — entering a quantity in kilograms when the base unit is grams. Always update the system recipe immediately if the kitchen changes a portion size.
+          </div>
+         
+        </section>
+          <!-- Previous / Next navigation -->
+          <div class="docs-nav-buttons">
+            <a href="inventory-ingredients.html" class="btn btn-outline-secondary">
+              <i class="fas fa-arrow-left"></i> Previous: Ingredient
+            </a>
+            <a href="inventory-live.html" class="btn btn-primary">
+              Continue to Going live <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+      </article>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center"><img id="modalImage" src="#" alt="Zoomed" class="img-fluid rounded"></div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="footer-bottom text-center py-5">
+    <ul class="social-list list-unstyled pb-4 mb-0">
+      <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li>
+      <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+      <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+      <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+    </ul>
+    <small class="copyright">&copy; Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> All Rights Reserved. Designed with <i class="fas fa-heart" style="color:#fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">XR</a>.</small>
+  </div>
+</footer>
+<script src="assets/plugins/popper.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/plugins/smoothscroll.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+<script src="assets/js/highlight-custom.js"></script>
+<script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>
+<script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script>
+<script src="assets/js/docs.js"></script>
+</body>
+</html>
