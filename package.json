@@ -1,0 +1,7 @@
+{
+  "name": "smartprins-docs",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-site.js"
+  }
+}

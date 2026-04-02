@@ -1,0 +1,116 @@
+<style>
+      /* Language Toggle */
+      #lang-toggle {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border: 2px solid #5368fd;
+        background: transparent;
+        color: #5368fd;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+        text-decoration: none;
+      }
+      #lang-toggle:hover {
+        background: #5368fd;
+        color: #fff;
+      }
+      html[lang="ar"] .lang-en {
+        display: none !important;
+      }
+      html[lang="en"] .lang-ar {
+        display: none !important;
+      }
+      html[lang="ar"] body {
+        font-family: "Tajawal", sans-serif;
+      }
+
+      .home-header-row {
+        display: flex;
+        flex-wrap: nowrap;
+        min-height: 72px;
+        justify-content: space-between;
+        gap: 2.5rem;
+      }
+      .home-header-brand {
+        display: flex;
+        align-items: center;
+        flex: 0 0 auto;
+        width: auto;
+        max-width: none;
+      }
+      .home-header-actions {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0.75rem;
+        flex: 0 0 auto;
+        width: auto;
+        max-width: none;
+        margin-left: auto;
+      }
+      .home-social-list {
+        margin-bottom: 0;
+      }
+      html[lang="ar"] .home-header-row {
+        flex-direction: row-reverse;
+      }
+      html[lang="ar"] .home-header-actions {
+        order: 1;
+        justify-content: flex-start;
+        margin-left: 0;
+        margin-right: auto;
+      }
+      html[lang="ar"] .home-header-brand {
+        order: 2;
+        justify-content: flex-end;
+      }
+      html[lang="ar"] .home-header-brand .navbar-brand {
+        flex-direction: row-reverse;
+      }
+      html[lang="ar"] .home-header-brand .logo-icon {
+        margin-right: 0 !important;
+        margin-left: 0.5rem !important;
+      }
+      html[lang="ar"] .home-header-brand .logo-text {
+        text-align: right;
+      }
+      html[lang="ar"] .home-social-list {
+        order: 1;
+      }
+      html[lang="ar"] #lang-toggle {
+        order: 2;
+      }
+      html[lang="ar"] .home-download-btn {
+        order: 3;
+      }
+
+      /* RTL only for page body content */
+      html[lang="ar"] .page-content .container,
+      html[lang="ar"] .cta-section .container {
+        direction: rtl;
+        text-align: right;
+      }
+      html[lang="ar"] .page-header .container {
+        direction: rtl;
+      }
+      html[lang="ar"] .footer-bottom {
+        direction: rtl;
+      }
+
+      /* Logo text stays neatly stacked next to the image */
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+      }
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+      }
+    </style>

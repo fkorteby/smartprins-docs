@@ -1,0 +1,178 @@
+<style>
+      .zoom-effect {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .zoom-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      .autocomplete-container {
+        position: relative;
+        width: 100%;
+      }
+      .autocomplete-suggestions {
+        position: absolute;
+        top: 100%;
+        left: 2px;
+        right: 2px;
+        background: #fff;
+        z-index: 1050;
+        max-height: 240px;
+        overflow-y: auto;
+        border: 1px solid #dee2e6;
+        border-top: none;
+        border-radius: 0 0 6px 6px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        display: none;
+        padding: 0;
+      }
+      .autocomplete-suggestion {
+        padding: 10px 14px;
+        cursor: pointer;
+        color: #333;
+        transition: background-color 0.2s ease;
+        font-size: 0.95rem;
+      }
+      .autocomplete-suggestion:hover {
+        background-color: #f0f4ff;
+      }
+      .autocomplete-suggestion mark {
+        background: none;
+        color: #5368fd;
+        font-weight: bold;
+      }
+      .callout-tip {
+        background: #f0f9ff;
+        border-left: 4px solid #3b82f6;
+        padding: 1rem 1.25rem;
+        border-radius: 0 6px 6px 0;
+        margin: 1.5rem 0;
+      }
+      .callout-warning {
+        background: #fff7ed;
+        border-left: 4px solid #f97316;
+        padding: 1rem 1.25rem;
+        border-radius: 0 6px 6px 0;
+        margin: 1.5rem 0;
+      }
+      .callout-info {
+        background: #f0fdf4;
+        border-left: 4px solid #22c55e;
+        padding: 1rem 1.25rem;
+        border-radius: 0 6px 6px 0;
+        margin: 1.5rem 0;
+      }
+      .callout-tip .icon {
+        color: #3b82f6;
+        margin-right: 0.5rem;
+      }
+      .callout-warning .icon {
+        color: #f97316;
+        margin-right: 0.5rem;
+      }
+      .callout-info .icon {
+        color: #22c55e;
+        margin-right: 0.5rem;
+      }
+      .field-table th {
+        background-color: #f8f9fa;
+        font-weight: 600;
+      }
+      .field-table td {
+        vertical-align: top;
+        padding: 0.85rem 1rem;
+      }
+      .img-caption {
+        color: #6c757d;
+        font-size: 0.875rem;
+        text-align: center;
+        margin-top: 0.5rem;
+      }
+
+      #lang-toggle {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border: 2px solid #5368fd;
+        background: transparent;
+        color: #5368fd;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+      }
+      #lang-toggle:hover {
+        background: #5368fd;
+        color: #fff;
+      }
+      html[lang="ar"] .lang-en {
+        display: none !important;
+      }
+      html[lang="en"] .lang-ar {
+        display: none !important;
+      }
+      html[lang="ar"] body {
+        font-family: "Tajawal", sans-serif;
+      }
+      html[lang="ar"] .docs-sidebar {
+        left: auto !important;
+        right: 0 !important;
+      }
+      html[lang="ar"] .docs-content {
+        margin-left: 0 !important;
+        margin-right: 300px !important;
+      }
+      html[lang="ar"] .docs-content .container {
+        direction: rtl;
+        text-align: right;
+      }
+      html[lang="ar"] .docs-nav {
+        direction: rtl;
+        text-align: right;
+      }
+      html[lang="ar"] .social-sidebar {
+        left: 0 !important;
+        right: auto !important;
+      }
+      html[lang="ar"] .callout-tip,
+      html[lang="ar"] .callout-warning,
+      html[lang="ar"] .callout-info {
+        border-left: none;
+        border-right: 4px solid;
+      }
+      html[lang="ar"] .callout-tip {
+        border-right-color: #3b82f6;
+      }
+      html[lang="ar"] .callout-warning {
+        border-right-color: #f97316;
+      }
+      html[lang="ar"] .callout-info {
+        border-right-color: #22c55e;
+      }
+      html[lang="ar"] .docs-branding .row {
+        flex-direction: row-reverse;
+      }
+      html[lang="ar"] .navbar-brand {
+        margin-right: 0;
+        margin-left: 1rem;
+      }
+      .docs-nav-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2rem;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+    </style>
+
+<style>
+      html[lang="ar"] #docs-nav .nav-link::before {
+        left: auto !important;
+        right: 0 !important;
+      }
+    </style>

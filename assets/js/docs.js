@@ -93,45 +93,6 @@ var spy = new Gumshoe('#docs-nav a', {
 
 var lightbox = new SimpleLightbox('.simplelightbox-gallery a', {/* options */});
 
-// === Language Toggle ===
-document.addEventListener('DOMContentLoaded', () => {
-  const langToggle = document.getElementById('lang-toggle');
-  let currentLang = 'en';
-
-  if (langToggle) {
-    langToggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (currentLang === 'en') {
-        document.body.setAttribute('dir', 'rtl');
-        document.body.style.textAlign = 'right';
-        currentLang = 'ar';
-
-        const titleEl = document.getElementById('hero-title');
-        const textEl = document.getElementById('hero-text');
-        if (titleEl && textEl) {
-          titleEl.textContent = 'التوثيق';
-          textEl.textContent = 'كل ما تحتاجه لفهم أنظمة المطعم الذكية وإدارتها بسهولة.';
-        }
-      } else {
-        document.body.setAttribute('dir', 'ltr');
-        document.body.style.textAlign = 'left';
-        currentLang = 'en';
-
-        const titleEl = document.getElementById('hero-title');
-        const textEl = document.getElementById('hero-text');
-        if (titleEl && textEl) {
-          titleEl.textContent = 'Documentation';
-          textEl.textContent = 'User Guide and Knowledge Base for Smart Restaurant Solution.';
-        }
-      }
-    });
-  }
-  langToggle.addEventListener('click', () => {
-  console.log("Language toggle clicked");
-});
-
-});
-
 const chatbotDiagram = new go.Diagram("chatbotDiagramDiv");
 
 
@@ -159,7 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 }); 
 */
-
 
 
 

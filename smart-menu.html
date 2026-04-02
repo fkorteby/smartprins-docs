@@ -49,7 +49,7 @@
         <!-- Logo Left -->
         <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
           <a class="navbar-brand" href="index.html">
-	          <div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height: 60px;"></a></div>  
+	          <div class="site-logo"><img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height: 60px;"></div>  
           </a>
         </div>
 
@@ -131,6 +131,7 @@
         <a class="nav-link scrollto" href="#section-3">
           <span class="theme-icon-holder me-2"><i class="fas fa-cogs"></i></span>More to Smart Menu
         </a>
+      </li>
 
       <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Kitchen Application</a></li>
       <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Smart Automation</a></li>
@@ -141,11 +142,10 @@
         <a class="nav-link scrollto" href="#section-4">
           <span class="theme-icon-holder me-2"><i class="fas fa-list-ul"></i></span>Conclusion
         </a>
+      </li>
     </ul>
   </nav>
 </div>
-</nav><!--//docs-nav-->
-	  </div><!--//docs-sidebar-->
 
 	 <div class="docs-content">
   <div class="container">
@@ -524,94 +524,9 @@ The Smart Menu is a responsive web based ordering application designed primarily
       In short, Smart Menu transforms traditional menus into dynamic digital interfaces that bridge operational efficiency with customer convenience all accessible from the comfort of a mobile browser.
     </p>
   </div>
-</section>
-
-
 </article>
 
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Select all images with zoom-effect class
-    const zoomImages = document.querySelectorAll('.zoom-effect');
-
-    zoomImages.forEach(function (img) {
-      img.addEventListener('click', function () {
-        const modalImage = document.getElementById('modalImage');
-        modalImage.src = this.src;
-
-        let naturalWidth = this.naturalWidth;
-        let displayedWidth = this.clientWidth;
-        let targetWidth = Math.min(displayedWidth * 1.5, naturalWidth);
-
-        modalImage.style.width = targetWidth + "px";
-        modalImage.style.height = "auto";
-        modalImage.style.maxWidth = "90vw";
-        modalImage.style.maxHeight = "90vh";
-        modalImage.style.transform = "none"; // reset transform
-
-        // Show the modal using Bootstrap's method
-        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
-        imageModal.show();
-
-        // 🔹 Extra controls ONLY for workflow image
-        if (this.id === "workflowImage") {
-          let scale = 1;
-          let posX = 0, posY = 0, isDragging = false, startX, startY;
-
-          modalImage.style.cursor = "grab";
-
-          // Zoom with scroll
-          modalImage.onwheel = function (e) {
-            e.preventDefault();
-            scale += e.deltaY * -0.001;
-            scale = Math.min(Math.max(1, scale), 5); // limit zoom between 1x and 5x
-            modalImage.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
-          };
-
-          // Drag when zoomed
-          modalImage.onmousedown = function (e) {
-            if (scale <= 1) return; // no drag if not zoomed
-            isDragging = true;
-            startX = e.clientX - posX;
-            startY = e.clientY - posY;
-            modalImage.style.cursor = "grabbing";
-          };
-
-          document.onmouseup = function () {
-            isDragging = false;
-            modalImage.style.cursor = "grab";
-          };
-
-          document.onmousemove = function (e) {
-            if (isDragging) {
-              posX = e.clientX - startX;
-              posY = e.clientY - startY;
-              modalImage.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
-            }
-          };
-
-          // Optional: double click to reset zoom/pan
-          modalImage.ondblclick = function () {
-            scale = 1;
-            posX = 0;
-            posY = 0;
-            modalImage.style.transform = "none";
-          };
-        } else {
-          // Reset handlers for normal images
-          modalImage.onwheel = null;
-          modalImage.onmousedown = null;
-          document.onmouseup = null;
-          document.onmousemove = null;
-          modalImage.ondblclick = null;
-        }
-      });
-    });
-  });
-</script>
-
-   
     <!-- Image Modal -->
 <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -625,14 +540,7 @@ The Smart Menu is a responsive web based ordering application designed primarily
 </div>
 
 <script>
-  
-// === Image Modal img zoom in / out ===
-
-
-<!-- Script -->
-<script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Generic zoom handler for all .zoom-effect images
     const zoomImages = document.querySelectorAll('.zoom-effect');
 
     zoomImages.forEach(function (img) {
@@ -649,16 +557,14 @@ The Smart Menu is a responsive web based ordering application designed primarily
         modalImage.style.maxWidth = "90vw";
         modalImage.style.maxHeight = "90vh";
 
-        // Show the modal
         const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
         imageModal.show();
       });
     });
 
-    // Special case: workflowImage → always enlarge x2
     const workflow = document.getElementById('workflowImage');
     if (workflow) {
-      workflow.addEventListener('click', function (e) {
+      workflow.addEventListener('click', function () {
         const modalImage = document.getElementById('modalImage');
         modalImage.src = this.src;
 
@@ -674,73 +580,63 @@ The Smart Menu is a responsive web based ordering application designed primarily
         imageModal.show();
       });
     }
-  });
+  
+    const input = document.querySelector('.search-input');
+    const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link'));
 
+    if (!input) return;
 
-// ===                   ===
+    const container = input.closest('.autocomplete-container');
+    const suggestionsBox = document.createElement('div');
+    suggestionsBox.className = 'autocomplete-suggestions';
+    container.appendChild(suggestionsBox);
 
+    input.addEventListener('input', function () {
+      const val = this.value.trim().toLowerCase();
+      suggestionsBox.innerHTML = '';
 
-// === Smart Search Autocomplete ===
-document.addEventListener('DOMContentLoaded', function () {
-  const input = document.querySelector('.search-input');
-  const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link'));
-
-  if (!input) return;
-
-  // Find the container (autocomplete-container) and append inside it
-  const container = input.closest('.autocomplete-container');
-  const suggestionsBox = document.createElement('div');
-  suggestionsBox.className = 'autocomplete-suggestions';
-  container.appendChild(suggestionsBox);
-
-  input.addEventListener('input', function () {
-    const val = this.value.trim().toLowerCase();
-    suggestionsBox.innerHTML = '';
-
-    if (!val) {
-      suggestionsBox.style.display = 'none';
-      return;
-    }
-
-    navLinks.forEach(link => {
-      const text = link.textContent.trim();
-      const lowerText = text.toLowerCase();
-
-      if (lowerText.includes(val)) {
-        const option = document.createElement('div');
-        option.className = 'autocomplete-suggestion';
-
-        const index = lowerText.indexOf(val);
-          const highlighted = 
-           index !== -1
-           ? text.substring(0, index) + 
-           `<mark class="bg-transparent text-primary fw-bold">` +
-            text.substring(index, index + val.length) +
-            '</mark>' +
-            text.substring(index + val.length)
-            : text;
-
-        option.innerHTML = highlighted;
-        option.addEventListener('click', () => {
-          window.location.href = link.href;
-        });
-
-        suggestionsBox.appendChild(option);
+      if (!val) {
+        suggestionsBox.style.display = 'none';
+        return;
       }
+
+      navLinks.forEach(link => {
+        const text = link.textContent.trim();
+        const lowerText = text.toLowerCase();
+
+        if (lowerText.includes(val)) {
+          const option = document.createElement('div');
+          option.className = 'autocomplete-suggestion';
+
+          const index = lowerText.indexOf(val);
+          const highlighted =
+            index !== -1
+              ? text.substring(0, index) +
+                `<mark class="bg-transparent text-primary fw-bold">` +
+                text.substring(index, index + val.length) +
+                '</mark>' +
+                text.substring(index + val.length)
+              : text;
+
+          option.innerHTML = highlighted;
+          option.addEventListener('click', () => {
+            window.location.href = link.href;
+          });
+
+          suggestionsBox.appendChild(option);
+        }
+      });
+
+      suggestionsBox.style.display = suggestionsBox.children.length ? 'block' : 'none';
     });
 
-    suggestionsBox.style.display = suggestionsBox.children.length ? 'block' : 'none';
+    document.addEventListener('click', function (e) {
+      if (!suggestionsBox.contains(e.target) && e.target !== input) {
+        suggestionsBox.innerHTML = '';
+        suggestionsBox.style.display = 'none';
+      }
+    });
   });
-
-  document.addEventListener('click', function (e) {
-    if (!suggestionsBox.contains(e.target) && e.target !== input) {
-      suggestionsBox.innerHTML = '';
-      suggestionsBox.style.display = 'none';
-    }
-  });
-});
-
-
 </script>
 
 <style>
@@ -829,4 +725,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
 </body>
 </html> 
-
