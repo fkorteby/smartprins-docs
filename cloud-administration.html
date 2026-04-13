@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
-    <title>SmartPrints -cloud-administration-solution</title>
+    <title>Smart Restaurant Administration - Cloud Administration Guide</title>
     
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <meta name="description" content="SmartPrints Functionnal Documentation For Cloud POS Solution">
+    <meta name="description" content="Cloud Administration guide for the Smart Restaurant Administration panel">
     <meta name="author" content="SmartPrints Team">    
     <link rel="shortcut icon" href="favicon.ico"> 
     
@@ -34,6 +34,32 @@
       .zoom-effect:hover {
         transform: scale(1.05);
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .doc-image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      .doc-image-card {
+        margin: 0;
+        text-align: center;
+      }
+
+      .doc-image-card img {
+        width: 100%;
+        max-height: 320px;
+        object-fit: contain;
+        background: #fff;
+        cursor: pointer;
+      }
+
+      .doc-image-card figcaption {
+        margin-top: 0.75rem;
+        font-size: 0.95rem;
+        color: #5d6778;
       }
    </style>
 
@@ -104,780 +130,650 @@
 	    <div id="docs-sidebar" class="docs-sidebar">
   <nav id="docs-nav" class="docs-nav navbar">
     <ul class="section-items list-unstyled nav flex-column pb-3">
-
       <li class="nav-item section-title">
         <a class="nav-link scrollto active" href="#section-1">
-          <span class="theme-icon-holder me-2"><i class="fas fa-cloud"></i></span>Cloud Administration
+          <span class="theme-icon-holder me-2"><i class="fas fa-cloud"></i></span>Administration
         </a>
       </li>
       <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Overview</a></li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">Login In</a></li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3">Login Out</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">Logging In</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3">Logging Out</a></li>
 
       <li class="nav-item section-title mt-3">
         <a class="nav-link scrollto" href="#section-2">
           <span class="theme-icon-holder me-2"><i class="fas fa-chart-pie"></i></span>Dashboard
         </a>
       </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">Dashboard</a></li>
 
       <li class="nav-item section-title mt-3">
         <a class="nav-link scrollto" href="#section-3">
           <span class="theme-icon-holder me-2"><i class="fas fa-utensils"></i></span>Kitchen
         </a>
       </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Kitchen</a></li>
 
       <li class="nav-item section-title mt-3">
         <a class="nav-link scrollto" href="#section-4">
           <span class="theme-icon-holder me-2"><i class="fas fa-store-alt"></i></span>Client
         </a>
       </li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Branches</a></li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-4-2">Branche Details</a></li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-4-3">Devices</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Client</a></li>
 
       <li class="nav-item section-title mt-3">
         <a class="nav-link scrollto" href="#section-5">
           <span class="theme-icon-holder me-2"><i class="fas fa-globe"></i></span>Online
         </a>
       </li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">Drivers</a></li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2">Online Orders</a></li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-5-3">B2B Orders</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">Online</a></li>
 
       <li class="nav-item section-title mt-3">
         <a class="nav-link scrollto" href="#section-6">
-          <span class="theme-icon-holder me-2"><i class="fas fa-sliders-h"></i></span>Customization
-        </a>
-      </li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-6-1">Products</a></li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-6-2">Product Option</a></li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-6-3">Sort Menu</a></li>
-
-      <li class="nav-item section-title mt-3">
-        <a class="nav-link scrollto" href="#section-7">
-          <span class="theme-icon-holder me-2"><i class="fas fa-cash-register"></i></span>POS
-        </a>
-      </li>
-
-      <li class="nav-item section-title mt-3">
-        <a class="nav-link scrollto" href="#section-8">
           <span class="theme-icon-holder me-2"><i class="fas fa-bars"></i></span>Menu
         </a>
       </li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-8-1">Categories</a></li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-8-2">Products</a></li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-8-3">Family Option</a></li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-8-4">options</a></li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-8-5">Menu Group</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-6-1">Menu</a></li>
 
       <li class="nav-item section-title mt-3">
-        <a class="nav-link scrollto" href="#section-9">
-          <span class="theme-icon-holder me-2"><i class="fas fa-boxes"></i></span>Inventory
+        <a class="nav-link scrollto" href="#section-7">
+          <span class="theme-icon-holder me-2"><i class="fas fa-sliders-h"></i></span>Customization
         </a>
       </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-7-1">Customization</a></li>
 
-       <li class="nav-item section-title mt-3">
-        <a class="nav-link scrollto" href="#section-10">
+      <li class="nav-item section-title mt-3">
+        <a class="nav-link scrollto" href="#section-8">
           <span class="theme-icon-holder me-2"><i class="fas fa-bullhorn"></i></span>Marketing
         </a>
       </li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-10-1">Advertisements</a></li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-10-2">Customers</a></li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-10-3">Coupons</a></li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-10-4">Groups</a></li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-10-5">Offers</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-8-1">Marketing</a></li>
 
       <li class="nav-item section-title mt-3">
-        <a class="nav-link scrollto" href="#section-11">
+        <a class="nav-link scrollto" href="#section-9">
           <span class="theme-icon-holder me-2"><i class="fas fa-chart-bar"></i></span>Reporting
         </a>
       </li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-11-1">Orders</a></li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-11-2">Inventory Sales</a></li>
-      <li class="nav-item"><a class="nav-link scrollto" href="#item-11-3">Charts</a></li>
-
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-9-1">Reporting</a></li>
     </ul>
-  </nav>
-</div>
-</nav><!--//docs-nav-->
-	  </div><!--//docs-sidebar-->
+  </nav><!--//docs-nav-->
+</div><!--//docs-sidebar-->
 
 	    <div class="docs-content">
   <div class="container">
-
-    <article class="docs-article" id="section-1">
+    <article class="docs-article step-page" id="section-1" data-step-title="Overview">
       <header class="docs-header">
-        <h1 class="docs-heading">Cloud Administration</h1>
+        <h1 class="docs-heading">Smart Restaurant Administration <span class="docs-time">Last updated: April 13, 2026</span></h1>
+        <section class="docs-intro">
+          <p>Cloud Administration Guide</p>
+          <p>The Smart Restaurant Administration panel is your central hub for managing every aspect of your restaurant operations from the cloud.</p>
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/overview.png" alt="Restaurant administration overview" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Overview of the Smart Restaurant Administration workspace.</figcaption>
+          </figure>
+        </section>
       </header>
       <section class="docs-section" id="item-1-1">
         <h2 class="section-heading">Overview</h2>
-        <p>Used to manage cloud infrastructure services and multiple server instances, and also, to establish and execute the operations as per the specifications and parameters.</p>
-        <p>The cloud administration is composed of 11 sections: <strong>dashboard</strong>, <strong>kitchen</strong>, <strong>admin chat</strong>, <strong>admin chat</strong>, <strong>client</strong>, <strong>online</strong>, <strong>marketing</strong>, <strong>POS</strong>, <strong>menu</strong>, <strong>inventory</strong>, <strong>customization</strong>, and <strong>reporting</strong>, each section is reserved for a specific operation, although some of them are directly related.</p>
-        <div class="text-center my-4">
-     <img src="assets/images/cloud-admin.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-     </div>
+        <p>It is composed of the following sections accessible from the left sidebar: Dashboard, Kitchen, Admin Chat, Client, Online, Marketing, POS, Menu, Inventory, Customization, and Reporting.</p>
       </section>
       <section class="docs-section" id="item-1-2">
-        <h2 class="section-heading">Login In</h2>
-        <p>To access the Smart Kiosk administration, you should follow this straightforward login process:</p>
+        <h2 class="section-heading">Logging In</h2>
+        <p>Open the Smart Kiosk Administration login page. The screen displays the title <strong>"Welcome back!"</strong> with a subtitle prompting you to enter your username address and password to access the admin panel.</p>
+        <p>Fill in the two fields as follows:</p>
         <ul>
-          <li><strong>Username or Email and Password:</strong> You will be handed a Client Manager account with which you will log in using your designated username or email and a secure password.</li>
-      <div class="text-center my-4">
-       <img src="assets/images/login-cloud-admin.png"
-         alt="employee login to an existing shift"
-         class="img-thumbnail shadow-sm zoom-effect"
-         style="max-width: 500px; width: 100%; cursor: pointer ;"
-         data-bs-toggle="modal"
-         data-bs-target="#imageModal1">
-     </div>
-     <li><strong>Captcha Test: </strong>After completing the previous step, and as an additional security measure, it is necessary to complete a simple CAPTCHA test by clicking "I'm not a robot" for successful login.</li>
-       <div class="text-center my-4">
-       <img src="assets/images/Captche-admin.png"
-         alt="employee login to an existing shift"
-         class="img-thumbnail shadow-sm zoom-effect"
-         style="max-width: 500px; width: 100%; cursor: pointer ;"
-         data-bs-toggle="modal"
-         data-bs-target="#imageModal1">
-     </div>
-     <li><strong>Profile (Dashboard Access): </strong>Upon successful login, you will be directed to the dashboard of the system seen below.</li>
-        <div class="text-center my-4">
-     <img src="assets/images/cloud-admin.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-       </div>
-       <p>On the left side of the page, you can see :</p>
-       <li>Your username and your role, which is «CLIENT MANAGER»</li>
-       <li>And many different sections to manage your cloud. The part illustrated above is called the «Dashboard», which we’ll talk about in the upcoming sections.</li>
-      </ul>
+          <li>Email Address - enter your assigned username or email</li>
+          <li>Password - enter your secure password</li>
+        </ul>
+        <p>You can tick <strong>Remember me</strong> to stay logged in on this device. Complete the reCAPTCHA by checking the <strong>"I'm not a robot"</strong> box, then click the blue <strong>Log In</strong> button.</p>
+        <p>Upon successful login, you will land on the Smart Restaurant Administration dashboard.</p>
+        <figure class="doc-image-card">
+          <img src="assets/images/Restaurant-administration/loginh.png" alt="Cloud administration login screen" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+          <figcaption>Login page used to access the administration panel.</figcaption>
+        </figure>
       </section>
       <section class="docs-section" id="item-1-3">
-        <h2 class="section-heading">Login Out</h2>
-        <p>Simply follow these quick steps to log out:</p>
-        <ul>
-          <li><strong>First, navigate to Profile: </strong>Your profile is located in the upper-left corner of the page, as indicated by the red underlining in the illustration image below.</li>
-          <li><strong>Dropdown List: </strong>Next, click the small arrow next to your profile name (framed in red), and a dropdown list appears.</li>
-          <li><strong>Click "Logout": </strong>From the dropdown options (Edit Account, Support, Logout), you can select "Logout."</li>
-        <div class="text-center my-4">
-     <img src="assets/images/logout-cloud-admin.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-       </div>
-       </ul>
+        <h2 class="section-heading">Logging Out</h2>
+        <p>To log out, locate your profile in the upper-left corner of the sidebar showing your name and the <strong>CLIENT MANAGER</strong> label. Click the small dropdown arrow next to your name. A menu appears with three options: Edit Account, Support, and Logout. Click <strong>Logout</strong> to end your session.</p>
+        <figure class="doc-image-card">
+          <img src="assets/images/Restaurant-administration/log-out.png" alt="Logout from cloud administration" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+          <figcaption>Profile dropdown menu with the logout action.</figcaption>
+        </figure>
       </section>
+      <div class="step-navigation">
+        <span class="step-navigation-spacer"></span>
+        <a class="btn btn-primary step-nav-btn" href="#section-2">Next Step: Dashboard</a>
+      </div>
     </article>
 
-    <article class="docs-article" id="section-2"><header><h1 class="docs-heading">Dashboard</h1></header>
-    <P>On this page, you can: </P>
-    <ul>
-      <li>Visualize all the data that allow you to understand the analytics that matter to your business.</li>
-      <li>Scroll down to see the whole pages, where you can track the exact revenues in every branch you have.</li>
-      <li>Select the specific branch you want to see on the blue upper button ‘select branch’.</li>
-      <br> 
-      <div class="text-center my-4">
-     <img src="assets/images/revenu-by-branch.png"
-       alt="revenu-by-branch"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-       </div>
-          <br>      
-      <div class="d-flex justify-content-center gap-4 mb-4">
-             
-              <div>
-               <img src="assets/images/dashboard-client.png"
-                alt="my orders"
-                class="img-thumbnail shadow-sm zoom-effect"
-                style="max-width: 380px; width: 100%; cursor: pointer;"
-                data-bs-toggle="modal"
-                data-bs-target="#imageModal1">
-             </div>
-   
-             <div>
-              <img src="assets/images/dashboard-manager.png"
-                 alt="my order"
-                class="img-thumbnail shadow-sm zoom-effect"
-                style="max-width: 380px; width: 100%; cursor: pointer;"
-                data-bs-toggle="modal"
-                data-bs-target="#imageModal2">
-            </div>
-          </div>   
-          <br>          
-    </ul>
+    <article class="docs-article step-page" id="section-2" data-step-title="Dashboard">
+      <header class="docs-header">
+        <h1 class="docs-heading">3. Dashboard</h1>
+      </header>
+      <section class="docs-section" id="item-2-1">
+        <p>The Dashboard is the first screen you see after logging in. It gives you a real-time overview of your business performance.</p>
+        <p>The top bar on the right contains three filter buttons: <strong>Select Branch</strong>, <strong>Select Kiosk</strong>, and <strong>Select Source</strong>, which let you narrow down the data shown across the entire dashboard.</p>
+        <p>The main content area contains the following:</p>
+        <div class="doc-image-grid">
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/dashbiard.png" alt="Administration dashboard" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Main dashboard with KPI cards, filters, and summary panels.</figcaption>
+          </figure>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Area</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>KPI Cards</td><td>Four cards display Today Revenue, Total Revenue, Today Orders, and Total Orders. Each card shows the current value along with a percentage trend indicator.</td></tr>
+              <tr><td>Overview Panel</td><td>Shows Total Installed Kiosks, Average Revenue Per Kiosk in SAR, and Average Order Time in HH:MM:SS format.</td></tr>
+              <tr><td>Revenue Chart</td><td>A line chart showing revenue over time with 7D, 15D, 1M, and 3M filters.</td></tr>
+              <tr><td>Revenue By Month</td><td>A secondary chart showing monthly revenue trends with 6M, 1Y, and 2Y filters.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Scrolling down reveals additional charts including Revenue By Products shown as a pie chart, an Orders bar chart, Revenue By Branch, and an Orders Durations graph. A detailed orders table on the right lists recent transactions with their branch, duration, total, and a view button.</p>
+      </section>
+      <div class="step-navigation">
+        <a class="btn btn-outline-secondary step-nav-btn" href="#section-1">Previous: Administration</a>
+        <a class="btn btn-primary step-nav-btn" href="#section-3">Next Step: Kitchen</a>
+      </div>
     </article>
 
-    <article class="docs-article" id="section-3">
-  <header class="docs-header">
-    <h1 class="docs-heading">Kitchen</h1>
-    <section class="docs-intro">
-      <a href="https://smart-kitchen-app.html" target="_blank">Go to Kitchen App Site</a>
-
-      <p><strong>Please follow this link to get a dedicated user manual for the kitchen application section.</strong></p>
-      <div class="text-center my-4">
-      <img src="assets/images/kitchen-app-start.png" alt="kitchen" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;">
-    </div>
-
-
-    <article class="docs-article" id="section-4">
-      <header class="docs-header"><h1 class="docs-heading">Client</h1></header>
-      <section class="docs-section" id="item-4-1"><h2 class="section-heading">Branches</h2>
-      <p>In this section, we can observe all the branches and offices located elsewhere, apart from the main office where business is conducted. We can also find key parameters defining each branch's details:</p>
-      <ul>
-        <li><strong>#ID (Branch ID):</strong> A distinct identifier is assigned to each branch, facilitating identification.</li>
-        <li><strong>Name:</strong> The official name of the branch.</li>
-        <li><strong>Name (Arabic):</strong> The branch's name is presented in the Arabic language.</li>
-        <li><strong>Client:</strong> The client who's associated with the branch.</li>
-        <li><strong>City:</strong> The location of the branch, specifying the city where it is situated.</li>
-        <li><strong>Ref:</strong> A reference, can be a code or unique identifier associated with the branch.</li>
-        <li><strong>Automation:</strong> Indicates whether the branch is automated (automation enabled written in green) or operates manually (automation disabled, in red).</li>
-        <li><strong>Tables:</strong> Details regarding the number or arrangement of tables within the branch. This feature can be either enabled (in green) or disabled (in red).</li>
-        <li><strong>Status:</strong> Reflects whether the branch is currently enabled or disabled.</li>
-        <li><strong>Actions:</strong> On the extreme right, a singular blue icon allows us to view all of the details of a specific branch.</li>
-        
-        <div class="text-center my-4">
-     <img src="assets/images/branches.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-     </div>
-      </ul>
+    <article class="docs-article step-page" id="section-3" data-step-title="Kitchen">
+      <header class="docs-header">
+        <h1 class="docs-heading">4. Kitchen</h1>
+      </header>
+      <section class="docs-section" id="item-3-1">
+        <p>The Kitchen section connects to the Smart Kitchen App, which displays live orders on kitchen display screens. The kitchen screen organises orders into four tabs at the top: <strong>Placed</strong>, <strong>Active</strong>, <strong>Hold</strong>, and <strong>History</strong>, each showing a count badge.</p>
+        <p>Each order card shows the order number, items with their selected options in both English and Arabic, and four action buttons at the bottom: <strong>Queued</strong>, <strong>Hold</strong>, <strong>Print</strong>, and <strong>Abort</strong>. The card also displays the Order at time, Pickup date, Status, and a Delayed By timer. A Select Table dropdown appears in the top right and a live clock is shown in the top-right corner.</p>
+        <div class="doc-image-grid">
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/kitchen.png" alt="Kitchen screen overview" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Kitchen section entry point inside administration.</figcaption>
+          </figure>
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/kitchen-details.png" alt="Kitchen order details" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Detailed kitchen order cards with actions and status timing.</figcaption>
+          </figure>
+        </div>
+        <div class="alert alert-info" role="alert">
+          For a full dedicated guide to the Kitchen App, refer to the Kitchen App User Manual.
+        </div>
       </section>
-      <section class="docs-section" id="item-4-2">
+      <div class="step-navigation">
+        <a class="btn btn-outline-secondary step-nav-btn" href="#section-2">Previous: Dashboard</a>
+        <a class="btn btn-primary step-nav-btn" href="#section-4">Next Step: Client</a>
+      </div>
+    </article>
+
+    <article class="docs-article step-page" id="section-4" data-step-title="Client">
+      <header class="docs-header">
+        <h1 class="docs-heading">5. Client</h1>
+      </header>
+      <section class="docs-section" id="item-4-1">
+        <h2 class="section-heading">5.1 Branches</h2>
+        <p>Navigate to <strong>Client -&gt; Branches</strong> to view and manage all your restaurant locations.</p>
+        <figure class="doc-image-card">
+          <img src="assets/images/Restaurant-administration/client.png" alt="Client branches list" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+          <figcaption>Branches list inside the Client section.</figcaption>
+        </figure>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead><tr><th>Column</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td>Id</td><td>Unique identifier for the branch</td></tr>
+              <tr><td>Name</td><td>Branch name in English</td></tr>
+              <tr><td>Name Ar</td><td>Branch name in Arabic</td></tr>
+              <tr><td>Client</td><td>The company associated with the branch</td></tr>
+              <tr><td>City</td><td>City where the branch is located</td></tr>
+              <tr><td>Ref</td><td>Internal reference code for the branch</td></tr>
+              <tr><td>Automation</td><td>Shows Enabled in green or Disabled in red</td></tr>
+              <tr><td>Tables</td><td>Shows whether table management is Enabled or Disabled</td></tr>
+              <tr><td>Status</td><td>Whether the branch is currently active or inactive</td></tr>
+              <tr><td>Actions</td><td>A blue icon to view full branch details</td></tr>
+            </tbody>
+          </table>
+        </div>
         <h2 class="section-heading">Branch Details</h2>
-     <p>In this section, we can view all the branch details mentioned before. In addition to those, we have the number of tables and the canceled orders from the kitchen status (either enabled or disabled), this feature allows us to know what are the orders that were canceled from the kitchen application.</p>
-      <div class="text-center my-4">
-     <img src="assets/images/branch-details.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-     </div>
-    
-    </section>
-      <section class="docs-section" id="item-4-3"><h2 class="section-heading">Devices</h2>
-      <P>The devices page is a dedicated section designed to manage and monitor the devices wither it’s a self-service kiosk unit, a tablet, or simply an online type of unit within the business. Within this page, the following parameters are essential for configuring and overseeing these units:</P>
-      <ul>
-        <li><strong>ID</strong> A unique identifier assigned to each kiosk for precise tracking and identification.</li>
-        <li><strong>Name:</strong> The given name or label for the kiosk, for easy identification.</li>
-        <li><strong>Ref:</strong> A specific reference or code associated with the kiosk, providing additional organizational context.</li>
-        <li><strong>Model:</strong> The model (design) of the kiosk, indicating its specifications or version.</li>
-        <li><strong>Branch:</strong> Specifies the branch or branches to which the kiosk is assigned, facilitating monitoring and control.</li>
-        <li><strong>Type:</strong> Indicates the type of the unit, which could be categorized as KIOSK, Tablet, or ONLINE, providing insights into its form and functionality.</li>
-        <li><strong>Status:</strong>  Reflects the current operational status of the unit, whether it is active (enabled) or inactive (disabled).</li>
-        <li><strong>Sleep Mode:</strong> Indicates if the kiosk is in sleep mode, when not actively in use.</li>
-          <div class="text-center my-4">
-     <img src="assets/images/devices.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-     </div>
-      </ul>
+        <p>Clicking the blue icon on any branch opens the Branch Details popup, which shows all list fields plus the following additional information:</p>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead><tr><th>Field</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td>Phone</td><td>Branch contact number</td></tr>
+              <tr><td>Address</td><td>Full street address</td></tr>
+              <tr><td>Cancel Order From Kitchen</td><td>Whether kitchen cancellation is Enabled or Disabled</td></tr>
+              <tr><td>Integration</td><td>Whether external integration is Enabled or Disabled</td></tr>
+              <tr><td>Map URL</td><td>Direct Google Maps link for the branch location</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>An embedded Google Map is displayed below the details, showing the branch pin on the map for quick location reference.</p>
+        <figure class="doc-image-card">
+          <img src="assets/images/Restaurant-administration/branch-details.png" alt="Branch details popup" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+          <figcaption>Branch Details popup with location map and operational settings.</figcaption>
+        </figure>
+        <h2 class="section-heading">5.2 Devices</h2>
+        <p>Navigate to <strong>Client -&gt; Devices</strong> to view and manage all connected devices across your branches.</p>
+        <figure class="doc-image-card">
+          <img src="assets/images/Restaurant-administration/devices.png" alt="Connected devices list" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+          <figcaption>Devices page showing kiosk, tablet, and online hardware assignments.</figcaption>
+        </figure>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead><tr><th>Column</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td>ID</td><td>Unique identifier for the device</td></tr>
+              <tr><td>Name</td><td>Display name or label for the device</td></tr>
+              <tr><td>Ref</td><td>Reference code for organisational context</td></tr>
+              <tr><td>Model</td><td>Device model or version specification</td></tr>
+              <tr><td>Branch</td><td>The branch this device is assigned to</td></tr>
+              <tr><td>Type</td><td>Device type: Kiosk, Tablet, or Online</td></tr>
+              <tr><td>Status</td><td>Active (Enabled) or Inactive (Disabled)</td></tr>
+              <tr><td>Sleep Mode</td><td>Whether the device is currently in sleep mode</td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
+      <div class="step-navigation">
+        <a class="btn btn-outline-secondary step-nav-btn" href="#section-3">Previous: Kitchen</a>
+        <a class="btn btn-primary step-nav-btn" href="#section-5">Next Step: Online</a>
+      </div>
     </article>
 
-    <article class="docs-article" id="section-5">
-      <header class="docs-header"><h1 class="docs-heading">Online</h1></header>
-      <section class="docs-section" id="item-5-1"><h2 class="section-heading">Drivers</h2>
-        <p>Navigate the driver subsection to assess the performance of your delivery drivers. Track delivery times, efficiency, and customer satisfaction. This data is useful to enhance your delivery operations.</p>
-       <div class="text-center my-4">
-     <img src="assets/images/add-driver.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-     </div>
+    <article class="docs-article step-page" id="section-5" data-step-title="Online">
+      <header class="docs-header">
+        <h1 class="docs-heading">6. Online</h1>
+      </header>
+      <section class="docs-section" id="item-5-1">
+        <h2 class="section-heading">6.1 Drivers</h2>
+        <p>Navigate to <strong>Online -&gt; Drivers</strong> to manage your delivery drivers.</p>
+        <p>To add a new driver, click <strong>+ Add Driver</strong>. The Add Driver form contains the following fields:</p>
+        <div class="doc-image-grid">
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/drivers.png" alt="Drivers list" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Drivers list used to manage active delivery staff.</figcaption>
+          </figure>
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/add-driver.png" alt="Add driver form" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Add Driver form with branch assignment and status controls.</figcaption>
+          </figure>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead><tr><th>Field</th><th>Details</th></tr></thead>
+            <tbody>
+              <tr><td>Name *</td><td>Driver's full name (e.g., Driver 1)</td></tr>
+              <tr><td>Client *</td><td>Select the associated company from the dropdown</td></tr>
+              <tr><td>Phone *</td><td>Driver's contact number</td></tr>
+              <tr><td>Status *</td><td>Toggle to enable or disable the driver</td></tr>
+              <tr><td>Branches</td><td>Select the branch or branches this driver serves</td></tr>
+              <tr><td>Description</td><td>Optional notes about the driver</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Click Submit to save, or Close to cancel.</p>
+        <h2 class="section-heading">6.2 Online Orders</h2>
+        <p>Navigate to <strong>Online -&gt; Online Orders</strong> to monitor all orders placed through online channels.</p>
+        <p>A Total summary bar at the top shows Number of Orders, Subtotal in SAR, VAT in SAR, and Total in SAR. Below the summary, four filter dropdowns let you narrow results by Branch, Driver, Customer, and Order Status.</p>
+        <p>The orders table shows the following columns: Id, Branch, Date Order, Pickup Date, Date Dispatch, Table, Total, Driver, Status, and Actions.</p>
+        <figure class="doc-image-card">
+          <img src="assets/images/Restaurant-administration/add-customers.png" alt="Online orders with customer filters" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+          <figcaption>Online orders area with customer and order filtering controls.</figcaption>
+        </figure>
+        <h2 class="section-heading">6.3 B2B Orders</h2>
+        <p>Navigate to <strong>Online -&gt; B2B Orders</strong> to monitor business-to-business transactions.</p>
+        <p>The page follows the same layout as Online Orders, with a Total summary bar at the top and the same four filter dropdowns. The table columns are: Id, Branch, Customer, Ticket, Date Order, Duration, Takeout, Subtotal, VAT, Total, and Status.</p>
+        <figure class="doc-image-card">
+          <img src="assets/images/Restaurant-administration/b2b-order.png" alt="B2B orders page" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+          <figcaption>B2B Orders page for wholesale and business transactions.</figcaption>
+        </figure>
       </section>
-      <section class="docs-section" id="item-5-2"><h2 class="section-heading">Online Orders</h2>
-      <p>This functionality enables users to browse and place orders using an easy-to-use online platform. From selecting products to selecting safe payment methods, the process is simplified. Real-time updates and order tracking also ensure a seamless and enjoyable experience by improving transparency.</p>
-      <div class="text-center my-4">
-     <img src="assets/images/online.png"
-       alt="online-orders"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-     </div>
-    </section>
-      <section class="docs-section" id="item-5-3"><h2 class="section-heading">B2B Orders</h2>
-      <p>This subsection is mainly to help you understand the dynamics of your business-to-business transactions.</p>
-      <div class="text-center my-4">
-     <img src="assets/images/B2B-orders.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-     </div>
-      </section>
+      <div class="step-navigation">
+        <a class="btn btn-outline-secondary step-nav-btn" href="#section-4">Previous: Client</a>
+        <a class="btn btn-primary step-nav-btn" href="#section-6">Next Step: Menu</a>
+      </div>
     </article>
 
-     <article class="docs-article" id="section-6">
-      <header class="docs-header"><h1 class="docs-heading">Customization</h1></header>
-      <section class="docs-section" id="item-6-1"><h2 class="section-heading">Products</h2>
-        <p>These are the main items available for customization, such as sandwiches, coffee, and donuts. Each product is a distinct item that you can choose to customize according to your preferences and business needs.</p>
-      <div class="text-center my-4">
-     <img src="assets/images/product-customization.png"
-       alt="menu-group"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
-      <p>To add customization to a product first, click on “Add customization,"  and then fill in the information as illustrated in the image below:</p>
-      <div class="text-center my-4">
-     <img src="assets/images/add-product-customization.png"
-       alt="add-menu-group"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
+    <article class="docs-article step-page" id="section-6" data-step-title="Menu">
+      <header class="docs-header">
+        <h1 class="docs-heading">7. Menu</h1>
+      </header>
+      <section class="docs-section" id="item-6-1">
+        <p>The Menu section is responsible for managing all products sold through your devices. Navigate to <strong>Menu</strong> in the left sidebar to access its five subsections: Products, Categories, Options, Family Option, and Menu Group.</p>
+        <div class="alert alert-warning" role="alert">
+          Build your menu in this order: Categories first, then Family Options, then Options, then Products. Each level depends on the one above it.
+        </div>
+        <h2 class="section-heading">7.1 Categories</h2>
+        <p>Navigate to <strong>Menu -&gt; Categories</strong>. Click <strong>+ Add Category</strong> to open the Add Category form:</p>
+        <div class="doc-image-grid">
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/categories.png" alt="Categories list" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Categories list before creating a new category.</figcaption>
+          </figure>
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/add-category.png" alt="Add category form" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Add Category form with bilingual names and image upload.</figcaption>
+          </figure>
+        </div>
+        <div class="table-responsive"><table class="table table-bordered"><thead><tr><th>Field</th><th>Details</th></tr></thead><tbody>
+          <tr><td>Name *</td><td>Category name in English (e.g., Hot Coffee)</td></tr>
+          <tr><td>Name Ar *</td><td>Category name in Arabic (e.g., قهوة ساخنة)</td></tr>
+          <tr><td>Client *</td><td>Select the branch this category belongs to</td></tr>
+          <tr><td>Description</td><td>Optional description in English</td></tr>
+          <tr><td>Description Ar</td><td>Optional description in Arabic</td></tr>
+          <tr><td>Status *</td><td>Toggle to enable or disable the category</td></tr>
+          <tr><td>Image</td><td>Upload a representative image</td></tr>
+          <tr><td>Tags</td><td>Search keywords, press Enter after each one</td></tr>
+        </tbody></table></div>
+        <h2 class="section-heading">7.2 Products</h2>
+        <p>Navigate to <strong>Menu -&gt; Products</strong>. Click <strong>+ Add Product</strong> to open the Add Product form.</p>
+        <figure class="doc-image-card">
+          <img src="assets/images/Restaurant-administration/products.png" alt="Products list" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+          <figcaption>Products page used to browse and manage the menu catalogue.</figcaption>
+        </figure>
+        <div class="table-responsive"><table class="table table-bordered"><thead><tr><th>Field</th><th>Details</th></tr></thead><tbody>
+          <tr><td>Name *</td><td>Product name in English (e.g., Coffee Americano)</td></tr>
+          <tr><td>Name Ar *</td><td>Product name in Arabic</td></tr>
+          <tr><td>Category *</td><td>Select the parent category</td></tr>
+          <tr><td>Price *</td><td>Base selling price</td></tr>
+          <tr><td>Max Quantity</td><td>Maximum units per order, enter 0 for no limit</td></tr>
+          <tr><td>Status *</td><td>Toggle to enable or disable</td></tr>
+          <tr><td>Barcode</td><td>Optional unique barcode</td></tr>
+          <tr><td>Ref</td><td>Optional internal reference number</td></tr>
+          <tr><td>Actions</td><td>Optional action linking (e.g., POS+ SKU)</td></tr>
+          <tr><td>Tags</td><td>Search keywords, press Enter after each one</td></tr>
+          <tr><td>Upselling *</td><td>Toggle on if part of an upselling strategy</td></tr>
+          <tr><td>Display *</td><td>Toggle to control visibility on devices</td></tr>
+          <tr><td>Available For Limited Time</td><td>Toggle on for time-restricted products</td></tr>
+          <tr><td>Description</td><td>Customer-facing description in English</td></tr>
+          <tr><td>Description Ar</td><td>Customer-facing description in Arabic</td></tr>
+          <tr><td>Image *</td><td>Upload a product photo</td></tr>
+        </tbody></table></div>
+        <h2 class="section-heading">7.3 Family Option</h2>
+        <p>A Family Option defines the type of customisation available for a product. For example, Cup Size groups Small, Medium, Large, and Extra Large.</p>
+        <div class="doc-image-grid">
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/family-option.png" alt="Family option list" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Family Option list used to define customization groups.</figcaption>
+          </figure>
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/add-family-option.png" alt="Add family option form" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Add Family Option form for size, flavour, or selection groups.</figcaption>
+          </figure>
+        </div>
+        <div class="table-responsive"><table class="table table-bordered"><thead><tr><th>Field</th><th>Details</th></tr></thead><tbody>
+          <tr><td>Name *</td><td>Family option name in English (e.g., Cold Cup Size)</td></tr>
+          <tr><td>Name Ar *</td><td>Name in Arabic</td></tr>
+          <tr><td>Client *</td><td>Select the associated company</td></tr>
+          <tr><td>Type *</td><td>Choose One Select or Multi Select</td></tr>
+          <tr><td>Status *</td><td>Toggle to enable or disable</td></tr>
+          <tr><td>Description</td><td>Optional description in English</td></tr>
+          <tr><td>Description Ar</td><td>Optional description in Arabic</td></tr>
+          <tr><td>Image</td><td>Drop an image here or click to upload</td></tr>
+          <tr><td>Automation Name</td><td>Optional automation identifier</td></tr>
+        </tbody></table></div>
+        <h2 class="section-heading">7.4 Options</h2>
+        <p>Navigate to <strong>Menu -&gt; Options</strong>. Click <strong>+ Add Option</strong> to open the Add Option form.</p>
+        <div class="doc-image-grid">
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/options.png" alt="Options list" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Options list linked to family-option groups.</figcaption>
+          </figure>
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/add-option.png" alt="Add option form" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Add Option form for a single selectable choice.</figcaption>
+          </figure>
+        </div>
+        <div class="table-responsive"><table class="table table-bordered"><thead><tr><th>Field</th><th>Details</th></tr></thead><tbody>
+          <tr><td>Name *</td><td>Option name in English (e.g., Medium M)</td></tr>
+          <tr><td>Name Ar *</td><td>Option name in Arabic (e.g., متوسط M)</td></tr>
+          <tr><td>Client *</td><td>Select the associated company</td></tr>
+          <tr><td>Family *</td><td>Select the parent Family Option</td></tr>
+          <tr><td>Price *</td><td>Additional charge, enter 0 if free</td></tr>
+          <tr><td>Status *</td><td>Toggle to enable or disable</td></tr>
+          <tr><td>Description</td><td>Optional description in English</td></tr>
+          <tr><td>Description Ar</td><td>Optional description in Arabic</td></tr>
+          <tr><td>Image *</td><td>Upload an image for this option</td></tr>
+          <tr><td>Tags</td><td>Search keywords, press Enter after each one</td></tr>
+          <tr><td>Automation Name</td><td>Optional automation identifier</td></tr>
+        </tbody></table></div>
+        <h2 class="section-heading">Linking Options to a Product</h2>
+        <p>Open any existing product, then navigate to the Options tab inside the Update Product form. Use <strong>+ Add Option</strong> to attach options to that product.</p>
+        <div class="doc-image-grid">
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/product-option.png" alt="Product option list" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Product option mappings already attached to a product.</figcaption>
+          </figure>
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/add-product-option.png" alt="Add product option form" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Attach a family option and specific choice to an existing product.</figcaption>
+          </figure>
+        </div>
+        <div class="table-responsive"><table class="table table-bordered"><thead><tr><th>Field</th><th>Details</th></tr></thead><tbody>
+          <tr><td>Family Option</td><td>Select the family this option belongs to</td></tr>
+          <tr><td>Option *</td><td>Select the specific option</td></tr>
+          <tr><td>Price *</td><td>Price override for this option on this specific product</td></tr>
+          <tr><td>Extra Price</td><td>Additional surcharge on top of the base option price</td></tr>
+          <tr><td>Reference</td><td>Optional internal reference</td></tr>
+          <tr><td>Actions</td><td>Optional action association</td></tr>
+          <tr><td>Barcode</td><td>Optional barcode for this product-option combination</td></tr>
+          <tr><td>Status *</td><td>Toggle to enable or disable</td></tr>
+          <tr><td>Preselected *</td><td>Toggle to preselect this option by default</td></tr>
+          <tr><td>Product Recipe</td><td>Link this option to a recipe if applicable</td></tr>
+        </tbody></table></div>
+        <h2 class="section-heading">7.5 Menu Group</h2>
+        <p>Navigate to <strong>Menu -&gt; Menu Group</strong>. Click <strong>+ Add Menu Group</strong> to open the Add Menu Group form:</p>
+        <div class="doc-image-grid">
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/menu-groups.png" alt="Menu groups list" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Menu Group list for grouped bundles or special menu collections.</figcaption>
+          </figure>
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/add-menu-group.png" alt="Add menu group form" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Add Menu Group form with branch targeting and image upload.</figcaption>
+          </figure>
+        </div>
+        <div class="table-responsive"><table class="table table-bordered"><thead><tr><th>Field</th><th>Details</th></tr></thead><tbody>
+          <tr><td>Name *</td><td>Menu group name</td></tr>
+          <tr><td>Client *</td><td>Select the associated company</td></tr>
+          <tr><td>Status *</td><td>Toggle to enable or disable</td></tr>
+          <tr><td>All Some Branches</td><td>Select whether this applies to All branches or Some branches</td></tr>
+          <tr><td>Branches</td><td>Select the specific branches</td></tr>
+          <tr><td>Image</td><td>Drop an image here or click to upload</td></tr>
+        </tbody></table></div>
       </section>
-
-      <section class="docs-section" id="item-6-2"><h2 class="section-heading">Product Option</h2>
-      <p>Product options are specific configurations resulting from the combination of a product and its customizable options. This is where you may tailor a product to your liking by selecting from available options. For instance: you might choose a "Medium Roast Coffee" with the option of "Almond Milk" and "Single Shot."</p>
-      <p>Another client manager could customize an "Iced Latte" with the options of "Low Fat Milk," "No Added Sugar," and "Extra Ice."</p>
-      <div class="text-center my-4">
-     <img src="assets/images/product-option-customization.png"
-       alt="add-option-customization"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
+      <div class="step-navigation">
+        <a class="btn btn-outline-secondary step-nav-btn" href="#section-5">Previous: Online</a>
+        <a class="btn btn-primary step-nav-btn" href="#section-7">Next Step: Customization</a>
       </div>
-    </section>
-      <section class="docs-section" id="item-6-3"><h2 class="section-heading">Sort Menu</h2>
-      <p>The sort menu provides a structured way to navigate and find products. It could involve sorting products based on categories, options, or other criteria to enhance the customer's browsing experience. For example:</p>
-      <p>Products might be sorted by categories like "Hot Drinks," "Cold Drinks," and "Sandwiches." Within the "Sandwiches" category, customers could further sort by: products like "Bagel Cream Cheese Oats".</p>
-      <div class="text-center my-4">
-     <img src="assets/images/sort-menu.png"
-       alt="sort-menu"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
-    </section>
     </article>
 
-    <article class="docs-article" id="section-7"><header class="docs-header"><h1 class="docs-heading">POS</h1> <p>Get full details on Cloud POS in its corresponding docs Page:</p><p><a href="cloud-pos.html">Cloud POS</a></p></header></article>
-    <article class="docs-article" id="section-8">
-      <header class="docs-header"><h1 class="docs-heading">Menu</h1></header>
-      <p>This section is very important as it is responsible for monitoring and keeping an eye on all every product and item sold through the device. It consists of four subsections: Products, Categories, Options, and Family Option.</p>
-      <p>To add products to your menu, you need to first create a category following the steps in explained in the next section.</p>
-      <section class="docs-section" id="item-8-1"><h2 class="section-heading">Categories</h2>
-      <p>To add a category, first, click on ‘menu’ and then on ‘categories’, and the following window will appear empty.</p>
-      <div class="text-center my-4">
-     <img src="assets/images/menu-categories.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
-
-      <p>Click on 'Add category,' and this window will pop up:</p>
-      <div class="text-center my-4">
-     <img src="assets/images/add-category.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
-      <p>Follow these simple fill-in steps to add a category:</p>
-      <ul>
-        <li><strong>Name:</strong> Enter the category name you want for your product (soup, sandwich, drink...).</li>
-        <li><strong>Description:</strong> You can add a description here, but it's optional.</li>
-        <li><strong>Tags:</strong> This is how the software will identify your category when your client types it on the kiosk screen. Keep it simple and general (it can be the same as the name). Once chosen, click 'enter' to save it.</li>
-      <p>Once everything is set, add an image to your product, then click 'SUBMIT.'</p>
-      </ul>
-    
-    </section>
-      <section class="docs-section" id="item-8-2"><h2 class="section-heading">Products</h2>
-      <p>After finalizing the creation of a category (for example: Hot Drinks), we can now add the products that belong to this respective category.</p>
-      <p>Products are the various items and goods available for selection or purchase. Each product has distinct characteristics that you can customize using the option feature, For instance, if you're ordering a burger, the burger is the "Product,” and within this product, you can then select various options like the type of bread, the size, or any additional toppings.</p>
-       <div class="text-center my-4">
-     <img src="assets/images/menu-products.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
-
-      <p>To add a new product, click on “Add product,” and this window will pop up. Follow the fill-in process illustrated in the image below:</p>
-       <div class="text-center my-4">
-     <img src="assets/images/add-product.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
-      <ul>
-        <li><strong>Name:</strong> Enter your desired product’s name.</li>
-        <li><strong>Name (Arabic):</strong> Write the product's name in Arabic, if applicable.</li>
-        <li><strong>Category:</strong> Select the appropriate category under which the product falls.</li>
-        <li><strong>Price:</strong> Specify the price you want for your product.</li>
-        <li><strong>Max Quantity:</strong> Define the maximum quantity of the product allowed per order, if applicable.</li>
-        <li><strong>Status:</strong> Indicate the current status of the product, whether enabled (available) or disabled (not available).</li>
-        <li><strong>Barcode:</strong> Assign a unique barcode to the product.</li>
-        <li><strong>Ref:</strong> Include a reference number for internal tracking.</li>
-        <li><strong>Action:</strong> Choose the action associated with the product (for example, search POS+ and enter SKU).</li>
-        <li><strong>Tags:</strong> Add relevant tags for easy categorization and search. Make sure to press “Enter” on your keyboard for the tag to be correctly added.</li>
-        <li><strong>Upselling:</strong> Specify if the product is part of an upselling strategy.</li>
-        <li><strong>Display:</strong> Set the preferred display options for the product (enabled or disabled). </li>
-        <li><strong>Available for a Limited Time:</strong> If applicable, indicate whether the product is available for a limited time.</li>
-        <li><strong>Description:</strong> Provide a comprehensive description of the product if needed.</li>
-        <li><strong>Image:</strong> Upload an image of the product for a clear visual representation.</li>
-        <li><strong>Description (Arabic):</strong> Include the product description in Arabic, if applicable.</li>
-        <p>Once done, click n “SUBMIT” to save your new product!</p>
-      </ul>
-    </section>
-
-      <section class="docs-section" id="item-8-3"><h2 class="section-heading">Family Option</h2>
-        <p>Similarly to the logic used in  “Categories” and “Products”, this section refers to the overall set to which a specific option belongs. For example, "size" is the family option that includes different sizes like small, medium, large, and extra-large; it represents the broader set of choices within a particular product option.</p>
-       <p>We can break it down as follows:</p>
-       <ul>
-        <li>Family Option: Cup size</li>   
-        <li>Option: (e.g.,small S, medium M, large L, and extra large XL)</li>    
-      </ul>
-       
-        <div class="text-center my-4">
-     <img src="assets/images/add-family-option.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
-
-      <p>Click on ‘Add family option', and the following window appears:</p>
-       <div class="text-center my-4">
-     <img src="assets/images/adding-family-option.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
-      <ul>
-        <li>Insert a desired name.</li>
-        <li>As for the type: you will have two options: one-select or Multi-select.</li>
-        <li>Choose according to the number of selections you want your client to have in this specific option.</li>
-        <div class="text-center my-4">
-     <img src="assets/images/typ-family.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
-      </ul>
-      <ul>
-        <li>Add a description optionally.</li>
-        <li>Add an image to illustrate your family option (optional)</li>
-        <li>Then click on submit.</li>
-      </ul>
+    <article class="docs-article step-page" id="section-7" data-step-title="Customization">
+      <header class="docs-header">
+        <h1 class="docs-heading">8. Customization</h1>
+      </header>
+      <section class="docs-section" id="item-7-1">
+        <p>Navigate to <strong>Customization</strong> in the left sidebar. The Customization section contains four subsections: Products, Options, Product Option, and Sort Menu.</p>
+        <h2 class="section-heading">8.1 Products</h2>
+        <p>Navigate to <strong>Customization -&gt; Products</strong>. This page is titled Products Customization and shows a table with columns for Id, Branch, Product, Price, Status, and Actions.</p>
+        <p>To add a customization, click <strong>+ Add Customization</strong>. The Add Customization form contains Branch, Product, Price, and Status.</p>
+        <div class="doc-image-grid">
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/product-customization.png" alt="Product customization list" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Products Customization list with branch-specific pricing rules.</figcaption>
+          </figure>
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/add-product-customization.png" alt="Add product customization form" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Add Product Customization form for branch-level overrides.</figcaption>
+          </figure>
+        </div>
+        <h2 class="section-heading">8.2 Product Option</h2>
+        <p>Navigate to <strong>Customization -&gt; Product Option</strong>. This page shows a table with columns for Id, Branch, Product, Option, Price, ExtraPrice, Status, and Actions.</p>
+        <div class="doc-image-grid">
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/option-customization.png" alt="Option customization list" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Customization list for product-option pricing and status changes.</figcaption>
+          </figure>
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/add-option-customiation.png" alt="Add option customization form" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Add Option Customization form for branch-specific option pricing.</figcaption>
+          </figure>
+        </div>
+        <h2 class="section-heading">8.3 Sort Menu</h2>
+        <p>Navigate to <strong>Customization -&gt; Sort Menu</strong>. The Sort Menu screen has three tabs at the top: category/product, family/option, and Offers/Groups.</p>
+        <p>The category/product tab shows a left panel with your Categories list and a right panel with the products within the selected category. Use the up and down arrow icons on each row to reorder items. Changes are reflected immediately across kiosks and menus.</p>
+        <figure class="doc-image-card">
+          <img src="assets/images/Restaurant-administration/sort-menu.png" alt="Sort menu page" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+          <figcaption>Sort Menu screen for reordering categories, products, and offer groups.</figcaption>
+        </figure>
+        <div class="alert alert-warning" role="alert">
+          The Sort Menu feature requires a Pro or Advanced subscription.
+        </div>
       </section>
-
-      <section class="docs-section" id="item-8-4"><h2 class="section-heading">Options</h2>
-       <p>Options are the specific choices or variations you can select within a product; think of them as the detailed features or characteristics you pick when customizing an item or a product.</p>
-       <p>After adding a “family option,” you can now add your options, You need to first click on the third section in the menu, which is:  «Options. </p>
-       <p>The following window will appear:</p>
-       <div class="text-center my-4">
-     <img src="assets/images/menu-options.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
+      <div class="step-navigation">
+        <a class="btn btn-outline-secondary step-nav-btn" href="#section-6">Previous: Menu</a>
+        <a class="btn btn-primary step-nav-btn" href="#section-8">Next Step: Marketing</a>
       </div>
-      <p>Follow these steps to add your desired options :</p>
-        <li>Click on ‘Add option’, and the following window appears:</li>
-         <div class="text-center my-4">
-     <img src="assets/images/add-option.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
-      <p>The filling process is similar to that for categories, except you will need to :</p>
-      <ul>
-        <li>Add the price you want on the right.</li>
-        <li>And a Family Option if found.</li>
-        <li>Then click on Submit.</li>
-
-        <p>As explained earlier, the goal of this feature is to customize products using desired options. To add a product option:</p>
-        <li>First, scroll back to the “Products” section then, click on “Add product” as we previously mentioned. Once your new product has been added, you may add options to it by clicking on “Options” next to "Information.”</li>
-        <div class="text-center my-4">
-     <img src="assets/images/add-option-to-product.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
-
-      <div class="text-center my-4">
-     <img src="assets/images/update-product.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
-      </ul>
-      </section>
-
-      <section class="docs-section" id="item-8-5"><h2 class="section-heading">Menu Group</h2>
-      <p>Diving into the Menu Group, the last subsection within the extensive Menu section. This feature allows you to categorize your offerings based on specific criteria, enhancing the browsing experience for your customers. </p>
-      <p>As shown in the illustration below, you can arrange your products under their respective categories, such as hot drinks, cold drinks, sandwiches, donuts, and more. Within categories, you can categorize items based on different section types shown as “Name” in the image, like kiosk, tablet, B2B, dine-in, or take-away. Based on their intended use or distribution channel, your products can be presented in a dynamic form with this multi-layered categorization system.</p>
-      <div class="text-center my-4">
-     <img src="assets/images/menu-group.png"
-       alt="menu-group"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
-      <p>Click on “Add Menu Group”, then add a name for your menu group, select the client, and make sure to enable the status as seen below:</p>
-      <div class="text-center my-4">
-     <img src="assets/images/add-menu-group.png"
-       alt="add-menu-group"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
-      </section>
     </article>
 
-    <article class="docs-article" id="section-9"><header class="docs-header"><h1 class="docs-heading">Inventory</h1><p><a href="inventory.html">Go to Inventory Page</a></p></header></article>
-
-
-    <article class="docs-article" id="section-10">
-      <header class="docs-header"><h1 class="docs-heading">Marketing</h1></header>
-      <p>The marketing section of our system is mainly for your promotional activities to engage with your customers effectively. Within this section, you'll find several subsections to manage different aspects of your marketing strategy.</p>
-      <section class="docs-section" id="item-10-1"><h2 class="section-heading">Advertisements</h2>
-      <p>You can create a variety of ad formats in the advertisement section. To ensure maximum engagement, the advertisements can be customized to highlight a unique offer or promote a particular product. These ads can be tailored for either:</p>
-      <li>Full-screen ads are an ideal choice to promote special offers or present featured products because they capture viewers with eye-catching imagery. </li>
-      <li>Header or Footer Ad: Place ads at the top or bottom of the screen in a way that maximizes visibility while minimizing user experience disruption. Ideal for showcasing highlighted goods or advertising temporary promotions.</li>
-      <li>QR Menu: Provide a contactless browsing experience; this is particularly helpful when exhibiting a range of goods or services. Suitable for restaurants, cafés, or businesses that offer diverse products.</li>
-      <div class="text-center my-4">
-     <img src="assets/images/ads.png"
-       alt="ads"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-     </div>
-     <p>Follow these steps to add an Ad:</p>
-     <div class="text-center my-4">
-     <img src="assets/images/add-an-ad.png"
-       alt="add-an-ad"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-     </div>
-    </section>
-
-      <section class="docs-section" id="item-10-2"><h2 class="section-heading">Customers</h2>
-      <p>Within the Customers page, we have a set of parameters that provide comprehensive information about each customer:</p>
-      <ul>
-        <li><strong>#ID (Customer ID):</strong> A unique identifier assigned to each customer for easy reference and tracking purposes.</li>
-        <li><strong>Name:</strong> The customer's full name.</li>
-        <li><strong>Type:</strong> Specifies the type or category to which the customer belongs, either a company or an individual.</li>
-        <li><strong>Phone: </strong>The contact number associated with the customer, facilitating communication.</li>
-        <li><strong>Status:</strong> Indicates the current status of the customer, either enabled or disabled.</li>
-        <li><strong>Action: </strong> This section includes three icons, each serving a distinct purpose. The first blue icon allows for viewing the customer's details. The second blue icon, represented by a pen, enables the editing of customer details at any given time.</li>
-        <li>The last icon, in red, serves to permanently delete a customer from the list.</li>
-        <div class="text-center my-4">
-     <img src="assets/images/customers.png"
-       alt="customers"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-     </div>
-      </ul>
+    <article class="docs-article step-page" id="section-8" data-step-title="Marketing">
+      <header class="docs-header">
+        <h1 class="docs-heading">9. Marketing</h1>
+      </header>
+      <section class="docs-section" id="item-8-1">
+        <p>Navigate to <strong>Marketing</strong> in the left sidebar. The Marketing section contains five subsections: Advertisements, Customers, Coupons, Groups, and Offers.</p>
+        <h2 class="section-heading">9.1 Advertisements</h2>
+        <p>Navigate to <strong>Marketing -&gt; Advertisements</strong>. Click <strong>+ Add Ads</strong> to open the Add Ads form:</p>
+        <figure class="doc-image-card">
+          <img src="assets/images/Restaurant-administration/adverstisement.png" alt="Advertisements page" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+          <figcaption>Advertisements list inside the Marketing section.</figcaption>
+        </figure>
+        <div class="table-responsive"><table class="table table-bordered"><thead><tr><th>Field</th><th>Details</th></tr></thead><tbody>
+          <tr><td>Name *</td><td>Ad name</td></tr>
+          <tr><td>Type *</td><td>Select the ad format: Fullscreen, Header, Footer, or QR Menu</td></tr>
+          <tr><td>Client *</td><td>Select the associated company</td></tr>
+          <tr><td>Date Range *</td><td>Set the active period</td></tr>
+          <tr><td>Status *</td><td>Toggle to enable or disable</td></tr>
+          <tr><td>Description</td><td>Optional description of the ad</td></tr>
+          <tr><td>Image Video *</td><td>Upload the ad image or video</td></tr>
+          <tr><td>Ads For</td><td>Optionally target a specific audience type</td></tr>
+          <tr><td>All Some Branches</td><td>Select All branches or Some branches</td></tr>
+          <tr><td>Branches</td><td>Select specific branches if applicable</td></tr>
+        </tbody></table></div>
+        <h2 class="section-heading">9.2 Customers</h2>
+        <p>The Customers page shows a table with columns for Id, Name, Type, Phone, Status, and Actions.</p>
+        <figure class="doc-image-card">
+          <img src="assets/images/Restaurant-administration/customers.png" alt="Customers list" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+          <figcaption>Customers list with contact and status information.</figcaption>
+        </figure>
+        <h2 class="section-heading">9.3 Coupons</h2>
+        <p>Click <strong>+ Add Coupon</strong> to open the Add Coupon form:</p>
+        <div class="doc-image-grid">
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/coupuns.png" alt="Coupons list" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Coupons list showing existing discount codes.</figcaption>
+          </figure>
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/add-coupouns.png" alt="Add coupon form" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Add Coupon form with usage limits and discount type.</figcaption>
+          </figure>
+        </div>
+        <div class="table-responsive"><table class="table table-bordered"><thead><tr><th>Field</th><th>Details</th></tr></thead><tbody>
+          <tr><td>Name *</td><td>Coupon name</td></tr>
+          <tr><td>Type</td><td>Optional type label</td></tr>
+          <tr><td>Client *</td><td>Select the associated company</td></tr>
+          <tr><td>Code *</td><td>The unique coupon code customers will enter</td></tr>
+          <tr><td>Nb Usage Limit *</td><td>Maximum number of times this coupon can be used</td></tr>
+          <tr><td>Status *</td><td>Toggle to enable or disable</td></tr>
+          <tr><td>Amount Percentage</td><td>Select the discount type: Pourcentage or Amount</td></tr>
+          <tr><td>Percentage</td><td>Enter the discount value</td></tr>
+          <tr><td>Expiration Date</td><td>Set the date the coupon expires</td></tr>
+        </tbody></table></div>
+        <h2 class="section-heading">9.4 Groups</h2>
+        <p>The Groups page shows a table with columns for Id, Name, Name Ar, Status, and Actions. Click <strong>+ Add Group</strong> to open the Add Group form with information fields on the left and a list of products on the right.</p>
+        <figure class="doc-image-card">
+          <img src="assets/images/Restaurant-administration/Groups.png" alt="Groups page" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+          <figcaption>Groups page for bundle-style marketing collections.</figcaption>
+        </figure>
+        <h2 class="section-heading">9.5 Offers</h2>
+        <p>Click <strong>+ Add Offer</strong> to open the Add Offer form:</p>
+        <figure class="doc-image-card">
+          <img src="assets/images/Restaurant-administration/offers.png" alt="Offers page" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+          <figcaption>Offers page for promotional discounts and limited-time campaigns.</figcaption>
+        </figure>
+        <div class="table-responsive"><table class="table table-bordered"><thead><tr><th>Field</th><th>Details</th></tr></thead><tbody>
+          <tr><td>Name *</td><td>Offer name in English</td></tr>
+          <tr><td>Name Ar *</td><td>Offer name in Arabic</td></tr>
+          <tr><td>Reference</td><td>Optional internal reference code</td></tr>
+          <tr><td>Client *</td><td>Select the branch</td></tr>
+          <tr><td>Type</td><td>Discount type: Pourcentage, Amount, or Final Price</td></tr>
+          <tr><td>Percentage *</td><td>Discount value</td></tr>
+          <tr><td>Category</td><td>Optionally restrict to a specific category</td></tr>
+          <tr><td>Limited Date *</td><td>Toggle to restrict to a date range</td></tr>
+          <tr><td>Start Date *</td><td>Offer start date and time</td></tr>
+          <tr><td>End Date *</td><td>Offer end date and time</td></tr>
+          <tr><td>All Some Branches</td><td>All branches or specific branches</td></tr>
+          <tr><td>For All Products *</td><td>Toggle to apply to the entire catalogue</td></tr>
+          <tr><td>Status *</td><td>Toggle to enable or disable</td></tr>
+          <tr><td>Display *</td><td>Toggle to display or hide on customer screens</td></tr>
+          <tr><td>For POS only *</td><td>Toggle to restrict to POS terminals only</td></tr>
+          <tr><td>Upselling *</td><td>Toggle for upselling workflows</td></tr>
+          <tr><td>Image</td><td>Upload a promotional image</td></tr>
+        </tbody></table></div>
       </section>
-      <section class="docs-section" id="item-10-3"><h2 class="section-heading">Coupons</h2>
-      <p>They are the promotional codes that provide discounts or special offers for your products. You can create, manage, and apply them to specific products or orders. To do so, navigate to the Add Coupon button in blue and click on it:</p>
-      <div class="text-center my-4">
-     <img src="assets/images/coupons.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
+      <div class="step-navigation">
+        <a class="btn btn-outline-secondary step-nav-btn" href="#section-7">Previous: Customization</a>
+        <a class="btn btn-primary step-nav-btn" href="#section-9">Next Step: Reporting</a>
       </div>
-      <p>Adding a coupon can be done by following the filling process in the following illustrated image:</p>
-       <div class="text-center my-4">
-     <img src="assets/images/add-coupon.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
-    <p>After adding a new coupon, you can always view its details, update it, and/or delete it. Utilize the actions represented by the small icons (blue and red) on the extreme right:</p>
-    <ul>
-      <li><strong>Details: </strong>Get comprehensive information about your coupon.</li>
-      <li><strong>Update: </strong>Modify existing coupon details.</li>
-      <li><strong>Delete: </strong>Remove a coupon from the system.</li>
-    </ul>
-    </section>
-
-      <section class="docs-section" id="item-10-4"><h2 class="section-heading">Groups</h2>
-      <p>The <strong>Groups</strong> subsection is aimed at organizing and promoting specific product sets and creating and managing product groups based on various criteria. To maximize group management efficiency, we can take multiple actions, such as view details, update, and delete any group at any given moment.</p>
-      <div class="text-center my-4">
-     <img src="assets/images/groups.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
-      <p>To “Add Group,” follow the illustrated filling process:</p>
-      <div class="text-center my-4">
-     <img src="assets/images/add-group.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
-    </section>
-      <section class="docs-section" id="item-10-5"><h2 class="section-heading">Offers</h2>
-      <p>The offers section is where you create and manage special discounts for your consumers. When you make an offer, you may tailor it to exactly what you want to accomplish in your marketing. This might include immediate discounts or special treats for your frequent consumers. Offers can be modified and updated at any time.</p>
-      <div class="text-center my-4">
-     <img src="assets/images/offers.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
-      <p>“Add Offer” for product. You can add different types of offers:</p>
-      <ul>
-        <li><strong>Amount: </strong>allows you to provide a fixed monetary discount; for instance, you might offer 5SAR off on a purchase.</li>
-        <li><strong>Percentage: </strong>You can offer a percentage discount on the total price; for example, you could offer a 50% discount on selected items.</li>
-        <li><strong>Final Price: </strong>This offer form allows you to set a final price for a product, regardless of its original cost. For example, if an espresso originally costs 10SAR, you can set a final price of 8SAR for a limited-time promotion.</li>
-      </ul>
-      <div class="text-center my-4">
-     <img src="assets/images/add-offer-product.png"
-       alt="employee login to an existing shift"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
-    </section>
     </article>
 
-    <article class="docs-article" id="section-11">
-      <header class="docs-header"><h1 class="docs-heading">Reporting</h1></header>
-      <section class="docs-section" id="item-11-1"><h2 class="section-heading">Orders</h2>
-      <P>Provides a comprehensive overview of every order processed across all locations:</P>
-      <ul>
-        <li><strong>Order Summary: </strong>View total orders by type; dine-in, takeaway, delivery, online.</li>
-        <li><strong>Time Filters: </strong>Analyze daily, weekly, monthly, or custom date ranges.</li>
-        <li><strong>Status Tracking: </strong>Monitor orders by status (completed, pending, canceled, voided).</li>
-        <li><strong>Detailed View: </strong>Click into each order to see items ordered, quantities, modifiers, total amounts, customer info, and timestamps.</li>
-        <div class="text-center my-4">
-     <img src="assets/images/report-orders.png"
-       alt="report-orders"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
-      </div>
-      </ul>
+    <article class="docs-article step-page" id="section-9" data-step-title="Reporting">
+      <header class="docs-header">
+        <h1 class="docs-heading">10. Reporting</h1>
+      </header>
+      <section class="docs-section" id="item-9-1">
+        <p>Navigate to <strong>Reporting</strong> in the left sidebar. The Reporting section contains four subsections: Orders, admin_zatca_orders, Inventory Sales, and Charts.</p>
+        <h2 class="section-heading">10.1 Orders</h2>
+        <p>A Total summary bar at the top shows Number of Orders, Subtotal in SAR, VAT in SAR, and Total in SAR. Four filter dropdowns let you refine the results: Select Branch, Select Kiosk, Select Status, and Select Payment Method. A date range label shows the active period, and an Export button allows downloading the filtered data.</p>
+        <p>The orders table contains the following columns: Id, Branch, Kiosk, Ticket, Date Order, Takeout, Subtotal, Vat, Total, Payment Type, and Status.</p>
+        <figure class="doc-image-card">
+          <img src="assets/images/Restaurant-administration/reporting-orders.png" alt="Reporting orders page" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+          <figcaption>Orders report with totals, filters, and export actions.</figcaption>
+        </figure>
+        <h2 class="section-heading">10.2 Product Sales</h2>
+        <p>This page shows a Total summary bar at the top with Number of Products, Number of Branches, Total Qty Sold, and Total Sales in SAR. Three filter dropdowns are available: Select Branch, Select Category, and Select Product. A date range picker and an Export button appear on the right.</p>
+        <p>The table shows the following columns: Id, Product, Ref, Category, Branch, Qty Sold, Unit Price, and Total.</p>
+        <figure class="doc-image-card">
+          <img src="assets/images/Restaurant-administration/product-sales.png" alt="Product sales report" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+          <figcaption>Product Sales report with branch, category, and product filters.</figcaption>
+        </figure>
+        <h2 class="section-heading">10.3 Charts</h2>
+        <p>The Charts page allows you to generate interactive visual reports for a selected date range. At the top of the page, set your date range using the Choose A Date Range field. Three filter dropdowns sit in the top right: Select Branch, Select Kiosk, and Select Source. Once configured, click the green <strong>Generate</strong> button to render the selected chart.</p>
+        <p>Available chart types include line charts, pie charts, and bar charts. After selecting a chart type and clicking Generate, the page loads an interactive chart with the title, date range, and company name in the header. A Back button returns you to the chart selection screen.</p>
+        <div class="doc-image-grid">
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/charts.png" alt="Charts selection page" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Charts page before generating a visual report.</figcaption>
+          </figure>
+          <figure class="doc-image-card">
+            <img src="assets/images/Restaurant-administration/generate-chart.png" alt="Generated chart report" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+            <figcaption>Generated interactive chart after selecting filters and date range.</figcaption>
+          </figure>
+        </div>
       </section>
-     
-      <section class="docs-section" id="item-11-2"><h2 class="section-heading">Inventory Sales</h2>
-      <p>Allows tracking of stock consumption directly linked to sales:</p>
-      <li>Product Usage Tracking: Shows how much ingredient or item was consumed based on completed orders.</li>
-      <li>Time-Based Analysis: Display consumption data over daily, weekly, or monthly intervals.</li>
-      <li>Low-Stock Alerts: Automatically flag items with consumption nearing reorder threshold.</li>
-      <li>CSV Export: Download data for inventory reconciliation or audit purposes.</li>
-      <div class="text-center my-4">
-     <img src="assets/images/inventory-sales.png"
-       alt="inventory-sales"
-       class="img-thumbnail shadow-sm zoom-effect"
-       style="max-width: 500px; width: 100%; cursor: pointer ;"
-       data-bs-toggle="modal"
-       data-bs-target="#imageModal1">
+      <div class="step-navigation">
+        <a class="btn btn-outline-secondary step-nav-btn" href="#section-8">Previous: Marketing</a>
+        <a class="btn btn-primary step-nav-btn" href="#section-1">Back to Start</a>
       </div>
-      </section>
+    </article>
 
-      <section class="docs-section" id="item-11-3">
-  <h2 class="section-heading">Charts</h2>
-  <p>The Charts section provides an interactive data visualization suite that helps managers and decision-makers quickly analyze performance metrics through visual graphs. It’s designed to offer an intuitive and insightful view of operations across products, sales trends, and other KPIs.</p>
-
-  <p>This feature supports three major types of charts, each tailored to different analysis needs:</p>
-  <ul>
-    <li><strong>Pie Chart (Circle):</strong> Great for showing proportions and category distribution (e.g., product sales contribution).</li>
-    <li><strong>Line Chart:</strong> Ideal for viewing trends over time, such as sales growth or traffic patterns.</li>
-    <li><strong>Bar Chart:</strong> Perfect for comparing sales volumes, products, or branches over a selected period.</li>
-  </ul>
-
-  <div class="text-center my-4">
-    <img src="assets/images/charts.png"
-      alt="charts overview"
-      class="img-thumbnail shadow-sm zoom-effect"
-      style="max-width: 500px; width: 100%; cursor: pointer;"
-      data-bs-toggle="modal"
-      data-bs-target="#imageModal1">
-  </div>
-
-  <h3 class="section-heading mt-5">How to Generate a Chart</h3>
-  <p>To create a chart, follow these steps. Let's take the example of generating the <strong>Revenue By Products</strong> chart:</p>
-  <ol>
-    <li>First, choose the desired <strong>date range</strong>. For example: <code>2025-01-01 00:00</code> to <code>2025-02-02 23:59</code>.</li>
-    <li>Next, click on the specific chart you want to generate — in this case, <strong>Revenue By Products</strong>.</li>
-    <li>Finally, click on the green <strong>Generate</strong> button to render the chart based on the selected criteria.</li>
-  </ol>
-
-  <div class="text-center my-4">
-    <img src="assets/images/revenue-by-products.png"
-      alt="chart generation example"
-      class="img-thumbnail shadow-sm zoom-effect"
-      style="max-width: 500px; width: 100%; cursor: pointer;"
-      data-bs-toggle="modal"
-      data-bs-target="#imageModal2">
-  </div>
-
-  <p>This tool allows restaurant managers to track performance and make informed decisions based on real-time data. It is especially useful for spotting high-performing items, identifying low-performing categories, and optimizing the menu and pricing strategies accordingly.</p>
-</section>
-</article>
-
-
-  </div>
-</div>
-      </section><!--//section-->
-			  </article><!--//docs-article-->
+  </div><!--//container-->
+</div><!--//docs-content-->
 
 
 
@@ -913,6 +809,58 @@
 </div>
 
 <script>
+
+document.addEventListener('DOMContentLoaded', function () {
+  const articles = Array.from(document.querySelectorAll('.step-page'));
+  const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link, .step-nav-btn'));
+
+  if (!articles.length) return;
+
+  function activateStep(hash, updateHash) {
+    const fallbackId = articles[0].id;
+    const rawId = (hash || '').replace('#', '') || fallbackId;
+    const target = document.getElementById(rawId) || document.getElementById(fallbackId);
+    const activeArticle = target.closest('.step-page') || articles[0];
+
+    articles.forEach(article => {
+      article.classList.toggle('active-step', article === activeArticle);
+    });
+
+    document.querySelectorAll('#docs-sidebar .nav-link').forEach(link => {
+      const href = link.getAttribute('href');
+      const linkedTarget = href ? document.querySelector(href) : null;
+      const linkedArticle = linkedTarget ? linkedTarget.closest('.step-page') : null;
+      const isExact = href === `#${target.id}`;
+      const isArticle = linkedArticle === activeArticle;
+      link.classList.toggle('active', isExact || (isArticle && href === `#${activeArticle.id}`));
+    });
+
+    if (updateHash) {
+      window.location.hash = `#${target.id}`;
+      return;
+    }
+
+    const scrollTarget = target.id === activeArticle.id ? activeArticle : target;
+    requestAnimationFrame(() => {
+      scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function (event) {
+      const href = this.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
+      event.preventDefault();
+      activateStep(href, true);
+    });
+  });
+
+  window.addEventListener('hashchange', function () {
+    activateStep(window.location.hash, false);
+  });
+
+  activateStep(window.location.hash || `#${articles[0].id}`, false);
+});
 
 // === Smart Search Autocomplete ===
 document.addEventListener('DOMContentLoaded', function () {
@@ -983,6 +931,41 @@ document.addEventListener('DOMContentLoaded', function () {
 .autocomplete-container {
   position: relative;
   width: 100%;
+}
+
+.step-page {
+  display: none;
+}
+
+.step-page.active-step {
+  display: block;
+}
+
+.step-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #e9ecef;
+}
+
+.step-navigation-spacer {
+  flex: 1;
+}
+
+.step-nav-btn {
+  min-width: 210px;
+}
+
+@media (max-width: 767.98px) {
+  .step-navigation {
+    flex-direction: column;
+  }
+
+  .step-nav-btn {
+    width: 100%;
+  }
 }
 
 /* Suggestions dropdown */
@@ -1063,4 +1046,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
 </body>
 </html> 
-
