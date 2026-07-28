@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-lang-en="cloud-pos.html" data-lang-ar="cloud-pos-ar.html">
+<head>
+    <title>Smart Prints - نقطة البيع السحابية</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="دليل استخدام تطبيق نقطة البيع السحابية Smart Prints للتعامل مع المعاملات والطلبات والمدفوعات">
+    <meta name="author" content="SmartPrints Team">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+    <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+    <script>
+      (function () {
+        var l = localStorage.getItem("sp_lang");
+        if (l) {
+          document.documentElement.lang = l;
+          document.documentElement.dir = l === "ar" ? "rtl" : "ltr";
+        }
+      })();
+    </script>
+    <style>
+      .zoom-effect {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .zoom-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      .doc-image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      .doc-image-card {
+        margin: 0;
+        text-align: center;
+      }
+      .doc-image-card img {
+        width: 100%;
+        max-height: 320px;
+        object-fit: contain;
+        background: #fff;
+        cursor: pointer;
+      }
+      .doc-image-card figcaption {
+        margin-top: 0.75rem;
+        font-size: 0.95rem;
+        color: #5d6778;
+      }
+      #lang-toggle {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border: 2px solid #5368fd;
+        background: transparent;
+        color: #5368fd;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+      }
+      #lang-toggle:hover {
+        background: #5368fd;
+        color: #fff;
+      }
+      html[lang="ar"] .lang-en {
+        display: none !important;
+      }
+      html[lang="en"] .lang-ar {
+        display: none !important;
+      }
+      html[lang="ar"] body {
+        font-family: "Tajawal", sans-serif;
+      }
+      html[lang="ar"] .docs-sidebar {
+        left: auto !important;
+        right: 0 !important;
+      }
+      html[lang="ar"] .docs-content {
+        margin-left: 0 !important;
+        margin-right: 300px !important;
+      }
+      html[lang="ar"] .docs-content .container {
+        direction: rtl;
+        text-align: right;
+      }
+      html[lang="ar"] .docs-nav {
+        direction: rtl;
+        text-align: right;
+      }
+      html[lang="ar"] .social-sidebar {
+        left: 0 !important;
+        right: auto !important;
+      }
+      html[lang="ar"] .docs-branding .row {
+        flex-direction: row-reverse;
+      }
+      html[lang="ar"] .navbar-brand {
+        margin-right: 0;
+        margin-left: 1rem;
+      }
+      html[lang="ar"] #docs-nav .nav-link::before {
+        left: auto !important;
+        right: 0 !important;
+      }
+      .autocomplete-container {
+        position: relative;
+        width: 100%;
+      }
+      .step-page {
+        display: none;
+      }
+      .step-page.active-step {
+        display: block;
+      }
+      .step-navigation {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 32px;
+        padding-top: 24px;
+        border-top: 1px solid #e9ecef;
+      }
+      .step-navigation-spacer {
+        flex: 1;
+      }
+      .step-nav-btn {
+        min-width: 210px;
+      }
+      @media (max-width: 767.98px) {
+        .step-navigation {
+          flex-direction: column;
+        }
+        .step-nav-btn {
+          width: 100%;
+        }
+      }
+      .autocomplete-suggestions {
+        position: absolute;
+        top: 100%;
+        left: 2px;
+        right: 2px;
+        background: #fff;
+        z-index: 1050;
+        max-height: 240px;
+        overflow-y: auto;
+        border: 1px solid #dee2e6;
+        border-top: none;
+        border-radius: 0 0 6px 6px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        display: none;
+        padding: 0;
+      }
+      .autocomplete-suggestion {
+        padding: 10px 14px;
+        cursor: pointer;
+        color: #333;
+        transition: background-color 0.2s ease;
+        font-size: 0.95rem;
+      }
+      .autocomplete-suggestion:hover {
+        background-color: #f0f4ff;
+      }
+      .autocomplete-suggestion mark {
+        background: none;
+        color: #5368fd;
+        font-weight: bold;
+      }
+    </style>
+</head>
+<body>
+    <header class="header fixed-top">
+      <div class="branding docs-branding">
+        <div class="container-fluid py-2">
+          <div class="row align-items-center">
+            <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+              <a class="navbar-brand" href="index-ar.html">
+                <div class="site-logo">
+                  <img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height: 60px;">
+                </div>
+              </a>
+            </div>
+            <div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+              <form class="search-form position-relative d-flex justify-content-center">
+                <div class="position-relative w-75 autocomplete-container">
+                  <input type="text" placeholder="ابحث في التوثيق..." name="search" class="form-control search-input pe-5">
+                  <div class="autocomplete-suggestions"></div>
+                  <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+                    <i class="fa-light fa-magnifying-glass text-muted"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center gap-2">
+              <button id="lang-toggle" onclick="toggleLanguage()">
+                <span class="lang-en">🇸🇦 العربية</span>
+                <span class="lang-ar">🇬🇧 English</span>
+              </button>
+              <a href="#" class="btn btn-primary d-none d-lg-flex">تحميل</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="docs-wrapper">
+      <div class="social-sidebar d-none d-lg-flex">
+        <ul class="social-sidebar">
+          <li><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+          <li><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+          <li><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+          <li><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+        </ul>
+      </div>
+
+      <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+        <div class="top-search-box">
+          <form class="search-form">
+            <div class="position-relative w-100 autocomplete-container">
+              <input type="text" class="form-control search-input rounded-top" placeholder="ابحث في التوثيق...">
+              <div class="autocomplete-suggestions"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="docs-sidebar" class="docs-sidebar">
+        <nav id="docs-nav" class="docs-nav navbar">
+          <ul class="section-items list-unstyled nav flex-column pb-3">
+            <li class="nav-item section-title">
+              <a class="nav-link scrollto active" href="#section-1">
+                <span class="theme-icon-holder me-2"><i class="fas fa-cash-register"></i></span>نقطة البيع السحابية
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">نظرة عامة</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-2">
+                <span class="theme-icon-holder me-2"><i class="fas fa-play-circle"></i></span>التشغيل
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">تشغيل تطبيق نقطة البيع</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-3">
+                <span class="theme-icon-holder me-2"><i class="fas fa-user-lock"></i></span>دخول الموظف
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">دخول الموظف والوردية</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-4">
+                <span class="theme-icon-holder me-2"><i class="fas fa-tablet-alt"></i></span>الواجهة
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">واجهة نقطة البيع</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-5">
+                <span class="theme-icon-holder me-2"><i class="fas fa-th-large"></i></span>الفئات
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">التنقل بين الفئات والمنتجات</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-6">
+                <span class="theme-icon-holder me-2"><i class="fas fa-sliders-h"></i></span>الإضافات
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-6-1">إضافة المنتجات والإضافات</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-7">
+                <span class="theme-icon-holder me-2"><i class="fas fa-star"></i></span>المفضلة
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-7-1">المنتجات المفضلة</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-8">
+                <span class="theme-icon-holder me-2"><i class="fas fa-credit-card"></i></span>المدفوعات
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-8-1">المدفوعات</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-9">
+                <span class="theme-icon-holder me-2"><i class="fas fa-clipboard-list"></i></span>الطلبات
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-9-1">طلباتي</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-10">
+                <span class="theme-icon-holder me-2"><i class="fas fa-user-tag"></i></span>العملاء
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-10-1">بيانات العملاء</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-11">
+                <span class="theme-icon-holder me-2"><i class="fas fa-clock"></i></span>الورديات
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-11-1">الورديات</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-12">
+                <span class="theme-icon-holder me-2"><i class="fas fa-boxes"></i></span>المخزون
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-12-1">المخزون</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-13">
+                <span class="theme-icon-holder me-2"><i class="fas fa-money-bill-wave"></i></span>إدارة النقد
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-13-1">إدارة النقد</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-14">
+                <span class="theme-icon-holder me-2"><i class="fas fa-chart-line"></i></span>التقارير
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-14-1">التقارير</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-15">
+                <span class="theme-icon-holder me-2"><i class="fas fa-cogs"></i></span>الإعدادات
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-15-1">الإعدادات</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-16">
+                <span class="theme-icon-holder me-2"><i class="fas fa-language"></i></span>اللغة
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-16-1">اللغة</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="docs-content">
+        <div class="container">
+          <article class="docs-article step-page" id="section-1" data-step-title="نظرة عامة">
+            <header class="docs-header">
+              <h1 class="docs-heading">نقطة البيع السحابية <span class="docs-time">آخر تحديث: 13 أبريل 2026</span></h1>
+              <section class="docs-intro">
+                <p>نظرة عامة</p>
+                <p>تطبيق نقطة البيع السحابية هو الأداة الأساسية التي يستخدمها الكاشير والمديرون لمعالجة المعاملات وإدارة الطلبات وتنفيذ المدفوعات في الوقت الفعلي. الواجهة مناسبة للمس، وسريعة، وتدعم العربية والإنجليزية، مع تحميل ديناميكي للمنتجات وتشغيل متعدد الفروع.</p>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/pos-app-interface.png" alt="نظرة عامة على واجهة نقطة البيع السحابية" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>الواجهة الرئيسية لنقطة البيع السحابية المستخدمة في عمليات الكاشير اليومية.</figcaption>
+                </figure>
+              </section>
+            </header>
+            <section class="docs-section" id="item-1-1">
+              <h2 class="section-heading">نظرة عامة</h2>
+              <p>يرشدك هذا الدليل عبر تشغيل التطبيق، دخول الموظف، تخطيط الواجهة، أخذ الطلبات، المفضلة، المدفوعات، الورديات، المخزون، إدارة النقد، التقارير، الإعدادات، وتبديل اللغة.</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/cashier.png" alt="الشاشة الرئيسية للكاشير" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>مساحة عمل الكاشير مع القائمة والسلة والإجراءات السريعة.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/top-bar.png" alt="الشريط العلوي لنقطة البيع" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>الشريط العلوي مع اختيار القائمة والفئات والبحث وأدوات السلة.</figcaption>
+                </figure>
+              </div>
+            </section>
+            <div class="step-navigation">
+              <span class="step-navigation-spacer"></span>
+              <a class="btn btn-primary step-nav-btn" href="#section-2">الخطوة التالية: تشغيل تطبيق نقطة البيع</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-2" data-step-title="تشغيل تطبيق نقطة البيع">
+            <header class="docs-header">
+              <h1 class="docs-heading">1. تشغيل تطبيق نقطة البيع</h1>
+            </header>
+            <section class="docs-section" id="item-2-1">
+              <p>افتح تطبيق Smart Prints POS على محطة سطح المكتب أو جهاز Android. تعرض شاشة الدخول شعار Smart Prints مع الشعار النصي <strong>"Enhance Machines interaction with Humans"</strong>.</p>
+              <p>أدخل اسم المستخدم في الحقل الأول وكلمة المرور في الحقل الثاني، ثم اضغط زر <strong>SIGN IN</strong> البرتقالي.</p>
+              <p>بعد تسجيل الدخول تظهر شاشة تحميل مع شريط تقدم برتقالي. انتظر حتى يكتمل قبل المتابعة.</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/menu-display-01.png" alt="شاشة تسجيل الدخول" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>شاشة تسجيل الدخول الأولية عند تشغيل تطبيق نقطة البيع.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/menu-display-2.png" alt="شاشة التحميل" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>شاشة التحميل أثناء مزامنة بيانات القائمة والفرع.</figcaption>
+                </figure>
+              </div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-1">السابق: نظرة عامة</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-3">الخطوة التالية: دخول الموظف والوردية</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-3" data-step-title="دخول الموظف والوردية">
+            <header class="docs-header">
+              <h1 class="docs-heading">2. دخول الموظف والوردية</h1>
+            </header>
+            <section class="docs-section" id="item-3-1">
+              <p>بعد تحميل التطبيق تظهر نافذة <strong>Enter Passcode</strong> فوق شبكة المنتجات.</p>
+              <ul>
+                <li>استخدم قائمة الموظف المنسدلة لاختيار اسمك (مثال: Mohammad Ali).</li>
+                <li>أدخل رقمك السري المكوّن من 4 أرقام عبر لوحة المفاتيح على الشاشة.</li>
+                <li>اضغط <strong>Enter</strong> للتأكيد.</li>
+              </ul>
+              <p>بعد المصادقة ستُطلب منك فتح وردية جديدة. تتم تغطية إدارة الورديات بالتفصيل في قسم الورديات.</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/login-to-existing-shift.png" alt="نافذة إدخال رمز الموظف" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>اختر الموظف وأدخل الرمز السري المكوّن من 4 أرقام للبدء.</figcaption>
+                </figure>
+              </div>
+              <div class="alert alert-warning" role="alert">
+                يمكن فتح الورديات أو إغلاقها فقط من تطبيق نقطة البيع، وليس من لوحة الإدارة.
+              </div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-2">السابق: تشغيل تطبيق نقطة البيع</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-4">الخطوة التالية: واجهة نقطة البيع</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-4" data-step-title="واجهة نقطة البيع">
+            <header class="docs-header">
+              <h1 class="docs-heading">3. واجهة نقطة البيع</h1>
+            </header>
+            <section class="docs-section" id="item-4-1">
+              <p>بعد تسجيل الدخول تظهر الشاشة الرئيسية لنقطة البيع بالمناطق التالية:</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/category-grid.png" alt="شبكة فئات نقطة البيع" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>شبكة الفئات المعروضة في وسط شاشة نقطة البيع.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/cart.png" alt="لوحة السلة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>لوحة السلة تعرض العناصر المحددة والعميل وإجراء الدفع.</figcaption>
+                </figure>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>المنطقة</th>
+                      <th>الوصف</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>الشريط العلوي</td><td>الشريط الأخضر في الأعلى يحتوي على قائمة Default Menu المنسدلة على اليسار، وقائمة Categories في الوسط، وشريط Search للبحث عن المنتجات بالاسم. على الجانب الأيمن ستجد أيقونة سلة المهملات لمسح السلة وعداد Cart الذي يعرض عدد العناصر المضافة حالياً.</td></tr>
+                    <tr><td>شبكة الفئات (الوسط)</td><td>تعرض المنطقة الرئيسية فئات المنتجات كبلاطات صور كبيرة، مثل Meals و Sandwiches و Salad و Kid's Meals و Drinks و Side Items. الضغط على بلاطة يفتح منتجات تلك الفئة.</td></tr>
+                    <tr><td>لوحة السلة (اليمين)</td><td>تعرض اللوحة اليمنى جميع العناصر المضافة للطلب الحالي. يعرض كل عنصر اسمه والإضافات المحددة وأزرار الكمية + و - وسعره. أسفل قائمة العناصر ستجد زر Add Customer وزر <strong>CHARGE</strong> الأخضر الذي يعرض الإجمالي الجاري.</td></tr>
+                    <tr><td>القائمة الجانبية (اليسار)</td><td>اضغط على الخطوط الأفقية الثلاثة في الزاوية العلوية اليسرى لفتح القائمة الجانبية. تعرض شعار المطعم والموظف المسجّل حالياً وروابط التنقل إلى Cashier و My Orders و Online Orders و Customer Details و Shifts و Inventory و Cash Management و Reports.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-3">السابق: دخول الموظف والوردية</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-5">الخطوة التالية: التنقل بين الفئات والمنتجات</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-5" data-step-title="التنقل بين الفئات والمنتجات">
+            <header class="docs-header">
+              <h1 class="docs-heading">4. التنقل بين الفئات والمنتجات</h1>
+            </header>
+            <section class="docs-section" id="item-5-1">
+              <p>من الشاشة الرئيسية، اضغط على أي بلاطة فئة لفتح قائمة منتجاتها. يتحدث الشريط العلوي ليعرض اسم الفئة النشطة. تعرض كل بطاقة منتج صورتها واسمها وسعرها في شارة صفراء. أيقونة القلب على كل بطاقة تتيح وضع العناصر كمفضلة.</p>
+              <p>للتبديل بين الفئات دون العودة إلى الشبكة، اضغط قائمة <strong>Categories</strong> المنسدلة في الشريط العلوي. تظهر قائمة تعرض Menu Favorites و Categories و Menu Offers وجميع الفئات الفردية مثل Meals و Sandwiches و Salad و Kid's Meals و Drinks و Side Items. اضغط أي عنصر للانتقال إليه مباشرة.</p>
+              <p>للبحث عن منتج، اضغط شريط <strong>Search</strong> واكتب اسم المنتج.</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/navigating-product-categories.png" alt="التنقل في فئات المنتجات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>الانتقال من شبكة الفئات إلى قائمة المنتجات.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/scroll-categories-dropdown-list.png" alt="قائمة الفئات المنسدلة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>قائمة Categories للانتقال مباشرة بين أقسام القائمة.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/search-product.png" alt="البحث عن منتج" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>شريط البحث المستخدم لإيجاد المنتجات بالاسم.</figcaption>
+                </figure>
+              </div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-4">السابق: واجهة نقطة البيع</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-6">الخطوة التالية: إضافة المنتجات والإضافات</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-6" data-step-title="إضافة المنتجات والإضافات">
+            <header class="docs-header">
+              <h1 class="docs-heading">5. إضافة المنتجات والإضافات</h1>
+            </header>
+            <section class="docs-section" id="item-6-1">
+              <p>اضغط أي بطاقة منتج لإضافته إلى الطلب. إذا كان للمنتج خيارات تخصيص، تظهر نافذة تعرض اسم المنتج، ومحدد الكمية بأزرار الناقص والزيادة، وسعر الوحدة والإجمالي الجاري، ومجموعات الخيارات المتاحة مثل Vegetables أو Dressing مع خيارات فردية كوسوم قابلة للاختيار.</p>
+              <p>الوسوم المعبأة (خلفية صفراء) تشير إلى إضافة محددة. الوسوم الفارغة (خلفية بيضاء) تشير إلى غير المحددة. اضغط أي وسم لتبديله. بعد اكتمال اختياراتك، اضغط <strong>ADD TO CART</strong> للتأكيد، أو <strong>CANCEL</strong> للرجوع.</p>
+              <p>يظهر العنصر فوراً في لوحة السلة على اليمين، مع اسم المنتج والإضافات المحددة والكمية والسعر. يتحدث زر <strong>CHARGE</strong> في الأسفل تلقائياً.</p>
+              <p>لتعديل الكمية مباشرة من السلة، استخدم أزرار <strong>+</strong> و <strong>-</strong> بجانب كل عنصر.</p>
+              <p>إجراءات السلة المتاحة في الزاوية العلوية اليمنى من الشاشة:</p>
+              <ul>
+                <li>اضغط أيقونة سلة المهملات لمسح جميع المنتجات من السلة. تظهر نافذة تأكيد بعنوان <strong>"Delete Cart Products"</strong> تسأل <strong>"Do You Want to Delete All Products"</strong> مع زرّي <strong>NO</strong> و <strong>YES</strong>.</li>
+                <li>اضغط أيقونة الملاحظات لإضافة ملاحظة على مستوى الطلب. يظهر حقل نصي مع العنصر النائب <strong>"Add your notes here"</strong>. اضغط زر التأكيد الأخضر لحفظ الملاحظة.</li>
+              </ul>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/options-modifiers.png" alt="نافذة إضافات المنتج" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>نافذة الإضافات لاختيار خيارات المنتج قبل إضافته إلى السلة.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/delete-producr-from-cart.png" alt="حذف المنتجات من السلة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>إجراء الحذف في أعلى اليمين لمسح السلة.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/delete-cart-popup.png" alt="تأكيد حذف السلة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>نافذة التأكيد قبل إزالة جميع عناصر السلة.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/add-note-order.png" alt="إضافة ملاحظة للطلب" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>حوار ملاحظة الطلب لتعليمات التحضير الخاصة.</figcaption>
+                </figure>
+              </div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-5">السابق: التنقل بين الفئات والمنتجات</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-7">الخطوة التالية: المنتجات المفضلة</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-7" data-step-title="المنتجات المفضلة">
+            <header class="docs-header">
+              <h1 class="docs-heading">6. المنتجات المفضلة</h1>
+            </header>
+            <section class="docs-section" id="item-7-1">
+              <p>لدى العديد من المطاعم منتجات تشكّل معظم مبيعاتها اليومية. فئة <strong>Menu Favorites</strong> تبقي هذه المنتجات الأكثر مبيعاً ظاهرة دائماً لتسريع أخذ الطلبات.</p>
+              <p>لوضع منتج كمفضل، اضغط أيقونة القلب على أي بطاقة منتج. يؤكد القلب الأخضر المعبأ إضافته إلى المفضلة.</p>
+              <p>للوصول إلى Menu Favorites، اضغط قائمة <strong>Categories</strong> المنسدلة في الشريط العلوي واختر <strong>Menu Favorites</strong> من أعلى القائمة. تتحدث الشبكة فوراً لتعرض منتجاتك المفضلة فقط.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Cloud-POS/setup-favorites.png" alt="إعداد المنتجات المفضلة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>ضع المنتجات كمفضلة لإبقاء الأكثر مبيعاً على بعد ضغطة واحدة.</figcaption>
+              </figure>
+              <div class="alert alert-info" role="alert">
+                استخدم Menu Favorites لتقليل وقت التنقل خلال فترات الذروة وإبقاء المنتجات عالية الطلب أو هامش الربح دائماً على بعد ضغطة واحدة.
+              </div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-6">السابق: إضافة المنتجات والإضافات</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-8">الخطوة التالية: المدفوعات</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-8" data-step-title="المدفوعات">
+            <header class="docs-header">
+              <h1 class="docs-heading">7. المدفوعات</h1>
+            </header>
+            <section class="docs-section" id="item-8-1">
+              <p>بعد إضافة جميع العناصر إلى السلة، اضغط زر <strong>CHARGE</strong> الأخضر في أسفل اليمين لفتح شاشة الدفع.</p>
+              <p>تظهر نافذة بصفّين من الخيارات في الأعلى. الصف الأول لاختيار طريقة الدفع والثاني لاختيار نوع الطلب.</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/payment-step-01.png" alt="نافذة الدفع الخطوة الأولى" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>نافذة الدفع حيث تختار الطريقة ونوع الطلب.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/payment-step2.png" alt="نافذة الدفع الخطوة الثانية" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>متابعة إعداد الدفع قبل التنفيذ.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/payment-step3.png" alt="نافذة الدفع الخطوة الثالثة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>الحالة النهائية للدفع جاهزة لإتمام البيع.</figcaption>
+                </figure>
+              </div>
+              <h2 class="section-heading">طرق الدفع</h2>
+              <ul>
+                <li>Cash - للمعاملات النقدية</li>
+                <li>Credit - يكشف خيارات إضافية تشمل Card و Keeta و Free Meals و Hungerstation</li>
+              </ul>
+              <h2 class="section-heading">أنواع الطلب</h2>
+              <ul>
+                <li>Dine In - للعملاء الذين يتناولون الطعام في المكان</li>
+                <li>Take Away - للعملاء الذين يأخذون طلبهم معهم</li>
+              </ul>
+              <p>يُعرض المبلغ الإجمالي في أسفل النافذة. بعد اختيار طريقة الدفع ونوع الطلب، اضغط <strong>TENDER</strong> لإتمام المعاملة.</p>
+              <h2 class="section-heading">تقسيم المدفوعات</h2>
+              <p>يدعم تطبيق نقطة البيع تقسيم فاتورة واحدة على عدة طرق دفع. هذا مفيد عندما لا تغطي طريقة دفع واحدة المبلغ بالكامل.</p>
+              <p>لاستخدام تقسيم المدفوعات:</p>
+              <ul>
+                <li>اضغط زر <strong>SPLIT</strong> الأخضر في نافذة الدفع.</li>
+                <li>تظهر شاشة جديدة تعرض عداداً في الأعلى لتعيين عدد الأقسام.</li>
+                <li>يعرض كل صف قسم قائمة منسدلة لطريقة الدفع وحقل مبلغ.</li>
+                <li>يُعرض الإجمالي في أسفل الشاشة.</li>
+                <li>اضغط <strong>TENDER</strong> لإتمام المعاملة بعد إعداد جميع الأقسام.</li>
+              </ul>
+              <figure class="doc-image-card">
+                <img src="assets/images/Cloud-POS/split-payment.png" alt="شاشة تقسيم الدفع" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>قسّم الفاتورة على عدة طرق دفع من طلب واحد.</figcaption>
+              </figure>
+              <div class="alert alert-info" role="alert">
+                استخدم أزرار + و - في أعلى شاشة التقسيم لإضافة صفوف الدفع أو إزالتها حسب الحاجة.
+              </div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-7">السابق: المنتجات المفضلة</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-9">الخطوة التالية: طلباتي</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-9" data-step-title="طلباتي">
+            <header class="docs-header">
+              <h1 class="docs-heading">8. طلباتي</h1>
+            </header>
+            <section class="docs-section" id="item-9-1">
+              <p>لعرض جميع الطلبات المسجّلة خلال الجلسة الحالية، اضغط <strong>My Orders</strong> من القائمة الجانبية.</p>
+              <p>تفتح شاشة الطلبات بعرض رأس <strong>Current Shift</strong> وزر تبديل في الزاوية العلوية اليمنى للتبديل بين عرضين.</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/look-oderes-step01.png" alt="شاشة طلباتي" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>صفحة طلبات Current Shift المفتوحة من القائمة الجانبية.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/viesw-orders-step2.png" alt="عرض جدول الطلبات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>عرض جدول منظم يسرد التذاكر والتواريخ وأنواع الدفع والإجماليات.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/order-grid-view-step3.png" alt="عرض شبكة الطلبات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>عرض الشبكة للطلبات المتزامنة كبطاقات فردية.</figcaption>
+                </figure>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>العرض</th>
+                      <th>الوصف</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Table View</td><td>يعرض الطلبات في قائمة منظمة بالأعمدة ID و Ticket Number و Date و Order Type و Payment Type و Sub Total و VAT و Total. لكل صف أيقونة طباعة وأيقونة إيصال على اليمين.</td></tr>
+                    <tr><td>Grid View</td><td>يعرض كل طلب كبطاقة تُظهر رقم الطلب والمبلغ الإجمالي. لكل بطاقة شارة حالة Uploaded صفراء تشير إلى مزامنته مع الخادم.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-8">السابق: المدفوعات</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-10">الخطوة التالية: بيانات العملاء</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-10" data-step-title="بيانات العملاء">
+            <header class="docs-header">
+              <h1 class="docs-heading">9. بيانات العملاء</h1>
+            </header>
+            <section class="docs-section" id="item-10-1">
+              <p>يتيح قسم Customer Details إضافة عميل أو اختياره أثناء البيع لخدمة مخصصة وتتبع أفضل للطلبات.</p>
+              <p>انتقل إلى <strong>Customer Details</strong> من القائمة الجانبية. تعرض الشاشة قائمة بالعملاء الحاليين مع ID و Name و Type و Phone و Status وأيقونة تعديل في عمود Actions.</p>
+              <p>لإضافة عميل جديد، اضغط زر <strong>+</strong> الأصفر في الزاوية السفلية اليمنى. يظهر نموذج بالحقول التالية:</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/customer-details.png" alt="قائمة بيانات العملاء" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>قائمة Customer Details لتصفح العملاء المحفوظين وتعديلهم.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/add-customer.png" alt="نموذج إضافة عميل" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>نموذج Add Customer مع حقول الاتصال والعنوان.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/add-customer-and-charge.png" alt="إضافة عميل للبيع الحالي" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>اربط عميلاً بالسلة النشطة قبل الدفع.</figcaption>
+                </figure>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>الحقل</th>
+                      <th>التفاصيل</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Name</td><td>الاسم الكامل للعميل</td></tr>
+                    <tr><td>Type</td><td>Individual أو Company</td></tr>
+                    <tr><td>Phone</td><td>رقم التواصل</td></tr>
+                    <tr><td>Contact</td><td>جهة اتصال ثانوية إن وجدت</td></tr>
+                    <tr><td>Email</td><td>عنوان البريد الإلكتروني للعميل</td></tr>
+                    <tr><td>VAT</td><td>رقم الضريبة لعملاء الشركات</td></tr>
+                    <tr><td>Status</td><td>مفتاح لتفعيل سجل العميل أو تعطيله</td></tr>
+                    <tr><td>Notes</td><td>أي ملاحظات ذات صلة</td></tr>
+                    <tr><td>Address</td><td>عنوان العميل</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>يتضمن النموذج أيضاً خريطة مدمجة في الأسفل لتحديد موقع العميل. اضغط <strong>Submit</strong> للحفظ.</p>
+              <div class="alert alert-info" role="alert">
+                إضافة عميل إلى الطلب تتيح إيصالات مخصصة وتدعم تتبع سجل العميل.
+              </div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-9">السابق: طلباتي</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-11">الخطوة التالية: الورديات</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-11" data-step-title="الورديات">
+            <header class="docs-header">
+              <h1 class="docs-heading">10. الورديات</h1>
+            </header>
+            <section class="docs-section" id="item-11-1">
+              <p>تساعد الورديات على تتبع نشاط الموظفين وتدفق النقد خلال ساعات عمل محددة. تدعم المساءلة والتسوية اليومية والتقارير حسب الوردية.</p>
+              <h2 class="section-heading">فتح وردية</h2>
+              <p>بعد اختيار ملف الموظف وإدخال الرقم السري، يطلب منك التطبيق فتح وردية جديدة. تظهر نافذة بعنوان <strong>"Specify Cash Amount At The Beginning Of Shift"</strong> مع لوحة مفاتيح رقمية. أدخل مبلغ النقد الابتدائي في الدرج واضغط <strong>done</strong>، ثم اضغط <strong>Save</strong> لبدء الجلسة.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Cloud-POS/open-shift.png" alt="فتح وردية بالنقد الابتدائي" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>أدخل مبلغ النقد الافتتاحي لبدء وردية جديدة.</figcaption>
+              </figure>
+              <h2 class="section-heading">إغلاق وردية</h2>
+              <p>لإغلاق وردية، انتقل إلى <strong>Shifts</strong> في القائمة الجانبية. تظهر شاشة ملخص الوردية مع رأس Date Time وعنوان Shift Summary. تظهر نافذة إغلاق بالحقول التالية:</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Cloud-POS/close-shift.png" alt="إغلاق وردية" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>حوار إغلاق الوردية مع قيم التسوية ومبلغ الإغلاق.</figcaption>
+              </figure>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>الحقل</th>
+                      <th>التفاصيل</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Closing Amount</td><td>أدخل النقد الفعلي المحسوب في الدرج عند الإغلاق</td></tr>
+                    <tr><td>Total Cash Drop</td><td>النقد المسحوب من الدرج أثناء الوردية</td></tr>
+                    <tr><td>Total Pay Ins</td><td>إجمالي الإضافات النقدية اليدوية أثناء الوردية</td></tr>
+                    <tr><td>Total Pay Out</td><td>إجمالي السحوبات النقدية اليدوية أثناء الوردية</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>استخدم لوحة المفاتيح الرقمية لإدخال مبلغ الإغلاق، اضغط <strong>done</strong>، ثم اضغط <strong>Save</strong> لإغلاق الوردية. يمكنك أيضاً الضغط على <strong>Reconciliation</strong> لمراجعة الفروقات قبل الحفظ.</p>
+              <h2 class="section-heading">تقرير الوردية</h2>
+              <p>في نهاية كل وردية يُنشئ النظام تقرير وردية مطبوعاً. بناءً على التقرير الفعلي في التطبيق، يتضمن الأقسام التالية:</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Cloud-POS/Shift-reprt.png" alt="تقرير الوردية المطبوع" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>تقرير الوردية المطبوع يلخّص المبيعات ورصيد الدرج والأداء.</figcaption>
+              </figure>
+              <ul>
+                <li>معلومات الرأس: اسم المتجر، التاريخ، اسم الموظف، نوع الموظف، وقت الطباعة، ورقم الجهاز.</li>
+                <li>ملخص المبيعات: Total Sales و Discounts و Net Sales including VAT و Total VAT و Net Sales.</li>
+                <li>أنواع الدفع: تفصيل حسب الطريقة يعرض الكمية والقيمة لـ Cash و Card و Keeta و Free Meals و Hungerstation و Jahez وأي طرق أخرى مُعدّة.</li>
+                <li>ملخص درج النقد: Opening Amount و Closing Amount و Paid Ins و Paid Outs و Required Cash و Variance.</li>
+                <li>المرتجعات والإلغاءات: Orders Refunded و Item Correction و Order Voids مع الكميات والقيم.</li>
+                <li>ملخص الأداء: Total Transaction Number ومتوسط مبلغ التذكرة لكل معاملة.</li>
+              </ul>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-10">السابق: بيانات العملاء</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-12">الخطوة التالية: المخزون</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-12" data-step-title="المخزون">
+            <header class="docs-header">
+              <h1 class="docs-heading">11. المخزون</h1>
+            </header>
+            <section class="docs-section" id="item-12-1">
+              <p>ادخل إلى وحدة المخزون مباشرة من تطبيق نقطة البيع بالضغط على <strong>Inventory</strong> في القائمة الجانبية.</p>
+              <p>تحتوي شاشة المخزون على لوحة يسارية بخمسة أقسام: Stock Status و Inventory Count و Waste و Preparation و Transfer و Reception.</p>
+              <p>تعرض اللوحة الرئيسية جدولاً بالأعمدة ID و Type و Item و Quantity. يمثل كل صف منتجاً ومستوى مخزونه الحالي. يمكنك تصفية العرض باستخدام مفاتيح الوحدات في الأعلى لـ Grams و Kg و Millilitres و Liters، واستخدام شريط البحث لإيجاد عناصر محددة.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Cloud-POS/inventory.png" alt="شاشة المخزون في نقطة البيع" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>عرض المخزون داخل تطبيق نقطة البيع لفحص المخزون الحي.</figcaption>
+              </figure>
+              <div class="alert alert-info" role="alert">
+                لإدارة المخزون الكاملة بما في ذلك الوصفات والمواد الخام، راجع دليل المستخدم المخصص للمخزون.
+              </div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-11">السابق: الورديات</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-13">الخطوة التالية: إدارة النقد</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-13" data-step-title="إدارة النقد">
+            <header class="docs-header">
+              <h1 class="docs-heading">12. إدارة النقد</h1>
+            </header>
+            <section class="docs-section" id="item-13-1">
+              <p>تتيح إدارة النقد تسجيل حركات النقد اليدوية دخولاً وخروجاً من الدرج أثناء الوردية، لضمان تسوية دقيقة عند الإغلاق.</p>
+              <p>انتقل إلى <strong>Cash Management</strong> من القائمة الجانبية. تعرض الشاشة قائمة Current Shift بأعمدة ID و Employee و Amount و Cash In/Cash Out و Status و Actions.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Cloud-POS/cash-management.png" alt="قائمة إدارة النقد" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>قائمة Cash Management للوردية النشطة.</figcaption>
+              </figure>
+              <p>لإضافة قيد Cash In:</p>
+              <ul>
+                <li>اضغط زر <strong>+</strong> الأصفر في الزاوية السفلية اليمنى.</li>
+                <li>تظهر نافذة بحقل Amount ولوحة مفاتيح رقمية. يُظهر المفتاح على اليمين Cash In بالأخضر.</li>
+                <li>أدخل المبلغ عبر لوحة المفاتيح واضغط <strong>done</strong>.</li>
+                <li>تظهر نافذة ثانية بحقل نصي Custom Dialog Description. أضف ملاحظة تصف سبب إضافة النقد.</li>
+                <li>اضغط زر <strong>Submit</strong> الأصفر للتأكيد.</li>
+              </ul>
+              <p>لإضافة قيد Cash Out، اتبع نفس الخطوات أعلاه، لكن بدّل المفتاح من Cash In إلى Cash Out قبل إدخال المبلغ.</p>
+              <p>بعد الحفظ يظهر كلا القيدين في قائمة Cash Management مع اسم الموظف والمبلغ والنوع والحالة. لحذف قيد، اضغط أيقونة سلة المهملات البرتقالية على يمين أي صف.</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/cash-in.png" alt="نافذة مبلغ Cash In" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>أدخل المبلغ لحركة Cash In.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/cash-in-note.png" alt="نافذة ملاحظة Cash In" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>أضف ملاحظة السبب قبل إرسال قيد Cash In.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/cash-out.png" alt="قيد Cash Out" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>مسار Cash Out لتسجيل المال المسحوب من الدرج.</figcaption>
+                </figure>
+              </div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-12">السابق: المخزون</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-14">الخطوة التالية: التقارير</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-14" data-step-title="التقارير">
+            <header class="docs-header">
+              <h1 class="docs-heading">13. التقارير</h1>
+            </header>
+            <section class="docs-section" id="item-14-1">
+              <p>انتقل إلى <strong>Reports</strong> من القائمة الجانبية. يحتوي قسم التقارير على ثلاث صفحات من اللوحة اليسرى: Product Sales و Consumption و All Orders.</p>
+              <h2 class="section-heading">مبيعات المنتجات</h2>
+              <p>تعرض صفحة Product Sales شريطاً أصفر ملخصاً في الأعلى يُظهر إجمالي Number of Products و Qty Sold و Total Sales للفترة المحددة. أسفله جدول تفصيلي يسرد كل منتج مع ID والاسم و Qty Sold وإجمالي الإيرادات. استخدم قوائم Select Category و Select Product المنسدلة لتصفية النتائج، ومحدد نطاق التاريخ لضبط فترة التقرير.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Cloud-POS/product-sales.png" alt="تقرير مبيعات المنتجات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>تقرير Product Sales مع عوامل التصفية والإجماليات.</figcaption>
+              </figure>
+              <h2 class="section-heading">الاستهلاك</h2>
+              <p>يتتبع تقرير Consumption استخدام المواد الخام والمكونات بناءً على الطلبات المسجّلة. هذا التقرير متاح فقط عند تفعيل وحدة المخزون. راجع دليل مستخدم المخزون للتفاصيل.</p>
+              <h2 class="section-heading">جميع الطلبات</h2>
+              <p>تعرض صفحة All Orders قائمة كاملة بكل طلب تمت معالجته عبر نقطة البيع. يعرض كل صف Order Date و Source و Ticket و Order Type و Payment Type و Status و Total. تظهر أربعة أزرار إجراءات على كل صف للتأكيد أو الإلغاء أو الطباعة أو عرض تفاصيل الطلب. استخدم محدد نطاق التاريخ في أعلى اليمين للتصفية حسب الفترة.</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/All-orders.png" alt="تقرير جميع الطلبات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>تقرير All Orders يعرض قائمة المعاملات الكاملة.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/online-orders.png" alt="تقرير الطلبات عبر الإنترنت" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>عرض Online Orders لمصادر التوصيل والطلبات الخارجية.</figcaption>
+                </figure>
+              </div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-13">السابق: إدارة النقد</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-15">الخطوة التالية: الإعدادات</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-15" data-step-title="الإعدادات">
+            <header class="docs-header">
+              <h1 class="docs-heading">14. الإعدادات</h1>
+            </header>
+            <section class="docs-section" id="item-15-1">
+              <p>للوصول إلى الإعدادات، اضغط الخطوط الأفقية الثلاثة لفتح القائمة الجانبية، مرّر للأسفل، واضغط <strong>Settings</strong>.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Cloud-POS/navigate-settings.png" alt="الانتقال إلى الإعدادات من القائمة الجانبية" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>افتح القائمة الجانبية وانتقل إلى Settings.</figcaption>
+              </figure>
+              <h2 class="section-heading">14.1 الإعدادات العامة</h2>
+              <p>تعرض شاشة الإعدادات خمسة أزرار إجراءات صفراء وقسم إعدادات أسفلها:</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Cloud-POS/settings-screen.png" alt="شاشة الإعدادات العامة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>صفحة General Settings مع إجراءات إعادة التعيين والتحديث والمزامنة واللغة.</figcaption>
+              </figure>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>الزر</th>
+                      <th>الوظيفة</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Reset Data</td><td>يمسح البيانات المؤقتة المخزّنة محلياً دون التأثير على سجل المبيعات</td></tr>
+                    <tr><td>Update Data</td><td>يسحب أحدث المنتجات والفئات والأسعار من السحابة</td></tr>
+                    <tr><td>Disable Kitchen App</td><td>يفصل مؤقتاً شاشة المطبخ</td></tr>
+                    <tr><td>Change Language</td><td>يبدّل التطبيق بين العربية والإنجليزية</td></tr>
+                    <tr><td>Sync Orders to the Server</td><td>يدفع يدوياً الطلبات غير المتزامنة دون اتصال إلى السحابة</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>أسفل الأزرار، يحتوي قسم إعدادات صفحة Cashier على شريطين تمرير:</p>
+              <ul>
+                <li>Numbers of categories in row - يضبط عدد بلاطات الفئات في كل صف (مثال: 3 عناصر)</li>
+                <li>Number of products in row - يضبط عدد بلاطات المنتجات في كل صف (مثال: 4 عناصر)</li>
+              </ul>
+              <h2 class="section-heading">14.2 الطابعة</h2>
+              <p>انتقل إلى <strong>Settings -&gt; Printer</strong>. اضغط زر <strong>+</strong> لإضافة طابعة. يظهر نموذج بقائمتين منسدلتين: Type و Printer. اختر طابعتك واضغط <strong>ADD</strong> للتأكيد.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Cloud-POS/printer.png" alt="شاشة إعدادات الطابعة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>صفحة إعداد الطابعة لإضافة الطابعات أو تعيينها.</figcaption>
+              </figure>
+              <h2 class="section-heading">14.3 الجهاز الخارجي</h2>
+              <p>انتقل إلى <strong>Settings -&gt; External Terminal</strong>. فعّل مفتاح External Terminal، ثم املأ الحقول التالية:</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Cloud-POS/external-terminal.png" alt="إعدادات الجهاز الخارجي" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>إعداد الجهاز الخارجي لتكامل جهاز البطاقة.</figcaption>
+              </figure>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>الحقل</th>
+                      <th>التفاصيل</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>IP Address</td><td>عنوان الشبكة لجهاز الدفع</td></tr>
+                    <tr><td>Request Code</td><td>رمز يُستخدم لبدء الاتصال الآمن</td></tr>
+                    <tr><td>Access Code</td><td>مفتاح يصرّح لنقطة البيع بالتفاعل مع الجهاز</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>اضغط <strong>Get Code</strong> لاسترجاع بيانات الاعتماد من الجهاز.</p>
+              <h2 class="section-heading">14.4 درج النقد</h2>
+              <p>انتقل إلى <strong>Settings -&gt; Cash Drawer</strong>. فعّل مفتاح Cash Drawer. أدخل IP Address للدرج واختر الطابعة المرتبطة من القائمة المنسدلة. اضغط زر <strong>Open Drawer</strong> الأصفر لاختبار الاتصال يدوياً.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Cloud-POS/cash-drawer.png" alt="إعدادات درج النقد" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>إعدادات Cash Drawer لاختبار أجهزة الدرج وتكوينها.</figcaption>
+              </figure>
+              <h2 class="section-heading">14.5 طباعة التحضير</h2>
+              <p>انتقل إلى <strong>Settings -&gt; Printing Preparation</strong>. اضغط زر <strong>+</strong> لإعداد طابعة تحضير. استخدم قائمة Select Category المنسدلة لاختيار فئات المنتجات التي ستطبع على هذه المحطة، ثم اختر الطابعة من قائمة Select printers المنسدلة. اضغط <strong>Add new preparation printer</strong> للحفظ.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Cloud-POS/printing-prepartion.png" alt="إعدادات طباعة التحضير" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>إعداد طابعة التحضير لتوجيه التذاكر حسب الفئة.</figcaption>
+              </figure>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-14">السابق: التقارير</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-16">الخطوة التالية: اللغة</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-16" data-step-title="اللغة">
+            <header class="docs-header">
+              <h1 class="docs-heading">15. اللغة</h1>
+            </header>
+            <section class="docs-section" id="item-16-1">
+              <p>يدعم تطبيق نقطة البيع التبديل الكامل بين واجهتي العربية والإنجليزية. لتغيير اللغة، انتقل إلى <strong>Settings</strong> واضغط <strong>Change Language</strong>.</p>
+              <p>تتحدث الواجهة بالكامل فوراً بما في ذلك جميع التسميات والأزرار وأسماء الفئات وعناصر السلة وشاشات الإعدادات. تعمل جميع الميزات بشكل متطابق في كلتا اللغتين.</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/change-language-step-01.png" alt="إجراء تغيير اللغة في الإعدادات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>اختر إجراء تبديل اللغة من صفحة الإعدادات.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Cloud-POS/change-language-step02.png" alt="واجهة نقطة البيع بعد تغيير اللغة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>تُحدَّث الواجهة فوراً بعد تبديل اللغة.</figcaption>
+                </figure>
+              </div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-15">السابق: الإعدادات</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-1">العودة إلى البداية</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const zoomImages = document.querySelectorAll('.zoom-effect');
+
+    zoomImages.forEach(function (img) {
+      img.addEventListener('click', function () {
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = this.src;
+
+        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        imageModal.show();
+      });
+    });
+  });
+</script>
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center">
+        <img id="modalImage" src="#" alt="Zoomed" class="img-fluid rounded">
+      </div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const articles = Array.from(document.querySelectorAll('.step-page'));
+  const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link, .step-nav-btn'));
+
+  if (!articles.length) return;
+
+  function activateStep(hash, updateHash) {
+    const fallbackId = articles[0].id;
+    const rawId = (hash || '').replace('#', '') || fallbackId;
+    const target = document.getElementById(rawId) || document.getElementById(fallbackId);
+    const activeArticle = target.closest('.step-page') || articles[0];
+
+    articles.forEach(article => {
+      article.classList.toggle('active-step', article === activeArticle);
+    });
+
+    document.querySelectorAll('#docs-sidebar .nav-link').forEach(link => {
+      const href = link.getAttribute('href');
+      const linkedTarget = href ? document.querySelector(href) : null;
+      const linkedArticle = linkedTarget ? linkedTarget.closest('.step-page') : null;
+      const isExact = href === `#${target.id}`;
+      const isArticle = linkedArticle === activeArticle;
+      link.classList.toggle('active', isExact || (isArticle && href === `#${activeArticle.id}`));
+    });
+
+    if (updateHash) {
+      window.location.hash = `#${target.id}`;
+      return;
+    }
+
+    const scrollTarget = target.id === activeArticle.id ? activeArticle : target;
+    requestAnimationFrame(() => {
+      scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function (event) {
+      const href = this.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
+      event.preventDefault();
+      activateStep(href, true);
+    });
+  });
+
+  window.addEventListener('hashchange', function () {
+    activateStep(window.location.hash, false);
+  });
+
+  activateStep(window.location.hash || `#${articles[0].id}`, false);
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const input = document.querySelector('.search-input');
+  const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link'));
+
+  if (!input) return;
+
+  const container = input.closest('.autocomplete-container');
+  const suggestionsBox = document.createElement('div');
+  suggestionsBox.className = 'autocomplete-suggestions';
+  container.appendChild(suggestionsBox);
+
+  input.addEventListener('input', function () {
+    const val = this.value.trim().toLowerCase();
+    suggestionsBox.innerHTML = '';
+
+    if (!val) {
+      suggestionsBox.style.display = 'none';
+      return;
+    }
+
+    navLinks.forEach(link => {
+      const text = link.textContent.trim();
+      const lowerText = text.toLowerCase();
+
+      if (lowerText.includes(val)) {
+        const option = document.createElement('div');
+        option.className = 'autocomplete-suggestion';
+
+        const index = lowerText.indexOf(val);
+          const highlighted =
+           index !== -1
+           ? text.substring(0, index) +
+           `<mark class="bg-transparent text-primary fw-bold">` +
+            text.substring(index, index + val.length) +
+            '</mark>' +
+            text.substring(index + val.length)
+            : text;
+
+        option.innerHTML = highlighted;
+        option.addEventListener('click', () => {
+          window.location.href = link.href;
+        });
+
+        suggestionsBox.appendChild(option);
+      }
+    });
+
+    suggestionsBox.style.display = suggestionsBox.children.length ? 'block' : 'none';
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!suggestionsBox.contains(e.target) && e.target !== input) {
+      suggestionsBox.innerHTML = '';
+      suggestionsBox.style.display = 'none';
+    }
+  });
+});
+</script>
+
+    <footer class="footer">
+      <div class="footer-bottom text-center py-5">
+        <ul class="social-list list-unstyled pb-4 mb-0">
+          <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+        </ul>
+        <small class="copyright">© Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> جميع الحقوق محفوظة.</small>
+      </div>
+    </footer>
+
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script>
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script>
+    <script src="assets/js/docs.js"></script>
+    <script src="assets/js/lang.js"></script>
+</body>
+</html>

@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-lang-en="smart-whatsapp.html" data-lang-ar="smart-whatsapp-ar.html">
+<head>
+    <title>Smart Prints - واتساب الذكي</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="دليل التوثيق الوظيفي لحل واتساب الذكي Smart Prints للطلب عبر المحادثة وتتبع الطلبات والدفع من خلال واتساب">
+    <meta name="author" content="SmartPrints Team">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+    <script src="https://cdn.jsdelivr.net/npm/gojs/release/go.js"></script>
+    <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+    <script>
+      (function () {
+        var l = localStorage.getItem("sp_lang");
+        if (l) {
+          document.documentElement.lang = l;
+          document.documentElement.dir = l === "ar" ? "rtl" : "ltr";
+        }
+      })();
+    </script>
+    <style>
+      .zoom-effect {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .zoom-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      #lang-toggle {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border: 2px solid #5368fd;
+        background: transparent;
+        color: #5368fd;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+      }
+      #lang-toggle:hover {
+        background: #5368fd;
+        color: #fff;
+      }
+      html[lang="ar"] .lang-en {
+        display: none !important;
+      }
+      html[lang="en"] .lang-ar {
+        display: none !important;
+      }
+      html[lang="ar"] body {
+        font-family: "Tajawal", sans-serif;
+      }
+      html[lang="ar"] .docs-sidebar {
+        left: auto !important;
+        right: 0 !important;
+      }
+      html[lang="ar"] .docs-content {
+        margin-left: 0 !important;
+        margin-right: 300px !important;
+      }
+      html[lang="ar"] .docs-content .container {
+        direction: rtl;
+        text-align: right;
+      }
+      html[lang="ar"] .docs-nav {
+        direction: rtl;
+        text-align: right;
+      }
+      html[lang="ar"] .social-sidebar {
+        left: 0 !important;
+        right: auto !important;
+      }
+      html[lang="ar"] .docs-branding .row {
+        flex-direction: row-reverse;
+      }
+      html[lang="ar"] .navbar-brand {
+        margin-right: 0;
+        margin-left: 1rem;
+      }
+      html[lang="ar"] #docs-nav .nav-link::before {
+        left: auto !important;
+        right: 0 !important;
+      }
+      .autocomplete-container {
+        position: relative;
+        width: 100%;
+      }
+      .autocomplete-suggestions {
+        position: absolute;
+        top: 100%;
+        left: 2px;
+        right: 2px;
+        background: #fff;
+        z-index: 1050;
+        max-height: 240px;
+        overflow-y: auto;
+        border: 1px solid #dee2e6;
+        border-top: none;
+        border-radius: 0 0 6px 6px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        display: none;
+        padding: 0;
+      }
+      .autocomplete-suggestion {
+        padding: 10px 14px;
+        cursor: pointer;
+        color: #333;
+        transition: background-color 0.2s ease;
+        font-size: 0.95rem;
+      }
+      .autocomplete-suggestion:hover {
+        background-color: #f0f4ff;
+      }
+      .autocomplete-suggestion mark {
+        background: none;
+        color: #5368fd;
+        font-weight: bold;
+      }
+    </style>
+</head>
+<body>
+    <header class="header fixed-top">
+      <div class="branding docs-branding">
+        <div class="container-fluid py-2">
+          <div class="row align-items-center">
+            <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+              <a class="navbar-brand" href="index-ar.html">
+                <div class="site-logo">
+                  <img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height: 60px;">
+                </div>
+              </a>
+            </div>
+            <div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+              <form class="search-form position-relative d-flex justify-content-center">
+                <div class="position-relative w-75 autocomplete-container">
+                  <input type="text" placeholder="ابحث في التوثيق..." name="search" class="form-control search-input pe-5">
+                  <div class="autocomplete-suggestions"></div>
+                  <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+                    <i class="fa-light fa-magnifying-glass text-muted"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center gap-2">
+              <button id="lang-toggle" onclick="toggleLanguage()">
+                <span class="lang-en">🇸🇦 العربية</span>
+                <span class="lang-ar">🇬🇧 English</span>
+              </button>
+              <a href="#" class="btn btn-primary d-none d-lg-flex">تحميل</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="docs-wrapper">
+      <div class="social-sidebar d-none d-lg-flex">
+        <ul class="social-sidebar">
+          <li><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+          <li><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+          <li><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+          <li><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+        </ul>
+      </div>
+
+      <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+        <div class="top-search-box">
+          <form class="search-form">
+            <div class="position-relative w-100 autocomplete-container">
+              <input type="text" class="form-control search-input rounded-top" placeholder="ابحث في التوثيق...">
+              <div class="autocomplete-suggestions"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="docs-sidebar" class="docs-sidebar">
+        <nav id="docs-nav" class="docs-nav navbar">
+          <ul class="section-items list-unstyled nav flex-column pb-3">
+            <li class="nav-item section-title">
+              <a class="nav-link scrollto active" href="#section-1">
+                <span class="theme-icon-holder me-2"><i class="fab fa-whatsapp"></i></span>واتساب الذكي
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">نظرة عامة</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">مسار المحادثة</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-2">
+                <span class="theme-icon-holder me-2"><i class="fas fa-cogs"></i></span>الطلب عبر المحادثة
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">بدء محادثة واتساب الذكي</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">اختيار أصناف القائمة</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-3">
+                <span class="theme-icon-holder me-2"><i class="fas fa-cogs"></i></span>التكاملات والميزات
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">التفاعل ثنائي اللغة</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">نقطة البيع (POS)</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-3">تكامل الدفع</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-4">
+                <span class="theme-icon-holder me-2"><i class="fas fa-cogs"></i></span>الخاتمة
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="docs-content">
+        <div class="container">
+
+          <article class="docs-article" id="section-1">
+            <header class="docs-header">
+              <h1 class="docs-heading">واتساب الذكي</h1>
+            </header>
+
+            <section class="docs-section" id="item-1-1">
+              <h2 class="section-heading">نظرة عامة</h2>
+              <div class="container my-4">
+                <p>
+                  واتساب الذكي (Smart WhatsApp) هو حل للطلب عبر المحادثة يتكامل مباشرة مع واتساب، ويتيح للعملاء التفاعل مع المطعم أو العلامة التجارية من خلال واجهة محادثة بسيطة. بدلًا من تصفح قائمة ويب أو تنزيل تطبيق، يمكن للعملاء تقديم طلباتهم والحصول على الدعم وتتبع التحديثات عبر المنصة نفسها التي يستخدمونها يوميًا.
+                </p>
+                <p>
+                  يعمل الحل على أتمتة تصفح القائمة وتقديم الطلب واختيار التوصيل أو الاستلام ومعالجة الدفع وتحديثات الحالة في الوقت الفعلي. ومن خلال الاتصال السلس بنظام نقطة البيع (POS) وأنظمة المكتب الخلفي، يضمن واتساب الذكي الدقة والسرعة والراحة مع الإبقاء على تجربة محادثة طبيعية بالكامل للعملاء.
+                </p>
+                <p>
+                  وإلى جانب الطلب، يتيح واتساب الذكي أيضًا البيع الإضافي المخصص وأتمتة دعم العملاء والتعامل الآمن مع المدفوعات وبيانات العملاء. وهذا يجعله أداة تجارة محادثية متكاملة تناسب العادات اليومية للعملاء.
+                </p>
+              </div>
+            </section>
+
+            <section class="docs-section" id="item-1-2">
+              <h2 class="section-heading">مسار المحادثة</h2>
+              <div class="container my-4">
+                <div class="row align-items-center">
+                  <div class="col-lg-7 col-md-12">
+                    <p>
+                      يرشد روبوت واتساب الذكي العملاء عبر مسار محادثة منظم يعكس عملية الطلب بصيغة محادثة طبيعية. وتشمل الخطوات ما يلي:
+                    </p>
+                    <ul>
+                      <li><strong>الترحيب:</strong> يرحب الروبوت بالعميل ويعرض فئات القائمة المتاحة.</li>
+                      <li><strong>اختيار المنتج:</strong> يتصفح العملاء أصناف القائمة ويختارون التخصيصات ويؤكدون الكمية.</li>
+                      <li><strong>البيع الإضافي:</strong> يقترح الروبوت منتجات مكملة أو عروضًا ترويجية.</li>
+                      <li><strong>التوصيل أو الاستلام:</strong> يطلب الروبوت موقع العميل (للتوصيل) أو يعرض خيارات الفروع (للاستلام).</li>
+                      <li><strong>الدفع:</strong> يُنشئ الروبوت رابط دفع آمنًا أو يؤكد خيارات الدفع عند الاستلام.</li>
+                      <li><strong>تتبع الطلب:</strong> يتلقى العملاء إشعارات مثل «Order confirmed» و«In preparation» و«Out for delivery».</li>
+                    </ul>
+                    <p>
+                      يقلل هذا الهيكل المحادثي الجهد على العميل ويجعل تجربة الطلب أسرع وأكثر سهولة مقارنة بالأساليب التقليدية.
+                    </p>
+                  </div>
+                  <div class="col-lg-5 col-md-12 text-center">
+                    <img src="assets/images/Smart-WhatsApp.png"
+                         alt="كيف يعمل"
+                         class="img-thumbnail shadow-sm zoom-effect"
+                         style="max-width: 500px; width: 100%;">
+                  </div>
+                </div>
+              </div>
+            </section>
+          </article>
+
+          <article class="docs-article" id="section-2">
+            <header class="docs-header"><h1 class="docs-heading">الطلب عبر المحادثة</h1></header>
+
+            <section class="docs-section" id="item-2-1">
+              <h2 class="section-heading">بدء محادثة واتساب الذكي</h2>
+              <div class="container my-4">
+                <div class="row align-items-center">
+                  <div class="col-lg-7 col-md-12">
+                    <p>
+                      تبدأ عملية الطلب عندما يبدأ العميل محادثة مع رقم واتساب الرسمي للمطعم.
+                      وعند استلام الرسالة الأولى، يتعرف روبوت واتساب الذكي تلقائيًا على النية ويشغّل مسار الإعداد الأولي.
+                      ويرحب بالمستخدم برسالة ترحيب مخصصة قد تتضمن اسم المطعم والعروض الحالية ومقدمة قصيرة للخدمات المتاحة (مثل «Order Delivery» أو «Self Pickup» أو «Track Order»).
+                    </p>
+                    <p>
+                      يستفيد الروبوت من إطار الرسائل التفاعلية في واتساب لضمان تجربة موجهة وسهلة لجميع شرائح العملاء، بما في ذلك من هم أقل دراية بالطلب عبر الإنترنت.
+                    </p>
+                    <p>
+                      خلف الكواليس، يتواصل الروبوت مع <strong>نظام نقطة البيع (POS)</strong> أو <strong>واجهة قائمة API</strong> لجلب أحدث فئات القائمة والمنتجات المميزة والعروض ديناميكيًا.
+                      وهذا يضمن أن كل مستخدم يحصل دائمًا على بيانات دقيقة ومتزامنة مع المخزون الحالي والأسعار والعروض الموسمية.
+                    </p>
+                    <p>
+                      تتم معالجة كل رسالة واردة من المستخدم عبر محلل نية المحادثة، الذي يتحقق من السياق ويحافظ على حالة المحادثة.
+                      وهذا يمكّن الروبوت من استئناف الطلبات غير المكتملة والتعرف على العملاء العائدين والمتابعة بسلاسة من حيث توقفت آخر تفاعل.
+                      على سبيل المثال، إذا أضاف العميل أصنافًا سابقًا دون إتمام الدفع، يمكن للروبوت أن يسأل تلقائيًا: «Would you like delivery or pickup ?» للمتابعة إلى إتمام الطلب.
+                    </p>
+                    <p>
+                      تنتهي المرحلة الأولى بمجرد اختيار العميل فئة قائمة مفضلة أو بدء تصفح الأصناف.
+                      ويقلل مسار البدء المنظم هذا الاحتكاك ويزيد التفاعل ويضمن تبادل بيانات متسقًا بين واجهة الروبوت وواجهة واتساب API ومحرك الطلب في الخلفية.
+                    </p>
+                  </div>
+                  <div class="col-lg-5 col-md-12 text-center">
+                    <img src="assets/images/smart-whatsapp-ask.png"
+                         alt="سؤال واتساب الذكي"
+                         class="img-thumbnail shadow-sm zoom-effect"
+                         style="max-width: 250px; width: 100%; cursor: pointer;"
+                         data-bs-toggle="modal"
+                         data-bs-target="#imageModal1">
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="item-2-2">
+              <h2 class="section-heading">اختيار أصناف القائمة</h2>
+              <div class="container my-4">
+                <div class="row align-items-center">
+                  <div class="col-lg-7 col-md-12">
+                    <p>
+                      بمجرد عرض القائمة الرقمية داخل محادثة واتساب، يمكن للعملاء اختيار الأصناف باستخدام مدخلات محددة مسبقًا مثل الردود الرقمية أو التفاعلات عبر الأزرار.
+                      وتحمّل كل صنف تفاصيله ديناميكيًا، بما في ذلك اسم المنتج والوصف والسعر الأساسي والأحجام المتاحة والإضافات وخيارات المعدّلات.
+                      وتُجلب هذه التفاصيل مباشرة من نظام نقطة البيع أو إدارة القائمة المتكامل عبر استدعاءات API آمنة، مما يضمن التزامن بين القوائم داخل المتجر والرقمية.
+                    </p>
+                    <p>
+                      بعد إتمام الاختيار، يستجيب الروبوت في الوقت الفعلي بمطالبات سياقية لتحسين الطلب.
+                      على سبيل المثال، قد يسأل: «Would you like to add a drink?» أو «Add extra cheese for 7 ?» أو «Select drink size: Small, Medium, or Large.»
+                      وتعتمد هذه الخطوة على منطق البيع الإضافي، وهو نموذج توصية داخلي يضبطه مسؤول المطعم ويعزز بذكاء الأصناف المكملة أو ذات الهامش الأعلى استنادًا إلى قواعد الفئات وتفضيلات العملاء.
+                    </p>
+                    <p>
+                      بعد اكتمال الطلب، يعرض الروبوت <strong>ملخص الطلب</strong> الذي يُظهر جميع الأصناف المختارة والكميات والمجموع الفرعي.
+                    </p>
+                  </div>
+                  <div class="col-lg-5 col-md-12 text-center">
+                    <img src="assets/images/smart-whatsapp-menu.png"
+                         alt="قائمة واتساب الذكي"
+                         class="img-thumbnail shadow-sm zoom-effect"
+                         style="max-width: 250px; width: 100%; cursor: pointer;"
+                         data-bs-toggle="modal"
+                         data-bs-target="#imageModal2">
+                  </div>
+                </div>
+
+                <div class="row align-items-center mt-4">
+                  <div class="col-lg-7 col-md-12">
+                    <p>
+                      في هذه المرحلة، يتيح الروبوت أيضًا للمستخدمين عرض <strong>المعلومات الغذائية</strong> مثل عدد السعرات الحرارية أو مسببات الحساسية أو قوائم المكونات (عند تهيئتها في بيانات القائمة).
+                      وتحسّن هذه الميزة الشفافية والامتثال لمعايير وسم الأغذية، مع تعزيز تجربة المستخدم.
+                    </p>
+                    <p>
+                      وبمجرد رضا العميل عن طلبه، يُطلب منه إما مواصلة التسوق أو الانتقال إلى الدفع.
+                      ويؤدي اختيار الدفع إلى الانتقال للمرحلة التالية للاختيار بين <strong>Delivery</strong> و<strong>Pickup</strong> حيث تتم معالجة التحقق من العنوان وتوفر الفرع وخيارات الدفع في الوقت الفعلي.
+                    </p>
+                  </div>
+                </div>
+                <br>
+                <br>
+
+                <div class="container my-4">
+                  <p>عند اختيار العميل خيار Pickup، يطلب منه روبوت واتساب الذكي إدخال موقع الاستلام أو الفرع المفضل. وبمجرد تقديم الموقع، يتحقق النظام من توفر الفرع في الوقت الفعلي ويؤكد تفاصيل الطلب. ثم يُنشئ الروبوت ملخص فاتورة واضحًا يسرد جميع الأصناف المطلوبة مع أسعارها الفردية، يليه المجموع الفرعي والضريبة المضافة (VAT)، وصولًا إلى إجمالي المبلغ المستحق. ويتلقى المستخدم رسالة تأكيد تتضمن تعليمات الاستلام ورقم الطلب لسرعة الاستلام داخل المتجر.</p>
+                  <br>
+
+                  <div class="row align-items-center my-4">
+                    <div class="col-lg-6 col-md-12 text-center">
+                      <img src="assets/images/chatbot-pickup.png" alt="طلب استلام"
+                           class="shadow-sm zoom-effect"
+                           style="max-height: 350px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+                      <div class="mt-2 text-muted">طلب استلام</div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 text-center">
+                      <img src="assets/images/chatbot-pickup-invoice.png" alt="فاتورة طلب الاستلام"
+                           class="shadow-sm zoom-effect"
+                           style="max-height: 350px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+                      <div class="mt-2 text-muted">فاتورة طلب الاستلام</div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <br>
+
+                <div class="container my-4">
+                  <p>إذا اختار العميل خيار Delivery، يطلب الروبوت موقع التوصيل ويستخدم الوصول إلى GPS (إن كان مفعّلًا) لضمان دقة العنوان. وبعد تأكيد عنوان التوصيل، يجمع الروبوت ويرسل فاتورة الطلب النهائية التي تُظهر سعر كل صنف والمجموع الفرعي والضريبة المطبقة ورسوم التوصيل المضافة. ثم يُعرض إجمالي المبلغ المستحق بوضوح قبل الدفع. ويتلقى العميل رسالة تأكيد تلخص عنوان التوصيل وتفاصيل الدفع والوقت المتوقع للتوصيل.</p>
+                  <br>
+
+                  <div class="row align-items-center my-4">
+                    <div class="col-lg-6 col-md-12 text-center">
+                      <img src="assets/images/chatbot-delivery.png" alt="طلب توصيل"
+                           class="shadow-sm zoom-effect"
+                           style="max-height: 350px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+                      <div class="mt-2 text-muted">طلب توصيل</div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 text-center">
+                      <img src="assets/images/chatbot-delivery-invoice.png" alt="فاتورة طلب التوصيل"
+                           class="shadow-sm zoom-effect"
+                           style="max-height: 350px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+                      <div class="mt-2 text-muted">فاتورة طلب التوصيل</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </section>
+          </article>
+
+          <article class="docs-article" id="section-3">
+            <header class="docs-header"><h1 class="docs-heading">التكاملات والميزات</h1></header>
+
+            <section class="docs-section" id="item-3-1">
+              <h2 class="section-heading">التفاعل ثنائي اللغة</h2>
+              <div class="container my-4">
+                <div class="row align-items-center">
+                  <div class="col-lg-7 col-md-12">
+                    <ul>
+                      <li>يدعم مسارات عمل كاملة بالعربية والإنجليزية.</li>
+                      <li>يحدث اكتشاف اللغة عند أول إدخال من العميل.</li>
+                      <li>تتم ترجمة جميع القوالب وأسماء المنتجات والتعليمات تلقائيًا.</li>
+                      <li>يمكن للعملاء تبديل اللغة أثناء المحادثة باستخدام كلمة مفتاحية.</li>
+                    </ul>
+                    <div class="col-12 text-center mt-4">
+                      <img id="workflowImage"
+                           src="assets/images/arabic-chat-chatbot.png"
+                           alt="محادثة ثنائية اللغة"
+                           class="shadow-sm zoom-effect"
+                           style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+                      <div class="mt-2 text-muted">محادثة ثنائية اللغة</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="item-3-2">
+              <h2 class="section-heading">نقطة البيع (POS)</h2>
+              <div class="container my-4">
+                <div class="row justify-content-center">
+                  <div class="row align-items-center">
+                    <div class="col-lg-7 col-md-12">
+                      <ul>
+                        <li><strong>التزامن المباشر مع نقطة البيع يلغي إدخال البيانات يدويًا.</strong></li>
+                        <p>تُنقل جميع تفاصيل الطلب، بما في ذلك الأصناف والمعدّلات والمجاميع، تلقائيًا إلى نظام نقطة البيع في الوقت الفعلي، مما يقلل الأخطاء البشرية ويحسّن سرعة التشغيل.</p>
+                        <br>
+                        <li><strong>تظل القائمة والأسعار والعروض محدّثة دائمًا</strong></li>
+                        <p>نظرًا لأنها تُسحب ديناميكيًا من قاعدة بيانات نقطة البيع. وأي تغيير يُجرى في نقطة البيع، مثل تحديث أسعار المنتجات أو تفعيل عروض محدودة المدة، ينعكس فورًا في واجهة الروبوت.</p>
+                        <br>
+                        <li><strong>تسجيل الطلب تلقائيًا وإنشاء التذكرة.</strong></li>
+                        <p>بمجرد تأكيد العميل للطلب عبر واتساب الذكي، يُسجَّل تلقائيًا في نظام نقطة البيع وتُنشأ تذكرة طلب رقمية لتحضير المطبخ أو الباريستا دون تدخل يدوي.</p>
+                        <br>
+                        <li><strong>تتبع متكامل للمخزون والمخزون المتاح.</strong></li>
+                        <p>يتواصل نظام نقطة البيع مجددًا مع واتساب الذكي لتحديث توفر الأصناف ومنع العملاء من طلب منتجات غير متوفرة.</p>
+                        <br>
+                      </ul>
+                    </div>
+                    <br>
+                    <div class="col-12 text-center mt-4">
+                      <img id="workflowImage"
+                           src="assets/images/online-orders-chatbot.png"
+                           alt="طلبات أونلاين عبر نقطة البيع"
+                           class="shadow-sm zoom-effect"
+                           style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+                      <div class="mt-2 text-muted">طلبات أونلاين عبر نقطة البيع</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="item-3-3">
+              <h2 class="section-heading">تكامل الدفع</h2>
+              <div class="container my-4">
+                <div class="row align-items-center">
+                  <div class="col-lg-7 col-md-12">
+                    <ul>
+                      <li>يمكن تفعيل بوابات دفع متعددة (بطاقة ائتمان، محفظة، الدفع عند الاستلام).</li>
+                      <li>تتم مطابقة المدفوعات تلقائيًا في نقطة البيع لضمان سجلات مالية دقيقة.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </article>
+
+          <article class="docs-article" id="section-4">
+            <header class="docs-header"><h1 class="docs-heading">الخاتمة</h1></header>
+            <div class="container my-4">
+              <p>
+                يعيد <strong>روبوت الطلب عبر واتساب الذكي</strong> تعريف طريقة تفاعل العملاء مع المطاعم والعلامات التجارية من خلال دمج بساطة مراسلة واتساب مع قوة الأتمتة الرقمية المتكاملة. ومن خلال الطلب المحادثي والتزامن في الوقت الفعلي مع <strong>نظام نقطة البيع (POS)</strong> وتكامل الدفع الآمن، يقدّم تجربة سلسة ومألوفة وفعّالة للعملاء والموظفين على حد سواء.
+              </p>
+              <p>
+                وبما أنه مصمم لتقليل العبء اليدوي وتعزيز تفاعل العملاء، يقوم واتساب الذكي بأتمتة كل مرحلة من رحلة الطلب، من الترحيب وتصفح القائمة إلى الدفع والتنفيذ. ويضمن اتساق البيانات عبر المنصات، ويقلل أخطاء التشغيل، ويتيح للشركات إدارة أحجام طلبات مرتفعة بدقة وسرعة أكبر.
+              </p>
+              <p>
+                وكجزء من منظومة Smart Retail، لا يقتصر هذا الحل على تحسين تجربة العميل فحسب، بل يوفّر أيضًا رؤى قيّمة عبر التحليلات المتكاملة وتتبع الأداء. ومع الدعم متعدد اللغات والتهيئة المرنة والواجهة سهلة الاستخدام، يُعد واتساب الذكي أداة قابلة للتوسع وجاهزة للمستقبل تربط بين التواصل والتجارة.
+              </p>
+              <p>
+                باختصار، يحوّل واتساب الذكي محادثة بسيطة إلى واجهة متجر رقمية متكاملة، مما يتيح خدمة أسرع وتشغيلًا أذكى وروابط أقوى مع العملاء في أي وقت ومن أي مكان.
+              </p>
+            </div>
+          </article>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const zoomImages = document.querySelectorAll('.zoom-effect');
+
+    zoomImages.forEach(function (img) {
+      img.addEventListener('click', function () {
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = this.src;
+
+        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        imageModal.show();
+      });
+    });
+  });
+</script>
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center">
+        <img id="modalImage" src="#" alt="مكبّر" class="img-fluid rounded">
+      </div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const input = document.querySelector('.search-input');
+  const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link'));
+
+  if (!input) return;
+
+  const container = input.closest('.autocomplete-container');
+  const suggestionsBox = document.createElement('div');
+  suggestionsBox.className = 'autocomplete-suggestions';
+  container.appendChild(suggestionsBox);
+
+  input.addEventListener('input', function () {
+    const val = this.value.trim().toLowerCase();
+    suggestionsBox.innerHTML = '';
+
+    if (!val) {
+      suggestionsBox.style.display = 'none';
+      return;
+    }
+
+    navLinks.forEach(link => {
+      const text = link.textContent.trim();
+      const lowerText = text.toLowerCase();
+
+      if (lowerText.includes(val)) {
+        const option = document.createElement('div');
+        option.className = 'autocomplete-suggestion';
+
+        const index = lowerText.indexOf(val);
+        const highlighted =
+          index !== -1
+          ? text.substring(0, index) +
+          `<mark class="bg-transparent text-primary fw-bold">` +
+            text.substring(index, index + val.length) +
+            '</mark>' +
+            text.substring(index + val.length)
+            : text;
+
+        option.innerHTML = highlighted;
+        option.addEventListener('click', () => {
+          window.location.href = link.href;
+        });
+
+        suggestionsBox.appendChild(option);
+      }
+    });
+
+    suggestionsBox.style.display = suggestionsBox.children.length ? 'block' : 'none';
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!suggestionsBox.contains(e.target) && e.target !== input) {
+      suggestionsBox.innerHTML = '';
+      suggestionsBox.style.display = 'none';
+    }
+  });
+});
+</script>
+
+    <footer class="footer">
+      <div class="footer-bottom text-center py-5">
+        <ul class="social-list list-unstyled pb-4 mb-0">
+          <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+        </ul>
+        <small class="copyright">© Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> جميع الحقوق محفوظة.</small>
+      </div>
+    </footer>
+
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script>
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script>
+    <script src="assets/js/docs.js"></script>
+    <script src="assets/js/lang.js"></script>
+</body>
+</html>

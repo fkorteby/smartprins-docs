@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-lang-en="cloud-administration.html" data-lang-ar="cloud-administration-ar.html">
+<head>
+    <title>Smart Prints - الإدارة السحابية</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="دليل استخدام لوحة الإدارة السحابية Smart Restaurant لإدارة عمليات المطعم من السحابة">
+    <meta name="author" content="SmartPrints Team">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+    <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+    <script>
+      (function () {
+        var l = localStorage.getItem("sp_lang");
+        if (l) {
+          document.documentElement.lang = l;
+          document.documentElement.dir = l === "ar" ? "rtl" : "ltr";
+        }
+      })();
+    </script>
+    <style>
+      .zoom-effect {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .zoom-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      .doc-image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      .doc-image-card {
+        margin: 0;
+        text-align: center;
+      }
+      .doc-image-card img {
+        width: 100%;
+        max-height: 320px;
+        object-fit: contain;
+        background: #fff;
+        cursor: pointer;
+      }
+      .doc-image-card figcaption {
+        margin-top: 0.75rem;
+        font-size: 0.95rem;
+        color: #5d6778;
+      }
+      #lang-toggle {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border: 2px solid #5368fd;
+        background: transparent;
+        color: #5368fd;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+      }
+      #lang-toggle:hover {
+        background: #5368fd;
+        color: #fff;
+      }
+      html[lang="ar"] .lang-en {
+        display: none !important;
+      }
+      html[lang="en"] .lang-ar {
+        display: none !important;
+      }
+      html[lang="ar"] body {
+        font-family: "Tajawal", sans-serif;
+      }
+      html[lang="ar"] .docs-sidebar {
+        left: auto !important;
+        right: 0 !important;
+      }
+      html[lang="ar"] .docs-content {
+        margin-left: 0 !important;
+        margin-right: 300px !important;
+      }
+      html[lang="ar"] .docs-content .container {
+        direction: rtl;
+        text-align: right;
+      }
+      html[lang="ar"] .docs-nav {
+        direction: rtl;
+        text-align: right;
+      }
+      html[lang="ar"] .social-sidebar {
+        left: 0 !important;
+        right: auto !important;
+      }
+      html[lang="ar"] .docs-branding .row {
+        flex-direction: row-reverse;
+      }
+      html[lang="ar"] .navbar-brand {
+        margin-right: 0;
+        margin-left: 1rem;
+      }
+      html[lang="ar"] #docs-nav .nav-link::before {
+        left: auto !important;
+        right: 0 !important;
+      }
+      .autocomplete-container {
+        position: relative;
+        width: 100%;
+      }
+      .step-page {
+        display: none;
+      }
+      .step-page.active-step {
+        display: block;
+      }
+      .step-navigation {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 32px;
+        padding-top: 24px;
+        border-top: 1px solid #e9ecef;
+      }
+      .step-navigation-spacer {
+        flex: 1;
+      }
+      .step-nav-btn {
+        min-width: 210px;
+      }
+      @media (max-width: 767.98px) {
+        .step-navigation {
+          flex-direction: column;
+        }
+        .step-nav-btn {
+          width: 100%;
+        }
+      }
+      .autocomplete-suggestions {
+        position: absolute;
+        top: 100%;
+        left: 2px;
+        right: 2px;
+        background: #fff;
+        z-index: 1050;
+        max-height: 240px;
+        overflow-y: auto;
+        border: 1px solid #dee2e6;
+        border-top: none;
+        border-radius: 0 0 6px 6px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        display: none;
+        padding: 0;
+      }
+      .autocomplete-suggestion {
+        padding: 10px 14px;
+        cursor: pointer;
+        color: #333;
+        transition: background-color 0.2s ease;
+        font-size: 0.95rem;
+      }
+      .autocomplete-suggestion:hover {
+        background-color: #f0f4ff;
+      }
+      .autocomplete-suggestion mark {
+        background: none;
+        color: #5368fd;
+        font-weight: bold;
+      }
+    </style>
+</head>
+<body>
+    <header class="header fixed-top">
+      <div class="branding docs-branding">
+        <div class="container-fluid py-2">
+          <div class="row align-items-center">
+            <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+              <a class="navbar-brand" href="index-ar.html">
+                <div class="site-logo">
+                  <img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height: 60px;">
+                </div>
+              </a>
+            </div>
+            <div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+              <form class="search-form position-relative d-flex justify-content-center">
+                <div class="position-relative w-75 autocomplete-container">
+                  <input type="text" placeholder="ابحث في التوثيق..." name="search" class="form-control search-input pe-5">
+                  <div class="autocomplete-suggestions"></div>
+                  <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+                    <i class="fa-light fa-magnifying-glass text-muted"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center gap-2">
+              <button id="lang-toggle" onclick="toggleLanguage()">
+                <span class="lang-en">🇸🇦 العربية</span>
+                <span class="lang-ar">🇬🇧 English</span>
+              </button>
+              <a href="#" class="btn btn-primary d-none d-lg-flex">تحميل</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="docs-wrapper">
+      <div class="social-sidebar d-none d-lg-flex">
+        <ul class="social-sidebar">
+          <li><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+          <li><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+          <li><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+          <li><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+        </ul>
+      </div>
+
+      <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+        <div class="top-search-box">
+          <form class="search-form">
+            <div class="position-relative w-100 autocomplete-container">
+              <input type="text" class="form-control search-input rounded-top" placeholder="ابحث في التوثيق...">
+              <div class="autocomplete-suggestions"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="docs-sidebar" class="docs-sidebar">
+        <nav id="docs-nav" class="docs-nav navbar">
+          <ul class="section-items list-unstyled nav flex-column pb-3">
+            <li class="nav-item section-title">
+              <a class="nav-link scrollto active" href="#section-1">
+                <span class="theme-icon-holder me-2"><i class="fas fa-cloud"></i></span>الإدارة
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">نظرة عامة</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">تسجيل الدخول</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3">تسجيل الخروج</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-2">
+                <span class="theme-icon-holder me-2"><i class="fas fa-chart-pie"></i></span>لوحة التحكم
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">لوحة التحكم</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-3">
+                <span class="theme-icon-holder me-2"><i class="fas fa-utensils"></i></span>المطبخ
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">المطبخ</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-4">
+                <span class="theme-icon-holder me-2"><i class="fas fa-store-alt"></i></span>العميل
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">العميل</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-5">
+                <span class="theme-icon-holder me-2"><i class="fas fa-globe"></i></span>أونلاين
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">أونلاين</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-6">
+                <span class="theme-icon-holder me-2"><i class="fas fa-bars"></i></span>القائمة
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-6-1">القائمة</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-7">
+                <span class="theme-icon-holder me-2"><i class="fas fa-sliders-h"></i></span>التخصيص
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-7-1">التخصيص</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-8">
+                <span class="theme-icon-holder me-2"><i class="fas fa-bullhorn"></i></span>التسويق
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-8-1">التسويق</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-9">
+                <span class="theme-icon-holder me-2"><i class="fas fa-chart-bar"></i></span>التقارير
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-9-1">التقارير</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="docs-content">
+        <div class="container">
+          <article class="docs-article step-page" id="section-1" data-step-title="Overview">
+            <header class="docs-header">
+              <h1 class="docs-heading">إدارة المطعم الذكي <span class="docs-time">آخر تحديث: 13 أبريل 2026</span></h1>
+              <section class="docs-intro">
+                <p>دليل الإدارة السحابية</p>
+                <p>لوحة Smart Restaurant Administration هي مركزك الرئيسي لإدارة جميع جوانب عمليات مطعمك من السحابة.</p>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/overview.png" alt="نظرة عامة على إدارة المطعم" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>نظرة عامة على مساحة عمل إدارة المطعم الذكي.</figcaption>
+                </figure>
+              </section>
+            </header>
+            <section class="docs-section" id="item-1-1">
+              <h2 class="section-heading">نظرة عامة</h2>
+              <p>تتكون من الأقسام التالية التي يمكن الوصول إليها من الشريط الجانبي الأيسر: Dashboard، Kitchen، Admin Chat، Client، Online، Marketing، POS، Menu، Inventory، Customization، و Reporting.</p>
+            </section>
+            <section class="docs-section" id="item-1-2">
+              <h2 class="section-heading">تسجيل الدخول</h2>
+              <p>افتح صفحة تسجيل الدخول إلى Smart Kiosk Administration. تعرض الشاشة العنوان <strong>"Welcome back!"</strong> مع عنوان فرعي يطلب منك إدخال اسم المستخدم وكلمة المرور للوصول إلى لوحة الإدارة.</p>
+              <p>املأ الحقلين كما يلي:</p>
+              <ul>
+                <li>Email Address - أدخل اسم المستخدم أو البريد الإلكتروني المخصص لك</li>
+                <li>Password - أدخل كلمة المرور الآمنة الخاصة بك</li>
+              </ul>
+              <p>يمكنك تحديد <strong>Remember me</strong> للبقاء مسجّل الدخول على هذا الجهاز. أكمل التحقق reCAPTCHA بتحديد مربع <strong>"I'm not a robot"</strong>، ثم انقر زر <strong>Log In</strong> الأزرق.</p>
+              <p>عند نجاح تسجيل الدخول، ستنتقل إلى لوحة تحكم Smart Restaurant Administration.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Restaurant-administration/loginh.png" alt="شاشة تسجيل الدخول للإدارة السحابية" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>صفحة تسجيل الدخول للوصول إلى لوحة الإدارة.</figcaption>
+              </figure>
+            </section>
+            <section class="docs-section" id="item-1-3">
+              <h2 class="section-heading">تسجيل الخروج</h2>
+              <p>لتسجيل الخروج، حدد ملفك الشخصي في الزاوية العلوية اليسرى من الشريط الجانبي حيث يظهر اسمك وتسمية <strong>CLIENT MANAGER</strong>. انقر سهم القائمة المنسدلة الصغير بجانب اسمك. تظهر قائمة بثلاثة خيارات: Edit Account، Support، و Logout. انقر <strong>Logout</strong> لإنهاء جلستك.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Restaurant-administration/log-out.png" alt="تسجيل الخروج من الإدارة السحابية" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>قائمة الملف الشخصي المنسدلة مع إجراء تسجيل الخروج.</figcaption>
+              </figure>
+            </section>
+            <div class="step-navigation">
+              <span class="step-navigation-spacer"></span>
+              <a class="btn btn-primary step-nav-btn" href="#section-2">الخطوة التالية: لوحة التحكم</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-2" data-step-title="Dashboard">
+            <header class="docs-header">
+              <h1 class="docs-heading">3. لوحة التحكم</h1>
+            </header>
+            <section class="docs-section" id="item-2-1">
+              <p>لوحة التحكم (Dashboard) هي أول شاشة تراها بعد تسجيل الدخول. تمنحك نظرة فورية على أداء عملك.</p>
+              <p>يحتوي الشريط العلوي على اليمين على ثلاثة أزرار تصفية: <strong>Select Branch</strong>، و<strong>Select Kiosk</strong>، و<strong>Select Source</strong>، لتضييق البيانات المعروضة عبر لوحة التحكم بالكامل.</p>
+              <p>تحتوي منطقة المحتوى الرئيسية على ما يلي:</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/dashbiard.png" alt="لوحة تحكم الإدارة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>لوحة التحكم الرئيسية مع بطاقات مؤشرات الأداء والفلاتر ولوحات الملخص.</figcaption>
+                </figure>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>المنطقة</th>
+                      <th>الوصف</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>KPI Cards</td><td>أربع بطاقات تعرض Today Revenue و Total Revenue و Today Orders و Total Orders. تعرض كل بطاقة القيمة الحالية مع مؤشر اتجاه بالنسبة المئوية.</td></tr>
+                    <tr><td>Overview Panel</td><td>يعرض Total Installed Kiosks و Average Revenue Per Kiosk بالريال السعودي، و Average Order Time بتنسيق HH:MM:SS.</td></tr>
+                    <tr><td>Revenue Chart</td><td>مخطط خطي يعرض الإيرادات عبر الزمن مع فلاتر 7D و 15D و 1M و 3M.</td></tr>
+                    <tr><td>Revenue By Month</td><td>مخطط ثانوي يعرض اتجاهات الإيرادات الشهرية مع فلاتر 6M و 1Y و 2Y.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>بالتمرير لأسفل تظهر مخططات إضافية تشمل Revenue By Products كمخطط دائري، ومخطط شريطي للطلبات Orders، و Revenue By Branch، ورسم Orders Durations. يوجد على اليمين جدول تفصيلي للطلبات يسرد المعاملات الأخيرة مع الفرع والمدة والإجمالي وزر عرض.</p>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-1">السابق: الإدارة</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-3">الخطوة التالية: المطبخ</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-3" data-step-title="Kitchen">
+            <header class="docs-header">
+              <h1 class="docs-heading">4. المطبخ</h1>
+            </header>
+            <section class="docs-section" id="item-3-1">
+              <p>يتصل قسم Kitchen بتطبيق Smart Kitchen App الذي يعرض الطلبات المباشرة على شاشات المطبخ. تنظّم شاشة المطبخ الطلبات في أربع علامات تبويب في الأعلى: <strong>Placed</strong> و <strong>Active</strong> و <strong>Hold</strong> و <strong>History</strong>، مع شارة عدّ لكل منها.</p>
+              <p>تعرض كل بطاقة طلب رقم الطلب والعناصر مع خياراتها المحددة بالإنجليزية والعربية، وأربعة أزرار إجراءات في الأسفل: <strong>Queued</strong> و <strong>Hold</strong> و <strong>Print</strong> و <strong>Abort</strong>. تعرض البطاقة أيضاً وقت Order at وتاريخ Pickup والحالة Status ومؤقت Delayed By. تظهر قائمة Select Table في أعلى اليمين، مع ساعة مباشرة في الزاوية العلوية اليمنى.</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/kitchen.png" alt="نظرة عامة على شاشة المطبخ" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>نقطة الدخول لقسم المطبخ داخل الإدارة.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/kitchen-details.png" alt="تفاصيل طلب المطبخ" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>بطاقات طلبات المطبخ التفصيلية مع الإجراءات وتوقيت الحالة.</figcaption>
+                </figure>
+              </div>
+              <div class="alert alert-info" role="alert">
+                للحصول على دليل مخصص كامل لتطبيق المطبخ، راجع دليل مستخدم Kitchen App.
+              </div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-2">السابق: لوحة التحكم</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-4">الخطوة التالية: العميل</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-4" data-step-title="Client">
+            <header class="docs-header">
+              <h1 class="docs-heading">5. العميل</h1>
+            </header>
+            <section class="docs-section" id="item-4-1">
+              <h2 class="section-heading">5.1 الفروع</h2>
+              <p>انتقل إلى <strong>Client -&gt; Branches</strong> لعرض وإدارة جميع مواقع مطعمك.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Restaurant-administration/client.png" alt="قائمة فروع العميل" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>قائمة الفروع داخل قسم Client.</figcaption>
+              </figure>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead><tr><th>العمود</th><th>الوصف</th></tr></thead>
+                  <tbody>
+                    <tr><td>Id</td><td>معرّف فريد للفرع</td></tr>
+                    <tr><td>Name</td><td>اسم الفرع بالإنجليزية</td></tr>
+                    <tr><td>Name Ar</td><td>اسم الفرع بالعربية</td></tr>
+                    <tr><td>Client</td><td>الشركة المرتبطة بالفرع</td></tr>
+                    <tr><td>City</td><td>المدينة التي يقع فيها الفرع</td></tr>
+                    <tr><td>Ref</td><td>رمز مرجعي داخلي للفرع</td></tr>
+                    <tr><td>Automation</td><td>يعرض Enabled بالأخضر أو Disabled بالأحمر</td></tr>
+                    <tr><td>Tables</td><td>يوضح ما إذا كانت إدارة الطاولات Enabled أو Disabled</td></tr>
+                    <tr><td>Status</td><td>ما إذا كان الفرع نشطاً أو غير نشط حالياً</td></tr>
+                    <tr><td>Actions</td><td>أيقونة زرقاء لعرض تفاصيل الفرع الكاملة</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <h2 class="section-heading">تفاصيل الفرع</h2>
+              <p>يؤدي النقر على الأيقونة الزرقاء لأي فرع إلى فتح نافذة Branch Details التي تعرض جميع حقول القائمة بالإضافة إلى المعلومات الإضافية التالية:</p>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead><tr><th>الحقل</th><th>الوصف</th></tr></thead>
+                  <tbody>
+                    <tr><td>Phone</td><td>رقم اتصال الفرع</td></tr>
+                    <tr><td>Address</td><td>العنوان الكامل للشارع</td></tr>
+                    <tr><td>Cancel Order From Kitchen</td><td>ما إذا كان إلغاء الطلب من المطبخ Enabled أو Disabled</td></tr>
+                    <tr><td>Integration</td><td>ما إذا كان التكامل الخارجي Enabled أو Disabled</td></tr>
+                    <tr><td>Map URL</td><td>رابط مباشر لخرائط Google لموقع الفرع</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>تُعرض خريطة Google مضمّنة أسفل التفاصيل تُظهر دبوس الفرع على الخريطة للرجوع السريع إلى الموقع.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Restaurant-administration/branch-details.png" alt="نافذة تفاصيل الفرع" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>نافذة Branch Details مع خريطة الموقع وإعدادات التشغيل.</figcaption>
+              </figure>
+              <h2 class="section-heading">5.2 الأجهزة</h2>
+              <p>انتقل إلى <strong>Client -&gt; Devices</strong> لعرض وإدارة جميع الأجهزة المتصلة عبر فروعك.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Restaurant-administration/devices.png" alt="قائمة الأجهزة المتصلة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>صفحة Devices تعرض تعيينات أجهزة الكiosk والتابلت والأونلاين.</figcaption>
+              </figure>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead><tr><th>العمود</th><th>الوصف</th></tr></thead>
+                  <tbody>
+                    <tr><td>ID</td><td>معرّف فريد للجهاز</td></tr>
+                    <tr><td>Name</td><td>اسم العرض أو تسمية الجهاز</td></tr>
+                    <tr><td>Ref</td><td>رمز مرجعي للسياق التنظيمي</td></tr>
+                    <tr><td>Model</td><td>طراز الجهاز أو مواصفات الإصدار</td></tr>
+                    <tr><td>Branch</td><td>الفرع المعيَّن له هذا الجهاز</td></tr>
+                    <tr><td>Type</td><td>نوع الجهاز: Kiosk أو Tablet أو Online</td></tr>
+                    <tr><td>Status</td><td>نشط (Enabled) أو غير نشط (Disabled)</td></tr>
+                    <tr><td>Sleep Mode</td><td>ما إذا كان الجهاز حالياً في وضع السكون</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-3">السابق: المطبخ</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-5">الخطوة التالية: أونلاين</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-5" data-step-title="Online">
+            <header class="docs-header">
+              <h1 class="docs-heading">6. أونلاين</h1>
+            </header>
+            <section class="docs-section" id="item-5-1">
+              <h2 class="section-heading">6.1 السائقون</h2>
+              <p>انتقل إلى <strong>Online -&gt; Drivers</strong> لإدارة سائقي التوصيل.</p>
+              <p>لإضافة سائق جديد، انقر <strong>+ Add Driver</strong>. يحتوي نموذج Add Driver على الحقول التالية:</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/drivers.png" alt="قائمة السائقين" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>قائمة السائقين لإدارة موظفي التوصيل النشطين.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/add-driver.png" alt="نموذج إضافة سائق" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>نموذج Add Driver مع تعيين الفرع وضوابط الحالة.</figcaption>
+                </figure>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead><tr><th>الحقل</th><th>التفاصيل</th></tr></thead>
+                  <tbody>
+                    <tr><td>Name *</td><td>الاسم الكامل للسائق (مثل Driver 1)</td></tr>
+                    <tr><td>Client *</td><td>اختر الشركة المرتبطة من القائمة المنسدلة</td></tr>
+                    <tr><td>Phone *</td><td>رقم اتصال السائق</td></tr>
+                    <tr><td>Status *</td><td>مفتاح لتفعيل أو تعطيل السائق</td></tr>
+                    <tr><td>Branches</td><td>اختر الفرع أو الفروع التي يخدمها هذا السائق</td></tr>
+                    <tr><td>Description</td><td>ملاحظات اختيارية عن السائق</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>انقر Submit للحفظ، أو Close للإلغاء.</p>
+              <h2 class="section-heading">6.2 الطلبات الأونلاين</h2>
+              <p>انتقل إلى <strong>Online -&gt; Online Orders</strong> لمراقبة جميع الطلبات المقدَّمة عبر القنوات الأونلاين.</p>
+              <p>يعرض شريط ملخص Total في الأعلى Number of Orders و Subtotal بالريال و VAT بالريال و Total بالريال. أسفل الملخص، تتيح لك أربع قوائم تصفية تضييق النتائج حسب Branch و Driver و Customer و Order Status.</p>
+              <p>يعرض جدول الطلبات الأعمدة التالية: Id و Branch و Date Order و Pickup Date و Date Dispatch و Table و Total و Driver و Status و Actions.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Restaurant-administration/add-customers.png" alt="الطلبات الأونلاين مع فلاتر العملاء" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>منطقة الطلبات الأونلاين مع أدوات تصفية العملاء والطلبات.</figcaption>
+              </figure>
+              <h2 class="section-heading">6.3 طلبات B2B</h2>
+              <p>انتقل إلى <strong>Online -&gt; B2B Orders</strong> لمراقبة معاملات الشركات إلى الشركات.</p>
+              <p>تتبع الصفحة نفس تخطيط Online Orders، مع شريط ملخص Total في الأعلى ونفس أربع قوائم التصفية. أعمدة الجدول هي: Id و Branch و Customer و Ticket و Date Order و Duration و Takeout و Subtotal و VAT و Total و Status.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Restaurant-administration/b2b-order.png" alt="صفحة طلبات B2B" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>صفحة B2B Orders لمعاملات الجملة والأعمال.</figcaption>
+              </figure>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-4">السابق: العميل</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-6">الخطوة التالية: القائمة</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-6" data-step-title="Menu">
+            <header class="docs-header">
+              <h1 class="docs-heading">7. القائمة</h1>
+            </header>
+            <section class="docs-section" id="item-6-1">
+              <p>قسم Menu مسؤول عن إدارة جميع المنتجات المباعة عبر أجهزتك. انتقل إلى <strong>Menu</strong> في الشريط الجانبي الأيسر للوصول إلى أقسامه الفرعية الخمسة: Products و Categories و Options و Family Option و Menu Group.</p>
+              <div class="alert alert-warning" role="alert">
+                ابنِ قائمتك بهذا الترتيب: Categories أولاً، ثم Family Options، ثم Options، ثم Products. يعتمد كل مستوى على المستوى الذي فوقه.
+              </div>
+              <h2 class="section-heading">7.1 الفئات</h2>
+              <p>انتقل إلى <strong>Menu -&gt; Categories</strong>. انقر <strong>+ Add Category</strong> لفتح نموذج Add Category:</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/categories.png" alt="قائمة الفئات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>قائمة Categories قبل إنشاء فئة جديدة.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/add-category.png" alt="نموذج إضافة فئة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>نموذج Add Category بأسماء ثنائية اللغة ورفع صورة.</figcaption>
+                </figure>
+              </div>
+              <div class="table-responsive"><table class="table table-bordered"><thead><tr><th>الحقل</th><th>التفاصيل</th></tr></thead><tbody>
+                <tr><td>Name *</td><td>اسم الفئة بالإنجليزية (مثل Hot Coffee)</td></tr>
+                <tr><td>Name Ar *</td><td>اسم الفئة بالعربية (مثل قهوة ساخنة)</td></tr>
+                <tr><td>Client *</td><td>اختر الفرع الذي تنتمي إليه هذه الفئة</td></tr>
+                <tr><td>Description</td><td>وصف اختياري بالإنجليزية</td></tr>
+                <tr><td>Description Ar</td><td>وصف اختياري بالعربية</td></tr>
+                <tr><td>Status *</td><td>مفتاح لتفعيل أو تعطيل الفئة</td></tr>
+                <tr><td>Image</td><td>ارفع صورة تمثيلية</td></tr>
+                <tr><td>Tags</td><td>كلمات مفتاحية للبحث، اضغط Enter بعد كل واحدة</td></tr>
+              </tbody></table></div>
+              <h2 class="section-heading">7.2 المنتجات</h2>
+              <p>انتقل إلى <strong>Menu -&gt; Products</strong>. انقر <strong>+ Add Product</strong> لفتح نموذج Add Product.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Restaurant-administration/products.png" alt="قائمة المنتجات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>صفحة Products لتصفح وإدارة كتالوج القائمة.</figcaption>
+              </figure>
+              <div class="table-responsive"><table class="table table-bordered"><thead><tr><th>الحقل</th><th>التفاصيل</th></tr></thead><tbody>
+                <tr><td>Name *</td><td>اسم المنتج بالإنجليزية (مثل Coffee Americano)</td></tr>
+                <tr><td>Name Ar *</td><td>اسم المنتج بالعربية</td></tr>
+                <tr><td>Category *</td><td>اختر الفئة الأب</td></tr>
+                <tr><td>Price *</td><td>سعر البيع الأساسي</td></tr>
+                <tr><td>Max Quantity</td><td>الحد الأقصى للوحدات لكل طلب، أدخل 0 لعدم وجود حد</td></tr>
+                <tr><td>Status *</td><td>مفتاح للتفعيل أو التعطيل</td></tr>
+                <tr><td>Barcode</td><td>باركود فريد اختياري</td></tr>
+                <tr><td>Ref</td><td>رقم مرجعي داخلي اختياري</td></tr>
+                <tr><td>Actions</td><td>ربط إجراءات اختياري (مثل POS+ SKU)</td></tr>
+                <tr><td>Tags</td><td>كلمات مفتاحية للبحث، اضغط Enter بعد كل واحدة</td></tr>
+                <tr><td>Upselling *</td><td>فعّل إذا كان جزءاً من استراتيجية البيع الإضافي</td></tr>
+                <tr><td>Display *</td><td>مفتاح للتحكم في الظهور على الأجهزة</td></tr>
+                <tr><td>Available For Limited Time</td><td>فعّل للمنتجات المقيدة زمنياً</td></tr>
+                <tr><td>Description</td><td>وصف موجَّه للعميل بالإنجليزية</td></tr>
+                <tr><td>Description Ar</td><td>وصف موجَّه للعميل بالعربية</td></tr>
+                <tr><td>Image *</td><td>ارفع صورة المنتج</td></tr>
+              </tbody></table></div>
+              <h2 class="section-heading">7.3 خيار العائلة</h2>
+              <p>يعرّف Family Option نوع التخصيص المتاح للمنتج. على سبيل المثال، يجمع Cup Size بين Small و Medium و Large و Extra Large.</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/family-option.png" alt="قائمة خيار العائلة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>قائمة Family Option لتعريف مجموعات التخصيص.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/add-family-option.png" alt="نموذج إضافة خيار عائلة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>نموذج Add Family Option لمجموعات الحجم أو النكهة أو الاختيار.</figcaption>
+                </figure>
+              </div>
+              <div class="table-responsive"><table class="table table-bordered"><thead><tr><th>الحقل</th><th>التفاصيل</th></tr></thead><tbody>
+                <tr><td>Name *</td><td>اسم خيار العائلة بالإنجليزية (مثل Cold Cup Size)</td></tr>
+                <tr><td>Name Ar *</td><td>الاسم بالعربية</td></tr>
+                <tr><td>Client *</td><td>اختر الشركة المرتبطة</td></tr>
+                <tr><td>Type *</td><td>اختر One Select أو Multi Select</td></tr>
+                <tr><td>Status *</td><td>مفتاح للتفعيل أو التعطيل</td></tr>
+                <tr><td>Description</td><td>وصف اختياري بالإنجليزية</td></tr>
+                <tr><td>Description Ar</td><td>وصف اختياري بالعربية</td></tr>
+                <tr><td>Image</td><td>أسقط صورة هنا أو انقر للرفع</td></tr>
+                <tr><td>Automation Name</td><td>معرّف أتمتة اختياري</td></tr>
+              </tbody></table></div>
+              <h2 class="section-heading">7.4 الخيارات</h2>
+              <p>انتقل إلى <strong>Menu -&gt; Options</strong>. انقر <strong>+ Add Option</strong> لفتح نموذج Add Option.</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/options.png" alt="قائمة الخيارات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>قائمة Options المرتبطة بمجموعات Family Option.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/add-option.png" alt="نموذج إضافة خيار" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>نموذج Add Option لاختيار واحد قابل للتحديد.</figcaption>
+                </figure>
+              </div>
+              <div class="table-responsive"><table class="table table-bordered"><thead><tr><th>الحقل</th><th>التفاصيل</th></tr></thead><tbody>
+                <tr><td>Name *</td><td>اسم الخيار بالإنجليزية (مثل Medium M)</td></tr>
+                <tr><td>Name Ar *</td><td>اسم الخيار بالعربية (مثل متوسط M)</td></tr>
+                <tr><td>Client *</td><td>اختر الشركة المرتبطة</td></tr>
+                <tr><td>Family *</td><td>اختر خيار العائلة الأب</td></tr>
+                <tr><td>Price *</td><td>رسوم إضافية، أدخل 0 إذا كان مجانياً</td></tr>
+                <tr><td>Status *</td><td>مفتاح للتفعيل أو التعطيل</td></tr>
+                <tr><td>Description</td><td>وصف اختياري بالإنجليزية</td></tr>
+                <tr><td>Description Ar</td><td>وصف اختياري بالعربية</td></tr>
+                <tr><td>Image *</td><td>ارفع صورة لهذا الخيار</td></tr>
+                <tr><td>Tags</td><td>كلمات مفتاحية للبحث، اضغط Enter بعد كل واحدة</td></tr>
+                <tr><td>Automation Name</td><td>معرّف أتمتة اختياري</td></tr>
+              </tbody></table></div>
+              <h2 class="section-heading">ربط الخيارات بمنتج</h2>
+              <p>افتح أي منتج موجود، ثم انتقل إلى علامة التبويب Options داخل نموذج Update Product. استخدم <strong>+ Add Option</strong> لإرفاق خيارات بهذا المنتج.</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/product-option.png" alt="قائمة خيارات المنتج" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>تعيينات خيارات المنتج المرفقة بالفعل بمنتج.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/add-product-option.png" alt="نموذج إضافة خيار منتج" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>إرفاق خيار عائلة واختيار محدد بمنتج موجود.</figcaption>
+                </figure>
+              </div>
+              <div class="table-responsive"><table class="table table-bordered"><thead><tr><th>الحقل</th><th>التفاصيل</th></tr></thead><tbody>
+                <tr><td>Family Option</td><td>اختر العائلة التي ينتمي إليها هذا الخيار</td></tr>
+                <tr><td>Option *</td><td>اختر الخيار المحدد</td></tr>
+                <tr><td>Price *</td><td>تجاوز السعر لهذا الخيار على هذا المنتج تحديداً</td></tr>
+                <tr><td>Extra Price</td><td>رسوم إضافية فوق سعر الخيار الأساسي</td></tr>
+                <tr><td>Reference</td><td>مرجع داخلي اختياري</td></tr>
+                <tr><td>Actions</td><td>ارتباط إجراء اختياري</td></tr>
+                <tr><td>Barcode</td><td>باركود اختياري لمزيج المنتج-الخيار هذا</td></tr>
+                <tr><td>Status *</td><td>مفتاح للتفعيل أو التعطيل</td></tr>
+                <tr><td>Preselected *</td><td>مفتاح لتحديد هذا الخيار مسبقاً افتراضياً</td></tr>
+                <tr><td>Product Recipe</td><td>اربط هذا الخيار بوصفة إن وُجدت</td></tr>
+              </tbody></table></div>
+              <h2 class="section-heading">7.5 مجموعة القائمة</h2>
+              <p>انتقل إلى <strong>Menu -&gt; Menu Group</strong>. انقر <strong>+ Add Menu Group</strong> لفتح نموذج Add Menu Group:</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/menu-groups.png" alt="قائمة مجموعات القائمة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>قائمة Menu Group للحزم المجمّعة أو مجموعات القوائم الخاصة.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/add-menu-group.png" alt="نموذج إضافة مجموعة قائمة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>نموذج Add Menu Group مع استهداف الفروع ورفع صورة.</figcaption>
+                </figure>
+              </div>
+              <div class="table-responsive"><table class="table table-bordered"><thead><tr><th>الحقل</th><th>التفاصيل</th></tr></thead><tbody>
+                <tr><td>Name *</td><td>اسم مجموعة القائمة</td></tr>
+                <tr><td>Client *</td><td>اختر الشركة المرتبطة</td></tr>
+                <tr><td>Status *</td><td>مفتاح للتفعيل أو التعطيل</td></tr>
+                <tr><td>All Some Branches</td><td>اختر ما إذا كان ينطبق على All branches أو Some branches</td></tr>
+                <tr><td>Branches</td><td>اختر الفروع المحددة</td></tr>
+                <tr><td>Image</td><td>أسقط صورة هنا أو انقر للرفع</td></tr>
+              </tbody></table></div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-5">السابق: أونلاين</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-7">الخطوة التالية: التخصيص</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-7" data-step-title="Customization">
+            <header class="docs-header">
+              <h1 class="docs-heading">8. التخصيص</h1>
+            </header>
+            <section class="docs-section" id="item-7-1">
+              <p>انتقل إلى <strong>Customization</strong> في الشريط الجانبي الأيسر. يحتوي قسم Customization على أربعة أقسام فرعية: Products و Options و Product Option و Sort Menu.</p>
+              <h2 class="section-heading">8.1 المنتجات</h2>
+              <p>انتقل إلى <strong>Customization -&gt; Products</strong>. تحمل هذه الصفحة عنوان Products Customization وتعرض جدولاً بأعمدة Id و Branch و Product و Price و Status و Actions.</p>
+              <p>لإضافة تخصيص، انقر <strong>+ Add Customization</strong>. يحتوي نموذج Add Customization على Branch و Product و Price و Status.</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/product-customization.png" alt="قائمة تخصيص المنتجات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>قائمة Products Customization مع قواعد التسعير حسب الفرع.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/add-product-customization.png" alt="نموذج إضافة تخصيص منتج" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>نموذج Add Product Customization لتجاوزات مستوى الفرع.</figcaption>
+                </figure>
+              </div>
+              <h2 class="section-heading">8.2 خيار المنتج</h2>
+              <p>انتقل إلى <strong>Customization -&gt; Product Option</strong>. تعرض هذه الصفحة جدولاً بأعمدة Id و Branch و Product و Option و Price و ExtraPrice و Status و Actions.</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/option-customization.png" alt="قائمة تخصيص الخيارات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>قائمة التخصيص لتسعير خيارات المنتجات وتغيير الحالة.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/add-option-customiation.png" alt="نموذج إضافة تخصيص خيار" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>نموذج Add Option Customization لتسعير الخيارات حسب الفرع.</figcaption>
+                </figure>
+              </div>
+              <h2 class="section-heading">8.3 ترتيب القائمة</h2>
+              <p>انتقل إلى <strong>Customization -&gt; Sort Menu</strong>. تحتوي شاشة Sort Menu على ثلاث علامات تبويب في الأعلى: category/product و family/option و Offers/Groups.</p>
+              <p>تعرض علامة category/product لوحة يسارية بقائمة Categories ولوحة يمينية بالمنتجات ضمن الفئة المحددة. استخدم أيقونات الأسهم لأعلى ولأسفل في كل صف لإعادة ترتيب العناصر. تنعكس التغييرات فوراً عبر أجهزة الكiosk والقوائم.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Restaurant-administration/sort-menu.png" alt="صفحة ترتيب القائمة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>شاشة Sort Menu لإعادة ترتيب الفئات والمنتجات ومجموعات العروض.</figcaption>
+              </figure>
+              <div class="alert alert-warning" role="alert">
+                تتطلب ميزة Sort Menu اشتراكاً من نوع Pro أو Advanced.
+              </div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-6">السابق: القائمة</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-8">الخطوة التالية: التسويق</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-8" data-step-title="Marketing">
+            <header class="docs-header">
+              <h1 class="docs-heading">9. التسويق</h1>
+            </header>
+            <section class="docs-section" id="item-8-1">
+              <p>انتقل إلى <strong>Marketing</strong> في الشريط الجانبي الأيسر. يحتوي قسم Marketing على خمسة أقسام فرعية: Advertisements و Customers و Coupons و Groups و Offers.</p>
+              <h2 class="section-heading">9.1 الإعلانات</h2>
+              <p>انتقل إلى <strong>Marketing -&gt; Advertisements</strong>. انقر <strong>+ Add Ads</strong> لفتح نموذج Add Ads:</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Restaurant-administration/adverstisement.png" alt="صفحة الإعلانات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>قائمة Advertisements داخل قسم Marketing.</figcaption>
+              </figure>
+              <div class="table-responsive"><table class="table table-bordered"><thead><tr><th>الحقل</th><th>التفاصيل</th></tr></thead><tbody>
+                <tr><td>Name *</td><td>اسم الإعلان</td></tr>
+                <tr><td>Type *</td><td>اختر تنسيق الإعلان: Fullscreen أو Header أو Footer أو QR Menu</td></tr>
+                <tr><td>Client *</td><td>اختر الشركة المرتبطة</td></tr>
+                <tr><td>Date Range *</td><td>عيّن الفترة النشطة</td></tr>
+                <tr><td>Status *</td><td>مفتاح للتفعيل أو التعطيل</td></tr>
+                <tr><td>Description</td><td>وصف اختياري للإعلان</td></tr>
+                <tr><td>Image Video *</td><td>ارفع صورة أو فيديو الإعلان</td></tr>
+                <tr><td>Ads For</td><td>استهدف اختيارياً نوع جمهور محدد</td></tr>
+                <tr><td>All Some Branches</td><td>اختر All branches أو Some branches</td></tr>
+                <tr><td>Branches</td><td>اختر فروعاً محددة إن وُجدت</td></tr>
+              </tbody></table></div>
+              <h2 class="section-heading">9.2 العملاء</h2>
+              <p>تعرض صفحة Customers جدولاً بأعمدة Id و Name و Type و Phone و Status و Actions.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Restaurant-administration/customers.png" alt="قائمة العملاء" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>قائمة Customers مع معلومات الاتصال والحالة.</figcaption>
+              </figure>
+              <h2 class="section-heading">9.3 القسائم</h2>
+              <p>انقر <strong>+ Add Coupon</strong> لفتح نموذج Add Coupon:</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/coupuns.png" alt="قائمة القسائم" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>قائمة Coupons تعرض أكواد الخصم الحالية.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/add-coupouns.png" alt="نموذج إضافة قسيمة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>نموذج Add Coupon مع حدود الاستخدام ونوع الخصم.</figcaption>
+                </figure>
+              </div>
+              <div class="table-responsive"><table class="table table-bordered"><thead><tr><th>الحقل</th><th>التفاصيل</th></tr></thead><tbody>
+                <tr><td>Name *</td><td>اسم القسيمة</td></tr>
+                <tr><td>Type</td><td>تسمية نوع اختيارية</td></tr>
+                <tr><td>Client *</td><td>اختر الشركة المرتبطة</td></tr>
+                <tr><td>Code *</td><td>رمز القسيمة الفريد الذي سيدخله العملاء</td></tr>
+                <tr><td>Nb Usage Limit *</td><td>الحد الأقصى لعدد مرات استخدام هذه القسيمة</td></tr>
+                <tr><td>Status *</td><td>مفتاح للتفعيل أو التعطيل</td></tr>
+                <tr><td>Amount Percentage</td><td>اختر نوع الخصم: Pourcentage أو Amount</td></tr>
+                <tr><td>Percentage</td><td>أدخل قيمة الخصم</td></tr>
+                <tr><td>Expiration Date</td><td>عيّن تاريخ انتهاء صلاحية القسيمة</td></tr>
+              </tbody></table></div>
+              <h2 class="section-heading">9.4 المجموعات</h2>
+              <p>تعرض صفحة Groups جدولاً بأعمدة Id و Name و Name Ar و Status و Actions. انقر <strong>+ Add Group</strong> لفتح نموذج Add Group مع حقول المعلومات على اليسار وقائمة المنتجات على اليمين.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Restaurant-administration/Groups.png" alt="صفحة المجموعات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>صفحة Groups لمجموعات التسويق بأسلوب الحزم.</figcaption>
+              </figure>
+              <h2 class="section-heading">9.5 العروض</h2>
+              <p>انقر <strong>+ Add Offer</strong> لفتح نموذج Add Offer:</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Restaurant-administration/offers.png" alt="صفحة العروض" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>صفحة Offers لخصومات الترويج والحملات محدودة الوقت.</figcaption>
+              </figure>
+              <div class="table-responsive"><table class="table table-bordered"><thead><tr><th>الحقل</th><th>التفاصيل</th></tr></thead><tbody>
+                <tr><td>Name *</td><td>اسم العرض بالإنجليزية</td></tr>
+                <tr><td>Name Ar *</td><td>اسم العرض بالعربية</td></tr>
+                <tr><td>Reference</td><td>رمز مرجعي داخلي اختياري</td></tr>
+                <tr><td>Client *</td><td>اختر الفرع</td></tr>
+                <tr><td>Type</td><td>نوع الخصم: Pourcentage أو Amount أو Final Price</td></tr>
+                <tr><td>Percentage *</td><td>قيمة الخصم</td></tr>
+                <tr><td>Category</td><td>قيّد اختيارياً بفئة محددة</td></tr>
+                <tr><td>Limited Date *</td><td>مفتاح للتقييد بنطاق تاريخ</td></tr>
+                <tr><td>Start Date *</td><td>تاريخ ووقت بدء العرض</td></tr>
+                <tr><td>End Date *</td><td>تاريخ ووقت انتهاء العرض</td></tr>
+                <tr><td>All Some Branches</td><td>جميع الفروع أو فروع محددة</td></tr>
+                <tr><td>For All Products *</td><td>مفتاح للتطبيق على الكتالوج بالكامل</td></tr>
+                <tr><td>Status *</td><td>مفتاح للتفعيل أو التعطيل</td></tr>
+                <tr><td>Display *</td><td>مفتاح لإظهار أو إخفاء العرض على شاشات العملاء</td></tr>
+                <tr><td>For POS only *</td><td>مفتاح للتقييد بأجهزة نقاط البيع فقط</td></tr>
+                <tr><td>Upselling *</td><td>مفتاح لمسارات البيع الإضافي</td></tr>
+                <tr><td>Image</td><td>ارفع صورة ترويجية</td></tr>
+              </tbody></table></div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-7">السابق: التخصيص</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-9">الخطوة التالية: التقارير</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-9" data-step-title="Reporting">
+            <header class="docs-header">
+              <h1 class="docs-heading">10. التقارير</h1>
+            </header>
+            <section class="docs-section" id="item-9-1">
+              <p>انتقل إلى <strong>Reporting</strong> في الشريط الجانبي الأيسر. يحتوي قسم Reporting على أربعة أقسام فرعية: Orders و admin_zatca_orders و Inventory Sales و Charts.</p>
+              <h2 class="section-heading">10.1 الطلبات</h2>
+              <p>يعرض شريط ملخص Total في الأعلى Number of Orders و Subtotal بالريال و VAT بالريال و Total بالريال. تتيح أربع قوائم تصفية تحسين النتائج: Select Branch و Select Kiosk و Select Status و Select Payment Method. يعرض تسمية نطاق التاريخ الفترة النشطة، ويتيح زر Export تنزيل البيانات المصفاة.</p>
+              <p>يحتوي جدول الطلبات على الأعمدة التالية: Id و Branch و Kiosk و Ticket و Date Order و Takeout و Subtotal و Vat و Total و Payment Type و Status.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Restaurant-administration/reporting-orders.png" alt="صفحة تقارير الطلبات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>تقرير Orders مع الإجماليات والفلاتر وإجراءات التصدير.</figcaption>
+              </figure>
+              <h2 class="section-heading">10.2 مبيعات المنتجات</h2>
+              <p>تعرض هذه الصفحة شريط ملخص Total في الأعلى مع Number of Products و Number of Branches و Total Qty Sold و Total Sales بالريال. تتوفر ثلاث قوائم تصفية: Select Branch و Select Category و Select Product. يظهر منتقي نطاق التاريخ وزر Export على اليمين.</p>
+              <p>يعرض الجدول الأعمدة التالية: Id و Product و Ref و Category و Branch و Qty Sold و Unit Price و Total.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Restaurant-administration/product-sales.png" alt="تقرير مبيعات المنتجات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>تقرير Product Sales مع فلاتر الفرع والفئة والمنتج.</figcaption>
+              </figure>
+              <h2 class="section-heading">10.3 المخططات</h2>
+              <p>تتيح صفحة Charts إنشاء تقارير مرئية تفاعلية لنطاق تاريخ محدد. في أعلى الصفحة، عيّن نطاق التاريخ باستخدام حقل Choose A Date Range. توجد ثلاث قوائم تصفية في أعلى اليمين: Select Branch و Select Kiosk و Select Source. بعد الإعداد، انقر زر <strong>Generate</strong> الأخضر لعرض المخطط المحدد.</p>
+              <p>تشمل أنواع المخططات المتاحة المخططات الخطية والدائرية والشريطية. بعد اختيار نوع مخطط والنقر على Generate، تحمّل الصفحة مخططاً تفاعلياً مع العنوان ونطاق التاريخ واسم الشركة في الرأس. يعيدك زر Back إلى شاشة اختيار المخطط.</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/charts.png" alt="صفحة اختيار المخططات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>صفحة Charts قبل إنشاء تقرير مرئي.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Restaurant-administration/generate-chart.png" alt="تقرير مخطط مُنشأ" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>مخطط تفاعلي مُنشأ بعد اختيار الفلاتر ونطاق التاريخ.</figcaption>
+                </figure>
+              </div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-8">السابق: التسويق</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-1">العودة للبداية</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const zoomImages = document.querySelectorAll('.zoom-effect');
+
+    zoomImages.forEach(function (img) {
+      img.addEventListener('click', function () {
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = this.src;
+
+        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        imageModal.show();
+      });
+    });
+  });
+</script>
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center">
+        <img id="modalImage" src="#" alt="Zoomed" class="img-fluid rounded">
+      </div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const articles = Array.from(document.querySelectorAll('.step-page'));
+  const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link, .step-nav-btn'));
+
+  if (!articles.length) return;
+
+  function activateStep(hash, updateHash) {
+    const fallbackId = articles[0].id;
+    const rawId = (hash || '').replace('#', '') || fallbackId;
+    const target = document.getElementById(rawId) || document.getElementById(fallbackId);
+    const activeArticle = target.closest('.step-page') || articles[0];
+
+    articles.forEach(article => {
+      article.classList.toggle('active-step', article === activeArticle);
+    });
+
+    document.querySelectorAll('#docs-sidebar .nav-link').forEach(link => {
+      const href = link.getAttribute('href');
+      const linkedTarget = href ? document.querySelector(href) : null;
+      const linkedArticle = linkedTarget ? linkedTarget.closest('.step-page') : null;
+      const isExact = href === `#${target.id}`;
+      const isArticle = linkedArticle === activeArticle;
+      link.classList.toggle('active', isExact || (isArticle && href === `#${activeArticle.id}`));
+    });
+
+    if (updateHash) {
+      window.location.hash = `#${target.id}`;
+      return;
+    }
+
+    const scrollTarget = target.id === activeArticle.id ? activeArticle : target;
+    requestAnimationFrame(() => {
+      scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function (event) {
+      const href = this.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
+      event.preventDefault();
+      activateStep(href, true);
+    });
+  });
+
+  window.addEventListener('hashchange', function () {
+    activateStep(window.location.hash, false);
+  });
+
+  activateStep(window.location.hash || `#${articles[0].id}`, false);
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const input = document.querySelector('.search-input');
+  const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link'));
+
+  if (!input) return;
+
+  const container = input.closest('.autocomplete-container');
+  const suggestionsBox = document.createElement('div');
+  suggestionsBox.className = 'autocomplete-suggestions';
+  container.appendChild(suggestionsBox);
+
+  input.addEventListener('input', function () {
+    const val = this.value.trim().toLowerCase();
+    suggestionsBox.innerHTML = '';
+
+    if (!val) {
+      suggestionsBox.style.display = 'none';
+      return;
+    }
+
+    navLinks.forEach(link => {
+      const text = link.textContent.trim();
+      const lowerText = text.toLowerCase();
+
+      if (lowerText.includes(val)) {
+        const option = document.createElement('div');
+        option.className = 'autocomplete-suggestion';
+
+        const index = lowerText.indexOf(val);
+          const highlighted =
+           index !== -1
+           ? text.substring(0, index) +
+           `<mark class="bg-transparent text-primary fw-bold">` +
+            text.substring(index, index + val.length) +
+            '</mark>' +
+            text.substring(index + val.length)
+            : text;
+
+        option.innerHTML = highlighted;
+        option.addEventListener('click', () => {
+          window.location.href = link.href;
+        });
+
+        suggestionsBox.appendChild(option);
+      }
+    });
+
+    suggestionsBox.style.display = suggestionsBox.children.length ? 'block' : 'none';
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!suggestionsBox.contains(e.target) && e.target !== input) {
+      suggestionsBox.innerHTML = '';
+      suggestionsBox.style.display = 'none';
+    }
+  });
+});
+</script>
+
+    <footer class="footer">
+      <div class="footer-bottom text-center py-5">
+        <ul class="social-list list-unstyled pb-4 mb-0">
+          <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+        </ul>
+        <small class="copyright">© Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> جميع الحقوق محفوظة.</small>
+      </div>
+    </footer>
+
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script>
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script>
+    <script src="assets/js/docs.js"></script>
+    <script src="assets/js/lang.js"></script>
+</body>
+</html>

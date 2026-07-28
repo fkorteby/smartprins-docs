@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-lang-en="smart-menu.html" data-lang-ar="smart-menu-ar.html">
+<head>
+    <title>Smart Prints - القائمة الذكية</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="دليل التوثيق الوظيفي لحل القائمة الذكية Smart Prints للطلب الرقمي عبر المتصفح ورمز QR في المطاعم">
+    <meta name="author" content="SmartPrints Team">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+    <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+    <script>
+      (function () {
+        var l = localStorage.getItem("sp_lang");
+        if (l) {
+          document.documentElement.lang = l;
+          document.documentElement.dir = l === "ar" ? "rtl" : "ltr";
+        }
+      })();
+    </script>
+    <style>
+      .zoom-effect {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .zoom-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      #lang-toggle {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border: 2px solid #5368fd;
+        background: transparent;
+        color: #5368fd;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+      }
+      #lang-toggle:hover {
+        background: #5368fd;
+        color: #fff;
+      }
+      html[lang="ar"] .lang-en {
+        display: none !important;
+      }
+      html[lang="en"] .lang-ar {
+        display: none !important;
+      }
+      html[lang="ar"] body {
+        font-family: "Tajawal", sans-serif;
+      }
+      html[lang="ar"] .docs-sidebar {
+        left: auto !important;
+        right: 0 !important;
+      }
+      html[lang="ar"] .docs-content {
+        margin-left: 0 !important;
+        margin-right: 300px !important;
+      }
+      html[lang="ar"] .docs-content .container {
+        direction: rtl;
+        text-align: right;
+      }
+      html[lang="ar"] .docs-nav {
+        direction: rtl;
+        text-align: right;
+      }
+      html[lang="ar"] .social-sidebar {
+        left: 0 !important;
+        right: auto !important;
+      }
+      html[lang="ar"] .docs-branding .row {
+        flex-direction: row-reverse;
+      }
+      html[lang="ar"] .navbar-brand {
+        margin-right: 0;
+        margin-left: 1rem;
+      }
+      html[lang="ar"] #docs-nav .nav-link::before {
+        left: auto !important;
+        right: 0 !important;
+      }
+      .autocomplete-container {
+        position: relative;
+        width: 100%;
+      }
+      .autocomplete-suggestions {
+        position: absolute;
+        top: 100%;
+        left: 2px;
+        right: 2px;
+        background: #fff;
+        z-index: 1050;
+        max-height: 240px;
+        overflow-y: auto;
+        border: 1px solid #dee2e6;
+        border-top: none;
+        border-radius: 0 0 6px 6px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        display: none;
+        padding: 0;
+      }
+      .autocomplete-suggestion {
+        padding: 10px 14px;
+        cursor: pointer;
+        color: #333;
+        transition: background-color 0.2s ease;
+        font-size: 0.95rem;
+      }
+      .autocomplete-suggestion:hover {
+        background-color: #f0f4ff;
+      }
+      .autocomplete-suggestion mark {
+        background: none;
+        color: #5368fd;
+        font-weight: bold;
+      }
+    </style>
+</head>
+<body>
+    <header class="header fixed-top">
+      <div class="branding docs-branding">
+        <div class="container-fluid py-2">
+          <div class="row align-items-center">
+            <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+              <a class="navbar-brand" href="index-ar.html">
+                <div class="site-logo">
+                  <img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height: 60px;">
+                </div>
+              </a>
+            </div>
+            <div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+              <form class="search-form position-relative d-flex justify-content-center">
+                <div class="position-relative w-75 autocomplete-container">
+                  <input type="text" placeholder="ابحث في التوثيق..." name="search" class="form-control search-input pe-5">
+                  <div class="autocomplete-suggestions"></div>
+                  <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+                    <i class="fa-light fa-magnifying-glass text-muted"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center gap-2">
+              <button id="lang-toggle" onclick="toggleLanguage()">
+                <span class="lang-en">🇸🇦 العربية</span>
+                <span class="lang-ar">🇬🇧 English</span>
+              </button>
+              <a href="#" class="btn btn-primary d-none d-lg-flex">تحميل</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="docs-wrapper">
+      <div class="social-sidebar d-none d-lg-flex">
+        <ul class="social-sidebar">
+          <li><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+          <li><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+          <li><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+          <li><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+        </ul>
+      </div>
+
+      <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+        <div class="top-search-box">
+          <form class="search-form">
+            <div class="position-relative w-100 autocomplete-container">
+              <input type="text" class="form-control search-input rounded-top" placeholder="ابحث في التوثيق...">
+              <div class="autocomplete-suggestions"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="docs-sidebar" class="docs-sidebar">
+        <nav id="docs-nav" class="docs-nav navbar">
+          <ul class="section-items list-unstyled nav flex-column pb-3">
+
+            <li class="nav-item section-title">
+              <a class="nav-link scrollto active" href="#section-1">
+                <span class="theme-icon-holder me-2"><i class="fas fa-mobile-alt"></i></span>القائمة الذكية
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">نظرة عامة</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">نظرة عامة على عملية الطلب</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-2">
+                <span class="theme-icon-holder me-2"><i class="fas fa-cogs"></i></span>تطبيق الويب للجوال
+              </a>
+            </li>
+
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">الشاشة الرئيسية</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">شاشة الفئات</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-2-3">التنقل في القائمة الذكية</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-2-4">شاشة المنتجات</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-2-5">شاشة السلة</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-2-6">شاشة الدفع</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-3">
+                <span class="theme-icon-holder me-2"><i class="fas fa-cogs"></i></span>المزيد عن القائمة الذكية
+              </a>
+            </li>
+
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">تطبيق المطبخ</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">الأتمتة الذكية</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-3">الإدارة السحابية</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-4">دعم البيانات واللغات</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-4">
+                <span class="theme-icon-holder me-2"><i class="fas fa-list-ul"></i></span>الخاتمة
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="docs-content">
+        <div class="container">
+
+          <article class="docs-article" id="section-1">
+            <header class="docs-header">
+              <h1 class="docs-heading">القائمة الذكية</h1>
+            </header>
+
+            <section class="docs-section" id="item-1-1">
+              <h2 class="section-heading">نظرة عامة</h2>
+              <div class="container my-4">
+                <p>
+القائمة الذكية تطبيق طلبات ويب متجاوب مصمم أساسًا لتمكين العملاء من تقديم الطلبات مباشرة من أجهزتهم. وظيفته الرئيسية أن يكون قائمة رقمية تفاعلية بالكامل ومنصة طلب يمكن الوصول إليها عبر أي متصفح، دون الحاجة إلى تنزيل تطبيق.
+</p>
+<p>يمكن للعملاء فتح القائمة الذكية عبر كتابة رابط الويب المقدم، إلا أن الطريقة الأكثر شيوعًا وسهولة هي مسح رمز QR المعروض في المطعم أو على الطاولات أو في المواد التسويقية. يفتح ذلك القائمة فورًا في واجهة محسّنة للجوال يمكن للعملاء من خلالها تصفح الفئات، وعرض أوصاف المنتجات التفصيلية، وتخصيص الأصناف، وإتمام طلباتهم بأمان.
+</p>
+<p>بعد تقديم الطلب عبر القائمة الذكية يتم تتبعه في الوقت الفعلي، ويمكن للعملاء رؤية الحالة الحية لطلباتهم من التأكيد إلى التحضير والإكمال. يتزامن هذا التتبع مع لوحة المكتب الخلفي للمطعم ونقطة البيع وأنظمة عرض المطبخ، مما يضمن توجيهًا دقيقًا وتدفق خدمة أسرع وأكثر أتمتة.</p>
+              </div>
+            </section>
+
+            <section class="docs-section" id="item-1-2">
+              <h2 class="section-heading">نظرة عامة على عملية الطلب</h2>
+              <div class="container my-4">
+                <div class="row align-items-center">
+                  <div class="col-lg-7 col-md-12">
+                    <p>
+                      يبدأ العملاء بفتح تطبيق الويب للقائمة الذكية في المتصفح. من هذه النقطة يمكنهم التنقل عبر قائمة رقمية منظمة إلى فئات وفئات فرعية. يوفر كل منتج معلومات تفصيلية تشمل الصور والأوصاف وقوائم المكونات وتحذيرات مسببات الحساسية عند الاقتضاء.
+                    </p>
+                    <p>
+                      يمكن تخصيص العديد من الأصناف عبر مُعدِّلات قابلة للاختيار مثل الحجم أو نكهات مختلفة أو إضافات أو تعليمات التحضير. تُضاف الأصناف المختارة إلى السلة حيث يمكن للمستخدمين مراجعة اختياراتهم قبل المتابعة. عند الدفع يختار العميل من خيارات الدفع المتاحة التي يضبطها المطعم. بمجرد إرسال الطلب تتم مزامنته فورًا مع نظام نقطة البيع المتصل وإرساله إلى شاشة المطبخ للتحضير، مما يقلل التأخير في المعالجة إلى الحد الأدنى.
+                    </p>
+                  </div>
+                  <div class="col-lg-5 col-md-12 text-center">
+                    <img src="assets/images/smart-menu-workflow.png"
+                         alt="كيف يعمل"
+                         class="img-thumbnail shadow-sm zoom-effect"
+                         style="max-width: 400px; width: 100%;">
+                  </div>
+                </div>
+              </div>
+            </section>
+          </article>
+
+          <article class="docs-article" id="section-2">
+            <header class="docs-header">
+              <h1 class="docs-heading">تطبيق الويب للجوال</h1>
+            </header>
+
+            <section class="docs-section" id="item-2-1">
+              <h2 class="section-heading">الشاشة الرئيسية</h2>
+              <div class="container my-4">
+                <div class="row align-items-center my-4">
+                  <div class="col-lg-4 col-md-12 text-center">
+                    <img src="assets/images/menu-start-home-screen.png"
+                         alt="شاشة بداية القائمة"
+                         class="shadow-sm zoom-effect"
+                         style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+                    <div class="mt-2 text-muted">الشاشة الرئيسية</div>
+                  </div>
+
+                  <div class="col-lg-4 col-md-12">
+                    <p>
+                      تعمل هذه الشاشة كنقطة الدخول الرئيسية للعملاء، وتقدّم اختيارًا واضحًا وبديهيًا لنوع الخدمة. صُممت الواجهة لتقليل وقت اتخاذ القرار، مع إبراز كل خيار بصريًا للتعرف السريع.</p>
+                    <p>ومن خلال الجمع بين ألوان مميزة وأيقونات كبيرة ونص قليل على الشاشة، تضمن أن يتمكن العملاء من الانتقال فورًا إلى طريقة الطلب المفضلة دون ارتباك.
+                    </p>
+                  </div>
+
+                  <div class="col-lg-4 col-md-12 text-center">
+                    <img src="assets/images/menu-home-screen-feature.png"
+                         alt="ميزة الشاشة الرئيسية"
+                         class="shadow-sm zoom-effect"
+                         style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+                    <div class="mt-2 text-muted">ميزة الشاشة الرئيسية</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="item-2-2">
+              <h2 class="section-heading">شاشة الفئات</h2>
+              <div class="container my-4">
+                <div class="row align-items-center">
+                  <div class="col-lg-7 col-md-12">
+                    <p>
+تطبيق الويب هو الواجهة الأساسية التي يستكشف من خلالها العملاء نظام القائمة الذكية ويتفاعلون معه. يعمل بالكامل داخل المتصفح دون الحاجة إلى تنزيلات أو تثبيتات. عند مسح رمز QR الفريد للمطعم يُوجَّه العملاء بسلاسة إلى القائمة الرقمية المخصصة بالكامل للمطعم. وبفضل تقنيات الويب المتجاوبة تتكيف الواجهة مع أي حجم شاشة، سواء على هاتف ذكي أو جهاز لوحي، لضمان تجربة سلسة ومتسقة.</p>
+                    <p>بعد أن ينقر المستخدم على زر <strong>Start</strong> تظهر شاشة الفئات كأول مرحلة تفاعلية. تنظّم هذه الشاشة عروض المطعم في فئات قائمة محددة بوضوح مثل المقبلات والأطباق الرئيسية والحلويات والمشروبات وأي أقسام مخصصة يُعرّفها المطعم. تُعرض الفئات بتنسيق شبكة أو قائمة بديهي، وغالبًا ما تُرفق بأيقونات أو صور تمثيلية للتعرّف البصري السريع.</p>
+                  </div>
+                  <div class="col-lg-5 col-md-12 text-center">
+                    <img src="assets/images/smart-menu-home.png"
+                         alt="الصفحة الرئيسية للقائمة الذكية"
+                         class="shadow-sm zoom-effect"
+                         style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+                    <div class="mt-2 text-muted">شاشة الفئات</div>
+                  </div>
+                </div>
+
+                <div class="container my-4">
+                  <div class="row align-items-center flex-row-reverse">
+                    <div class="col-lg-7 col-md-12">
+                      <p>لا تقتصر الشاشة الرئيسية للقائمة الذكية على عرض الفئات المتاحة، بل تتضمن أيضًا محتوى إضافيًا موجّهًا للعميل. عند التمرير للأسفل يمكن للمستخدمين الوصول إلى طلباتهم السابقة وعرض العروض الترويجية المتاحة، مما يوفّر تجربة مخصصة وديناميكية.</p>
+                      <p>يركّز التصميم على الوضوح وسهولة الوصول، مما يسهّل على المستخدمين العثور على القسم المطلوب بأقل قدر من التمرير أو البحث.</p>
+                    </div>
+                    <div class="col-lg-5 col-md-12 text-center">
+                      <img src="assets/images/smart-menu-home_screen.png" alt="شاشة الفئات الموسّعة"
+                           class="shadow-sm zoom-effect"
+                           style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+                      <div class="mt-2 text-muted">شاشة الفئات الموسّعة</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="item-2-3">
+              <h2 class="section-heading">التنقل في القائمة الذكية</h2>
+              <div class="container my-4">
+                <p>
+صُمم التنقل داخل تطبيق القائمة الذكية ليكون بديهيًا وفعّالًا في آن واحد. يحتوي الركن العلوي الأيمن من الواجهة على ثلاثة أزرار وصول سريع: <strong>Home</strong> و<strong>Orders</strong> و<strong>Search</strong>. يخدم كل منها غرضًا محددًا، مما يمكّن المستخدمين من العودة إلى الشاشة الرئيسية أو مراجعة الطلبات السابقة أو العثور على صنف محدد دون تصفح الفئات يدويًا.</p>
+                <p>يحتوي الركن العلوي الأيسر على أيقونة قائمة ممثَّلة بثلاثة خطوط أفقية. يؤدي النقر على هذه الأيقونة إلى فتح درج التنقل الذي يوفّر خيارات إضافية مثل الوصول إلى سلة التسوق أو عرض سجل الطلبات أو إجراء عمليات بحث تفصيلية عن المنتجات أو تبديل لغة العرض. يضمن هذا النهج المزدوج للتنقل انتقال المستخدمين بسرعة بين أجزاء التطبيق المختلفة، سواء كانوا يتصفحون أصنافًا جديدة أو يديرون الطلبات النشطة والسابقة.
+                </p>
+
+                <br>
+                <br>
+
+                <div class="row align-items-center my-4">
+                  <div class="col-lg-6 col-md-12 text-center">
+                    <img src="assets/images/my-orders-smart-menu.png" alt="أزرار الوصول السريع"
+                         class="shadow-sm zoom-effect"
+                         style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+                    <div class="mt-2 text-muted">أزرار الوصول السريع</div>
+                  </div>
+                  <div class="col-lg-6 col-md-12 text-center">
+                    <img src="assets/images/menu-smart-menu.png" alt="التنقل في تطبيق القائمة الذكية"
+                         class="shadow-sm zoom-effect"
+                         style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+                    <div class="mt-2 text-muted">التنقل في تطبيق القائمة الذكية</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="item-2-4">
+              <h2 class="section-heading">شاشة المنتجات</h2>
+              <div class="container my-4">
+                <div class="row align-items-center">
+                  <div class="col-lg-7 col-md-12">
+                    <p>عند اختيار فئة، تقدّم شاشة المنتجات نظرة شاملة على جميع الأصناف المتاحة ضمن ذلك القسم، مما يوفّر تجربة تصفح واضحة ومنظمة للعملاء. يعرض كل منتج اسمه وسعره وصورة معاينة عالية الجودة لمساعدة العملاء على التعرف البصري على الصنف.</p>
+                    <p>بالإضافة إلى هذه التفاصيل، تتضمن الواجهة مؤشرات توفر في الوقت الفعلي حتى يعرف المستخدمون فورًا ما إذا كان يمكن طلب الصنف. للمنتجات التي تسمح بالتخصيص تُوفَّر خيارات مُعدِّلات تفاعلية تمكّن العملاء من ضبط جوانب مثل حجم الحصة أو الإضافات أو تفضيلات النكهة أو أسلوب التحضير قبل إضافة الصنف إلى السلة. صُممت هذه المُعدِّلات لتكون بديهية، مما يجعل عملية التخصيص سلسة حتى للمستخدمين لأول مرة.</p>
+                    <br>
+                    <br>
+                    <p>تتم مزامنة معلومات التوفر باستمرار مع النظام الخلفي، لتعكس التحديثات الحية من المخزون وعمليات المطبخ. يضمن ذلك إخفاء الأصناف غير المتوفرة أو المعطّلة مؤقتًا أو غير المتاحة بسبب قيود تشغيلية تلقائيًا أو تمييزها كغير متاحة، مما يمنع أي ارتباك محتمل.</p>
+                    <p>يحافظ هذا النهج على الدقة، ويقلل احتمال خيبة أمل العميل، ويضمن أن القائمة المعروضة تطابق دائمًا مخزون المطعم الحالي وقدرات الخدمة.</p>
+                  </div>
+                  <div class="col-lg-5 col-md-12 text-center">
+                    <img src="assets/images/smart-menu-products.png"
+                         alt="طلب القائمة الذكية"
+                         class="shadow-sm zoom-effect"
+                         style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+                    <div class="mt-2 text-muted">طلب القائمة الذكية</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="item-2-5">
+              <h2 class="section-heading">شاشة السلة</h2>
+              <div class="container my-4">
+                <div class="row align-items-center">
+                  <div class="col-lg-7 col-md-12">
+                    <p>بعد أن يختار العملاء الأصناف المطلوبة ويخصصونها، يُوجَّهون إلى واجهة مراجعة السلة التي تعمل كمركز للتحقق من الطلب قبل الدفع.</p>
+                    <p>في هذه الشاشة تُدرج جميع المنتجات المختارة بأسماء واضحة وكميات وأسعار فردية وإجمالي فرعي جارٍ. يتيح ذلك للعملاء التأكد بسرعة من اختيار الأصناف والمواصفات الصحيحة. يمكن إجراء التعديلات مباشرة من هذه الواجهة، بما في ذلك زيادة الكميات أو تقليلها أو إزالة الأصناف بالكامل أو تطبيق أكواد ترويجية أو خصومات عند توفرها.</p>
+                    <p>تعيد السلة حساب الإجماليات ديناميكيًا في الوقت الفعلي، مما يضمن انعكاس أي تغييرات فورًا في المبلغ النهائي.</p>
+                    <p>يطبق النظام أيضًا تلقائيًا الضرائب ذات الصلة أو رسوم الخدمة أو رسوم التوصيل وفقًا لإعدادات النظام الخلفي، مما يضمن الامتثال للأنظمة المحلية وتسعيرًا شفافًا للعميل.</p>
+                    <p>إلى جانب سرد الأصناف، تعمل شاشة السلة كنقطة تحقق مهمة في اتخاذ القرار حيث يمكن للعملاء ضمان الدقة والاكتمال. وبمجرد الرضا يمكنهم المتابعة إلى عملية الدفع بثقة بأن جميع التفاصيل تطابق توقعاتهم وأن الطلب جاهز بالكامل للإرسال.</p>
+                  </div>
+                  <div class="col-lg-5 col-md-12 text-center">
+                    <img src="assets/images/cart-screen-smart-menu.png"
+                         alt="سلة القائمة الذكية"
+                         class="shadow-sm zoom-effect"
+                         style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+                    <div class="mt-2 text-muted">شاشة السلة</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="item-2-6">
+              <h2 class="section-heading">شاشة الدفع</h2>
+              <div class="container my-4">
+                <div class="row align-items-center">
+                  <div class="col-lg-7 col-md-12">
+                    <p>تمثّل مرحلة الدفع الخطوة النهائية في عملية الطلب، حيث يؤكد العملاء الدفع ويكملون معاملتهم.</p>
+                    <p>هنا تُعرض للمستخدمين خيارات الدفع التي يقدّمها المطعم، والتي قد تشمل طرقًا تقليدية مثل النقد والبطاقة، بالإضافة إلى حلول حديثة مثل المدفوعات اللاتلامسية أو المحافظ الرقمية أو بوابات الدفع عبر الإنترنت المدمجة. تتيح هذه المرونة للنظام التكيف مع تفضيلات العملاء المختلفة والإعدادات التشغيلية.</p>
+                    <p>بمجرد أن يختار العميل طريقة الدفع، يعالج النظام المعاملة بأمان مع ضمان السرعة وأمن البيانات. فور الدفع تعرض التطبيق شاشة تأكيد الطلب تُظهر رقم طلب فريدًا ووقت تحضير تقديريًا بناءً على أحمال المطبخ في الوقت الفعلي.</p>
+                  </div>
+                  <div class="col-lg-5 col-md-12 text-center">
+                    <img src="assets/images/checkout-screen-smart-menu.png"
+                         alt="دفع القائمة الذكية"
+                         class="shadow-sm zoom-effect"
+                         style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+                    <div class="mt-2 text-muted">شاشة الدفع</div>
+                  </div>
+                </div>
+
+                <div class="container my-4">
+                  <div class="row align-items-center flex-row-reverse">
+                    <div class="col-lg-7 col-md-12">
+                      <p>بالإضافة إلى مرونتها، تقدّم شاشة الدفع عرضًا واضحًا ومنظمًا لجميع طرق الدفع المتاحة. يمكن للعملاء الاختيار من شبكات البطاقات الشائعة مثل Visa أو MasterCard أو Mada لإتمام الدفع بشكل أسرع.</p>
+                      <p>لمن يفضّل عدم الدفع بالبطاقة، يوفّر النظام أيضًا خيار <strong>Pay at Counter</strong>، مما يسمح للعملاء بإتمام المعاملة فعليًا عند الصندوق. تُعرض كل خيار دفع مع أيقونات معروفة وتعليمات بسيطة لضمان سهولة الوصول حتى للمستخدمين لأول مرة.</p>
+                    </div>
+                    <div class="col-lg-5 col-md-12 text-center">
+                      <img src="assets/images/payment-screen-smart-menu.png" alt="دفع الطلب"
+                           class="shadow-sm zoom-effect"
+                           style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+                      <div class="mt-2 text-muted">دفع الطلب</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="item-2-7">
+              <h2 class="section-heading">شاشة النجاح</h2>
+              <div class="container my-4">
+                <div class="row align-items-center">
+                  <div class="col-lg-7 col-md-12">
+                    <p>بعد اكتمال عملية الدفع يُوجَّه العميل إلى شاشة النجاح التي تمثّل التأكيد الرسمي للطلب. صُممت هذه الشاشة لتقديم الطمأنينة والوضوح معًا. في الأعلى تظهر رسالة <strong>Thank You</strong> تقديرًا لشراء العميل، يليها رقم تذكرة الطلب المعروض بوضوح، والذي يعمل كمعرّف فريد لكل من العميل وموظفي المطعم.</p>
+                    <p>توفّر شاشة النجاح أيضًا تفاصيل سياقية تحسّن الشفافية، مثل حالة التوصيل في الوقت الفعلي باستخدام بيانات نظام إدارة المطبخ المتصل، كما تعرض ملخصًا للأصناف المطلوبة يتيح للعملاء التحقق بسرعة من تسجيل جميع الاختيارات بشكل صحيح قبل مغادرة التطبيق.</p>
+                  </div>
+                  <div class="col-lg-5 col-md-12 text-center">
+                    <img src="assets/images/smart-menu-done.png"
+                         alt="طلب ناجح"
+                         class="shadow-sm zoom-effect"
+                         style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+                    <div class="mt-2 text-muted">طلب ناجح</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container my-4">
+                <div class="row align-items-center flex-row-reverse">
+                  <div class="col-lg-7 col-md-12">
+                    <p>بعد شاشة النجاح تستمر تجربة العميل بخيار تتبع الطلب المباشر إن فعّل المطعم هذه الميزة. يوفّر التتبع تحديثات فورية حول تقدّم الطلب، وقد تشمل الحالات مثل <strong>Order Placed</strong> و<strong>Accepted</strong> و<strong>Ready for Pickup</strong> أو <strong>Canceled</strong>. هذه الوظيفة ليست مفيدة للتوصيل فحسب، بل يمكن استخدامها أيضًا لتدفقات الجلوس في المطعم أو الاستلام، مما يمنح العملاء رؤية واضحة لكل خطوة من طلبهم.</p>
+                  </div>
+                  <div class="col-lg-5 col-md-12 text-center">
+                    <img src="assets/images/smart-menu-tracking.png" alt="تتبع الطلب"
+                         class="shadow-sm zoom-effect"
+                         style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+                    <div class="mt-2 text-muted">تتبع الطلب</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </article>
+
+          <article class="docs-article" id="section-3">
+            <header class="docs-header">
+              <h1 class="docs-heading">المزيد عن القائمة الذكية</h1>
+            </header>
+
+            <section class="docs-section" id="item-3-1">
+              <h2 class="section-heading">تطبيق المطبخ</h2>
+              <div class="container my-4">
+                <p>
+                  وحدة المطبخ واجهة يمكن الوصول إليها عبر المتصفح وتعرض تفاصيل الطلبات في الوقت الفعلي لطاقم التحضير. تُقسَّم الطلبات حسب المنتج وتُجمَّع بناءً على الوجهة (جلوس في المطعم، استلام، توصيل). تدعم الواجهة التوجيه حسب المحطة، مما يمكّن كل قسم في المطبخ من استلام الأصناف المخصصة له فقط. يتضمن كل منتج الكمية والمُعدِّلات والطوابع الزمنية. يمكن للموظفين تمييز الأصناف كـ <strong>in progress</strong> أو <strong>completed</strong> وتحديث الحالات وفقًا لذلك. تسجّل الوحدة أيضًا سجلات التحضير لأغراض التتبع التشغيلي والتدقيق.
+                </p>
+                <div class="text-center my-4">
+                  <img src="assets/images/kitchen-app-active-order.png" alt="وحدة المطبخ"
+                       class="img-thumbnail shadow-sm zoom-effect"
+                       style="max-width: 700px; width: 100%; cursor: pointer;"
+                       data-bs-toggle="modal" data-bs-target="#imageModal-kitchen">
+                  <div class="mt-2 text-muted">تطبيق المطبخ</div>
+                </div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="item-3-2">
+              <h2 class="section-heading">الأتمتة الذكية</h2>
+              <div class="container my-4">
+                <p>
+                  باستخدام خدمات الأتمتة الذكية، تُدفع الطلبات المقدَّمة عبر القائمة الذكية تلقائيًا إلى نظام نقطة البيع المتصل، مما يلغي الإدخال اليدوي ويقلل احتمال الخطأ البشري. تضمن هذه التكامل تسجيل جميع المعاملات وتحديث المخزون في الوقت الفعلي وانعكاس بيانات دقيقة في التقارير عبر المنصات. تتعامل الآلية نفسها مع تحديثات شاشة العميل وتوجيه شاشة المطبخ ومنطق تطبيق الضرائب أو الخصومات. كما تبسّط الأتمتة معالجة المبالغ المستردة وتتبع الطلبات عبر المزامنة بين الوحدات.
+                </p>
+              </div>
+            </section>
+
+            <section class="docs-section" id="item-3-3">
+              <h2 class="section-heading">الإدارة السحابية</h2>
+              <div class="container my-4">
+                <p>
+                  تتيح لوحة الإدارة الخلفية للمستخدمين المصرّح لهم إدارة وتكوين جميع جوانب نظام القائمة الذكية. عبر متصفح الويب يمكن للمستخدمين تعديل أسعار المنتجات والأوصاف وحالة التوفر وهياكل القائمة وترتيب العرض. يمكن تكوين كل موقع أو فرع بشكل فردي، مع بقاء إمكانية فرض سياسات عامة من قبل المسؤولين. بالإضافة إلى التحكم في القائمة، تدعم اللوحة إعداد اللافتات والعروض الترويجية وأدوار حسابات المستخدمين وتتبع المبيعات. الأذونات قائمة على الأدوار، مع تقييد الوصول حسب مستوى المستخدم (مسؤول، مدير فرع، إلخ).
+                </p>
+                <div class="text-center my-4">
+                  <img src="assets/images/cloud-admin.png" alt="لوحة الإدارة السحابية"
+                       class="img-thumbnail shadow-sm zoom-effect"
+                       style="max-width: 700px; width: 100%; cursor: pointer;"
+                       data-bs-toggle="modal" data-bs-target="#imageModal-admin">
+                  <div class="mt-2 text-muted">لوحة الإدارة السحابية</div>
+                </div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="item-3-4">
+              <h2 class="section-heading">دعم البيانات واللغات</h2>
+              <div class="container my-4">
+                <div class="row align-items-center">
+                  <div class="col-lg-7 col-md-12">
+                    <p>
+صُمم حل القائمة الذكية لاستيعاب قواعد عملاء متنوعة من خلال واجهته متعددة اللغات بالكامل، ويدعم حاليًا العربية والإنجليزية. يمكن إدارة جميع العناصر المرئية وتحديثها بالكامل في اللغتين، بما في ذلك التسميات والأزرار والأوصاف وأسماء المنتجات، مما يضمن الوضوح وسهولة الوصول لجميع المستخدمين بغض النظر عن تفضيلهم اللغوي. تجعل هذه المرونة النظام مناسبًا للمطاعم التي تخدم مجتمعات متعددة الثقافات أو تعمل في مناطق يكون فيها الخدمة ثنائية اللغة ضرورية.</p>
+                    <p>إلى جانب ميزاته المواجهة للعميل، يوفّر النظام أيضًا قدرات قوية لإدارة البيانات. يساعد في إنشاء تقارير وتحليلات مفصلة تغطي مجموعة واسعة من المقاييس التشغيلية مثل سجل الطلبات والمبيعات اليومية وأنماط شراء العملاء وأداء المنتجات. يمكن تصدير هذه التقارير بصيغة CSV لسهولة التكامل مع أدوات الأعمال الأخرى، ويمكن تصفيتها حسب متغيرات مثل نطاق التاريخ أو الموقع أو نوع الطلب. تمكّن هذه البيانات مديري المطاعم من تقييم اتجاهات الأداء وتحديد المنتجات عالية الطلب وتحسين عروض القائمة وفقًا لذلك.</p>
+                    <p>بالإضافة إلى ذلك، تعمل وظيفة التقارير كأداة قيّمة للتنبؤ، مما يسمح للشركات بالتخطيط لفترات الذروة وإدارة المخزون بفعالية وتحسين الكفاءة التشغيلية باستمرار.</p>
+                  </div>
+                  <div class="col-lg-5 col-md-12 text-center">
+                    <img src="assets/images/language-support.png"
+                         alt="دعم اللغة في القائمة الذكية"
+                         class="shadow-sm zoom-effect"
+                         style="max-height: 400px; width: auto; max-width: 100%; object-fit: scale-down; background-color: transparent; border: 1px solid #ddd; border-radius: 4px;">
+                    <div class="mt-2 text-muted">دعم اللغات</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </article>
+
+          <article class="docs-article" id="section-4">
+            <header class="docs-header">
+              <h1 class="docs-heading">الخاتمة</h1>
+            </header>
+
+            <div class="container my-4">
+              <p>
+                يقدّم حل القائمة الذكية تجربة طلب سلسة وحديثة ولاتلامسية لعملاء الجلوس في المطعم والاستلام على حد سواء. سواء تم الوصول إليه عبر مسح رمز QR موضوع على الطاولة أو الجدار، أو بزيارة رابط تطبيق الويب للمطعم مباشرة، يمكن للمستخدمين التصفح والتخصيص وإرسال طلباتهم بسهولة دون الحاجة إلى تنزيل أو تثبيت أي تطبيق.
+              </p>
+              <p>
+                من واجهته المتجاوبة للجوال إلى التكامل العميق مع أنظمة نقطة البيع والمطبخ والإدارة السحابية، تضمن القائمة الذكية مزامنة كل معاملة في الوقت الفعلي. يدعم النظام التفاعل متعدد اللغات وتصفية القائمة الديناميكية والأتمتة الذكية وميزات التقارير، مما يجعله أداة قوية لتبسيط عمليات المطعم وتعزيز رضا العملاء.
+              </p>
+              <p>
+                سواء نُشر في موقع واحد أو عبر فروع متعددة، تقدّم القائمة الذكية قابلية توسّع وتخصيص كاملة. تمكّن الشركات من إدارة ظهور المنتجات وتدفق الطلبات ومنطق التسعير من واجهة مركزية، بينما يستمتع العملاء برحلة طلب سريعة وبديهية ومخصصة.
+              </p>
+              <p>
+                باختصار، تحول القائمة الذكية القوائم التقليدية إلى واجهات رقمية ديناميكية تربط الكفاءة التشغيلية براحة العميل — وكل ذلك يمكن الوصول إليه من متصفح الجوال.
+              </p>
+            </div>
+          </article>
+
+          <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content bg-transparent border-0">
+                <div class="modal-body p-0 text-center">
+                  <img id="modalImage" src="#" alt="تكبير" class="img-fluid rounded">
+                </div>
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const zoomImages = document.querySelectorAll('.zoom-effect');
+
+              zoomImages.forEach(function (img) {
+                img.addEventListener('click', function () {
+                  const modalImage = document.getElementById('modalImage');
+                  modalImage.src = this.src;
+
+                  let naturalWidth = this.naturalWidth;
+                  let displayedWidth = this.clientWidth;
+                  let targetWidth = Math.min(displayedWidth * 1.5, naturalWidth);
+
+                  modalImage.style.width = targetWidth + "px";
+                  modalImage.style.height = "auto";
+                  modalImage.style.maxWidth = "90vw";
+                  modalImage.style.maxHeight = "90vh";
+
+                  const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+                  imageModal.show();
+                });
+              });
+
+              const workflow = document.getElementById('workflowImage');
+              if (workflow) {
+                workflow.addEventListener('click', function () {
+                  const modalImage = document.getElementById('modalImage');
+                  modalImage.src = this.src;
+
+                  const displayedWidth = this.clientWidth || this.width || 350;
+                  const targetWidth = Math.min(this.naturalWidth || displayedWidth * 2, displayedWidth * 2);
+
+                  modalImage.style.width = targetWidth + 'px';
+                  modalImage.style.height = 'auto';
+                  modalImage.style.maxWidth = '90vw';
+                  modalImage.style.maxHeight = '90vh';
+
+                  const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+                  imageModal.show();
+                });
+              }
+
+              const input = document.querySelector('.search-input');
+              const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link'));
+
+              if (!input) return;
+
+              const container = input.closest('.autocomplete-container');
+              const suggestionsBox = document.createElement('div');
+              suggestionsBox.className = 'autocomplete-suggestions';
+              container.appendChild(suggestionsBox);
+
+              input.addEventListener('input', function () {
+                const val = this.value.trim().toLowerCase();
+                suggestionsBox.innerHTML = '';
+
+                if (!val) {
+                  suggestionsBox.style.display = 'none';
+                  return;
+                }
+
+                navLinks.forEach(link => {
+                  const text = link.textContent.trim();
+                  const lowerText = text.toLowerCase();
+
+                  if (lowerText.includes(val)) {
+                    const option = document.createElement('div');
+                    option.className = 'autocomplete-suggestion';
+
+                    const index = lowerText.indexOf(val);
+                    const highlighted =
+                      index !== -1
+                        ? text.substring(0, index) +
+                          `<mark class="bg-transparent text-primary fw-bold">` +
+                          text.substring(index, index + val.length) +
+                          '</mark>' +
+                          text.substring(index + val.length)
+                        : text;
+
+                    option.innerHTML = highlighted;
+                    option.addEventListener('click', () => {
+                      window.location.href = link.href;
+                    });
+
+                    suggestionsBox.appendChild(option);
+                  }
+                });
+
+                suggestionsBox.style.display = suggestionsBox.children.length ? 'block' : 'none';
+              });
+
+              document.addEventListener('click', function (e) {
+                if (!suggestionsBox.contains(e.target) && e.target !== input) {
+                  suggestionsBox.innerHTML = '';
+                  suggestionsBox.style.display = 'none';
+                }
+              });
+            });
+          </script>
+
+          <footer class="footer">
+            <div class="footer-bottom text-center py-5">
+              <ul class="social-list list-unstyled pb-4 mb-0">
+                <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+              </ul>
+              <small class="copyright">© Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> جميع الحقوق محفوظة. صُمم بـ <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> بواسطة <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">XR</a>.</small>
+            </div>
+          </footer>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script>
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script>
+    <script src="assets/js/docs.js"></script>
+    <script src="assets/js/lang.js"></script>
+
+</body>
+</html>

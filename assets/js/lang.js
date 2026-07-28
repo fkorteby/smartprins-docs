@@ -11,6 +11,14 @@
   const html = document.documentElement;
   const KNOWN_AR_PAGES = new Set([
     "index-ar.html",
+    "getting-started-ar.html",
+    "cloud-pos-ar.html",
+    "cloud-administration-ar.html",
+    "smart-kiosk-ar.html",
+    "smart-menu-ar.html",
+    "smart-kitchen-app-ar.html",
+    "smart-whatsapp-ar.html",
+    "smart-waiter-ar.html",
     "inventory-intro0-ar.html",
     "inventory-intro-ar.html",
     "inventory-ingredients-ar.html",

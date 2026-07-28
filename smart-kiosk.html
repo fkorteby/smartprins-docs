@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en" dir="ltr" data-lang-en="smart-kiosk.html" data-lang-ar="smart-kiosk-ar.html">
 <head>
     <title>SmartPrints -smart-kiosk-solution</title>
     
@@ -13,6 +13,7 @@
     
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <!-- FontAwesome JS-->
     <script defer src="assets/fontawesome/js/all.min.js"></script>
@@ -35,6 +36,32 @@
         transform: scale(1.05);
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
       }
+
+      #lang-toggle {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border: 2px solid #5368fd;
+        background: transparent;
+        color: #5368fd;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+      }
+      #lang-toggle:hover {
+        background: #5368fd;
+        color: #fff;
+      }
+      html[lang="ar"] .lang-en {
+        display: none !important;
+      }
+      html[lang="en"] .lang-ar {
+        display: none !important;
+      }
    </style>
 
    <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
@@ -49,7 +76,7 @@
         <!-- Logo Left -->
         <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
           <a class="navbar-brand" href="index.html">
-	          <div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height: 60px;"></a></div>  
+	          <div class="site-logo"><img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height: 60px;"></div>  
           </a>
         </div>
 
@@ -69,9 +96,12 @@
 
 
         <!-- Button Right -->
-        <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center">
-          
-          <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderdocs-free-bootstrap-5-documentation-template-for-software-projects/" class="btn btn-primary d-none d-lg-flex">Download</a>
+        <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center gap-2">
+          <button id="lang-toggle" onclick="toggleLanguage()">
+            <span class="lang-en">🇸🇦 العربية</span>
+            <span class="lang-ar">🇬🇧 English</span>
+          </button>
+          <a href="#" class="btn btn-primary d-none d-lg-flex">Download</a>
         </div>
       </div>
     </div>
@@ -82,11 +112,10 @@
         <!-- Social Media Sidebar -->
         <div class="social-sidebar d-none d-lg-flex">
           <ul class="social-sidebar">
-         <li onclick="activateIcon(this)"><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
-         <li onclick="activateIcon(this)"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
-         <li onclick="activateIcon(this)"><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
-         <li onclick="activateIcon(this)"><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
-         <li onclick="activateIcon(this)"><a href="#" id="lang-toggle" onclick="window.location.href='arabic.html';"><i class="fa-solid fa-globe fa-fw"></i></a></li>
+         <li><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+         <li><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+         <li><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+         <li><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
         </ul>
         </div>
 
@@ -625,7 +654,8 @@ document.addEventListener('DOMContentLoaded', function () {
     <script src="assets/js/highlight-custom.js"></script> 
     <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
     <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
-    <script src="assets/js/docs.js"></script> 
+    <script src="assets/js/docs.js"></script>
+    <script src="assets/js/lang.js"></script>
 
 </body>
 </html> 

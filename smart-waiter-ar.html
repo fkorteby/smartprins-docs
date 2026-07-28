@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-lang-en="smart-waiter.html" data-lang-ar="smart-waiter-ar.html">
+<head>
+    <title>Smart Prints - النادل الذكي</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="دليل التوثيق الوظيفي لحل النادل الذكي Smart Waiter من Smart Prints لإدارة الطاولات وطلبات الجلوس داخل نقطة البيع">
+    <meta name="author" content="SmartPrints Team">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+    <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+    <script>
+      (function () {
+        var l = localStorage.getItem("sp_lang");
+        if (l) {
+          document.documentElement.lang = l;
+          document.documentElement.dir = l === "ar" ? "rtl" : "ltr";
+        }
+      })();
+    </script>
+    <style>
+      .zoom-effect {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .zoom-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      #lang-toggle {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border: 2px solid #5368fd;
+        background: transparent;
+        color: #5368fd;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+      }
+      #lang-toggle:hover {
+        background: #5368fd;
+        color: #fff;
+      }
+      html[lang="ar"] .lang-en {
+        display: none !important;
+      }
+      html[lang="en"] .lang-ar {
+        display: none !important;
+      }
+      html[lang="ar"] body {
+        font-family: "Tajawal", sans-serif;
+      }
+      html[lang="ar"] .docs-sidebar {
+        left: auto !important;
+        right: 0 !important;
+      }
+      html[lang="ar"] .docs-content {
+        margin-left: 0 !important;
+        margin-right: 300px !important;
+      }
+      html[lang="ar"] .docs-content .container {
+        direction: rtl;
+        text-align: right;
+      }
+      html[lang="ar"] .docs-nav {
+        direction: rtl;
+        text-align: right;
+      }
+      html[lang="ar"] .social-sidebar {
+        left: 0 !important;
+        right: auto !important;
+      }
+      html[lang="ar"] .docs-branding .row {
+        flex-direction: row-reverse;
+      }
+      html[lang="ar"] .navbar-brand {
+        margin-right: 0;
+        margin-left: 1rem;
+      }
+      html[lang="ar"] #docs-nav .nav-link::before {
+        left: auto !important;
+        right: 0 !important;
+      }
+      .autocomplete-container {
+        position: relative;
+        width: 100%;
+      }
+      .autocomplete-suggestions {
+        position: absolute;
+        top: 100%;
+        left: 2px;
+        right: 2px;
+        background: #fff;
+        z-index: 1050;
+        max-height: 240px;
+        overflow-y: auto;
+        border: 1px solid #dee2e6;
+        border-top: none;
+        border-radius: 0 0 6px 6px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        display: none;
+        padding: 0;
+      }
+      .autocomplete-suggestion {
+        padding: 10px 14px;
+        cursor: pointer;
+        color: #333;
+        transition: background-color 0.2s ease;
+        font-size: 0.95rem;
+      }
+      .autocomplete-suggestion:hover {
+        background-color: #f0f4ff;
+      }
+      .autocomplete-suggestion mark {
+        background: none;
+        color: #5368fd;
+        font-weight: bold;
+      }
+    </style>
+</head>
+<body>
+    <header class="header fixed-top">
+      <div class="branding docs-branding">
+        <div class="container-fluid py-2">
+          <div class="row align-items-center">
+            <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+              <a class="navbar-brand" href="index-ar.html">
+                <div class="site-logo">
+                  <img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height: 60px;">
+                </div>
+              </a>
+            </div>
+            <div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+              <form class="search-form position-relative d-flex justify-content-center">
+                <div class="position-relative w-75 autocomplete-container">
+                  <input type="text" placeholder="ابحث في التوثيق..." name="search" class="form-control search-input pe-5">
+                  <div class="autocomplete-suggestions"></div>
+                  <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+                    <i class="fa-light fa-magnifying-glass text-muted"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center gap-2">
+              <button id="lang-toggle" onclick="toggleLanguage()">
+                <span class="lang-en">🇸🇦 العربية</span>
+                <span class="lang-ar">🇬🇧 English</span>
+              </button>
+              <a href="#" class="btn btn-primary d-none d-lg-flex">تحميل</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="docs-wrapper">
+      <div class="social-sidebar d-none d-lg-flex">
+        <ul class="social-sidebar">
+          <li onclick="activateIcon(this)"><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+          <li onclick="activateIcon(this)"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+          <li onclick="activateIcon(this)"><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+          <li onclick="activateIcon(this)"><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+        </ul>
+      </div>
+
+      <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+        <div class="top-search-box">
+          <form class="search-form">
+            <div class="position-relative w-100 autocomplete-container">
+              <input type="text" class="form-control search-input rounded-top" placeholder="ابحث في التوثيق...">
+              <div class="autocomplete-suggestions"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="docs-sidebar" class="docs-sidebar">
+        <nav id="docs-nav" class="docs-nav navbar">
+          <ul class="section-items list-unstyled nav flex-column pb-3">
+
+            <li class="nav-item section-title">
+              <a class="nav-link scrollto active" href="#section-1">
+                <span class="theme-icon-holder me-2">
+                  <i class="fas fa-utensils"></i>
+                </span>
+                نظرة عامة على النادل الذكي
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link scrollto" href="#item-1-1">
+                إدارة الطاولات المدمجة في نقطة البيع
+              </a>
+            </li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-2">
+                <span class="theme-icon-holder me-2">
+                  <i class="fas fa-question-circle"></i>
+                </span>
+                لماذا النادل الذكي
+              </a>
+            </li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-3">
+                <span class="theme-icon-holder me-2">
+                  <i class="fas fa-route"></i>
+                </span>
+                التنقل في النادل الذكي
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link scrollto" href="#item-3-1">
+                الوصول إلى إدارة الطاولات
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link scrollto" href="#item-3-2">
+                اختيار طاولة
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link scrollto" href="#item-3-3">
+                مؤشرات حالة الطاولة والتوقيت
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link scrollto" href="#item-3-4">
+                إنشاء طلب
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link scrollto" href="#item-3-5">
+                إرسال الطلبات إلى المطبخ
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link scrollto" href="#item-3-6">
+                أوامر الطاولة
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+      </div>
+
+      <div class="docs-content">
+        <div class="container">
+
+          <article class="docs-article" id="section-1">
+            <header class="docs-header">
+              <h1 class="docs-heading">نظرة عامة على النادل الذكي</h1>
+            </header>
+
+            <section class="docs-section" id="item-1-1">
+              <h2 class="section-heading">إدارة الطاولات المدمجة في نقطة البيع</h2>
+              <div class="row align-items-center g-3">
+
+                <div class="col-md-8">
+                  <p class="mb-2">
+                    النادل الذكي (Smart Waiter) ميزة مدمجة أصلاً لإدارة طاولات الجلوس والطلبات داخل تطبيق Smart POS.
+                    وهي توسّع نقطة البيع بتتبع الطاولات في الوقت الفعلي، وإنشاء الطلبات بواسطة النادل،
+                    وإرسالها مباشرة إلى المطبخ ضمن نفس بيئة التشغيل.
+                  </p>
+                  <p class="mb-0">
+                    بخلاف تطبيقات النادل المستقلة، لا يتطلب النادل الذكي تثبيتاً أو مصادقة منفصلة.
+                    تُعالَج جميع إجراءات الطاولات والطلبات والمدفوعات عبر محرك نقطة البيع الأساسي،
+                    مما يضمن الاتساق عبر الفوترة وسير عمل المطبخ والتقارير.
+                  </p>
+                </div>
+
+                <div class="col-md-4 text-center">
+                  <img src="assets/images/smart-waiter-overview.png"
+                       alt="النادل الذكي مدمج في نقطة البيع"
+                       class="img-thumbnail shadow-sm zoom-effect"
+                       style="max-width: 260px; width: 100%;">
+                </div>
+
+              </div>
+            </section>
+          </article>
+
+          <article class="docs-article" id="section-2">
+            <header class="docs-header">
+              <h1 class="docs-heading">لماذا النادل الذكي</h1>
+            </header>
+
+            <section class="docs-section">
+              <p>
+                يعزّز النادل الذكي عمليات الجلوس بإدخال الوعي بالطاولات وذكاء توقيت الخدمة
+                مباشرة في سير عمل نقطة البيع. ويُمكّن النوادل والكاشير وطاقم المطبخ من العمل على نفس
+                مجموعة البيانات في الوقت الفعلي دون تنسيق يدوي.
+              </p>
+
+              <ul>
+                <li>تكامل أصلي داخل تطبيق Smart POS</li>
+                <li>تتبع إشغال الطاولات والتوقيت في الوقت الفعلي</li>
+                <li>إرسال الطلبات مباشرة إلى محطات المطبخ</li>
+                <li>تقليل تأخير الخدمة خلال أوقات الذروة</li>
+                <li>تقارير دقيقة على مستوى الطاولة ومساءلة أوضح</li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="docs-article" id="section-3">
+            <header class="docs-header">
+              <h1 class="docs-heading">التنقل في النادل الذكي داخل نقطة البيع</h1>
+            </header>
+
+            <section class="docs-section" id="item-3-1">
+              <h2 class="section-heading">الوصول إلى إدارة الطاولات</h2>
+              <p>
+                يُفتح النادل الذكي مباشرة من القائمة الرئيسية في Smart POS عبر خيار Table Management.
+                وتمثّل هذه الشاشة نقطة التحكم المركزية لجميع عمليات الجلوس داخل بيئة نقطة البيع.
+                عند فتح شاشة Table Management، يحمّل النظام ويعرض جميع الطاولات المُعدّة للفرع النشط،
+                بما في ذلك حالتها الحالية وحالة الإشغال ومؤشرات التوقيت المرتبطة بها.
+              </p>
+              <br>
+              <p>
+                يُفتح النادل الذكي مباشرة من القائمة الرئيسية في Smart POS عبر خيار Table Management.
+                وتمثّل هذه الشاشة نقطة التحكم المركزية لجميع عمليات الجلوس داخل بيئة نقطة البيع.
+                عند فتح شاشة Table Management، يحمّل النظام ويعرض جميع الطاولات المُعدّة للفرع النشط،
+                بما في ذلك حالتها الحالية وحالة الإشغال ومؤشرات التوقيت المرتبطة بها.
+              </p>
+
+              <div class="text-center my-4">
+                <img src="assets/images/pos-table management.jpg"
+                     alt="إدارة الطاولات في نقطة البيع"
+                     class="img-thumbnail shadow-sm zoom-effect"
+                     style="max-width: 500px; width: 100%;">
+                <div class="mt-2 text-muted">قائمة POS ← Table Management</div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="item-3-2">
+              <h2 class="section-heading">اختيار طاولة</h2>
+              <p>
+                يمثّل اختيار طاولة بداية جلسة الجلوس. وبمجرد اختيارها،
+                تصبح الطاولة نشطة وتُربط بها جميع الطلبات والإجراءات اللاحقة.
+              </p>
+
+              <div class="text-center my-4">
+                <img src="assets/images/select-table.jpg"
+                     alt="اختيار طاولة"
+                     class="img-thumbnail shadow-sm zoom-effect"
+                     style="max-width: 500px; width: 100%;">
+                <div class="mt-2 text-muted">اختيار طاولة متاحة</div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="item-3-3">
+              <h2 class="section-heading">مؤشرات حالة الطاولة والتوقيت</h2>
+              <p>
+                يتتبع النادل الذكي توقيت الخدمة بصرياً عبر حالات طاولات مرمّزة بالألوان.
+                وتساعد هذه المؤشرات الطاقم على تحديد الأولويات وتجنب تأخير الخدمة.
+              </p>
+
+              <ul>
+                <li><strong>أخضر (Green):</strong> تم اختيار الطاولة للتو، والعملاء جالسون</li>
+                <li><strong>برتقالي (Orange):</strong> تم بلوغ حد الانتظار (مثلاً دقيقة واحدة)</li>
+                <li><strong>أحمر (Red):</strong> تم رصد وقت انتظار ممتد (دقيقتان أو أكثر)</li>
+              </ul>
+
+              <div class="row text-center my-4">
+                <div class="col-md-4">
+                  <img src="assets/images/table-green.jpg"
+                       class="img-thumbnail shadow-sm zoom-effect">
+                  <div class="mt-2 text-muted">أخضر – مشغولة حديثاً</div>
+                </div>
+                <div class="col-md-4">
+                  <img src="assets/images/table-orange.jpg"
+                       class="img-thumbnail shadow-sm zoom-effect">
+                  <div class="mt-2 text-muted">برتقالي – تحتاج انتباهاً</div>
+                </div>
+                <div class="col-md-4">
+                  <img src="assets/images/table-red.jpg"
+                       class="img-thumbnail shadow-sm zoom-effect">
+                  <div class="mt-2 text-muted">أحمر – تأخير في الخدمة</div>
+                </div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="item-3-4">
+              <h2 class="section-heading">إنشاء طلب</h2>
+              <p>
+                بعد اختيار الطاولة، ينتقل النادل إلى واجهة الطلب في نقطة البيع.
+                تُضاف المنتجات باستخدام نفس هيكل الفئات والمعدّلات والملاحظات
+                المتاح في عمليات نقطة البيع الاعتيادية.
+              </p>
+
+              <div class="text-center my-4">
+                <img src="assets/images/pos-order-table-management.jpg"
+                     alt="إنشاء طلب في نقطة البيع"
+                     class="img-thumbnail shadow-sm zoom-effect"
+                     style="max-width: 500px; width: 100%;">
+                <div class="mt-2 text-muted">إنشاء طلب مرتبط بالطاولة</div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="item-3-5">
+              <h2 class="section-heading">إرسال الطلبات إلى المطبخ</h2>
+              <p>
+                بمجرد التأكيد، يُرسل الطلب فوراً إلى نظام عرض المطبخ.
+                وتُوجَّه الأصناف إلى محطات التحضير المناسبة وتُتتبَّع في الوقت الفعلي.
+              </p>
+
+              <div class="text-center my-4">
+                <img src="assets/images/send-to-kitchen.jpg"
+                     alt="إرسال إلى المطبخ"
+                     class="img-thumbnail shadow-sm zoom-effect"
+                     style="max-width: 500px; width: 100%;">
+                <div class="mt-2 text-muted">تم إرسال الطلب إلى المطبخ</div>
+              </div>
+            </section>
+
+            <section class="docs-section" id="item-3-6">
+              <h2 class="section-heading">أوامر الطاولة</h2>
+              <p>
+                بمجرد وجود طلب نشط على الطاولة، يوفّر النادل الذكي مجموعة من الأوامر على مستوى الطاولة
+                مباشرة داخل واجهة نقطة البيع.
+              </p>
+              <div class="text-center my-4">
+                <img src="assets/images/table-commands.jpg"
+                     alt="أوامر الطاولة"
+                     class="img-thumbnail shadow-sm zoom-effect"
+                     style="max-width: 500px; width: 100%;">
+                <div class="mt-2 text-muted">أوامر إدارة الطاولات</div>
+              </div>
+
+              <ul>
+                <li>View Order Details</li>
+                <li>Edit Order (POS Edit)</li>
+                <li>Change Table</li>
+                <li>Pay Table</li>
+                <li>Clear Table</li>
+              </ul>
+
+              <div class="row my-4 text-center">
+                <div class="col-md-4">
+                  <img src="assets/images/view-order-details-tm.jpg" class="img-thumbnail shadow-sm zoom-effect">
+                  <div class="mt-2 text-muted">View Order Details</div>
+                </div>
+                <div class="col-md-4">
+                  <img src="assets/images/change-table.jpg" class="img-thumbnail shadow-sm zoom-effect">
+                  <div class="mt-2 text-muted">Change Table</div>
+                </div>
+                <div class="col-md-4">
+                  <img src="assets/images/pay-table.jpg" class="img-thumbnail shadow-sm zoom-effect">
+                  <div class="mt-2 text-muted">Pay Table</div>
+                </div>
+              </div>
+            </section>
+          </article>
+
+          <article class="docs-article" id="section-conclusion">
+            <header class="docs-header">
+              <h1 class="docs-heading">الخاتمة</h1>
+            </header>
+
+            <section class="docs-section">
+              <p>
+                يوفّر وحدة النادل الذكي، المدمجة بالكامل في تطبيق Smart POS، نهجاً منظّماً وفعّالاً
+                لإدارة عمليات الجلوس دون الاعتماد على تطبيقات نادل خارجية أو مستقلة.
+                ومن خلال مركزية إدارة الطاولات وإنشاء الطلبات وإرسالها إلى المطبخ وسير عمل الدفع
+                ضمن بيئة نقطة بيع واحدة، يضمن النظام الاتساق التشغيلي وسلامة البيانات عبر جميع مراحل الخدمة.
+              </p>
+
+              <p>
+                ومن خلال تتبع حالة الطاولات في الوقت الفعلي، وحدود التوقيت القابلة للتهيئة، والمؤشرات البصرية الواضحة،
+                يتمكّن الطاقم من مراقبة تدفق العملاء وتحديد أولويات الخدمة وتقليل وقت خمول الطاولات.
+                كما أن القدرة على تنفيذ إجراءات على مستوى الطاولة مثل تعديل الطلبات وتغيير الطاولات ومسح الجلسات
+                وإتمام المدفوعات مباشرة من نقطة البيع تقلّل بشكل ملحوظ تأخير الخدمة والأخطاء التشغيلية.
+              </p>
+
+              <p>
+                من الناحية التقنية، يعتمد النادل الذكي على البنية التحتية الأساسية لنقطة البيع للمصادقة
+                والمزامنة والتقارير. وتُسجَّل جميع تفاعلات الجلوس على مستوى نقطة البيع، مما يضمن بقاء
+                بيانات المبيعات ونشاط المطبخ ومؤشرات أداء الطاقم متوافقة وقابلة للتحليل.
+              </p>
+
+              <p>
+                وبشكل عام، يحوّل النادل الذكي تطبيق Smart POS إلى حل متكامل لإدارة الجلوس، مما يُمكّن
+                المطاعم من تبسيط عمليات الواجهة الأمامية، والحفاظ على تنسيق دقيق مع المطبخ،
+                وتقديم تجربة طعام أكثر تحكماً واستجابة.
+              </p>
+            </section>
+          </article>
+
+        </div>
+      </div>
+    </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const zoomImages = document.querySelectorAll('.zoom-effect');
+
+    zoomImages.forEach(function (img) {
+      img.addEventListener('click', function () {
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = this.src;
+
+        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        imageModal.show();
+      });
+    });
+  });
+</script>
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center">
+        <img id="modalImage" src="#" alt="تكبير" class="img-fluid rounded">
+      </div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const input = document.querySelector('.search-input');
+  const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link'));
+
+  if (!input) return;
+
+  const container = input.closest('.autocomplete-container');
+  const suggestionsBox = document.createElement('div');
+  suggestionsBox.className = 'autocomplete-suggestions';
+  container.appendChild(suggestionsBox);
+
+  input.addEventListener('input', function () {
+    const val = this.value.trim().toLowerCase();
+    suggestionsBox.innerHTML = '';
+
+    if (!val) {
+      suggestionsBox.style.display = 'none';
+      return;
+    }
+
+    navLinks.forEach(link => {
+      const text = link.textContent.trim();
+      const lowerText = text.toLowerCase();
+
+      if (lowerText.includes(val)) {
+        const option = document.createElement('div');
+        option.className = 'autocomplete-suggestion';
+
+        const index = lowerText.indexOf(val);
+          const highlighted =
+           index !== -1
+           ? text.substring(0, index) +
+           `<mark class="bg-transparent text-primary fw-bold">` +
+            text.substring(index, index + val.length) +
+            '</mark>' +
+            text.substring(index + val.length)
+            : text;
+
+        option.innerHTML = highlighted;
+        option.addEventListener('click', () => {
+          window.location.href = link.href;
+        });
+
+        suggestionsBox.appendChild(option);
+      }
+    });
+
+    suggestionsBox.style.display = suggestionsBox.children.length ? 'block' : 'none';
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!suggestionsBox.contains(e.target) && e.target !== input) {
+      suggestionsBox.innerHTML = '';
+      suggestionsBox.style.display = 'none';
+    }
+  });
+});
+</script>
+
+    <footer class="footer">
+	    <div class="footer-bottom text-center py-5">
+		    <ul class="social-list list-unstyled pb-4 mb-0">
+			    <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li>
+	            <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+	            <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+	            <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+	        </ul>
+            <small class="copyright">© Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> All Rights Reserved. Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">XR</a>.</small>
+	    </div>
+    </footer>
+
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script>
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script>
+    <script src="assets/js/docs.js"></script>
+    <script src="assets/js/lang.js"></script>
+
+</body>
+</html>

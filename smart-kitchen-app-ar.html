@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-lang-en="smart-kitchen-app.html" data-lang-ar="smart-kitchen-app-ar.html">
+<head>
+    <title>Smart Prints - تطبيق المطبخ الذكي</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="دليل التوثيق الوظيفي لتطبيق المطبخ الذكي Smart Prints لإدارة الطلبات في الوقت الفعلي وتحسين عمليات المطبخ">
+    <meta name="author" content="SmartPrints Team">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+    <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+    <script>
+      (function () {
+        var l = localStorage.getItem("sp_lang");
+        if (l) {
+          document.documentElement.lang = l;
+          document.documentElement.dir = l === "ar" ? "rtl" : "ltr";
+        }
+      })();
+    </script>
+    <style>
+      .zoom-effect {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .zoom-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      #lang-toggle {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border: 2px solid #5368fd;
+        background: transparent;
+        color: #5368fd;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+      }
+      #lang-toggle:hover {
+        background: #5368fd;
+        color: #fff;
+      }
+      html[lang="ar"] .lang-en {
+        display: none !important;
+      }
+      html[lang="en"] .lang-ar {
+        display: none !important;
+      }
+      html[lang="ar"] body {
+        font-family: "Tajawal", sans-serif;
+      }
+      html[lang="ar"] .docs-sidebar {
+        left: auto !important;
+        right: 0 !important;
+      }
+      html[lang="ar"] .docs-content {
+        margin-left: 0 !important;
+        margin-right: 300px !important;
+      }
+      html[lang="ar"] .docs-content .container {
+        direction: rtl;
+        text-align: right;
+      }
+      html[lang="ar"] .docs-nav {
+        direction: rtl;
+        text-align: right;
+      }
+      html[lang="ar"] .social-sidebar {
+        left: 0 !important;
+        right: auto !important;
+      }
+      html[lang="ar"] .docs-branding .row {
+        flex-direction: row-reverse;
+      }
+      html[lang="ar"] .navbar-brand {
+        margin-right: 0;
+        margin-left: 1rem;
+      }
+      html[lang="ar"] #docs-nav .nav-link::before {
+        left: auto !important;
+        right: 0 !important;
+      }
+      .custom-table {
+        border-collapse: collapse;
+        background-color: #fdfdfe;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      }
+      .custom-table td {
+        border: 1px solid #ddd;
+        padding: 1.25rem;
+        vertical-align: top;
+        background-color: #ffffff;
+      }
+      .custom-table td p {
+        font-size: 1rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        color: #333;
+        font-family: "Tajawal", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .custom-table img {
+        border-radius: 6px;
+        border: 1px solid #eee;
+      }
+      .custom-table tr:hover td {
+        background-color: #f4f8ff;
+      }
+      .autocomplete-container {
+        position: relative;
+        width: 100%;
+      }
+      .autocomplete-suggestions {
+        position: absolute;
+        top: 100%;
+        left: 2px;
+        right: 2px;
+        background: #fff;
+        z-index: 1050;
+        max-height: 240px;
+        overflow-y: auto;
+        border: 1px solid #dee2e6;
+        border-top: none;
+        border-radius: 0 0 6px 6px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        display: none;
+        padding: 0;
+      }
+      .autocomplete-suggestion {
+        padding: 10px 14px;
+        cursor: pointer;
+        color: #333;
+        transition: background-color 0.2s ease;
+        font-size: 0.95rem;
+      }
+      .autocomplete-suggestion:hover {
+        background-color: #f0f4ff;
+      }
+      .autocomplete-suggestion mark {
+        background: none;
+        color: #5368fd;
+        font-weight: bold;
+      }
+    </style>
+</head>
+<body>
+    <header class="header fixed-top">
+      <div class="branding docs-branding">
+        <div class="container-fluid py-2">
+          <div class="row align-items-center">
+            <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+              <a class="navbar-brand" href="index-ar.html">
+                <div class="site-logo">
+                  <img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height: 60px;">
+                </div>
+              </a>
+            </div>
+            <div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+              <form class="search-form position-relative d-flex justify-content-center">
+                <div class="position-relative w-75 autocomplete-container">
+                  <input type="text" placeholder="ابحث في التوثيق..." name="search" class="form-control search-input pe-5">
+                  <div class="autocomplete-suggestions"></div>
+                  <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+                    <i class="fa-light fa-magnifying-glass text-muted"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center gap-2">
+              <button id="lang-toggle" onclick="toggleLanguage()">
+                <span class="lang-en">🇸🇦 العربية</span>
+                <span class="lang-ar">🇬🇧 English</span>
+              </button>
+              <a href="#" class="btn btn-primary d-none d-lg-flex">تحميل</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="docs-wrapper">
+      <div class="social-sidebar d-none d-lg-flex">
+        <ul class="social-sidebar">
+          <li><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+          <li><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+          <li><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+          <li><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+        </ul>
+      </div>
+
+      <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+        <div class="top-search-box">
+          <form class="search-form">
+            <div class="position-relative w-100 autocomplete-container">
+              <input type="text" class="form-control search-input rounded-top" placeholder="ابحث في التوثيق...">
+              <div class="autocomplete-suggestions"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="docs-sidebar" class="docs-sidebar">
+        <nav id="docs-nav" class="docs-nav navbar">
+          <ul class="section-items list-unstyled nav flex-column pb-3">
+
+            <li class="nav-item section-title">
+              <a class="nav-link scrollto active" href="#section-1">
+                <span class="theme-icon-holder me-2"><i class="fas fa-utensils"></i></span>تطبيق المطبخ الذكي
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">مقدمة عن التطبيق</a></li>
+
+            <li class="nav-item section-title">
+              <a class="nav-link scrollto active" href="#section-2">
+                <span class="theme-icon-holder me-2"><i class="fas fa-utensils"></i></span>الطلب الذكي
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">كيف تعمل الطلبات</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-3">
+                <span class="theme-icon-holder me-2"><i class="fas fa-tools"></i></span>الميزات
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">شاشات المحطات المتعددة</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">تحديثات الطلبات في الوقت الفعلي</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-3">الإدارة السحابية</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-4">التكامل مع نقطة البيع</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-5">عروض قابلة للتخصيص</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-4">
+                <span class="theme-icon-holder me-2"><i class="fas fa-chart-line"></i></span>شاشة عرض العميل الذكية
+              </a>
+            </li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-5">
+                <span class="theme-icon-holder me-2"><i class="fas fa-chart-line"></i></span>الفوائد
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">دقة الطلبات</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2">تحسين سير العمل</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-5-3">كفاءة الموظفين</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-5-4">تقارير مفيدة</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-5-5">باقات قابلة للتوسع</a></li>
+
+          </ul>
+        </nav>
+      </div>
+
+      <div class="docs-content">
+        <div class="container">
+
+          <article class="docs-article" id="section-1">
+            <header class="docs-header">
+              <h1 class="docs-heading">تطبيق المطبخ الذكي</h1>
+            </header>
+
+            <section class="docs-section" id="item-1-1">
+              <h2 class="section-heading">مقدمة عن التطبيق</h2>
+              <p>تطبيق المطبخ الذكي نظام إدارة مطبخ في الوقت الفعلي مصمم لتحسين عمليات المكتب الخلفي. يوفّر رؤية مباشرة ومنظّمة لطلبات العملاء، ويضمن تواصلًا سلسًا بين أنظمة نقطة البيع وموظفي المطبخ.</p>
+              <div class="text-center my-4">
+                <img src="assets/images/kitchen-app.png"
+                  alt="تسجيل الدخول إلى وردية موجودة"
+                  class="img-thumbnail shadow-sm zoom-effect"
+                  style="max-width: 500px; width: 100%; cursor: pointer;"
+                  data-bs-toggle="modal"
+                  data-bs-target="#imageModal1">
+              </div>
+
+              <p>بمجرد النقر على <strong>lunch</strong>، تفتح النافذة التالية:</p>
+              <div class="text-center my-4">
+                <img src="assets/images/kitchen-app-start.png"
+                  alt="بدء تطبيق المطبخ"
+                  class="img-thumbnail shadow-sm zoom-effect"
+                  style="max-width: 500px; width: 100%; cursor: pointer;"
+                  data-bs-toggle="modal"
+                  data-bs-target="#imageModal1">
+              </div>
+            </section>
+          </article>
+
+          <article class="docs-article" id="section-2">
+            <header class="docs-header">
+              <h1 class="docs-heading">الطلب الذكي</h1>
+            </header>
+
+            <section class="docs-section" id="item-2-1">
+              <h2 class="section-heading">كيف تعمل الطلبات</h2>
+              <p>تمر الطلبات بعدة حالات خلال مرحلة التحضير. كل حالة مرمّزة بالألوان لتمكين موظفي المطبخ من التعرف عليها بسرعة.</p>
+
+              <div class="container">
+                <div class="table-responsive d-flex justify-content-center">
+                  <table class="table table-bordered custom-table w-75">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <p class="table-paragraph"><strong>طلب مقدَّم (Placed Order):</strong> طلب جديد مقدَّم من الكiosk أو القائمة الذكية.</p>
+                          <div class="text-center my-4">
+                            <img src="assets/images/order-green.png"
+                              alt="طلب مقدَّم"
+                              class="img-thumbnail shadow-sm zoom-effect"
+                              style="max-width: 500px; width: 100%; cursor: pointer;"
+                              data-bs-toggle="modal"
+                              data-bs-target="#imageModal1">
+                          </div><br>
+                          <p class="table-paragraph"><strong>طلب نشط (Active Order):</strong> بعد النقر على الزر الأخضر <strong>Active</strong> يصبح الطلب نشطًا، أي قيد التحضير حاليًا.</p>
+                          <div class="d-flex justify-content-center gap-4 mb-4">
+                            <div>
+                              <img src="assets/images/order-green-accept.png"
+                                alt="قبول الطلب"
+                                class="img-thumbnail shadow-sm zoom-effect"
+                                style="max-width: 380px; width: 100%; cursor: pointer;"
+                                data-bs-toggle="modal"
+                                data-bs-target="#imageModal1">
+                            </div>
+                            <div>
+                              <img src="assets/images/order-green-active.png"
+                                alt="طلب نشط"
+                                class="img-thumbnail shadow-sm zoom-effect"
+                                style="max-width: 380px; width: 100%; cursor: pointer;"
+                                data-bs-toggle="modal"
+                                data-bs-target="#imageModal2">
+                            </div>
+                          </div><br>
+                          <p class="table-paragraph"><strong>معلَّق (On Hold) — أزرق:</strong> الطلب متوقف مؤقتًا.</p>
+                          <div class="text-center my-4">
+                            <img src="assets/images/order-on-hold.png"
+                              alt="طلب معلَّق"
+                              class="img-thumbnail shadow-sm zoom-effect"
+                              style="max-width: 500px; width: 100%; cursor: pointer;"
+                              data-bs-toggle="modal"
+                              data-bs-target="#imageModal1">
+                          </div><br>
+                          <p class="table-paragraph"><strong>طلب مكتمل (Order Done):</strong> بعد النقر على الزر الأخضر <strong>Done</strong> ينتقل الطلب إلى السجل ويصبح مكتملًا.</p>
+                          <div class="text-center my-4">
+                            <img src="assets/images/order-done.png"
+                              alt="طلب مكتمل"
+                              class="img-thumbnail shadow-sm zoom-effect"
+                              style="max-width: 500px; width: 100%; cursor: pointer;"
+                              data-bs-toggle="modal"
+                              data-bs-target="#imageModal1">
+                          </div>
+                          <p class="table-paragraph"><strong>السجل (History) — أصفر:</strong> طلبات مكتملة أو ملغاة. تشمل الأنواع الفرعية:</p>
+                          <ul>
+                            <li><strong>Done Orders</strong> — الطلبات المكتملة</li>
+                            <li><strong>Canceled Orders</strong> (أحمر: ملغاة من المسؤول)</li>
+                          </ul>
+                          <div class="text-center my-4">
+                            <img src="assets/images/canceled-order.png"
+                              alt="طلب ملغى"
+                              class="img-thumbnail shadow-sm zoom-effect"
+                              style="max-width: 500px; width: 100%; cursor: pointer;"
+                              data-bs-toggle="modal"
+                              data-bs-target="#imageModal1">
+                          </div>
+                          <p class="table-paragraph"><strong>طلب متأخر (Delayed Order) — برتقالي/أحمر:</strong> الطلبات المتأخرة في التقديم أو الإكمال تتحول إلى الأصفر، ثم إلى الأحمر إذا كان التأخير كبيرًا.</p>
+                          <div class="text-center my-4">
+                            <img src="assets/images/delayed-order.png"
+                              alt="طلب متأخر"
+                              class="img-thumbnail shadow-sm zoom-effect"
+                              style="max-width: 500px; width: 100%; cursor: pointer;"
+                              data-bs-toggle="modal"
+                              data-bs-target="#imageModal1">
+                          </div><br>
+                          <div class="text-center my-4">
+                            <img src="assets/images/delayed-canceled.png"
+                              alt="طلب متأخر وملغى"
+                              class="img-thumbnail shadow-sm zoom-effect"
+                              style="max-width: 500px; width: 100%; cursor: pointer;"
+                              data-bs-toggle="modal"
+                              data-bs-target="#imageModal1">
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+          </article>
+
+          <article class="docs-article" id="section-3">
+            <header class="docs-header"><h1 class="docs-heading">الميزات</h1></header>
+
+            <section class="docs-section" id="item-3-1">
+              <h2 class="section-heading">شاشات المحطات المتعددة</h2>
+              <p>تُوجَّه أصناف كل طلب إلى محطات/طاولات المطعم ذات الصلة (مثل T1: الشواء، السلطة، الحلويات، وT2: الكابتشينو، الماء...) لتقليل الازدحام وتداخل التحضير.</p>
+            </section>
+
+            <section class="docs-section" id="item-3-2">
+              <h2 class="section-heading">تحديثات الطلبات في الوقت الفعلي</h2>
+              <p>تظهر الطلبات فورًا عند التأكيد من نقطة البيع، مما يتيح للطهاة بدء التحضير دون تأخير.</p>
+            </section>
+
+            <section class="docs-section" id="item-3-3">
+              <h2 class="section-heading">الإدارة السحابية</h2>
+              <p>يمكن للمسؤولين الوصول إلى جميع بيانات طلبات المطبخ من أي جهاز مزود بمتصفح لإجراء التعديلات أو مراجعة العمليات عن بُعد.</p>
+            </section>
+
+            <section class="docs-section" id="item-3-4">
+              <h2 class="section-heading">التكامل مع نقطة البيع</h2>
+              <p>يتكامل تطبيق المطبخ الذكي بسلاسة مع أنظمة Smart POS والكiosk لاستلام الطلبات فورًا مع كامل التفاصيل.</p>
+            </section>
+
+            <section class="docs-section" id="item-3-5">
+              <h2 class="section-heading">عروض قابلة للتخصيص</h2>
+              <p>يمكن لموظفي المطبخ تصفية الطلبات وعرضها حسب وقت التحضير أو الأولوية أو الفئات لمعالجة أسرع.</p>
+            </section>
+          </article>
+
+          <article class="docs-article" id="section-4">
+            <header class="docs-header"><h1 class="docs-heading">شاشة عرض العميل الذكية</h1></header>
+            <p>تعرض <strong>Smart Customer Display</strong> حالات طلبات الكiosk في الوقت الفعلي — سواء كانت قيد التحضير أو جاهزة للاستلام — كما هو موضّح أدناه:</p>
+            <div class="text-center my-4">
+              <img src="assets/images/kitchen-display.jpg" alt="شاشة عرض المطبخ" class="img-thumbnail shadow-sm zoom-effect" style="max-width: 500px; width: 100%; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#imageModal1">
+            </div>
+          </article>
+
+          <article class="docs-article" id="section-5">
+            <header class="docs-header"><h1 class="docs-heading">الفوائد</h1></header>
+
+            <section class="docs-section" id="item-5-1">
+              <h2 class="section-heading">دقة الطلبات</h2>
+              <p>استلام الطلبات آليًا يلغي خطر الأخطاء البشرية، ويضمن تنفيذ كل طلب بدقة كما طُلب.</p>
+            </section>
+
+            <section class="docs-section" id="item-5-2">
+              <h2 class="section-heading">تحسين سير العمل</h2>
+              <p>مع طوابير الطلبات المنظّمة وتقسيم المحطات، يمكن للمطابخ معالجة المزيد من الطلبات في وقت أقل مع تقليل الاختناقات.</p>
+            </section>
+
+            <section class="docs-section" id="item-5-3">
+              <h2 class="section-heading">كفاءة الموظفين</h2>
+              <p>تعيين المهام حسب المحطة يتيح لموظفي المطبخ التركيز فقط على الأصناف ذات الصلة بهم، مما يحسّن الإنتاجية ويقلل سوء التواصل.</p>
+            </section>
+
+            <section class="docs-section" id="item-5-4">
+              <h2 class="section-heading">تقارير مفيدة</h2>
+              <p>بيانات الطلبات والأداء التاريخية تقدّم رؤى حول الاتجاهات والاختناقات وفرص التحسين.</p>
+            </section>
+
+            <section class="docs-section" id="item-5-5">
+              <h2 class="section-heading">باقات قابلة للتوسع</h2>
+              <p>سواء كنت مطبخ فرع واحد أو سلسلة مطاعم كبيرة، يقدّم المطبخ الذكي خططًا قابلة للتوسع تناسب حجمك وأهدافك التشغيلية.</p>
+            </section>
+          </article>
+
+        </div>
+      </div>
+    </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const zoomImages = document.querySelectorAll('.zoom-effect');
+
+    zoomImages.forEach(function (img) {
+      img.addEventListener('click', function () {
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = this.src;
+
+        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        imageModal.show();
+      });
+    });
+  });
+</script>
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center">
+        <img id="modalImage" src="#" alt="Zoomed" class="img-fluid rounded">
+      </div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const input = document.querySelector('.search-input');
+  const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link'));
+
+  if (!input) return;
+
+  const container = input.closest('.autocomplete-container');
+  const suggestionsBox = document.createElement('div');
+  suggestionsBox.className = 'autocomplete-suggestions';
+  container.appendChild(suggestionsBox);
+
+  input.addEventListener('input', function () {
+    const val = this.value.trim().toLowerCase();
+    suggestionsBox.innerHTML = '';
+
+    if (!val) {
+      suggestionsBox.style.display = 'none';
+      return;
+    }
+
+    navLinks.forEach(link => {
+      const text = link.textContent.trim();
+      const lowerText = text.toLowerCase();
+
+      if (lowerText.includes(val)) {
+        const option = document.createElement('div');
+        option.className = 'autocomplete-suggestion';
+
+        const index = lowerText.indexOf(val);
+        const highlighted =
+          index !== -1
+          ? text.substring(0, index) +
+          `<mark class="bg-transparent text-primary fw-bold">` +
+            text.substring(index, index + val.length) +
+            '</mark>' +
+            text.substring(index + val.length)
+            : text;
+
+        option.innerHTML = highlighted;
+        option.addEventListener('click', () => {
+          window.location.href = link.href;
+        });
+
+        suggestionsBox.appendChild(option);
+      }
+    });
+
+    suggestionsBox.style.display = suggestionsBox.children.length ? 'block' : 'none';
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!suggestionsBox.contains(e.target) && e.target !== input) {
+      suggestionsBox.innerHTML = '';
+      suggestionsBox.style.display = 'none';
+    }
+  });
+});
+</script>
+
+    <footer class="footer">
+      <div class="footer-bottom text-center py-5">
+        <ul class="social-list list-unstyled pb-4 mb-0">
+          <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+        </ul>
+        <small class="copyright">© Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> جميع الحقوق محفوظة.</small>
+      </div>
+    </footer>
+
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script>
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script>
+    <script src="assets/js/docs.js"></script>
+    <script src="assets/js/lang.js"></script>
+</body>
+</html>

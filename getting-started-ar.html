@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-lang-en="getting-started.html" data-lang-ar="getting-started-ar.html">
+<head>
+    <title>Smart Prints - البدء</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="دليل التشغيل والاستخدام لنظام إدارة المطاعم Smart Prints">
+    <meta name="author" content="SmartPrints Team">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+    <script src="https://kit.fontawesome.com/7336bd56cb.js" crossorigin="anonymous"></script>
+    <script>
+      (function () {
+        var l = localStorage.getItem("sp_lang");
+        if (l) {
+          document.documentElement.lang = l;
+          document.documentElement.dir = l === "ar" ? "rtl" : "ltr";
+        }
+      })();
+    </script>
+    <style>
+      .zoom-effect {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .zoom-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      .doc-image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      .doc-image-card {
+        margin: 0;
+        text-align: center;
+      }
+      .doc-image-card img {
+        width: 100%;
+        max-height: 320px;
+        object-fit: contain;
+        background: #fff;
+        cursor: pointer;
+      }
+      .doc-image-card figcaption {
+        margin-top: 0.75rem;
+        font-size: 0.95rem;
+        color: #5d6778;
+      }
+      #lang-toggle {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border: 2px solid #5368fd;
+        background: transparent;
+        color: #5368fd;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+      }
+      #lang-toggle:hover {
+        background: #5368fd;
+        color: #fff;
+      }
+      html[lang="ar"] .lang-en {
+        display: none !important;
+      }
+      html[lang="en"] .lang-ar {
+        display: none !important;
+      }
+      html[lang="ar"] body {
+        font-family: "Tajawal", sans-serif;
+      }
+      html[lang="ar"] .docs-sidebar {
+        left: auto !important;
+        right: 0 !important;
+      }
+      html[lang="ar"] .docs-content {
+        margin-left: 0 !important;
+        margin-right: 300px !important;
+      }
+      html[lang="ar"] .docs-content .container {
+        direction: rtl;
+        text-align: right;
+      }
+      html[lang="ar"] .docs-nav {
+        direction: rtl;
+        text-align: right;
+      }
+      html[lang="ar"] .social-sidebar {
+        left: 0 !important;
+        right: auto !important;
+      }
+      html[lang="ar"] .docs-branding .row {
+        flex-direction: row-reverse;
+      }
+      html[lang="ar"] .navbar-brand {
+        margin-right: 0;
+        margin-left: 1rem;
+      }
+      html[lang="ar"] #docs-nav .nav-link::before {
+        left: auto !important;
+        right: 0 !important;
+      }
+      .autocomplete-container {
+        position: relative;
+        width: 100%;
+      }
+      .step-page {
+        display: none;
+      }
+      .step-page.active-step {
+        display: block;
+      }
+      .step-navigation {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 32px;
+        padding-top: 24px;
+        border-top: 1px solid #e9ecef;
+      }
+      .step-navigation-spacer {
+        flex: 1;
+      }
+      .step-nav-btn {
+        min-width: 190px;
+      }
+      @media (max-width: 767.98px) {
+        .step-navigation {
+          flex-direction: column;
+        }
+        .step-nav-btn {
+          width: 100%;
+        }
+      }
+      .autocomplete-suggestions {
+        position: absolute;
+        top: 100%;
+        left: 2px;
+        right: 2px;
+        background: #fff;
+        z-index: 1050;
+        max-height: 240px;
+        overflow-y: auto;
+        border: 1px solid #dee2e6;
+        border-top: none;
+        border-radius: 0 0 6px 6px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        display: none;
+        padding: 0;
+      }
+      .autocomplete-suggestion {
+        padding: 10px 14px;
+        cursor: pointer;
+        color: #333;
+        transition: background-color 0.2s ease;
+        font-size: 0.95rem;
+      }
+      .autocomplete-suggestion:hover {
+        background-color: #f0f4ff;
+      }
+      .autocomplete-suggestion mark {
+        background: none;
+        color: #5368fd;
+        font-weight: bold;
+      }
+    </style>
+</head>
+<body>
+    <header class="header fixed-top">
+      <div class="branding docs-branding">
+        <div class="container-fluid py-2">
+          <div class="row align-items-center">
+            <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+              <a class="navbar-brand" href="index-ar.html">
+                <div class="site-logo">
+                  <img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height: 60px;">
+                </div>
+              </a>
+            </div>
+            <div class="col-4 col-md-6 col-lg-8 d-none d-lg-block">
+              <form class="search-form position-relative d-flex justify-content-center">
+                <div class="position-relative w-75 autocomplete-container">
+                  <input type="text" placeholder="ابحث في التوثيق..." name="search" class="form-control search-input pe-5">
+                  <div class="autocomplete-suggestions"></div>
+                  <button type="submit" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent">
+                    <i class="fa-light fa-magnifying-glass text-muted"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="col-8 col-md-3 col-lg-2 d-flex justify-content-end align-items-center gap-2">
+              <button id="lang-toggle" onclick="toggleLanguage()">
+                <span class="lang-en">🇸🇦 العربية</span>
+                <span class="lang-ar">🇬🇧 English</span>
+              </button>
+              <a href="#" class="btn btn-primary d-none d-lg-flex">تحميل</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="docs-wrapper">
+      <div class="social-sidebar d-none d-lg-flex">
+        <ul class="social-sidebar">
+          <li><a href="https://wa.me/966566240665" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+          <li><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+          <li><a href="https://www.linkedin.com/company/smart-prints/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+          <li><a href="https://www.instagram.com/smartprintsksa/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+        </ul>
+      </div>
+
+      <div class="top-search-box-wrapper position-relative d-lg-none p-3">
+        <div class="top-search-box">
+          <form class="search-form">
+            <div class="position-relative w-100 autocomplete-container">
+              <input type="text" class="form-control search-input rounded-top" placeholder="ابحث في التوثيق...">
+              <div class="autocomplete-suggestions"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="docs-sidebar" class="docs-sidebar">
+        <nav id="docs-nav" class="docs-nav navbar">
+          <ul class="section-items list-unstyled nav flex-column pb-3">
+            <li class="nav-item section-title">
+              <a class="nav-link scrollto active" href="#section-1">
+                <span class="theme-icon-holder me-2"><i class="fas fa-play-circle"></i></span>البدء
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">وحدات النظام باختصار</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-2">
+                <span class="theme-icon-holder me-2"><i class="fas fa-user-plus"></i></span>الوصول إلى النظام
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">تسجيل الشركة</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-3">
+                <span class="theme-icon-holder me-2"><i class="fas fa-users"></i></span>إدارة الموظفين
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">إضافة موظف</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">عرض قائمة الموظفين</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-4">
+                <span class="theme-icon-holder me-2"><i class="fas fa-business-time"></i></span>إدارة الورديات
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">نظرة عامة على الوردية</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-5">
+                <span class="theme-icon-holder me-2"><i class="fas fa-credit-card"></i></span>طرق الدفع
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">طرق الدفع</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-6">
+                <span class="theme-icon-holder me-2"><i class="fas fa-utensils"></i></span>إنشاء القائمة
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-6-1">التصنيفات</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-6-2">المنتجات</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-6-3">عائلات الخيارات</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-6-4">الخيارات</a></li>
+
+            <li class="nav-item section-title">
+              <a class="nav-link scrollto" href="#section-8">
+                <span class="theme-icon-holder me-2"><i class="fas fa-download"></i></span>التثبيت
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-8-1">تثبيت وتشغيل تطبيق نقطة البيع</a></li>
+
+            <li class="nav-item section-title mt-3">
+              <a class="nav-link scrollto" href="#section-10">
+                <span class="theme-icon-holder me-2"><i class="fas fa-question-circle"></i></span>الأسئلة الشائعة
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="docs-content">
+        <div class="container">
+
+          <article class="docs-article step-page" id="section-1" data-step-title="البدء">
+            <header class="docs-header">
+              <h1 class="docs-heading">نظام إدارة المطاعم Smart Prints <span class="docs-time">آخر تحديث: 13 أبريل 2026</span></h1>
+              <section class="docs-intro">
+                <p>دليل التشغيل والاستخدام</p>
+                <p>يقدّم هذا الدليل وحدات Smart Prints الرئيسية ويمرّ معك عبر التسجيل، وإعداد الموظفين، وعرض الورديات، وطرق الدفع، وبناء القائمة، وتشغيل نقطة البيع، والأسئلة الشائعة.</p>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Getting-started/schema.png" alt="مخطط تدفق البدء" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>مسار الإعداد الكامل من إنشاء الحساب حتى تشغيل نقطة البيع.</figcaption>
+                </figure>
+              </section>
+            </header>
+
+            <section class="docs-section" id="item-1-1">
+              <h2 class="section-heading">وحدات النظام باختصار</h2>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>الوحدة</th>
+                      <th>الغرض</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Cloud POS</td><td>الجهاز الأساسي لمعالجة الطلبات والمدفوعات</td></tr>
+                    <tr><td>Cloud Administration</td><td>إدارة الأصناف والأسعار والمستخدمين والفروع والإعدادات</td></tr>
+                    <tr><td>Smart Kiosk</td><td>جهاز خدمة ذاتية بدعم العربية والإنجليزية</td></tr>
+                    <tr><td>Smart Kitchen App</td><td>شاشات رقمية لتنسيق طلبات المطبخ (Pro)</td></tr>
+                    <tr><td>Smart Menu</td><td>قائمة ديناميكية عبر QR مرتبطة بالنظام الخلفي</td></tr>
+                    <tr><td>Smart Waiter</td><td>أخذ الطلبات عبر الجوال/الجهاز اللوحي لموظفي الصالة</td></tr>
+                    <tr><td>Smart WhatsApp</td><td>تلقّي الطلبات تلقائياً عبر واتساب</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+            <div class="step-navigation">
+              <span class="step-navigation-spacer"></span>
+              <a class="btn btn-primary step-nav-btn" href="#section-2">الخطوة التالية: الوصول إلى النظام</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-2" data-step-title="الوصول إلى النظام">
+            <header class="docs-header">
+              <h1 class="docs-heading">1. تسجيل الشركة</h1>
+            </header>
+            <section class="docs-section" id="item-2-1">
+              <p>قبل الوصول إلى أي وحدة، سجّل شركتك على منصة Smart Kiosk. عنوان نموذج التسجيل هو <strong>"Cloud POS - Create your account"</strong>.</p>
+              <div class="alert alert-warning" role="alert">
+                أكمل كل حقل عليه نجمة حمراء (<strong>*</strong>) لأنه إلزامي.
+              </div>
+
+              <h2 class="section-heading">الخطوة 1: أدخل بيانات شركتك</h2>
+              <p>في نموذج التسجيل، أدخل ما يلي:</p>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>الحقل</th>
+                      <th>ماذا تدخل</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Name *</td><td>اسم شركتك بالإنجليزية (مثال: Restaurant Business)</td></tr>
+                    <tr><td>Name Ar *</td><td>اسم شركتك بالعربية (مثال: مطعم بزنس)</td></tr>
+                    <tr><td>Email *</td><td>بريدك الإلكتروني المهني</td></tr>
+                    <tr><td>Phone *</td><td>رقم هاتفك، ثم انقر <strong>Send OTP</strong> للتحقق</td></tr>
+                    <tr><td>Address *</td><td>عنوان عملك الكامل</td></tr>
+                    <tr><td>Theme</td><td>انقر السواد (داكن) أو الأبيض (فاتح) لاختيار مظهر العرض</td></tr>
+                    <tr><td>Vat Number *</td><td>رقم التسجيل في ضريبة القيمة المضافة</td></tr>
+                    <tr><td>Location</td><td>انقر أيقونة الموقع داخل الحقل. ستظهر نافذة خريطة بعنوان <strong>"Mark the location"</strong>. ضع الدبوس على موقعك بدقة ثم انقر <strong>Done</strong></td></tr>
+                    <tr><td>Image *</td><td>ارفع شعار شركتك</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Getting-started/register.png" alt="نموذج تسجيل الشركة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>نموذج التسجيل لإدخال معلومات الشركة.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Getting-started/map.png" alt="نافذة الخريطة أثناء التسجيل" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>نافذة الخريطة لتحديد موقع الفرع بدقة.</figcaption>
+                </figure>
+              </div>
+
+              <h2 class="section-heading">الخطوة 2: تحقق من الفرع وأكمل التسجيل</h2>
+              <p>فعّل خانة <strong>Fill Branch Information (optional)</strong> للتأكد من تحميل بيانات الفرع بشكل صحيح. راجعها وعدّلها إن لزم. فعّل خانة <strong>"I'm not a robot"</strong> (reCAPTCHA) لأنك لن تستطيع المتابعة بدونها. ثم انقر الزر الأزرق <strong>Sign up</strong> للإرسال.</p>
+              <div class="alert alert-info" role="alert">
+                إذا كان لديك حساب مسبقاً، انقر <strong>Login</strong> في أسفل الصفحة بدلاً من ذلك.
+              </div>
+              <figure class="doc-image-card">
+                <img src="assets/images/Getting-started/verify-branch.png" alt="التحقق من بيانات الفرع قبل التسجيل" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>راجع بيانات الفرع قبل إكمال التسجيل.</figcaption>
+              </figure>
+
+              <h2 class="section-heading">الخطوة 3: لوحة التحكم</h2>
+              <p>بعد التسجيل ستصل إلى لوحة إدارة Cloud POS Administration. ستظهر لك العناصر التالية:</p>
+              <ul>
+                <li>شريط علوي بمؤشرات الأداء: إيراد اليوم، إجمالي الإيراد، طلبات اليوم، إجمالي الطلبات</li>
+                <li>لوحة نظرة عامة تعرض إجمالي الأكشاك المثبتة، ومتوسط الإيراد لكل كشك، ومتوسط وقت الطلب</li>
+                <li>مخطط إيرادات يمكن تصفيته حسب 7 أيام / 15 يوماً / شهر / 3 أشهر</li>
+                <li>فلاتر أعلى اليمين لاختيار الفرع والكشك والمصدر</li>
+              </ul>
+              <p>الشريط الجانبي الأيسر هو قائمة التنقل الرئيسية ويحتوي على كل الميزات المتاحة، مصنّفة كالتالي:</p>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>الشارة</th>
+                      <th>المعنى</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>(بدون شارة)</td><td>مجاني ومتاح لجميع الحسابات</td></tr>
+                    <tr><td>Pro (أخضر)</td><td>يتطلب اشتراك Pro</td></tr>
+                    <tr><td>Adv (أحمر)</td><td>يتطلب اشتراك Advanced</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>تشمل الميزات الظاهرة في الشريط الجانبي: Dashboard، Kitchen (Pro)، Client، Online (Adv)، Marketing، POS، Menu، Inventory (Adv)، وCustomization.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Getting-started/dashboard.png" alt="لوحة إدارة Cloud POS" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>لوحة إدارة Cloud POS بعد التسجيل بنجاح.</figcaption>
+              </figure>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-1">السابق: البدء</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-3">الخطوة التالية: إدارة الموظفين</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-3" data-step-title="إدارة الموظفين">
+            <header class="docs-header">
+              <h1 class="docs-heading">2. إدارة الموظفين</h1>
+            </header>
+            <section class="docs-section" id="item-3-1">
+              <p>انتقل إلى <strong>POS -&gt; Employee</strong> في الشريط الجانبي الأيسر.</p>
+              <h2 class="section-heading">2.1 إضافة موظف</h2>
+              <p>انقر الزر الأزرق <strong>+ Add employee</strong>. سيظهر نموذج <strong>Add Employee</strong> بالحقول التالية:</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Getting-started/add-employee.png" alt="نموذج إضافة موظف" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>نموذج إضافة موظف لإنشاء ملف كاشير أو مدير.</figcaption>
+              </figure>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>الحقل</th>
+                      <th>التفاصيل</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>First Name *</td><td>الاسم الأول للموظف</td></tr>
+                    <tr><td>Last Name *</td><td>اسم العائلة للموظف</td></tr>
+                    <tr><td>Gender</td><td>اختر ذكر أو أنثى من القائمة</td></tr>
+                    <tr><td>Birth date</td><td>الصيغة: YYYY-MM-DD (مثال: 1989-05-18)</td></tr>
+                    <tr><td>Phone</td><td>رقم تواصل الموظف</td></tr>
+                    <tr><td>Email</td><td>البريد المهني أو بريد الشركة للموظف</td></tr>
+                    <tr><td>Employee since</td><td>تاريخ البدء بالصيغة: YYYY-MM-DD</td></tr>
+                    <tr><td>Pin Code</td><td>رمز PIN مكوّن من 4 أرقام يستخدمه الموظف لتسجيل الدخول إلى تطبيق نقطة البيع</td></tr>
+                    <tr><td>Status</td><td>فعّل لتفعيل الموظف أو عطّل لتعطيله</td></tr>
+                    <tr><td>Address</td><td>عنوان الموظف المرتبط بالعمل</td></tr>
+                    <tr><td>Type *</td><td>اختر Store Manager أو Cashier من القائمة</td></tr>
+                    <tr><td>Remark</td><td>ملاحظات داخلية اختيارية عن الموظف</td></tr>
+                    <tr><td>Avatar</td><td>ارفع صورة شخصية أو أيقونة</td></tr>
+                    <tr><td>Branches</td><td>اختر الفرع أو الفروع المراد تعيين الموظف لها</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>انقر <strong>Submit</strong> (زر أخضر) للحفظ، أو <strong>Close</strong> (زر أحمر) للإلغاء.</p>
+            </section>
+
+            <section class="docs-section" id="item-3-2">
+              <h2 class="section-heading">2.2 عرض قائمة الموظفين</h2>
+              <p>بعد الحفظ يظهر الموظف في جدول قائمة <strong>Employees</strong> ويعرض: المعرّف، الصورة، الاسم الأول، اسم العائلة، النوع، الفروع، الهاتف، الحالة، والإجراءات. استخدم قائمة <strong>Select status</strong> للتصفية حسب Active أو Inactive. عمود الإجراءات يحتوي أزراراً للعرض والنسخ والتعديل أو الحذف.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Getting-started/employee.png" alt="شاشة قائمة الموظفين" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>قائمة الموظفين مع فلاتر الحالة وإجراءات الصف.</figcaption>
+              </figure>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-2">السابق: الوصول إلى النظام</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-4">الخطوة التالية: إدارة الورديات</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-4" data-step-title="إدارة الورديات">
+            <header class="docs-header">
+              <h1 class="docs-heading">3. إدارة الورديات</h1>
+            </header>
+            <section class="docs-section" id="item-4-1">
+              <p>انتقل إلى <strong>POS -&gt; Shift Management</strong> في الشريط الجانبي الأيسر.</p>
+              <div class="alert alert-warning" role="alert">
+                يمكن فتح الورديات أو إغلاقها فقط من تطبيق نقطة البيع، وليس من لوحة الإدارة.
+              </div>
+              <p>تعرض قائمة الورديات الأعمدة التالية: ID، Branch Employee، Business Date، Opened At، Opening Amount، Closing Amount، Expected Amount، وClosed At.</p>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-3">السابق: إدارة الموظفين</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-5">الخطوة التالية: طرق الدفع</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-5" data-step-title="طرق الدفع">
+            <header class="docs-header">
+              <h1 class="docs-heading">4. طرق الدفع</h1>
+            </header>
+            <section class="docs-section" id="item-5-1">
+              <p>انتقل إلى <strong>POS -&gt; Payment Method</strong> في الشريط الجانبي الأيسر.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Getting-started/payment-method.png" alt="قائمة طرق الدفع" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>شاشة قائمة طرق الدفع داخل إدارة نقطة البيع.</figcaption>
+              </figure>
+              <h2 class="section-heading">إضافة طريقة دفع</h2>
+              <p>انقر <strong>+ Add Payment Method</strong>. يحتوي النموذج على الحقول التالية:</p>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>الحقل</th>
+                      <th>التفاصيل</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Name *</td><td>اسم طريقة الدفع (مثال: مدى، نقدي، فيزا)</td></tr>
+                    <tr><td>Type *</td><td>اختر النوع، مثل Credit أو Cash</td></tr>
+                    <tr><td>Status *</td><td>فعّل أو عطّل هذه الطريقة</td></tr>
+                    <tr><td>Client *</td><td>اختر الفرع الذي تنطبق عليه هذه الطريقة</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>انقر <strong>Submit</strong> للحفظ. ستظهر الطريقة الجديدة فوراً في قائمة طرق الدفع مع المعرّف والاسم والنوع والحالة وأزرار التعديل أو الحذف.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Getting-started/add-payment-method.png" alt="نموذج إضافة طريقة دفع" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>النموذج المستخدم لإضافة طريقة دفع جديدة لفرع.</figcaption>
+              </figure>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-4">السابق: إدارة الورديات</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-6">الخطوة التالية: بناء قائمتك</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-6" data-step-title="بناء قائمتك">
+            <header class="docs-header">
+              <h1 class="docs-heading">5. بناء قائمتك</h1>
+            </header>
+
+            <section class="docs-section" id="item-6-1">
+              <p>انتقل إلى <strong>Menu</strong> في الشريط الجانبي الأيسر. يحتوي قسم القائمة على Products وCategories وOptions وFamily Option وMenu Group (Pro).</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Getting-started/menu.png" alt="نظرة عامة على قسم القائمة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>منطقة القائمة في الشريط الجانبي للإدارة.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Getting-started/build-menu.png" alt="الترتيب الموصى به لبناء القائمة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>استخدم هذا التسلسل عند بناء هيكل القائمة.</figcaption>
+                </figure>
+              </div>
+              <div class="alert alert-warning" role="alert">
+                ابنِ بهذا الترتيب: التصنيفات، ثم عائلات الخيارات، ثم الخيارات، ثم المنتجات. كل مستوى يعتمد على الذي قبله.
+              </div>
+              <h2 class="section-heading">5.1 التصنيفات</h2>
+              <p>اذهب إلى <strong>Menu -&gt; Categories</strong> ثم انقر <strong>+ Add Category</strong>.</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Getting-started/categories.png" alt="شاشة قائمة التصنيفات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>قائمة التصنيفات قبل إضافة تصنيف جديد.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Getting-started/add-category.png" alt="نموذج إضافة تصنيف" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>نموذج إضافة تصنيف بأسماء ثنائية اللغة ورفع صورة.</figcaption>
+                </figure>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>الحقل</th>
+                      <th>التفاصيل</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Name *</td><td>اسم التصنيف بالإنجليزية (مثال: Hot Coffee)</td></tr>
+                    <tr><td>Name Ar *</td><td>اسم التصنيف بالعربية (مثال: قهوة ساخنة)</td></tr>
+                    <tr><td>Client *</td><td>اختر الفرع الذي ينتمي إليه هذا التصنيف</td></tr>
+                    <tr><td>Description</td><td>وصف اختياري بالإنجليزية</td></tr>
+                    <tr><td>Description Ar</td><td>وصف اختياري بالعربية</td></tr>
+                    <tr><td>Status *</td><td>فعّل أو عطّل التصنيف</td></tr>
+                    <tr><td>Image</td><td>ارفع صورة تمثّل التصنيف</td></tr>
+                    <tr><td>Tags</td><td>أدخل كلمات بحث واضغط Enter بعد كل واحدة</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>انقر <strong>Submit</strong> للحفظ. سيظهر التصنيف كبطاقة في قائمة التصنيفات مع الصورة والاسم باللغتين ووسم الفرع وحالة Enabled/Disabled.</p>
+            </section>
+
+            <section class="docs-section" id="item-6-2">
+              <h2 class="section-heading">5.2 المنتجات</h2>
+              <p>اذهب إلى <strong>Menu -&gt; Products</strong> ثم انقر <strong>+ Add Product</strong>.</p>
+              <p>نموذج <strong>Add Product</strong> يحتوي أربع تبويبات أعلى الصفحة: Informations وOptions وSuggestions وRecipe. املأ تبويب Informations أولاً:</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Getting-started/products.png" alt="شاشة قائمة المنتجات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>قائمة المنتجات التي تعرض عناصر القائمة الحالية.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Getting-started/add-products.png" alt="نموذج إضافة منتج" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>نموذج إضافة منتج على تبويب Informations.</figcaption>
+                </figure>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>الحقل</th>
+                      <th>التفاصيل</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Name *</td><td>اسم المنتج بالإنجليزية (مثال: Coffee Americano)</td></tr>
+                    <tr><td>Name Ar *</td><td>اسم المنتج بالعربية (مثال: قهوة أمريكانو)</td></tr>
+                    <tr><td>Category *</td><td>اختر التصنيف الأب (مثال: Hot Coffee)</td></tr>
+                    <tr><td>Price *</td><td>سعر البيع الأساسي</td></tr>
+                    <tr><td>Max Quantity</td><td>الحد الأقصى للوحدات في الطلب، أدخل 0 بلا حد</td></tr>
+                    <tr><td>Status *</td><td>فعّل أو عطّل المنتج</td></tr>
+                    <tr><td>Barcode</td><td>باركود فريد اختياري</td></tr>
+                    <tr><td>Ref</td><td>رقم مرجعي داخلي اختياري</td></tr>
+                    <tr><td>Actions</td><td>ربط إجراءات اختياري (مثل بحث SKU في POS+)</td></tr>
+                    <tr><td>Tags</td><td>كلمات بحث، اضغط Enter بعد كل واحدة</td></tr>
+                    <tr><td>Upselling *</td><td>فعّله إذا كان المنتج جزءاً من استراتيجية البيع الإضافي</td></tr>
+                    <tr><td>Display *</td><td>تحكّم في ظهور المنتج على الأكشاك والقوائم</td></tr>
+                    <tr><td>Available For Limited Time</td><td>فعّله للتوفّر لفترة محدودة</td></tr>
+                    <tr><td>Description</td><td>وصف موجّه للعميل بالإنجليزية</td></tr>
+                    <tr><td>Description Ar</td><td>وصف موجّه للعميل بالعربية</td></tr>
+                    <tr><td>Image *</td><td>ارفع صورة المنتج</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>انقر <strong>Submit</strong> للحفظ. يظهر المنتج كبطاقة في قائمة المنتجات مع الصورة والاسم باللغتين ووسم التصنيف والحالة.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Getting-started/submit-product.png" alt="بطاقة المنتج المحفوظ" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>بطاقة المنتج كما تظهر بعد الإرسال.</figcaption>
+              </figure>
+            </section>
+
+            <section class="docs-section" id="item-6-3">
+              <h2 class="section-heading">5.3 عائلات الخيارات</h2>
+              <p>اذهب إلى <strong>Menu -&gt; Family Option</strong> ثم انقر <strong>+ Add Family Option</strong>.</p>
+              <p>عائلة الخيارات تحدد نوع التخصيص المتاح للمنتج (مثال: حجم كوب القهوة).</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Getting-started/add-family-options.png" alt="نموذج إضافة عائلة خيارات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>نموذج إضافة عائلة خيارات لتعريف مجموعة تخصيص.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Getting-started/submit-family-option.png" alt="بطاقة عائلة الخيارات المحفوظة" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>بطاقة عائلة الخيارات بعد الحفظ.</figcaption>
+                </figure>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>الحقل</th>
+                      <th>التفاصيل</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Name *</td><td>اسم عائلة الخيارات بالإنجليزية (مثال: Coffee Cup Size)</td></tr>
+                    <tr><td>Name Ar *</td><td>الاسم بالعربية (مثال: أحجام أكواب القهوة)</td></tr>
+                    <tr><td>Client *</td><td>اختر الفرع</td></tr>
+                    <tr><td>Type *</td><td>One Select يعني اختيار خيار واحد فقط. Multi Select يعني إمكانية اختيار عدة خيارات</td></tr>
+                    <tr><td>Status *</td><td>فعّل أو عطّل</td></tr>
+                    <tr><td>Description</td><td>وصف اختياري بالإنجليزية</td></tr>
+                    <tr><td>Description Ar</td><td>وصف اختياري بالعربية</td></tr>
+                    <tr><td>Image</td><td>ارفع صورة تمثيلية (مثل مخطط أحجام الأكواب)</td></tr>
+                    <tr><td>Automation Name</td><td>اختياري، يُستخدم لتكاملات الأتمتة</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>انقر <strong>Submit</strong>. تظهر عائلة الخيارات كبطاقة مع الصورة والاسم باللغتين والنوع والحالة.</p>
+            </section>
+
+            <section class="docs-section" id="item-6-4">
+              <h2 class="section-heading">5.4 الخيارات</h2>
+              <p>اذهب إلى <strong>Menu -&gt; Options</strong> ثم انقر <strong>+ Add Option</strong>.</p>
+              <p>الخيار هو اختيار فردي داخل عائلة خيارات (مثال: Medium M ضمن Coffee Cup Size). يحتوي النموذج على تبويبين: Informations وRecipe.</p>
+              <div class="doc-image-grid">
+                <figure class="doc-image-card">
+                  <img src="assets/images/Getting-started/options.png" alt="شاشة قائمة الخيارات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>قائمة الخيارات المرتبطة بهيكل عائلات الخيارات.</figcaption>
+                </figure>
+                <figure class="doc-image-card">
+                  <img src="assets/images/Getting-started/add-option.png" alt="نموذج إضافة خيار" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                  <figcaption>نموذج إضافة خيار لاختيار محدد داخل عائلة خيارات.</figcaption>
+                </figure>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>الحقل</th>
+                      <th>التفاصيل</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Name *</td><td>اسم الخيار بالإنجليزية (مثال: Medium M)</td></tr>
+                    <tr><td>Name Ar *</td><td>اسم الخيار بالعربية (مثال: متوسط M)</td></tr>
+                    <tr><td>Client *</td><td>اختر الفرع</td></tr>
+                    <tr><td>Family *</td><td>اختر عائلة الخيارات الأب (مثال: Coffee Cup Size)</td></tr>
+                    <tr><td>Price *</td><td>الرسوم الإضافية لهذا الخيار، أدخل 0 إذا كان مجانياً</td></tr>
+                    <tr><td>Status *</td><td>فعّل أو عطّل</td></tr>
+                    <tr><td>Description</td><td>وصف اختياري بالإنجليزية</td></tr>
+                    <tr><td>Description Ar</td><td>وصف اختياري بالعربية</td></tr>
+                    <tr><td>Image *</td><td>ارفع صورة لهذا الخيار</td></tr>
+                    <tr><td>Tags</td><td>كلمات بحث، اضغط Enter بعد كل واحدة</td></tr>
+                    <tr><td>Automation Name</td><td>اختياري، يُستخدم لتكاملات الأتمتة</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>انقر <strong>Submit</strong> للحفظ.</p>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-5">السابق: طرق الدفع</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-8">الخطوة التالية: تثبيت نقطة البيع</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-8" data-step-title="تثبيت وتشغيل تطبيق نقطة البيع">
+            <header class="docs-header">
+              <h1 class="docs-heading">8. تثبيت وتشغيل تطبيق نقطة البيع</h1>
+            </header>
+            <section class="docs-section" id="item-8-1">
+              <h2 class="section-heading">الخطوة 1: تسجيل الدخول</h2>
+              <p>افتح تطبيق Smart Prints POS على جهازك. تعرض شاشة الدخول شعار Smart Prints مع الشعار النصي <strong>"Enhance Machines interaction with Humans"</strong>. أدخل اسم المستخدم أو البريد في الحقل الأول وكلمة المرور في الثاني. انقر الزر البرتقالي <strong>SIGN IN</strong> للمتابعة.</p>
+              <figure class="doc-image-card">
+                <img src="assets/images/Getting-started/launch-pos.png" alt="شاشة تسجيل الدخول لتطبيق نقطة البيع" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                <figcaption>شاشة تسجيل الدخول عند تشغيل التطبيق.</figcaption>
+              </figure>
+
+              <h2 class="section-heading">الخطوة 2: تحميل البيانات</h2>
+              <p>بعد تسجيل الدخول تظهر شاشة تحميل بشعار Smart Prints وشريط تقدّم برتقالي. انتظر اكتمال الشريط؛ فهذا يعني أن التطبيق يحمّل ويُزامن قائمة الطعام والموظفين وبيانات الفروع من السحابة.</p>
+
+              <h2 class="section-heading">الخطوة 3: اختيار الموظف ورمز المرور</h2>
+              <p>بعد اكتمال التحميل تفتح واجهة نقطة البيع وتعرض قائمتك الحية مع بلاطات التصنيفات مثل الوجبات والساندويتشات ووجبات الأطفال والمشروبات والإضافات. تظهر طبقة <strong>Enter Passcode</strong> فوق الشاشة. استخدم قائمة الموظف أعلى الطبقة لاختيار من يسجّل الدخول. أدخل رمز PIN المكوّن من 4 أرقام عبر لوحة الأرقام. اضغط <strong>Enter</strong> (أخضر) للتأكيد أو <strong>Clear</strong> للمسح.</p>
+              <p>بعد المصادقة تبدأ جلسة الموظف وتكون نقطة البيع جاهزة لاستقبال الطلبات. يعرض الشريط العلوي Default Menu والتصنيفات وشريط البحث وعداد السلة وزر <strong>CHARGE</strong> على اليمين.</p>
+              <div class="alert alert-warning" role="alert">
+                يمكن فتح الورديات أو إغلاقها فقط من تطبيق نقطة البيع، وليس من لوحة الإدارة.
+              </div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-6">السابق: بناء قائمتك</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-10">الخطوة التالية: الأسئلة الشائعة</a>
+            </div>
+          </article>
+
+          <article class="docs-article step-page" id="section-10" data-step-title="الأسئلة الشائعة">
+            <header class="docs-header">
+              <h1 class="docs-heading">10. الأسئلة الشائعة</h1>
+            </header>
+            <section class="docs-section">
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>السؤال</th>
+                      <th>الإجابة</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>هل يمكن استخدام النظام دون اتصال؟</td><td>لا، جميع الوحدات تتطلب اتصالاً سحابياً حياً للمزامنة والنسخ الاحتياطي في الوقت الفعلي</td></tr>
+                    <tr><td>هل كل الخدمات مضمّنة افتراضياً؟</td><td>يعتمد ذلك على اشتراكك. تواصل مع دعم Smart Prints لتفعيل وحدات إضافية</td></tr>
+                    <tr><td>هل يمكن إدارة عدة فروع؟</td><td>نعم، مدعوم بالكامل للأصناف والمخزون والطلبات والموظفين</td></tr>
+                    <tr><td>كيف أبدّل اللغة؟</td><td>انقر أيقونة الكرة الأرضية أعلى يمين أي شاشة إدارة</td></tr>
+                    <tr><td>هل يمكن تطبيق عرض على منتجات ومجموعات معاً؟</td><td>نعم، استخدم + Add Product و+ Add Group داخل نفس نموذج العرض</td></tr>
+                    <tr><td>أين أحصل على الدعم؟</td><td>تواصل مع ممثل الإعداد أو Smart Prints (البصمات الذكية) عبر قناتك المعتمدة</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+            <div class="step-navigation">
+              <a class="btn btn-outline-secondary step-nav-btn" href="#section-8">السابق: تثبيت نقطة البيع</a>
+              <a class="btn btn-primary step-nav-btn" href="#section-1">العودة إلى البداية</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const zoomImages = document.querySelectorAll('.zoom-effect');
+        zoomImages.forEach(function (img) {
+          img.addEventListener('click', function () {
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = this.src;
+            const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+            imageModal.show();
+          });
+        });
+      });
+    </script>
+
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-transparent border-0">
+          <div class="modal-body p-0 text-center">
+            <img id="modalImage" src="#" alt="مكبّر" class="img-fluid rounded">
+          </div>
+          <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const articles = Array.from(document.querySelectorAll('.step-page'));
+        const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link, .step-nav-btn'));
+        if (!articles.length) return;
+
+        function activateStep(hash, updateHash) {
+          const fallbackId = articles[0].id;
+          const rawId = (hash || '').replace('#', '') || fallbackId;
+          const target = document.getElementById(rawId) || document.getElementById(fallbackId);
+          const activeArticle = target.closest('.step-page') || articles[0];
+
+          articles.forEach(article => {
+            article.classList.toggle('active-step', article === activeArticle);
+          });
+
+          document.querySelectorAll('#docs-sidebar .nav-link').forEach(link => {
+            const href = link.getAttribute('href');
+            const linkedTarget = href ? document.querySelector(href) : null;
+            const linkedArticle = linkedTarget ? linkedTarget.closest('.step-page') : null;
+            const isExact = href === `#${target.id}`;
+            const isArticle = linkedArticle === activeArticle;
+            link.classList.toggle('active', isExact || (isArticle && href === `#${activeArticle.id}`));
+          });
+
+          if (updateHash) {
+            window.location.hash = `#${target.id}`;
+            return;
+          }
+
+          const scrollTarget = target.id === activeArticle.id ? activeArticle : target;
+          requestAnimationFrame(() => {
+            scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        }
+
+        navLinks.forEach(link => {
+          link.addEventListener('click', function (event) {
+            const href = this.getAttribute('href');
+            if (!href || !href.startsWith('#')) return;
+            event.preventDefault();
+            activateStep(href, true);
+          });
+        });
+
+        window.addEventListener('hashchange', function () {
+          activateStep(window.location.hash, false);
+        });
+
+        activateStep(window.location.hash || `#${articles[0].id}`, false);
+      });
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const input = document.querySelector('.search-input');
+        const navLinks = Array.from(document.querySelectorAll('#docs-sidebar .nav-link'));
+        if (!input) return;
+
+        const container = input.closest('.autocomplete-container');
+        const suggestionsBox = document.createElement('div');
+        suggestionsBox.className = 'autocomplete-suggestions';
+        container.appendChild(suggestionsBox);
+
+        input.addEventListener('input', function () {
+          const val = this.value.trim().toLowerCase();
+          suggestionsBox.innerHTML = '';
+          if (!val) {
+            suggestionsBox.style.display = 'none';
+            return;
+          }
+
+          navLinks.forEach(link => {
+            const text = link.textContent.trim();
+            const lowerText = text.toLowerCase();
+            if (lowerText.includes(val)) {
+              const option = document.createElement('div');
+              option.className = 'autocomplete-suggestion';
+              const index = lowerText.indexOf(val);
+              const highlighted =
+                index !== -1
+                  ? text.substring(0, index) +
+                    `<mark class="bg-transparent text-primary fw-bold">` +
+                    text.substring(index, index + val.length) +
+                    '</mark>' +
+                    text.substring(index + val.length)
+                  : text;
+              option.innerHTML = highlighted;
+              option.addEventListener('click', () => {
+                window.location.href = link.href;
+              });
+              suggestionsBox.appendChild(option);
+            }
+          });
+
+          suggestionsBox.style.display = suggestionsBox.children.length ? 'block' : 'none';
+        });
+
+        document.addEventListener('click', function (e) {
+          if (!suggestionsBox.contains(e.target) && e.target !== input) {
+            suggestionsBox.innerHTML = '';
+            suggestionsBox.style.display = 'none';
+          }
+        });
+      });
+    </script>
+
+    <footer class="footer">
+      <div class="footer-bottom text-center py-5">
+        <ul class="social-list list-unstyled pb-4 mb-0">
+          <li class="list-inline-item"><a href="https://wa.me/966566240665"><i class="fa-brands fa-whatsapp fa-fw"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCNfxY0P_RuxuuKAo842kpbw"><i class="fa-brands fa-youtube fa-fw"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.linkedin.com/company/smart-prints/"><i class="fa-brands fa-linkedin fa-fw"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.instagram.com/smartprintsksa/"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+        </ul>
+        <small class="copyright">© Copyright 2025 <a class="theme-link" href="https://smartprints-ksa.com/" target="_blank">Smart Prints</a> جميع الحقوق محفوظة.</small>
+      </div>
+    </footer>
+
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script>
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script>
+    <script src="assets/js/docs.js"></script>
+    <script src="assets/js/lang.js"></script>
+</body>
+</html>
