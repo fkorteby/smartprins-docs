@@ -43,10 +43,15 @@
         text-align: center;
       }
       .doc-image-card img {
-        width: 100%;
+        width: auto !important;
+        max-width: 100% !important;
+        height: auto !important;
         max-height: 320px;
-        object-fit: contain;
-        background: #fff;
+        object-fit: unset !important;
+        padding: 0 !important;
+        border: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
         cursor: pointer;
       }
       .doc-image-card figcaption {
@@ -304,7 +309,7 @@
 
           <article class="docs-article step-page" id="section-1" data-step-title="البدء">
             <header class="docs-header">
-              <h1 class="docs-heading">نظام إدارة المطاعم Smart Prints <span class="docs-time">آخر تحديث: 13 أبريل 2026</span></h1>
+              <h1 class="docs-heading">نظام إدارة المطاعم Smart Prints <span class="docs-time">آخر تحديث: 31 يوليو 2026</span></h1>
               <section class="docs-intro">
                 <p>دليل التشغيل والاستخدام</p>
                 <p>يقدّم هذا الدليل وحدات Smart Prints الرئيسية ويمرّ معك عبر التسجيل، وإعداد الموظفين، وعرض الورديات، وطرق الدفع، وبناء القائمة، وتشغيل نقطة البيع، والأسئلة الشائعة.</p>
@@ -801,8 +806,6 @@
           img.addEventListener('click', function () {
             const modalImage = document.getElementById('modalImage');
             modalImage.src = this.src;
-            const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
-            imageModal.show();
           });
         });
       });

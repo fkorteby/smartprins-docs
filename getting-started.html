@@ -50,10 +50,15 @@
       }
 
       .doc-image-card img {
-        width: 100%;
+        width: auto !important;
+        max-width: 100% !important;
+        height: auto !important;
         max-height: 320px;
-        object-fit: contain;
-        background: #fff;
+        object-fit: unset !important;
+        padding: 0 !important;
+        border: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
         cursor: pointer;
       }
 
@@ -229,7 +234,7 @@
     <!-- Section 1: Getting Started -->
     <article class="docs-article step-page" id="section-1" data-step-title="Getting Started">
       <header class="docs-header">
-        <h1 class="docs-heading">Smart Prints Restaurant Management System <span class="docs-time">Last updated: April 13, 2026</span></h1>
+        <h1 class="docs-heading">Smart Prints Restaurant Management System <span class="docs-time">Last updated: July 31, 2026</span></h1>
         <section class="docs-intro">
           <p>Operations and User Guide</p>
           <p>This guide introduces the main Smart Prints modules and walks through registration, employee setup, shift visibility, payment methods, menu building, POS launch, and frequently asked questions.</p>
@@ -729,9 +734,6 @@
         const modalImage = document.getElementById('modalImage');
         modalImage.src = this.src;
 
-        // Show the modal using Bootstrap's method
-        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
-        imageModal.show();
       });
     });
   });

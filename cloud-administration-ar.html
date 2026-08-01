@@ -43,10 +43,15 @@
         text-align: center;
       }
       .doc-image-card img {
-        width: 100%;
+        width: auto !important;
+        max-width: 100% !important;
+        height: auto !important;
         max-height: 320px;
-        object-fit: contain;
-        background: #fff;
+        object-fit: unset !important;
+        padding: 0 !important;
+        border: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
         cursor: pointer;
       }
       .doc-image-card figcaption {
@@ -309,7 +314,7 @@
         <div class="container">
           <article class="docs-article step-page" id="section-1" data-step-title="Overview">
             <header class="docs-header">
-              <h1 class="docs-heading">إدارة المطعم الذكي <span class="docs-time">آخر تحديث: 13 أبريل 2026</span></h1>
+              <h1 class="docs-heading">إدارة المطعم الذكي <span class="docs-time">آخر تحديث: 31 يوليو 2026</span></h1>
               <section class="docs-intro">
                 <p>دليل الإدارة السحابية</p>
                 <p>لوحة Smart Restaurant Administration هي مركزك الرئيسي لإدارة جميع جوانب عمليات مطعمك من السحابة.</p>
@@ -891,8 +896,6 @@
         const modalImage = document.getElementById('modalImage');
         modalImage.src = this.src;
 
-        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
-        imageModal.show();
       });
     });
   });

@@ -43,10 +43,15 @@
         text-align: center;
       }
       .doc-image-card img {
-        width: 100%;
+        width: auto !important;
+        max-width: 100% !important;
+        height: auto !important;
         max-height: 320px;
-        object-fit: contain;
-        background: #fff;
+        object-fit: unset !important;
+        padding: 0 !important;
+        border: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
         cursor: pointer;
       }
       .doc-image-card figcaption {
@@ -427,7 +432,7 @@
                   <div class="col-lg-5 col-md-12 text-center">
                     <img src="assets/images/smart-kiosk-start-screen.png" alt="smart-kiosk-start-screen"
                          class="shadow-sm zoom-effect"
-                         style="max-height: 380px; width: 100%; object-fit: contain;">
+                         style="max-height: 380px; width: auto; max-width: 100%; height: auto; object-fit: unset; padding: 0;">
                     <div class="mt-2 text-muted">شاشة بدء نظام الخدمة الذاتية</div>
                   </div>
                 </div>
@@ -445,7 +450,7 @@
                   <div class="col-lg-5 col-md-12 text-center">
                     <img src="assets/images/smart-kiosk-category-screen.png" alt="smart-kiosk-category-screen"
                          class="shadow-sm zoom-effect"
-                         style="max-height: 380px; width: 100%; object-fit: contain;">
+                         style="max-height: 380px; width: auto; max-width: 100%; height: auto; object-fit: unset; padding: 0;">
                     <div class="mt-2 text-muted">شاشة فئات نظام الخدمة الذاتية</div>
                   </div>
                 </div>
@@ -462,7 +467,7 @@
                   <div class="col-lg-5 col-md-12 text-center">
                     <img src="assets/images/smart-kiosk-product-screen.png" alt="smart-kiosk-product-screen"
                          class="shadow-sm zoom-effect"
-                         style="max-height: 380px; width: 100%; object-fit: contain;">
+                         style="max-height: 380px; width: auto; max-width: 100%; height: auto; object-fit: unset; padding: 0;">
                     <div class="mt-2 text-muted">شاشة منتجات نظام الخدمة الذاتية</div>
                   </div>
                 </div>
@@ -479,7 +484,7 @@
                   <div class="col-lg-5 col-md-12 text-center">
                     <img src="assets/images/smart-kiosk-order.png" alt="smart-kiosk-order"
                          class="shadow-sm zoom-effect"
-                         style="max-height: 380px; width: 100%; object-fit: contain;">
+                         style="max-height: 380px; width: auto; max-width: 100%; height: auto; object-fit: unset; padding: 0;">
                     <div class="mt-2 text-muted">شاشة إضافة إلى السلة في نظام الخدمة الذاتية</div>
                   </div>
                 </div>
@@ -496,7 +501,7 @@
                   <div class="col-lg-5 col-md-12 text-center">
                     <img src="assets/images/smart-kiosk-add-to-cart.png" alt="smart-kiosk-add-to-cart"
                          class="shadow-sm zoom-effect"
-                         style="max-height: 380px; width: 100%; object-fit: contain;">
+                         style="max-height: 380px; width: auto; max-width: 100%; height: auto; object-fit: unset; padding: 0;">
                     <div class="mt-2 text-muted">شاشة إضافة إلى السلة في نظام الخدمة الذاتية</div>
                   </div>
                 </div>
@@ -513,7 +518,7 @@
                   <div class="col-lg-5 col-md-12 text-center">
                     <img src="assets/images/smart-kiosk-checkout.png" alt="smart-kiosk-checkout"
                          class="shadow-sm zoom-effect"
-                         style="max-height: 380px; width: 100%; object-fit: contain;">
+                         style="max-height: 380px; width: auto; max-width: 100%; height: auto; object-fit: unset; padding: 0;">
                     <div class="mt-2 text-muted">شاشة الدفع في نظام الخدمة الذاتية</div>
                   </div>
                 </div>
@@ -530,7 +535,7 @@
                   <div class="col-lg-5 col-md-12 text-center">
                     <img src="assets/images/smart-kiosk-success-screen.png" alt="smart-kiosk-success-screen"
                          class="shadow-sm zoom-effect"
-                         style="max-height: 380px; width: 100%; object-fit: contain;">
+                         style="max-height: 380px; width: auto; max-width: 100%; height: auto; object-fit: unset; padding: 0;">
                     <div class="mt-2 text-muted">شاشة النجاح في نظام الخدمة الذاتية</div>
                   </div>
                 </div>
@@ -579,8 +584,6 @@
         const modalImage = document.getElementById('modalImage');
         modalImage.src = this.src;
 
-        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
-        imageModal.show();
       });
     });
   });

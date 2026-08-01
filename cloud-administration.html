@@ -50,10 +50,15 @@
       }
 
       .doc-image-card img {
-        width: 100%;
+        width: auto !important;
+        max-width: 100% !important;
+        height: auto !important;
         max-height: 320px;
-        object-fit: contain;
-        background: #fff;
+        object-fit: unset !important;
+        padding: 0 !important;
+        border: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
         cursor: pointer;
       }
 
@@ -231,7 +236,7 @@
   <div class="container">
     <article class="docs-article step-page" id="section-1" data-step-title="Overview">
       <header class="docs-header">
-        <h1 class="docs-heading">Smart Restaurant Administration <span class="docs-time">Last updated: April 13, 2026</span></h1>
+        <h1 class="docs-heading">Smart Restaurant Administration <span class="docs-time">Last updated: July 31, 2026</span></h1>
         <section class="docs-intro">
           <p>Cloud Administration Guide</p>
           <p>The Smart Restaurant Administration panel is your central hub for managing every aspect of your restaurant operations from the cloud.</p>
@@ -816,9 +821,6 @@
         const modalImage = document.getElementById('modalImage');
         modalImage.src = this.src;
 
-        // Show the modal using Bootstrap's method
-        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
-        imageModal.show();
       });
     });
   });

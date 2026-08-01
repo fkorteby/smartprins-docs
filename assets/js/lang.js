@@ -109,7 +109,16 @@
   }
 
   function getCurrentPageName() {
-    return window.location.pathname.split("/").pop() || "";
+    let name = window.location.pathname.split("/").pop() || "";
+
+    // Static hosts / `serve` clean URLs: /getting-started-ar -> getting-started-ar.html
+    if (!name) {
+      name = "index.html";
+    } else if (!/\.html?$/i.test(name)) {
+      name = `${name}.html`;
+    }
+
+    return name;
   }
 
   function toLanguageHref(href, lang) {
