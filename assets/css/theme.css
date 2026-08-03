@@ -12695,6 +12695,23 @@ html[lang="ar"] .docs-nav {
   text-align: justify;
 }
 
+/* Large image zoom modal — almost fullscreen so diagrams stay readable */
+#imageModal .modal-dialog {
+  max-width: min(96vw, 1600px);
+  width: 96vw;
+  margin: 0.75rem auto;
+}
+#imageModal .modal-content {
+  background: transparent;
+}
+#imageModal #modalImage {
+  max-width: 96vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
 /* Doc screenshots: border hugs the image (no letterboxed empty frame) */
 .doc-image-grid {
   display: grid;
