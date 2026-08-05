@@ -145,6 +145,17 @@
         margin-left: 0 !important;
         margin-right: 300px !important;
       }
+
+      @media (max-width: 1199.98px) {
+        html[lang="ar"] .docs-content {
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+        html[lang="ar"] .docs-sidebar.sidebar-hidden {
+          transform: translateX(300px) !important;
+        }
+      }
+
       html[lang="ar"] .docs-content .container {
         direction: rtl;
         text-align: right;
@@ -511,13 +522,14 @@
               </p>
               <p class="lang-ar">
                 انتقل إلى
-                <strong>المخزون &larr; المشتريات &larr; أوامر الشراء</strong>،
-                ثم انقر على <strong>+ إضافة</strong> لفتح نموذج أمر الشراء.
+                <strong>المخزون &larr; المشتريات &larr; طلبات الشراء</strong>،
+                ثم انقر على <strong>+ إضافة طلب شراء</strong> لفتح نموذج طلب
+                الشراء.
               </p>
               <div class="text-center my-4">
                 <img
-                  src="assets/images/Inventory/Daily/purchase-orders.png"
-                  alt="Purchase Orders list view"
+                  src="assets/images/Inventory/Daily/purchase-orders-ar.png"
+                  alt="عرض قائمة طلبات الشراء"
                   class="img-thumbnail shadow-sm zoom-effect"
                   style="max-width: 600px; width: 100%; cursor: pointer"
                 />
@@ -527,7 +539,7 @@
                   order is new, partially received, or fully received.
                 </p>
                 <p class="img-caption lang-ar">
-                  عرض قائمة أوامر الشراء. كل صف يمثل طلباً واحداً مُقدَّماً
+                  عرض قائمة طلبات الشراء. كل صف يمثل طلباً واحداً مُقدَّماً
                   لمورد. يُظهر عمود الحالة ما إذا كان الطلب جديداً أو مُستلَماً
                   جزئياً أو مُستلَماً بالكامل.
                 </p>
@@ -540,12 +552,12 @@
                 The Purchase Order Form — Field by Field
               </h2>
               <h2 class="section-heading lang-ar">
-                نموذج أمر الشراء — حقل بحقل
+                نموذج طلب الشراء — حقل بحقل
               </h2>
               <div class="text-center my-4">
                 <img
-                  src="assets/images/Inventory/Daily/add-po.png"
-                  alt="Purchase Order form"
+                  src="assets/images/Inventory/Daily/add-purchase-order-ar.png"
+                  alt="نموذج إضافة طلب شراء"
                   class="img-thumbnail shadow-sm zoom-effect"
                   style="max-width: 600px; width: 100%; cursor: pointer"
                 />
@@ -555,8 +567,8 @@
                   line.
                 </p>
                 <p class="img-caption lang-ar">
-                  نموذج أمر الشراء. اختر المورد أولاً، ثم أضف كل مكون والكمية
-                  المطلوبة كسطر منفصل.
+                  نموذج طلب الشراء. أضف كل مكون والكمية المطلوبة كسطر منفصل، ثم
+                  انقر على <strong>إضافة مكون</strong>.
                 </p>
               </div>
 
@@ -604,7 +616,7 @@
                   المتابعة.
                 </li>
                 <li>
-                  <strong>التاريخ (مطلوب):</strong> تاريخ إنشاء أمر الشراء.
+                  <strong>التاريخ (مطلوب):</strong> تاريخ إنشاء طلب الشراء.
                   يُملأ تلقائياً بالتاريخ الحالي ولكن يمكن تعديله.
                 </li>
                 <li>
@@ -612,18 +624,20 @@
                   سيُضاف المخزون من الاستلام إلى مخزون هذا الفرع.
                 </li>
                 <li>
-                  <strong>تاريخ التسليم المتوقع (اختياري):</strong> التاريخ
-                  المتوقع لوصول التسليم. مفيد للتخطيط ولتحديد الطلبات المتأخرة.
+                  <strong>الحالة (مطلوب):</strong> حالة الطلب (مثل جديد).
                 </li>
                 <li>
-                  <strong>ملاحظات (اختياري):</strong> أي تعليمات أو مراجع ذات
+                  <strong>الموظف:</strong> الموظف المرتبط بطلب الشراء.
+                </li>
+                <li>
+                  <strong>الملاحظات (اختياري):</strong> أي تعليمات أو مراجع ذات
                   صلة بهذا الطلب.
                 </li>
                 <li>
-                  <strong>قائمة الأصناف:</strong> يُضاف كل مكون مطلوب كسطر يحتوي
-                  على الصنف، الكمية، الوحدة، تكلفة الوحدة، والتكلفة الإجمالية
-                  (تُحسب تلقائياً كالكمية × تكلفة الوحدة). انقر على
-                  <strong>+ إضافة صنف</strong> لإضافة سطر جديد.
+                  <strong>قائمة المكونات:</strong> يُضاف كل مكون مطلوب كسطر يحتوي
+                  على المكونات، الكمية، أ.م، التكلفة، والإجمالي. انقر على
+                  <strong>إضافة مكون</strong> لإضافة سطر جديد، ثم
+                  <strong>إرسال</strong> للحفظ.
                 </li>
               </ul>
             </section>

@@ -36,6 +36,17 @@
       html[lang="ar"] body { font-family: 'Tajawal', sans-serif; }
       html[lang="ar"] .docs-sidebar { left: auto !important; right: 0 !important; }
       html[lang="ar"] .docs-content { margin-left: 0 !important; margin-right: 300px !important; }
+
+      @media (max-width: 1199.98px) {
+        html[lang="ar"] .docs-content {
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+        html[lang="ar"] .docs-sidebar.sidebar-hidden {
+          transform: translateX(300px) !important;
+        }
+      }
+
       html[lang="ar"] .docs-content .container { direction: rtl; text-align: right; }
       html[lang="ar"] .docs-nav { direction: rtl; text-align: right; }
       html[lang="ar"] .social-sidebar { left: 0 !important; right: auto !important; }

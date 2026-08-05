@@ -12346,6 +12346,8 @@ a.text-link:hover {
   position: fixed;
   z-index: 10;
   top: 69px;
+  left: 0;
+  right: auto;
   height: calc(100% - 69px);
   background: #fff;
   overflow-y: auto;
@@ -12484,9 +12486,57 @@ html[lang="ar"] .docs-nav {
   text-align: right;
 }
 
+/* Arabic / RTL docs shell: sidebar on the right, content offset mirrored */
+html[dir="rtl"] .docs-sidebar,
+html[lang="ar"] .docs-sidebar {
+  left: auto;
+  right: 0;
+  box-shadow: -1px 0 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+html[dir="rtl"] .docs-sidebar.sidebar-hidden,
+html[lang="ar"] .docs-sidebar.sidebar-hidden {
+  transform: translateX(300px);
+}
+
+html[dir="rtl"] .docs-logo-wrapper,
+html[lang="ar"] .docs-logo-wrapper {
+  left: auto;
+  right: 15px;
+}
+
+html[dir="rtl"] .social-sidebar,
+html[lang="ar"] .social-sidebar {
+  right: auto;
+  left: 0;
+}
+
+html[dir="rtl"] .docs-article ul,
+html[dir="rtl"] .docs-article ol,
+html[dir="rtl"] .docs-article dl,
+html[lang="ar"] .docs-article ul,
+html[lang="ar"] .docs-article ol,
+html[lang="ar"] .docs-article dl {
+  padding-left: 0;
+  padding-right: 1.5rem;
+}
+
+html[dir="rtl"] .callout-block,
+html[lang="ar"] .callout-block {
+  border-left: none;
+  border-right: 3px solid rgb(92.5, 102.5, 120);
+}
+
 .docs-content {
   margin-left: 300px;
+  margin-right: 0;
   padding-bottom: 2rem;
+}
+
+html[dir="rtl"] .docs-content,
+html[lang="ar"] .docs-content {
+  margin-left: 0;
+  margin-right: 300px;
 }
 
 .docs-article {
@@ -12635,6 +12685,18 @@ html[lang="ar"] .docs-nav {
 @media (max-width: 1199.98px) {
   .docs-content {
     margin-left: 0;
+    margin-right: 0;
+  }
+
+  html[dir="rtl"] .docs-content,
+  html[lang="ar"] .docs-content {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  html[dir="rtl"] .docs-sidebar.sidebar-hidden,
+  html[lang="ar"] .docs-sidebar.sidebar-hidden {
+    transform: translateX(300px) !important;
   }
 }
 

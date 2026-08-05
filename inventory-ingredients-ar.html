@@ -170,6 +170,17 @@
         margin-right: 300px !important;
       }
 
+      @media (max-width: 1199.98px) {
+        html[lang="ar"] .docs-content {
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+        html[lang="ar"] .docs-sidebar.sidebar-hidden {
+          transform: translateX(300px) !important;
+        }
+      }
+
+
       /* RTL text for content area */
       html[lang="ar"] .docs-content .container {
         direction: rtl;
@@ -571,7 +582,7 @@
                 sidebar.
               </p>
               <p class="lang-ar">
-                انتقل إلى <strong>القائمة &larr; المنتجات</strong> من الشريط
+                انتقل إلى <strong>المنيو &larr; المنتجات</strong> من الشريط
                 الجانبي.
               </p>
               <p class="lang-en">
@@ -582,13 +593,13 @@
               </p>
               <p class="lang-ar">
                 يفتح هذا عرض قائمة المنتجات، حيث تظهر جميع المنتجات الموجودة مع
-                اسمها والاسم بالعربية والفئة والحالة. من هنا يمكنك البحث
-                والتصفية حسب الفئة أو الحالة وإدارة العناصر الحالية.
+                اسمها والاسم بالعربية والقسم والحالة. من هنا يمكنك البحث
+                والتصفية حسب القسم أو الحالة وإدارة العناصر الحالية.
               </p>
               <div class="text-center my-4">
                 <img
-                  src="assets/images/Inventory/Setup/Products.png"
-                  alt="Products list view"
+                  src="assets/images/Inventory/Setup/Products-ar.png"
+                  alt="عرض قائمة المنتجات"
                   class="img-thumbnail shadow-sm zoom-effect"
                   style="max-width: 600px; width: 100%; cursor: pointer"
                 />
@@ -598,9 +609,8 @@
                   top right to switch views.
                 </p>
                 <p class="img-caption lang-ar">
-                  عرض قائمة المنتجات يُظهر جميع عناصر القائمة مع علامات الفئة
-                  والحالة. استخدم زر التبديل بين الشبكة والقائمة في أعلى اليمين
-                  لتغيير طريقة العرض.
+                  عرض قائمة المنتجات يُظهر جميع عناصر القائمة مع علامات القسم
+                  والحالة. استخدم زر التبديل بين الشبكة والقائمة لتغيير طريقة العرض.
                 </p>
               </div>
             </section>
@@ -614,13 +624,13 @@
                 of the Products list to open the Add Product form.
               </p>
               <p class="lang-ar">
-                انقر على زر <strong>+ إضافة منتج</strong> في أعلى يسار قائمة
+                انقر على زر <strong>+ إضافة منتج</strong> في أعلى قائمة
                 المنتجات لفتح نموذج إضافة المنتج.
               </p>
               <div class="text-center my-4">
                 <img
-                  src="assets/images/Inventory/Setup/add-products.png"
-                  alt="Add Product form"
+                  src="assets/images/Inventory/Setup/add-products-ar.png"
+                  alt="نموذج إضافة منتج"
                   class="img-thumbnail shadow-sm zoom-effect"
                   style="max-width: 600px; width: 100%; cursor: pointer"
                 />
@@ -632,9 +642,9 @@
                 </p>
                 <p class="img-caption lang-ar">
                   يفتح نموذج إضافة المنتج كنافذة منبثقة تحتوي على خمس تبويبات:
-                  المعلومات، الخيارات، الاقتراحات، الوصفة، وadmin_nutritions.
+                  معلومات، الخيارات، اقتراحات، الوصفة، وadmin_nutritions.
                   جميع الإعدادات المطلوبة لأغراض المخزون تتم في تبويبَي
-                  المعلومات والوصفة.
+                  معلومات والوصفة.
                 </p>
               </div>
               <p class="lang-en">
@@ -644,7 +654,7 @@
               </p>
               <p class="lang-ar">
                 يُنظَّم النموذج في خمس تبويبات. لأغراض إعداد القائمة في هذا
-                التهيئة الأولى، ركّز أولاً على تبويب <strong>المعلومات</strong>.
+                التهيئة الأولى، ركّز أولاً على تبويب <strong>معلومات</strong>.
               </p>
               <p class="lang-en">
                 Once all required fields are filled in, click
@@ -779,13 +789,13 @@
               </p>
               <p class="lang-ar">
                 انتقل إلى
-                <strong>القائمة &larr; المخزون &larr; المكوّنات</strong> من
-                الشريط الجانبي، ثم انقر على زر <strong>+ إضافة مكوّن</strong>.
+                <strong>المخزون &larr; المكونات</strong> من
+                الشريط الجانبي، ثم انقر على زر <strong>+ إضافة مكون</strong>.
               </p>
               <div class="text-center my-4">
                 <img
-                  src="assets/images/Inventory/Setup/ingredients.png"
-                  alt="Ingredients list view"
+                  src="assets/images/Inventory/Setup/ingredients-ar.png"
+                  alt="عرض قائمة المكونات"
                   class="img-thumbnail shadow-sm zoom-effect"
                   style="max-width: 600px; width: 100%; cursor: pointer"
                 />
@@ -795,7 +805,7 @@
                   bar and filters to locate specific items once your list grows.
                 </p>
                 <p class="img-caption lang-ar">
-                  عرض قائمة المكوّنات. تظهر هنا جميع المكوّنات التي تم إنشاؤها
+                  عرض قائمة المكونات. تظهر هنا جميع المكونات التي تم إنشاؤها
                   مع سماتها الرئيسية دفعةً واحدة. استخدم شريط البحث والمرشّحات
                   للعثور على عناصر محددة مع نمو قائمتك.
                 </p>
@@ -813,12 +823,12 @@
                 what each part means:
               </p>
               <p class="lang-ar">
-                عند إضافة مكوّن، ستملأ نموذجاً. إليك ما يعنيه كل جزء:
+                عند إضافة مكون، ستملأ نموذجاً. إليك ما يعنيه كل جزء:
               </p>
               <div class="text-center my-4">
                 <img
-                  src="assets/images/Inventory/Setup/add-ingredient.png"
-                  alt="Add Ingredient form"
+                  src="assets/images/Inventory/Setup/add-ingredient-ar.png"
+                  alt="نموذج إضافة مكون"
                   class="img-thumbnail shadow-sm zoom-effect"
                   style="max-width: 600px; width: 100%; cursor: pointer"
                 />
@@ -971,9 +981,9 @@
                       </td>
                     </tr>
                     <tr>
-                      <td><strong>مركَّب</strong></td>
+                      <td><strong>مركب</strong></td>
                       <td>
-                        فعِّل هذا الخيار إذا كان المكوّن مصنوعاً من مكوّنات أخرى
+                        فعِّل هذا الخيار إذا كان المكون مصنوعاً من مكونات أخرى
                         (كخلطة البهارات).
                       </td>
                       <td>
@@ -982,7 +992,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td><strong>قابل للتتبع</strong></td>
+                      <td><strong>قابلة للتتبع</strong></td>
                       <td>فعِّل هذا الخيار حتى يقوم النظام بعدّه.</td>
                       <td>
                         إذا كان معطلاً، لن يخصم النظام المخزون عند بيع الطعام،
