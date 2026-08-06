@@ -220,6 +220,11 @@
         <div class="container-fluid py-2">
           <div class="row align-items-center">
             <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+              <button id="docs-sidebar-toggler" class="docs-sidebar-toggler d-xl-none me-2" type="button" aria-label="Toggle navigation menu" aria-controls="docs-sidebar" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
               <a class="navbar-brand" href="index-ar.html">
                 <div class="site-logo">
                   <img class="logo-icon me-2" src="assets/images/sticky_logo.png" alt="logo" style="height: 60px" />
@@ -391,7 +396,7 @@
                 <a class="nav-link scrollto" href="#section-2">
                   <span class="theme-icon-holder me-2"
                     ><i class="fas fa-dolly"></i></span
-                  >استلامات الشراء
+                  >استقبالات الشراء
                 </a>
               </li>
               <li class="nav-item">
@@ -694,7 +699,7 @@
 
             <!-- Arabic header -->
             <header class="docs-header lang-ar">
-              <h1 class="docs-heading">استلامات الشراء</h1>
+              <h1 class="docs-heading">استقبالات الشراء</h1>
               <section class="docs-intro">
                 <p>
                   استلام الشراء هو سجل وصول التسليم فعلياً إلى فرعك. إنها الخطوة
@@ -734,13 +739,14 @@
               </p>
               <p class="lang-ar">
                 انتقل إلى
-                <strong>المخزون &larr; المشتريات &larr; استلامات الشراء</strong
-                >، ثم انقر على <strong>+ إضافة</strong> لفتح نموذج الاستلام.
+                <strong>المخزون &larr; المشتريات &larr; استقبالات الشراء</strong
+                >، ثم انقر على <strong>+ إضافة استقبال الشراء</strong> لفتح
+                النموذج.
               </p>
               <div class="text-center my-4">
                 <img
                   src="assets/images/Inventory/Daily/purchase-reception.png"
-                  alt="Purchase Receptions list view"
+                  alt="عرض قائمة استقبالات الشراء"
                   class="img-thumbnail shadow-sm zoom-effect"
                   style="max-width: 600px; width: 100%; cursor: pointer"
                 />
@@ -750,8 +756,7 @@
                   it fulfills.
                 </p>
                 <p class="img-caption lang-ar">
-                  عرض قائمة استلامات الشراء. تظهر هنا كل عملية تسليم مُسجَّلة.
-                  كل استلام مرتبط بأمر الشراء الذي يُنفِّذه.
+                  عرض قائمة استقبالات الشراء. تظهر هنا كل عملية تسليم مُسجَّلة.
                 </p>
               </div>
             </section>
@@ -762,12 +767,12 @@
                 The Purchase Reception Form — Field by Field
               </h2>
               <h2 class="section-heading lang-ar">
-                نموذج استلام الشراء — حقل بحقل
+                نموذج استقبال الشراء — حقل بحقل
               </h2>
               <div class="text-center my-4">
                 <img
-                  src="assets/images/Inventory/Daily/add-pr.png"
-                  alt="Purchase Reception form"
+                  src="assets/images/Inventory/Daily/add-purchase-reception-ar.png"
+                  alt="نموذج إضافة استقبال الشراء"
                   class="img-thumbnail shadow-sm zoom-effect"
                   style="max-width: 600px; width: 100%; cursor: pointer"
                 />
@@ -777,8 +782,9 @@
                   received.
                 </p>
                 <p class="img-caption lang-ar">
-                  نموذج استلام الشراء. اربطه بأمر الشراء الأصلي، ثم تحقق من
-                  الكميات المستلمة فعلياً وأكِّدها.
+                  نموذج إضافة استقبال الشراء. املأ التاريخ والفرع والمورد، ثم
+                  أضف المكونات والكميات عبر <strong>+ إضافة مكون</strong>، ثم
+                  انقر على <strong>إرسال</strong>.
                 </p>
               </div>
 
@@ -816,28 +822,26 @@
               <!-- Arabic list -->
               <ul class="lang-ar">
                 <li>
-                  <strong>المورد (مطلوب):</strong> يجب أن يتطابق مع المورد في
-                  أمر الشراء الأصلي.
-                </li>
-                <li>
-                  <strong>التاريخ (مطلوب):</strong> تاريخ ووقت استلام التسليم.
-                  يُملأ تلقائياً ولكن قابل للتعديل. اضبطه على وقت التسليم الفعلي
-                  للحصول على سجل مخزون دقيق.
+                  <strong>التاريخ (مطلوب):</strong> تاريخ ووقت استقبال التسليم.
+                  يُملأ تلقائياً ولكن قابل للتعديل.
                 </li>
                 <li>
                   <strong>الفرع (مطلوب):</strong> الفرع المستلِم للتسليم. سيُضاف
                   المخزون إلى مخزون هذا الفرع عند الإرسال.
                 </li>
                 <li>
-                  <strong>أمر الشراء (مطلوب):</strong> أمر الشراء الأصلي الذي
-                  يُنفِّذه هذا الاستلام. يؤدي اختيار أمر الشراء إلى تعبئة
-                  الأصناف والكميات المتوقعة مسبقاً.
+                  <strong>المورد (مطلوب):</strong> المورد المرتبط باستقبال
+                  الشراء.
                 </li>
                 <li>
-                  <strong>قائمة الأصناف:</strong> يُدرَج كل صنف مُستلَم بكميته
-                  المتوقعة. يُحدِّث فريقك الكمية لتعكس ما تم تسليمه فعلاً إذا
-                  اختلف عما تم طلبه. تشمل الحقول: الصنف، الكمية المتوقعة، الكمية
-                  المستلمة، الوحدة، وتكلفة الوحدة.
+                  <strong>الموظف:</strong> الموظف المرتبط بعملية الاستقبال.
+                </li>
+                <li>
+                  <strong>قائمة المكونات:</strong> يُضاف كل مكون كسطر يحتوي على
+                  المكونات، الكمية، أ.م، السعر، والإجمالي. انقر على
+                  <strong>+ إضافة مكون</strong> لإضافة سطر، ثم
+                  <strong>إرسال</strong> للحفظ أو <strong>إغلاق</strong>
+                  للإلغاء.
                 </li>
               </ul>
             </section>

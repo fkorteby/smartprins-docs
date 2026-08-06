@@ -6,48 +6,123 @@ const sidebarToggler = document.getElementById('docs-sidebar-toggler');
 const sidebar = document.getElementById('docs-sidebar');
 const sidebarLinks = document.querySelectorAll('#docs-sidebar .scrollto');
 
+function getSidebarBackdrop() {
+	var backdrop = document.getElementById('docs-sidebar-backdrop');
+	if (!backdrop) {
+		backdrop = document.createElement('div');
+		backdrop.id = 'docs-sidebar-backdrop';
+		backdrop.className = 'docs-sidebar-backdrop';
+		backdrop.setAttribute('aria-hidden', 'true');
+		document.body.appendChild(backdrop);
+		backdrop.addEventListener('click', closeMobileSidebar);
+	}
+	return backdrop;
+}
+
+function isMobileSidebar() {
+	return window.innerWidth < 1200;
+}
+
+function openMobileSidebar() {
+	if (!sidebar) return;
+	sidebar.classList.remove('sidebar-hidden');
+	sidebar.classList.add('sidebar-visible');
+	if (isMobileSidebar()) {
+		getSidebarBackdrop().classList.add('show');
+		document.body.classList.add('docs-sidebar-open');
+	}
+	if (sidebarToggler) {
+		sidebarToggler.setAttribute('aria-expanded', 'true');
+	}
+}
+
+function closeMobileSidebar() {
+	if (!sidebar) return;
+	sidebar.classList.remove('sidebar-visible');
+	sidebar.classList.add('sidebar-hidden');
+	var backdrop = document.getElementById('docs-sidebar-backdrop');
+	if (backdrop) {
+		backdrop.classList.remove('show');
+	}
+	document.body.classList.remove('docs-sidebar-open');
+	if (sidebarToggler) {
+		sidebarToggler.setAttribute('aria-expanded', 'false');
+	}
+}
+
+function toggleMobileSidebar() {
+	if (!sidebar) return;
+	if (sidebar.classList.contains('sidebar-visible')) {
+		closeMobileSidebar();
+	} else {
+		openMobileSidebar();
+	}
+}
 
 
 /* ===== Responsive Sidebar ====== */
 
+let lastWasDesktop = window.innerWidth >= 1200;
+
 window.onload=function()
 {
-    responsiveSidebar();
+    lastWasDesktop = window.innerWidth >= 1200;
+    responsiveSidebar(true);
 };
 
 window.onresize=function()
 {
-    responsiveSidebar();
+    responsiveSidebar(false);
 };
 
 
-function responsiveSidebar() {
+function responsiveSidebar(force) {
     if (!sidebar) return;
 
     let w = window.innerWidth;
-	if(w >= 1200) {
-	    // if larger
+	const isDesktop = w >= 1200;
+
+	if(isDesktop) {
+	    // Desktop: always show sidebar, never keep mobile overlay
 		sidebar.classList.remove('sidebar-hidden');
 		sidebar.classList.add('sidebar-visible');
+		var backdrop = document.getElementById('docs-sidebar-backdrop');
+		if (backdrop) {
+			backdrop.classList.remove('show');
+		}
+		document.body.classList.remove('docs-sidebar-open');
+		if (sidebarToggler) {
+			sidebarToggler.setAttribute('aria-expanded', 'false');
+		}
 
-	} else {
-	    // if smaller
-	    sidebar.classList.remove('sidebar-visible');
-		sidebar.classList.add('sidebar-hidden');
+	} else if (force || lastWasDesktop) {
+	    // Mobile: start closed (or just crossed down from desktop)
+	    closeMobileSidebar();
 	}
+
+	lastWasDesktop = isDesktop;
 };
 
 if (sidebarToggler && sidebar) {
-	sidebarToggler.addEventListener('click', () => {
-		if (sidebar.classList.contains('sidebar-visible')) {
-			sidebar.classList.remove('sidebar-visible');
-			sidebar.classList.add('sidebar-hidden');
-
-		} else {
-			sidebar.classList.remove('sidebar-hidden');
-			sidebar.classList.add('sidebar-visible');
-		}
+	if (document.documentElement.lang === 'ar' || document.documentElement.dir === 'rtl') {
+		sidebarToggler.setAttribute('aria-label', 'فتح وإغلاق قائمة التنقل');
+	}
+	sidebarToggler.addEventListener('click', function (e) {
+		e.preventDefault();
+		e.stopPropagation();
+		toggleMobileSidebar();
 	});
+}
+
+// Apply initial sidebar state as soon as possible (avoid waiting only for full window load)
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', function () {
+		lastWasDesktop = window.innerWidth >= 1200;
+		responsiveSidebar(true);
+	});
+} else {
+	lastWasDesktop = window.innerWidth >= 1200;
+	responsiveSidebar(true);
 }
 
 
@@ -69,11 +144,9 @@ sidebarLinks.forEach((sidebarLink) => {
 		}
 
 
-        //Collapse sidebar after clicking
-		if (sidebar && sidebar.classList.contains('sidebar-visible') && window.innerWidth < 1200){
-
-			sidebar.classList.remove('sidebar-visible');
-		    sidebar.classList.add('sidebar-hidden');
+        //Collapse sidebar after clicking a link on mobile
+		if (sidebar && isMobileSidebar()){
+			closeMobileSidebar();
 		}
 
     });

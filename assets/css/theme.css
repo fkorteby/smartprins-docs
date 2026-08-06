@@ -12305,16 +12305,28 @@ a.text-link:hover {
 }
 
 .docs-sidebar-toggler {
-  display: inline-block;
-  border: none;
-  padding: 0;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgba(37, 41, 48, 0.15);
+  padding: 0.45rem 0.5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
   font-size: inherit;
   position: relative;
-  top: 0.3rem;
-  background: none;
+  top: 0;
+  background: #fff;
+  border-radius: 0.4rem;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  z-index: 1045;
 }
 .docs-sidebar-toggler:focus {
   outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(83, 104, 253, 0.35);
 }
 .docs-sidebar-toggler:hover span {
   -webkit-opacity: 1;
@@ -12324,16 +12336,37 @@ a.text-link:hover {
 .docs-sidebar-toggler span {
   display: block;
   background-color: #252930;
-  height: 3px;
-  width: 24px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  height: 2.5px;
+  width: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
   position: relative;
   left: 0;
-  -webkit-opacity: 0.8;
-  -moz-opacity: 0.8;
-  opacity: 0.8;
+  -webkit-opacity: 0.9;
+  -moz-opacity: 0.9;
+  opacity: 0.9;
   border-radius: 1px;
+}
+
+.docs-sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  top: 69px;
+  background: rgba(15, 18, 28, 0.45);
+  z-index: 1035;
+}
+.docs-sidebar-backdrop.show {
+  display: block;
+}
+body.docs-sidebar-open {
+  overflow: hidden;
+}
+
+@media (min-width: 1200px) {
+  .docs-sidebar-toggler {
+    display: none !important;
+  }
 }
 
 .docs-wrapper {
@@ -12344,7 +12377,7 @@ a.text-link:hover {
   display: none;
   width: 300px;
   position: fixed;
-  z-index: 10;
+  z-index: 1040;
   top: 69px;
   left: 0;
   right: auto;
@@ -12772,6 +12805,29 @@ html[lang="ar"] .docs-content {
   width: auto;
   height: auto;
   object-fit: contain;
+}
+#imageModal .btn-close {
+  z-index: 1056;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: #fff;
+  background-image: var(--bs-btn-close-bg);
+  background-size: 0.85em;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+#imageModal .btn-close:hover {
+  background-color: #f0f0f0;
+  opacity: 1;
+}
+#imageModal .btn-close:focus {
+  opacity: 1;
+  box-shadow: 0 0 0 0.2rem rgba(83, 104, 253, 0.35),
+    0 2px 10px rgba(0, 0, 0, 0.35);
 }
 
 /* Doc screenshots: border hugs the image (no letterboxed empty frame) */
