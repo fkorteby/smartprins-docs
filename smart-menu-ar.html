@@ -32,6 +32,18 @@
         transform: scale(1.05);
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
       }
+      #imageModal .modal-dialog {
+        max-width: min(96vw, 1400px);
+        width: 96vw;
+        margin: 1rem auto;
+      }
+      #imageModal #modalImage {
+        width: auto !important;
+        max-width: 96vw !important;
+        max-height: 92vh !important;
+        height: auto !important;
+        object-fit: contain;
+      }
       #lang-toggle {
         display: flex;
         align-items: center;
@@ -278,10 +290,13 @@
                     </p>
                   </div>
                   <div class="col-lg-5 col-md-12 text-center">
-                    <img src="assets/images/smart-menu-workflow.png"
-                         alt="كيف يعمل"
+                    <img id="workflowImage"
+                         src="assets/images/smart-menu-workflow.png"
+                         alt="نظرة عامة على عملية الطلب"
                          class="img-thumbnail shadow-sm zoom-effect"
-                         style="max-width: 400px; width: 100%;">
+                         style="max-width: 400px; width: 100%; cursor: zoom-in;"
+                         title="انقر للتكبير">
+                    <div class="mt-2 text-muted small">انقر على الصورة للتكبير</div>
                   </div>
                 </div>
               </div>
@@ -537,11 +552,11 @@
                   تتيح لوحة الإدارة الخلفية للمستخدمين المصرّح لهم إدارة وتكوين جميع جوانب نظام القائمة الذكية. عبر متصفح الويب يمكن للمستخدمين تعديل أسعار المنتجات والأوصاف وحالة التوفر وهياكل القائمة وترتيب العرض. يمكن تكوين كل موقع أو فرع بشكل فردي، مع بقاء إمكانية فرض سياسات عامة من قبل المسؤولين. بالإضافة إلى التحكم في القائمة، تدعم اللوحة إعداد اللافتات والعروض الترويجية وأدوار حسابات المستخدمين وتتبع المبيعات. الأذونات قائمة على الأدوار، مع تقييد الوصول حسب مستوى المستخدم (مسؤول، مدير فرع، إلخ).
                 </p>
                 <div class="text-center my-4">
-                  <img src="assets/images/cloud-admin.png" alt="لوحة الإدارة السحابية"
+                  <img src="assets/images/cloud-admin-ar.png" alt="لوحة التحكم كلاود كاشير"
                        class="img-thumbnail shadow-sm zoom-effect"
-                       style="max-width: 700px; width: 100%; cursor: pointer;"
-                       data-bs-toggle="modal" data-bs-target="#imageModal-admin">
-                  <div class="mt-2 text-muted">لوحة الإدارة السحابية</div>
+                       style="max-width: 700px; width: 100%; cursor: zoom-in;"
+                       title="انقر للتكبير">
+                  <div class="mt-2 text-muted">لوحة الإدارة السحابية — لوحة التحكم</div>
                 </div>
               </div>
             </section>
@@ -590,51 +605,41 @@
           </article>
 
           <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
               <div class="modal-content bg-transparent border-0">
                 <div class="modal-body p-0 text-center">
-                  <img id="modalImage" src="#" alt="تكبير" class="img-fluid rounded">
+                  <img id="modalImage" src="#" alt="تكبير" class="img-fluid rounded shadow">
                 </div>
-                <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="إغلاق"></button>
               </div>
             </div>
           </div>
 
           <script>
             document.addEventListener("DOMContentLoaded", function () {
-              const zoomImages = document.querySelectorAll('.zoom-effect');
+              const modalEl = document.getElementById('imageModal');
+              const modalImage = document.getElementById('modalImage');
+              if (modalEl && modalImage && typeof bootstrap !== 'undefined') {
+                const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
 
-              zoomImages.forEach(function (img) {
-                img.addEventListener('click', function () {
-                  const modalImage = document.getElementById('modalImage');
-                  modalImage.src = this.src;
-
-                  let naturalWidth = this.naturalWidth;
-                  let displayedWidth = this.clientWidth;
-                  let targetWidth = Math.min(displayedWidth * 1.5, naturalWidth);
-
-                  modalImage.style.width = targetWidth + "px";
-                  modalImage.style.height = "auto";
-                  modalImage.style.maxWidth = "90vw";
-                  modalImage.style.maxHeight = "90vh";
-
-                });
-              });
-
-              const workflow = document.getElementById('workflowImage');
-              if (workflow) {
-                workflow.addEventListener('click', function () {
-                  const modalImage = document.getElementById('modalImage');
-                  modalImage.src = this.src;
-
-                  const displayedWidth = this.clientWidth || this.width || 350;
-                  const targetWidth = Math.min(this.naturalWidth || displayedWidth * 2, displayedWidth * 2);
-
-                  modalImage.style.width = targetWidth + 'px';
+                function openZoom(img) {
+                  modalImage.src = img.currentSrc || img.src;
+                  modalImage.alt = img.alt || 'تكبير';
+                  // Prefer near-full natural size (capped by viewport via CSS)
+                  const natural = img.naturalWidth || 1200;
+                  modalImage.style.width = Math.min(natural, window.innerWidth * 0.96) + 'px';
                   modalImage.style.height = 'auto';
-                  modalImage.style.maxWidth = '90vw';
-                  modalImage.style.maxHeight = '90vh';
+                  modal.show();
+                }
 
+                document.querySelectorAll('.zoom-effect, #workflowImage').forEach(function (img) {
+                  if (img.dataset.pageZoomBound) return;
+                  img.dataset.pageZoomBound = '1';
+                  img.style.cursor = 'zoom-in';
+                  img.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    openZoom(this);
+                  });
                 });
               }
 

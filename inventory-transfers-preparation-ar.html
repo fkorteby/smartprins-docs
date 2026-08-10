@@ -547,12 +547,32 @@
               <p class="lang-ar">
                 انتقل إلى
                 <strong>المخزون &larr; التحويل &larr; تحويل المخزون</strong>، ثم
-                انقر على <strong>+ إضافة</strong>.
+                انقر على <strong>+ admin_add_stock_transfer</strong> لفتح نموذج
+                التحويل.
               </p>
               <div class="text-center my-4">
                 <img
-                  src="assets/images/Inventory/Daily/stock-transfer.png"
-                  alt="Stock Transfer form"
+                  src="assets/images/Inventory/Daily/stock-transfer-ar.png"
+                  alt="قائمة تحويل المخزون"
+                  class="img-thumbnail shadow-sm zoom-effect"
+                  style="max-width: 600px; width: 100%; cursor: pointer"
+                />
+                <p class="img-caption lang-en">
+                  The Stock Transfer list. Every transfer is recorded here with
+                  source, destination, employee, and status.
+                </p>
+                <p class="img-caption lang-ar">
+                  قائمة تحويل المخزون. يظهر هنا كل تحويل مع التاريخ والفرع
+                  المُرسِل والفرع المستلِم والموظف والحالة. استخدم
+                  <strong>اختر الفرع</strong> للتصفية، ثم
+                  <strong>+ admin_add_stock_transfer</strong> لإضافة تحويل
+                  جديد.
+                </p>
+              </div>
+              <div class="text-center my-4">
+                <img
+                  src="assets/images/Inventory/Daily/add-stock-transfer-ar.png"
+                  alt="نموذج admin_add_stock_Transfer"
                   class="img-thumbnail shadow-sm zoom-effect"
                   style="max-width: 600px; width: 100%; cursor: pointer"
                 />
@@ -562,8 +582,8 @@
                   quantities.
                 </p>
                 <p class="img-caption lang-ar">
-                  يُكمِل الفرع المُرسِل نموذج تحويل المخزون. يُسجِّل ما يتم
-                  إرساله، وإلى أي فرع، وبأي كميات.
+                  نموذج <strong>admin_add_stock_Transfer</strong>. يُكمِله الفرع
+                  المُرسِل لتسجيل ما يُرسل، وإلى أي فرع، وبأي كميات.
                 </p>
               </div>
               <ul class="lang-en">
@@ -599,24 +619,28 @@
                   <strong>التاريخ (مطلوب):</strong> تاريخ ووقت بدء التحويل.
                 </li>
                 <li>
-                  <strong>الفرع المُرسِل (مطلوب):</strong> الفرع الذي يُرسل
-                  المخزون. سيُخصَم المخزون من هذا الفرع عند الإتمام.
+                  <strong>admin_source_branch (مطلوب):</strong> الفرع الذي
+                  يُرسل المخزون. سيُخصَم المخزون من هذا الفرع عند الإتمام.
                 </li>
                 <li>
-                  <strong>الفرع المستلِم (مطلوب):</strong> الفرع الذي سيستلم
-                  المخزون.
+                  <strong>admin_destination_branch (مطلوب):</strong> الفرع
+                  الذي سيستلم المخزون.
                 </li>
                 <li>
                   <strong>الموظف (اختياري):</strong> الموظف الذي يُبادر
                   بالتحويل.
                 </li>
                 <li>
-                  <strong>ملاحظات (اختياري):</strong> أي تعليمات أو مراجع ذات
+                  <strong>الحالة (مطلوب):</strong> حالة التحويل (مثل New).
+                </li>
+                <li>
+                  <strong>الملاحظات (اختياري):</strong> أي تعليمات أو مراجع ذات
                   صلة بهذا التحويل.
                 </li>
                 <li>
-                  <strong>قائمة الأصناف:</strong> يُضاف كل مكون أو منتج يتم
-                  تحويله كسطر يحتوي على النوع، الصنف، الكمية، والوحدة.
+                  <strong>قائمة العناصر:</strong> يُضاف كل عنصر يتم تحويله كسطر
+                  يحتوي على نوع الاختيار، العنصر، الكمية، ووحدة القياس (أ م).
+                  استخدم <strong>+ إضافة عنصر</strong> أو استيراد Excel.
                 </li>
               </ul>
             </section>
@@ -821,12 +845,12 @@
               <p class="lang-ar">
                 انتقل إلى
                 <strong>المخزون &larr; المخزون &larr; التحضيرات</strong>، ثم
-                انقر على <strong>+ إضافة تحضير</strong>.
+                انقر على <strong>+ إضافة التحضير</strong>.
               </p>
               <div class="text-center my-4">
                 <img
-                  src="assets/images/Inventory/Daily/preparations.png"
-                  alt="Preparations list"
+                  src="assets/images/Inventory/Daily/preparations-ar.png"
+                  alt="قائمة التحضيرات"
                   class="img-thumbnail shadow-sm zoom-effect"
                   style="max-width: 600px; width: 100%; cursor: pointer"
                 />
@@ -836,7 +860,8 @@
                 </p>
                 <p class="img-caption lang-ar">
                   قائمة التحضيرات. تظهر هنا كل دُفعة تحضير مسجَّلة مرتبطةً بفرع
-                  وتاريخ.
+                  وتاريخ. استخدم <strong>اختر الفرع</strong> للتصفية، ثم
+                  <strong>+ إضافة التحضير</strong> لفتح النموذج.
                 </p>
               </div>
             </section>
@@ -847,8 +872,8 @@
               <h2 class="section-heading lang-ar">النموذج — حقل بحقل</h2>
               <div class="text-center my-4">
                 <img
-                  src="assets/images/Inventory/Daily/add-preparations.png"
-                  alt="Add Preparation form"
+                  src="assets/images/Inventory/Daily/add-preparations-ar.png"
+                  alt="نموذج إضافة التحضير"
                   class="img-thumbnail shadow-sm zoom-effect"
                   style="max-width: 600px; width: 100%; cursor: pointer"
                 />
@@ -857,8 +882,8 @@
                   produced item as a line with its quantity and shelf life.
                 </p>
                 <p class="img-caption lang-ar">
-                  نموذج إضافة تحضير. أدخِل تفاصيل الدُّفعة وأضف كل صنف مُنتَج
-                  كسطر بكميته ومدة صلاحيته.
+                  نموذج <strong>إضافة التحضير</strong>. أدخِل تفاصيل الدُّفعة
+                  وأضف كل عنصر مُنتَج كسطر بكميته ومدة صلاحيته.
                 </p>
               </div>
               <ul class="lang-en">
@@ -905,12 +930,13 @@
                   تتبع المساءلة.
                 </li>
                 <li>
-                  <strong>قائمة الأصناف:</strong> يُضاف كل صنف مُحضَّر كسطر
-                  يحتوي على نوع الحساب (منتج أو مادة خام)، الصنف، الخيارات
-                  (الحجم أو النوع إن وُجد)، الكمية، وحدة القياس، ومدة الصلاحية
-                  (أيام حتى انتهاء الصلاحية؛ أدخل 0 إن لم ينطبق). استخدم
-                  <strong>+ إضافة صنف</strong> لأصناف متعددة، أو استخدم قالب
-                  Excel للدُّفعات الكبيرة.
+                  <strong>قائمة العناصر:</strong> يُضاف كل عنصر مُحضَّر كسطر
+                  يحتوي على نوع الاختيار، العنصر، الخيارات (الحجم أو النوع إن
+                  وُجد)، الكمية، وحدة القياس (أ م)، ومدة الصلاحية (أيام حتى
+                  انتهاء الصلاحية؛ أدخل 0 إن لم ينطبق). استخدم
+                  <strong>+ إضافة عنصر</strong> لعناصر متعددة، أو
+                  <strong>تنزيل نموذج Excel</strong> ثم
+                  <strong>الاستيراد من Excel</strong> للدُّفعات الكبيرة.
                 </li>
               </ul>
             </section>

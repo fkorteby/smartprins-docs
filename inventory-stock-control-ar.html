@@ -472,7 +472,9 @@
                 <a class="nav-link scrollto" href="#item-3-2">قراءة العرض</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link scrollto" href="#item-3-3">سجل المخزون</a>
+                <a class="nav-link scrollto" href="#item-3-3"
+                  >تاريخ حالة المخزون</a
+                >
               </li>
               <li class="nav-item section-title mt-3">
                 <a class="nav-link" href="inventory-transfers-preparation-ar.html">
@@ -795,8 +797,8 @@
               <h2 class="section-heading lang-ar">نموذج جرد المخزون</h2>
               <div class="text-center my-4">
                 <img
-                  src="assets/images/Inventory/Daily/add-inventory-count.png"
-                  alt="Inventory Count form"
+                  src="assets/images/Inventory/Daily/add-inventory-count-ar.png"
+                  alt="نموذج جرد المخزون"
                   class="img-thumbnail shadow-sm zoom-effect"
                   style="max-width: 600px; width: 100%; cursor: pointer"
                 />
@@ -805,8 +807,8 @@
                   ingredient as a line with its actual measured quantity.
                 </p>
                 <p class="img-caption lang-ar">
-                  نموذج جرد المخزون. أضف كل مكون تم عدّه فعلياً كسطر بكميته
-                  المقاسة الفعلية.
+                  نموذج إضافة جرد المخزون. أضف كل عنصر تم عدّه فعلياً كسطر
+                  بكميته المقاسة الفعلية.
                 </p>
               </div>
               <ul class="lang-en">
@@ -843,10 +845,12 @@
                   <strong>الموظف (اختياري):</strong> الموظف الذي يُجري الجرد.
                 </li>
                 <li>
-                  <strong>قائمة الأصناف:</strong> يُضاف كل مكون تم عدّه كسطر
-                  يحتوي على النوع، الصنف، وحدة القياس، والكمية. استخدم
-                  <strong>+ إضافة صنف</strong> للإدخالات الفردية أو استخدم
-                  استيراد قالب Excel للجرد الكامل عبر جميع المكونات.
+                  <strong>قائمة العناصر:</strong> يُضاف كل عنصر تم عدّه كسطر
+                  يحتوي على نوع الاختيار، العنصر، الكمية، ووحدة القياس (أ م).
+                  استخدم <strong>+ إضافة عنصر</strong> للإدخالات الفردية، أو
+                  <strong>تنزيل نموذج Excel</strong> ثم
+                  <strong>الاستيراد من Excel</strong> للجرد الكامل عبر جميع
+                  العناصر.
                 </li>
               </ul>
             </section>
@@ -1013,7 +1017,7 @@
               <h2 class="section-heading lang-en">
                 Reading the Stock Status View
               </h2>
-              <h2 class="section-heading lang-ar">قراءة عرض حالة المخزون</h2>
+              <h2 class="section-heading lang-ar">قراءة عرض المخزون الحالي</h2>
               <ul class="lang-en">
                 <li>
                   <strong>Branch:</strong> The location where the stock is held.
@@ -1031,16 +1035,22 @@
               </ul>
               <ul class="lang-ar">
                 <li>
-                  <strong>الفرع:</strong> الموقع الذي يُحتفَظ فيه بالمخزون.
+                  <strong>المعرف:</strong> رقم تعريف السجل في النظام.
                 </li>
                 <li>
-                  <strong>نوع الحساب:</strong> ما إذا كان الصنف مادة خام أم
+                  <strong>الفرع:</strong> الموقع الذي يُحتفَظ فيه بالمخزون.
+                  استخدم <strong>اختر الفرع</strong> للتصفية.
+                </li>
+                <li>
+                  <strong>نوع الاختيار:</strong> ما إذا كان العنصر مادة خاماً أم
                   منتجاً.
                 </li>
-                <li><strong>الصنف:</strong> اسم المكون أو المنتج.</li>
+                <li><strong>العنصر:</strong> اسم المكون أو المنتج.</li>
                 <li>
                   <strong>الكمية:</strong> الكمية الحالية الموجودة مع وحدتها.
                   يعكس هذا الرقم جميع النشاطات المسجَّلة حتى اللحظة الراهنة.
+                  يمكنك أيضاً التصفية حسب <strong>وحدة القياس</strong>
+                  (لتر، ملليلتر، غرام، كجم) أو استخدام <strong>تصدير</strong>.
                 </li>
               </ul>
               <div class="callout-warning">
@@ -1068,7 +1078,7 @@
             <!-- item-3-3 -->
             <section class="docs-section" id="item-3-3">
               <h2 class="section-heading lang-en">Stock Status History</h2>
-              <h2 class="section-heading lang-ar">سجل حالة المخزون</h2>
+              <h2 class="section-heading lang-ar">تاريخ حالة المخزون</h2>
               <p class="lang-en">
                 Click the <strong>History</strong> button on any ingredient row
                 to open the full movement log for that item. The history shows
@@ -1078,16 +1088,19 @@
                 after each event.
               </p>
               <p class="lang-ar">
-                انقر على زر <strong>السجل</strong> في أي صف من صفوف المكونات
-                لفتح سجل الحركة الكامل لذلك الصنف. يُظهر السجل كل حدث أثَّر في
-                مخزون هذا المكون — استلامات الشراء، واستهلاك المبيعات، وإدخالات
-                الهدر، والتحويلات، وتعديلات الجرد — مع تغيير الكمية والرصيد
-                الجاري بعد كل حدث.
+                انقر على أيقونة السجل في أي صف من صفوف
+                <strong>المخزون الحالي</strong> لفتح
+                <strong>تاريخ حالة المخزون</strong> لذلك العنصر. يُظهر التاريخ
+                كل حدث أثَّر في المخزون — استلامات الشراء، واستهلاك المبيعات،
+                وإدخالات التالف، والتحويلات، وتعديلات الجرد — مع
+                <strong>العملية</strong> و<strong>العنصر</strong>
+                و<strong>التاريخ</strong> و<strong>الكمية</strong>
+                و<strong>التراكم</strong> بعد كل حدث.
               </p>
               <div class="text-center my-4">
                 <img
-                  src="assets/images/Inventory/Daily/stock-history.png"
-                  alt="Stock Status History"
+                  src="assets/images/Inventory/Daily/stock-status-history-ar.png"
+                  alt="تاريخ حالة المخزون"
                   class="img-thumbnail shadow-sm zoom-effect"
                   style="max-width: 600px; width: 100%; cursor: pointer"
                 />
@@ -1098,9 +1111,9 @@
                   level reached its current state.
                 </p>
                 <p class="img-caption lang-ar">
-                  سجل حالة المخزون لمكون واحد. كل حركة مسجَّلة بمصدرها وطابعها
-                  الزمني وتغيير الكمية والرصيد الجاري. استخدم هذا لتتبع كيف وصل
-                  مستوى المخزون إلى حالته الراهنة.
+                  تاريخ حالة المخزون لعنصر واحد. كل حركة مسجَّلة بالعملية
+                  والمعرف والعنصر والتاريخ والكمية والتراكم. استخدم هذا لتتبع
+                  كيف وصل مستوى المخزون إلى حالته الراهنة.
                 </p>
               </div>
               <p class="lang-en">
@@ -1110,10 +1123,10 @@
                 events, like a purchase reception, are missing.
               </p>
               <p class="lang-ar">
-                استخدم عرض السجل للتحقيق في مستويات المخزون غير المتوقعة. إذا
-                كان مكون أقل مما هو متوقع، فسيُظهر لك السجل بالضبط الأحداث التي
-                أدت إلى ذلك — وما إذا كانت أي أحداث متوقعة، مثل استلام شراء،
-                مفقودة.
+                استخدم عرض التاريخ للتحقيق في مستويات المخزون غير المتوقعة. إذا
+                كان عنصر أقل مما هو متوقع، فسيُظهر لك التاريخ بالضبط الأحداث
+                التي أدت إلى ذلك — وما إذا كانت أي أحداث متوقعة، مثل استلام
+                شراء، مفقودة.
               </p>
 
               <div class="docs-nav-buttons">

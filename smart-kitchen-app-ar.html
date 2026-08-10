@@ -32,6 +32,18 @@
         transform: scale(1.05);
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
       }
+      #imageModal .modal-dialog {
+        max-width: min(96vw, 1400px);
+        width: 96vw;
+        margin: 1rem auto;
+      }
+      #imageModal #modalImage {
+        width: auto !important;
+        max-width: 96vw !important;
+        max-height: 92vh !important;
+        height: auto !important;
+        object-fit: contain;
+      }
       #lang-toggle {
         display: flex;
         align-items: center;
@@ -287,15 +299,15 @@
               <h2 class="section-heading">مقدمة عن التطبيق</h2>
               <p>تطبيق المطبخ الذكي نظام إدارة مطبخ في الوقت الفعلي مصمم لتحسين عمليات المكتب الخلفي. يوفّر رؤية مباشرة ومنظّمة لطلبات العملاء، ويضمن تواصلًا سلسًا بين أنظمة نقطة البيع وموظفي المطبخ.</p>
               <div class="text-center my-4">
-                <img src="assets/images/kitchen-app.png"
-                  alt="تسجيل الدخول إلى وردية موجودة"
+                <img src="assets/images/Restaurant-administration/kitchen-ar.png"
+                  alt="قسم المطبخ — تطبيق المطبخ وشاشة عرض العملاء"
                   class="img-thumbnail shadow-sm zoom-effect"
-                  style="max-width: 500px; width: 100%; cursor: pointer;"
-                  data-bs-toggle="modal"
-                  data-bs-target="#imageModal1">
+                  style="max-width: 700px; width: 100%; cursor: zoom-in;"
+                  title="انقر للتكبير">
+                <div class="mt-2 text-muted">قسم المطبخ في لوحة التحكم كلاود كاشير</div>
               </div>
 
-              <p>بمجرد النقر على <strong>lunch</strong>، تفتح النافذة التالية:</p>
+              <p>بعد اختيار <strong>الفرع الذكي</strong> و<strong>اختر المصدر</strong> والأقسام أو العلامات عند الحاجة، انقر على <strong>تشغيل</strong> لفتح تطبيق المطبخ. تفتح النافذة التالية:</p>
               <div class="text-center my-4">
                 <img src="assets/images/kitchen-app-start.png"
                   alt="بدء تطبيق المطبخ"
@@ -479,25 +491,36 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const zoomImages = document.querySelectorAll('.zoom-effect');
+    const modalEl = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    if (!modalEl || !modalImage || typeof bootstrap === 'undefined') return;
+    const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
 
-    zoomImages.forEach(function (img) {
+    document.querySelectorAll('.zoom-effect').forEach(function (img) {
+      if (img.dataset.pageZoomBound) return;
+      img.dataset.pageZoomBound = '1';
+      img.style.cursor = 'zoom-in';
+      img.removeAttribute('data-bs-toggle');
+      img.removeAttribute('data-bs-target');
       img.addEventListener('click', function () {
-        const modalImage = document.getElementById('modalImage');
-        modalImage.src = this.src;
-
+        modalImage.src = this.currentSrc || this.src;
+        modalImage.alt = this.alt || 'تكبير';
+        const natural = this.naturalWidth || 1200;
+        modalImage.style.width = Math.min(natural, window.innerWidth * 0.96) + 'px';
+        modalImage.style.height = 'auto';
+        modal.show();
       });
     });
   });
 </script>
 
 <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content bg-transparent border-0">
       <div class="modal-body p-0 text-center">
-        <img id="modalImage" src="#" alt="Zoomed" class="img-fluid rounded">
+        <img id="modalImage" src="#" alt="تكبير" class="img-fluid rounded shadow">
       </div>
-      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+      <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="إغلاق"></button>
     </div>
   </div>
 </div>
