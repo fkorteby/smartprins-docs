@@ -278,6 +278,7 @@
               </a>
             </li>
             <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">إضافة موظف</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#item-3-3">صلاحيات الموظف</a></li>
             <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">عرض قائمة الموظفين</a></li>
 
             <li class="nav-item section-title mt-3">
@@ -488,10 +489,95 @@
                     <tr><td>العنوان</td><td>عنوان الموظف المرتبط بالعمل</td></tr>
                     <tr><td>ملاحظة</td><td>ملاحظات داخلية اختيارية عن الموظف</td></tr>
                     <tr><td>الفروع</td><td>اختر الفرع أو الفروع المراد تعيين الموظف لها</td></tr>
-                    <tr><td>الصلاحيات</td><td>حدّد صلاحيات الوصول باستخدام اختيار الكل أو إلغاء التحديد للكل أو تحديد العناصر يدوياً</td></tr>
+                    <tr><td>الصلاحيات</td><td>حدّد شاشات نقطة البيع والإجراءات المسموح بها لهذا الموظف بعد تسجيل الدخول بالرمز السري. راجع القائمة أدناه.</td></tr>
                   </tbody>
                 </table>
               </div>
+
+              <section class="docs-section" id="item-3-3">
+                <h2 class="section-heading">2.1.1 الصلاحيات</h2>
+                <p>في أسفل النموذج تظهر شجرة <strong>الصلاحيات</strong>. تتحكم هذه القائمة بما يمكن للموظف رؤيته وفعله في تطبيق نقطة البيع. إذا تم تحديد المربع يُسمح بذلك الإجراء أو تفتح تلك الشاشة. إذا تُرك فارغاً تُخفى الشاشة أو يُمنع الإجراء.</p>
+                <p>استخدم <strong>اختيار الكل</strong> لمنح كل الصلاحيات، أو <strong>إلغاء التحديد للكل</strong> للبدء من الصفر. لمعظم الموظفين، حدّد فقط العناصر التي يحتاجونها في عملهم.</p>
+                <p>العنصر الرئيسي (مثل <strong>admin_cashier</strong> أو <strong>Inventory</strong>) يفتح قائمة نقطة البيع الخاصة به. المربعات المتفرعة تحته هي إجراءات إضافية داخل تلك القائمة. حدّد العنصر الرئيسي لفتح الشاشة، ثم حدّد كل إجراء فرعي تريد السماح به.</p>
+                <div class="alert alert-info" role="alert">
+                  امنح كل شخص فقط الصلاحيات التي يحتاجها. الإجراءات الحساسة مثل الإلغاء والخصم والاسترداد وإغلاق الوردية والإعدادات تغيّر إجماليات المبيعات أو إعداد الجهاز، لذلك تُمنح عادةً للمشرفين فقط.
+                </div>
+                <div class="doc-image-grid">
+                  <figure class="doc-image-card">
+                    <img src="assets/images/Getting-started/employee-permissions-1.png" alt="صلاحيات الموظف للكاشير والمطبخ والطلبات والعملاء والورديات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                    <figcaption>صلاحيات الكاشير والمطبخ والطاولات والطلبات والعملاء والورديات.</figcaption>
+                  </figure>
+                  <figure class="doc-image-card">
+                    <img src="assets/images/Getting-started/employee-permissions-2.png" alt="صلاحيات الموظف للمخزون والنقد والتقارير والإعدادات" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+                    <figcaption>صلاحيات المخزون وإدارة النقد والتقارير والإعدادات.</figcaption>
+                  </figure>
+                </div>
+
+                <h3 class="section-heading">الكاشير والمطبخ والطاولات والطلبات والعملاء والورديات</h3>
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>الصلاحية (كما تظهر)</th>
+                        <th>ما الذي يمكن للموظف فعله</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>admin_cashier</td><td>فتح شاشة الكاشير: تصفّح القائمة، إضافة أصناف إلى السلة، واستلام المدفوعات. هذه هي شاشة البيع الرئيسية. يحتاج الكاشير هذه الصلاحية للعمل على الصندوق.</td></tr>
+                      <tr><td>admin_void_order</td><td>إلغاء طلب كامل بعد إنشائه. الإلغاء يغيّر إجماليات المبيعات، لذلك يُمنح فقط للموظفين المدرَّبين.</td></tr>
+                      <tr><td>admin_send_to_kitchen</td><td>إرسال الطلب الحالي إلى شاشة المطبخ حتى يبدأ الطهاة التحضير.</td></tr>
+                      <tr><td>Waiter table management</td><td>استخدام إجراءات طاولات الويتر من شاشة الكاشير، مثل ربط الطلب بطاولة داخل المطعم أثناء البيع.</td></tr>
+                      <tr><td>admin_apply_discount</td><td>تطبيق خصم على الطلب الحالي.</td></tr>
+                      <tr><td>Kitchen</td><td>فتح قسم المطبخ حتى يتمكن هذا الموظف من رؤية تذاكر المطبخ والتعامل معها.</td></tr>
+                      <tr><td>admin_table_management</td><td>فتح إدارة الطاولات (Smart Waiter): عرض مخطط الصالة، إشغال الطاولات، وتشغيل خدمة الجلوس.</td></tr>
+                      <tr><td>admin_my_orders</td><td>فتح طلباتي لعرض تذاكر الوردية الحالية.</td></tr>
+                      <tr><td>admin_refund</td><td>استرداد مبلغ على طلب تم دفعه مسبقاً.</td></tr>
+                      <tr><td>Online Orders</td><td>فتح الطلبات الإلكترونية لعرض طلبات التوصيل والمنصات (مثل هنقرستيشن أو جاهز).</td></tr>
+                      <tr><td>Actions</td><td>التصرف في طلب إلكتروني: قبوله، تحديث حالته، أو طباعته.</td></tr>
+                      <tr><td>admin_pay_order</td><td>تحصيل دفعة لطلب إلكتروني من نقطة البيع.</td></tr>
+                      <tr><td>Customer Details</td><td>فتح قائمة العملاء المستخدمة أثناء البيع.</td></tr>
+                      <tr><td>Add Customer</td><td>إنشاء سجل عميل جديد.</td></tr>
+                      <tr><td>Update Customer</td><td>تعديل سجل عميل موجود.</td></tr>
+                      <tr><td>Shifts</td><td>فتح شاشة الورديات.</td></tr>
+                      <tr><td>admin_close_shift</td><td>إغلاق الوردية الحالية وعدّ درج النقد.</td></tr>
+                      <tr><td>admin_display_current_shift_informations</td><td>عرض تفاصيل الوردية الحالية، مثل مبلغ الافتتاح والمبيعات حتى الآن.</td></tr>
+                      <tr><td>admin_print_shift_report</td><td>طباعة تقرير الوردية في نهاية الجلسة.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <h3 class="section-heading">المخزون والنقد والتقارير والإعدادات</h3>
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>الصلاحية (كما تظهر)</th>
+                        <th>ما الذي يمكن للموظف فعله</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>Inventory</td><td>فتح المخزون في تطبيق نقطة البيع. حدّد العناصر المتفرعة أدناه لكل مهمة مخزون يُسمح لهذا الشخص بتنفيذها.</td></tr>
+                      <tr><td>Stock Status</td><td>عرض مستويات المخزون الحالية للمكوّنات والأصناف.</td></tr>
+                      <tr><td>admin_inventory_count</td><td>تسجيل جرد مخزون فعلي (ما يوجد على الرف فعلاً).</td></tr>
+                      <tr><td>admin_waste</td><td>تسجيل المكوّنات أو المنتجات المهدرة حتى تُتتبع الخسارة.</td></tr>
+                      <tr><td>admin_preparation</td><td>تسجيل دفعات التحضير أو الإنتاج في المطبخ (مثل تحويل المواد الخام إلى مخزون محضَّر).</td></tr>
+                      <tr><td>Transfer</td><td>إنشاء تحويلات المخزون بين الفروع أو استلامها.</td></tr>
+                      <tr><td>Purchases</td><td>تسجيل المشتريات والمخزون الوارد من المورّدين.</td></tr>
+                      <tr><td>Consumption Report</td><td>عرض استهلاك المكوّنات بناءً على المبيعات والوصفات.</td></tr>
+                      <tr><td>Cash Management</td><td>تسجيل حركات إدخال النقد وإخراجه أثناء الوردية لمطابقة الدرج.</td></tr>
+                      <tr><td>admin_reports</td><td>فتح التقارير في تطبيق نقطة البيع.</td></tr>
+                      <tr><td>Products Sales</td><td>عرض كمية كل منتج تم بيعه والإيراد.</td></tr>
+                      <tr><td>admin_all_orders</td><td>عرض قائمة كل الطلبات للفرع.</td></tr>
+                      <tr><td>Settings</td><td>فتح الإعدادات في تطبيق نقطة البيع.</td></tr>
+                      <tr><td>admin_general_settings</td><td>تغيير إعدادات نقطة البيع العامة مثل مزامنة البيانات واللغة وتخطيط الشاشة واتصال المطبخ. اترك هذه الصلاحية للمديرين.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="alert alert-warning" role="alert">
+                  مثال: يحتاج الكاشير غالباً إلى <strong>admin_cashier</strong> و<strong>admin_send_to_kitchen</strong> و<strong>admin_my_orders</strong> و<strong>Add Customer</strong>. يحتاج مدير المتجر عادةً أيضاً إلى الإلغاء والخصم والاسترداد وإغلاق الوردية والتقارير والمخزون.
+                </div>
+              </section>
+
               <p>انقر <strong>إرسال</strong> (الزر الأخضر) للحفظ، أو <strong>إغلاق</strong> (الزر الأحمر) للإلغاء.</p>
             </section>
 

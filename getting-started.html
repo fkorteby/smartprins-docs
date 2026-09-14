@@ -190,6 +190,7 @@
         </a>
       </li>
       <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Adding an Employee</a></li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#item-3-3">Employee Permissions</a></li>
       <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Viewing the Employee List</a></li>
 
       <li class="nav-item section-title mt-3">
@@ -403,9 +404,95 @@
               <tr><td>Remark</td><td>Optional internal notes about the employee</td></tr>
               <tr><td>Avatar</td><td>Upload a profile photo or icon</td></tr>
               <tr><td>Branches</td><td>Select the branch(es) to assign this employee to</td></tr>
+              <tr><td>Permissions</td><td>Tick the POS screens and actions this employee is allowed to use after they log in with their PIN. See the list below.</td></tr>
             </tbody>
           </table>
         </div>
+
+        <section class="docs-section" id="item-3-3">
+          <h2 class="section-heading">2.1.1 Permissions</h2>
+          <p>At the bottom of the form you will see a <strong>Permissions</strong> tree. This list controls what the employee can see and do in the POS app. If a box is ticked, that screen or action is allowed. If it is left empty, it is hidden or blocked.</p>
+          <p>Use <strong>Select All</strong> to give every permission, or <strong>Deselect All</strong> to start from nothing. For most staff, tick only the items they need for their job.</p>
+          <p>A parent item (for example <strong>admin_cashier</strong> or <strong>Inventory</strong>) opens that POS menu. The nested boxes under it are extra actions inside that menu. Tick the parent so the employee can open the screen, then tick each nested action you want them to use.</p>
+          <div class="alert alert-info" role="alert">
+            Give each person only the access they need. Sensitive actions such as void, discount, refund, close shift, and settings change sales totals or device configuration, so they are usually reserved for supervisors.
+          </div>
+          <div class="doc-image-grid">
+            <figure class="doc-image-card">
+              <img src="assets/images/Getting-started/employee-permissions-1.png" alt="Employee permissions for cashier, kitchen, orders, customers, and shifts" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+              <figcaption>Permissions for cashier, kitchen, tables, orders, customers, and shifts.</figcaption>
+            </figure>
+            <figure class="doc-image-card">
+              <img src="assets/images/Getting-started/employee-permissions-2.png" alt="Employee permissions for inventory, cash, reports, and settings" class="img-thumbnail shadow-sm zoom-effect" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src=this.src">
+              <figcaption>Permissions for inventory, cash management, reports, and settings.</figcaption>
+            </figure>
+          </div>
+
+          <h3 class="section-heading">Cashier, kitchen, tables, orders, customers, and shifts</h3>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Permission (as shown)</th>
+                  <th>What the employee can do</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>admin_cashier</td><td>Open the Cashier screen: browse the menu, add items to a cart, and take payments. This is the main selling screen. A cashier needs this to work at the till.</td></tr>
+                <tr><td>admin_void_order</td><td>Cancel a whole order after it has been created. Voids change sales totals, so give this only to trained staff.</td></tr>
+                <tr><td>admin_send_to_kitchen</td><td>Send the current order to the kitchen display so cooks can start preparing it.</td></tr>
+                <tr><td>Waiter table management</td><td>Use waiter table actions from Cashier, such as linking an order to a dine-in table while selling.</td></tr>
+                <tr><td>admin_apply_discount</td><td>Apply a discount to the current order.</td></tr>
+                <tr><td>Kitchen</td><td>Open the Kitchen area so this employee can see and handle kitchen tickets.</td></tr>
+                <tr><td>admin_table_management</td><td>Open Table Management (Smart Waiter): see the floor plan, seat tables, and run dine-in service.</td></tr>
+                <tr><td>admin_my_orders</td><td>Open My Orders to view tickets from the current shift.</td></tr>
+                <tr><td>admin_refund</td><td>Refund money on an already paid order.</td></tr>
+                <tr><td>Online Orders</td><td>Open Online Orders to see delivery and aggregator orders (for example HungerStation or Jahez).</td></tr>
+                <tr><td>Actions</td><td>Act on an online order: accept it, update its status, or print it.</td></tr>
+                <tr><td>admin_pay_order</td><td>Collect payment for an online order at the POS.</td></tr>
+                <tr><td>Customer Details</td><td>Open the customer list used during sales.</td></tr>
+                <tr><td>Add Customer</td><td>Create a new customer record.</td></tr>
+                <tr><td>Update Customer</td><td>Edit an existing customer record.</td></tr>
+                <tr><td>Shifts</td><td>Open the Shifts screen.</td></tr>
+                <tr><td>admin_close_shift</td><td>Close the current shift and count the cash drawer.</td></tr>
+                <tr><td>admin_display_current_shift_informations</td><td>View current shift details, such as opening amount and sales so far.</td></tr>
+                <tr><td>admin_print_shift_report</td><td>Print the shift report at the end of the session.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="section-heading">Inventory, cash, reports, and settings</h3>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Permission (as shown)</th>
+                  <th>What the employee can do</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Inventory</td><td>Open Inventory in the POS app. Tick the nested items below for each inventory task this person is allowed to perform.</td></tr>
+                <tr><td>Stock Status</td><td>View live stock levels for ingredients and items.</td></tr>
+                <tr><td>admin_inventory_count</td><td>Record a physical inventory count (what is actually on the shelf).</td></tr>
+                <tr><td>admin_waste</td><td>Log wasted ingredients or products so the loss is tracked.</td></tr>
+                <tr><td>admin_preparation</td><td>Record kitchen preparation or production batches (for example turning raw items into prepared stock).</td></tr>
+                <tr><td>Transfer</td><td>Create or receive stock transfers between branches.</td></tr>
+                <tr><td>Purchases</td><td>Record purchases and incoming stock from suppliers.</td></tr>
+                <tr><td>Consumption Report</td><td>View ingredient usage based on sales and recipes.</td></tr>
+                <tr><td>Cash Management</td><td>Record cash in and cash out movements during a shift so the drawer can be reconciled.</td></tr>
+                <tr><td>admin_reports</td><td>Open Reports in the POS app.</td></tr>
+                <tr><td>Products Sales</td><td>View how many of each product were sold and the revenue.</td></tr>
+                <tr><td>admin_all_orders</td><td>View the full All Orders list for the branch.</td></tr>
+                <tr><td>Settings</td><td>Open Settings in the POS app.</td></tr>
+                <tr><td>admin_general_settings</td><td>Change general POS settings such as data sync, language, screen layout, and kitchen connection. Keep this for managers.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="alert alert-warning" role="alert">
+            Example: a cashier often needs <strong>admin_cashier</strong>, <strong>admin_send_to_kitchen</strong>, <strong>admin_my_orders</strong>, and <strong>Add Customer</strong>. A store manager usually also needs void, discount, refund, close shift, reports, and inventory.
+          </div>
+        </section>
+
         <p>Click <strong>Submit</strong> (green button) to save, or <strong>Close</strong> (red button) to cancel.</p>
       </section>
 
